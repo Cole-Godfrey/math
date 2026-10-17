@@ -186,7 +186,7 @@ function downloadLink(text, path, name) {
 
 async function proofView(body, node, request) {
   const tools = element("div", null, "section-tools");
-  tools.append(element("p", "The complete elaborated term checked by Lean and nanoda."),
+  tools.append(element("p", "Term preview. Download expressions for the complete checked term."),
     downloadLink("Download expressions", "/api/expressions", node.name));
   body.append(tools);
   const data = await api("/api/declaration", {name: node.name, proof: 1});

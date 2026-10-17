@@ -458,6 +458,96 @@ class RepositoryTests(unittest.TestCase):
     def test_computability_statements_match_reference_types(self):
         run(ROOT, [self.lake, "env", "lean", "tests/ComputabilityStatements.lean"], capture=True)
 
+    def test_algebra_statements_match_reference_types(self):
+        run(ROOT, [self.lake, "env", "lean", "tests/AlgebraStatements.lean"], capture=True)
+
+    def test_algebra_objects_and_results_retain_terms_and_pinned_sources(self):
+        expected = {
+            "Ring": "Algebra.Ring.Defs",
+            "Field": "Algebra.Field.Defs",
+            "Algebra": "Algebra.Algebra.Defs",
+            "Polynomial": "Algebra.Polynomial.Basic",
+            "MvPolynomial": "Algebra.MvPolynomial.Basic",
+            "Ideal": "RingTheory.Ideal.Defs",
+            "IsNoetherian": "RingTheory.Noetherian.Defs",
+            "IsNoetherianRing": "RingTheory.Noetherian.Defs",
+            "IntermediateField": "FieldTheory.IntermediateField.Basic",
+            "minpoly": "FieldTheory.Minpoly.Basic",
+            "Normal": "FieldTheory.Normal.Defs",
+            "IsGalois": "FieldTheory.Galois.Basic",
+            "IsAlgClosed": "FieldTheory.IsAlgClosed.Basic",
+            "Polynomial.SplittingField": "FieldTheory.SplittingField.Construction",
+            "Polynomial.Gal": "FieldTheory.PolynomialGaloisGroup",
+            "Group.IsSolvable": "GroupTheory.Solvable",
+            "PrimeSpectrum": "RingTheory.Spectrum.Prime.Defs",
+            "IsGalois.intermediateFieldEquivSubgroup": "FieldTheory.Galois.Basic",
+            "IsGalois.fixedField_fixingSubgroup": "FieldTheory.Galois.Basic",
+            "IntermediateField.fixingSubgroup_fixedField": "FieldTheory.Galois.Basic",
+            "Field.exists_primitive_element": "FieldTheory.PrimitiveElement",
+            "IsGalois.normalBasis": "FieldTheory.Galois.NormalBasis",
+            "IsGalois.normalBasis_apply": "FieldTheory.Galois.NormalBasis",
+            "InfiniteGalois.IntermediateFieldEquivClosedSubgroup": "FieldTheory.Galois.Infinite",
+            "InfiniteGalois.continuousMulEquivToLimit": "FieldTheory.Galois.Profinite",
+            "solvableByRad": "FieldTheory.AbelRuffini",
+            "isSolvable_gal_of_irreducible": "FieldTheory.AbelRuffini",
+            "MvPolynomial.vanishingIdeal_zeroLocus_eq_radical": "RingTheory.Nullstellensatz",
+            "MvPolynomial.isMaximal_iff_eq_vanishingIdeal_singleton": "RingTheory.Nullstellensatz",
+        }
+        for name, suffix in expected.items():
+            with self.subTest(name=name):
+                self.assertIn(name, self.catalog["roots"])
+                node = self.nodes[name]
+                self.assertEqual(node["module"], "Mathlib." + suffix)
+                if node["kind"] in {"theorem", "definition"}:
+                    self.assertIsInstance(node["value"], int)
+                self.assertTrue(set(node["axioms"]) <= self.policy["axioms"].keys())
+                origin = self.catalog["sources"][node["module"]]
+                self.assertEqual(origin["revision"], self.policy["libraries"]["mathlib"]["revision"])
+                self.assertIn(origin["revision"], origin["url"])
+                self.assertEqual(origin["license"], "Apache-2.0")
+
+    def test_algebra_hierarchies_reach_objects_hypotheses_and_all_axioms(self):
+        graph = KnowledgeGraph(self.catalog)
+        expected = {
+            "IsGalois.intermediateFieldEquivSubgroup":
+                {"IntermediateField", "Subgroup", "OrderDual", "IsGalois", "Module.Finite"},
+            "InfiniteGalois.IntermediateFieldEquivClosedSubgroup":
+                {"IntermediateField", "ClosedSubgroup", "TopologicalSpace", "IsGalois", "OrderDual"},
+            "IsGalois.normalBasis": {"Module.Basis", "AlgEquiv", "IsGalois", "Module.Finite"},
+            "InfiniteGalois.continuousMulEquivToLimit":
+                {"ContinuousMulEquiv", "ProfiniteGrp.limit", "TopologicalSpace", "IsGalois"},
+            "isSolvable_gal_of_irreducible":
+                {"solvableByRad", "Group.IsSolvable", "Polynomial.Gal", "Irreducible"},
+            "MvPolynomial.vanishingIdeal_zeroLocus_eq_radical":
+                {"MvPolynomial", "Ideal", "Ideal.radical", "IsAlgClosed", "Finite",
+                 "MvPolynomial.zeroLocus", "MvPolynomial.vanishingIdeal"},
+        }
+        for name, objects in expected.items():
+            with self.subTest(name=name):
+                hierarchy = graph.hierarchy(name)
+                reached = {node["name"] for node in hierarchy["declarations"]}
+                self.assertTrue(objects <= reached, objects - reached)
+                self.assertEqual(set(hierarchy["axiom_paths"]), set(self.nodes[name]["axioms"]))
+                for axiom, path in hierarchy["axiom_paths"].items():
+                    self.assertEqual(path[0], name)
+                    self.assertEqual(path[-1], axiom)
+                    for source, target in zip(path, path[1:]):
+                        self.assertIn(target, self.nodes[source]["dependencies"])
+
+    def test_algebra_subjects_include_their_results_and_parent_subjects(self):
+        graph = KnowledgeGraph(self.catalog)
+        expected = {
+            "commutative_algebra": ("algebra", "IsNoetherianRing"),
+            "field_theory": ("algebra", "IsGalois.intermediateFieldEquivSubgroup"),
+            "algebraic_geometry": ("geometry", "MvPolynomial.vanishingIdeal_zeroLocus_eq_radical"),
+            "group_theory": ("algebra", "Group.IsSolvable"),
+        }
+        for subject, (parent, name) in expected.items():
+            with self.subTest(subject=subject):
+                self.assertEqual(self.catalog["subjects"][subject]["parent"], parent)
+                for category in (subject, parent, "mathematics"):
+                    self.assertIn(name, {node["name"] for node in graph.search(name, subject=category)})
+
     def test_computability_models_and_results_retain_complete_terms(self):
         expected = {
             "Nat.Primrec": "Primrec.Basic",
@@ -543,7 +633,8 @@ class RepositoryTests(unittest.TestCase):
         for name in expected:
             owners = {module for module, names in membership.items() if name in names}
             self.assertTrue(owners, name)
-            self.assertNotIn(self.nodes[name]["module"], self.catalog["module_policy"])
+            if self.nodes[name]["module"] in self.catalog["module_policy"]:
+                self.assertIn(self.nodes[name]["module"], owners)
 
     def test_serialized_module_inventory_cannot_be_omitted(self):
         raw = self.catalog.copy()

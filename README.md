@@ -2,7 +2,7 @@
 
 A growing repository of formal mathematics with Lean-checked proofs and explicit foundational dependencies.
 
-The goal is a universal, living account of mathematics, from logical foundations to contemporary research. Current coverage includes logic, relations, orders, cardinality, number systems through complex numbers, groups, primality, vector spaces, topology, calculus, measure theory, geometry, extremal graph theory, categories, probability mass functions, recursive functions, and Turing machines. The full goal remains open. See [representative results and their scope](docs/coverage.md).
+The goal is a universal, living account of mathematics, from logical foundations to contemporary research. Current coverage includes logic, relations, orders, cardinality, number systems through complex numbers, groups, primality, vector spaces, commutative algebra, Galois theory, the Nullstellensatz, topology, calculus, measure theory, geometry, extremal graph theory, categories, probability mass functions, recursive functions, and Turing machines. The full goal remains open. See [representative results and their scope](docs/coverage.md).
 
 Install [Lean and elan](https://lean-lang.org/install/), then run:
 
