@@ -6,6 +6,8 @@ The current implementation supplies a seed library and registered mathlib module
 
 Every indexed logical declaration is bound to the exact proof export accepted by both checkers. Lossless name identities, reduction hints, definition groups, and recursor rules are retained and compared; packed fingerprints and shared immutable universe requirements limit verification overhead.
 
+Browser and terminal queries share immutable query snapshots. Terminal search, dependency, and export commands retain complete results while avoiding the full proof expression array. Catalog-only terminal use remains available when a query receipt was not retained.
+
 Work still required:
 
 - Expand registered mathlib coverage across further fields and research results, and integrate other established formal libraries while preserving upstream declarations, licenses, references, and proof dependencies.

@@ -284,17 +284,29 @@ class Snapshot:
                 "proof_binding": self.metadata["proof_binding"],
                 "checkers": self.metadata["provenance"]["checkers"], "subjects": self.graph.subject_coverage()}
 
+    def statistics(self) -> dict:
+        """count selected coverage without loading proof terms or the complete graph."""
+        modules = sorted(self.metadata["local_modules"])
+        marks = ",".join("?" for _ in modules)
+        with self.connect() as connection:
+            row = connection.execute(f"""SELECT count(*) AS declarations,
+                count(CASE WHEN selected THEN 1 END) AS selected,
+                count(CASE WHEN selected AND module IN ({marks}) THEN 1 END) AS local,
+                count(CASE WHEN selected AND kind='theorem' THEN 1 END) AS theorems,
+                count(CASE WHEN selected AND doc IS NOT NULL AND doc!='' THEN 1 END) AS documented,
+                count(CASE WHEN selected AND axiom_count=0 THEN 1 END) AS axiom_free
+                FROM declarations""", modules).fetchone()
+        return {**dict(row), "lean_version": self.metadata["lean_version"],
+                "subject_modules": len(self.metadata["module_policy"]) - 1}
+
     @staticmethod
     def _summary(row) -> dict:
         return {"name": row["name"], "module": row["module"], "kind": row["kind"],
                 "statement": row["statement"], "doc": row["doc"], "axioms": json.loads(row["axioms"]),
                 "selected": bool(row["selected"]), "meta": bool(row["meta"])}
 
-    def search(self, query: str = "", subject: str | None = None, include_dependencies: bool = False,
-               kind: str | None = None, axiom_free: bool = False, offset: int = 0, limit: int = 30) -> dict:
-        require(0 <= offset and 1 <= limit <= 200, "invalid search page")
+    def _search_parts(self, query, subject, include_dependencies, kind, axiom_free, module):
         terms = query.casefold().split()
-        require(len(query) <= 1000 and len(terms) <= 30, "search query is too long")
         prefix, parameters, where = "", [], []
         if subject:
             modules = sorted(self.graph.subject_modules(subject))
@@ -313,16 +325,51 @@ class Snapshot:
         if kind:
             where.append("d.kind=?")
             parameters.append(kind)
+        if module:
+            where.append("(d.module=? OR d.id IN (SELECT declaration FROM selections WHERE module=?))")
+            parameters.extend([module, module])
         if axiom_free:
             where.append("d.axiom_count=0")
         clause = " WHERE " + " AND ".join(where) if where else ""
         score = "+".join("(instr(d.doc_fold, ?) > 0)" for _ in terms) or "CAST(0 AS INTEGER)"
-        order = f" ORDER BY (d.name_fold != ?), (substr(d.name,1,9)='_private.'), -({score}), d.name LIMIT ? OFFSET ?"
+        order = f" ORDER BY (d.name_fold != ?), (substr(d.name,1,9)='_private.'), -({score}), d.name"
+        return prefix, clause, parameters, order, [query.strip().casefold(), *terms]
+
+    def search(self, query: str = "", subject: str | None = None, include_dependencies: bool = False,
+               kind: str | None = None, axiom_free: bool = False, offset: int = 0, limit: int = 30,
+               module: str | None = None) -> dict:
+        require(0 <= offset and 1 <= limit <= 200, "invalid search page")
+        require(len(query) <= 1000 and len(query.split()) <= 30, "search query is too long")
+        prefix, clause, parameters, order, ranking = self._search_parts(
+            query, subject, include_dependencies, kind, axiom_free, module)
         with self.connect() as connection:
             total = connection.execute(prefix + "SELECT count(*) FROM declarations d" + clause, parameters).fetchone()[0]
-            rows = connection.execute(prefix + f"SELECT {SUMMARY_COLUMNS} FROM declarations d" + clause + order,
-                                      [*parameters, query.strip().casefold(), *terms, limit, offset]).fetchall()
+            rows = connection.execute(prefix + f"SELECT {SUMMARY_COLUMNS} FROM declarations d" + clause + order +
+                                      " LIMIT ? OFFSET ?", [*parameters, *ranking, limit, offset]).fetchall()
         return {"items": [self._summary(row) for row in rows], "total": total, "offset": offset, "limit": limit}
+
+    def iter_search(self, query: str = "", subject: str | None = None, include_dependencies: bool = False,
+                    kind: str | None = None, axiom_free: bool = False, module: str | None = None):
+        """stream every matching declaration without the browser's page or query limits."""
+        terms = query.casefold().split()
+        if len(query) > 1000 or len(terms) > 30:
+            def matches(node):
+                text = " ".join((node["name"], node["statement"], node["doc"] or "")).casefold()
+                return all(term in text for term in terms)
+
+            records = (node for node in self.iter_search("", subject, include_dependencies, kind, axiom_free, module)
+                       if matches(node))
+            yield from sorted(records, key=lambda node: (
+                node["name"].casefold() != query.strip().casefold(), node["name"].startswith("_private."),
+                -sum(term in (node["doc"] or "").casefold() for term in terms), node["name"]))
+            return
+        prefix, clause, parameters, order, ranking = self._search_parts(
+            query, subject, include_dependencies, kind, axiom_free, module)
+        with self.connect() as connection:
+            rows = connection.execute(prefix + f"SELECT {SUMMARY_COLUMNS} FROM declarations d" + clause + order,
+                                      [*parameters, *ranking])
+            for row in rows:
+                yield self._summary(row)
 
     def declaration(self, name: str, proof: bool = False) -> dict:
         with self.connect() as connection:
@@ -337,33 +384,47 @@ class Snapshot:
         return {**record, "selected": bool(row["selected"]), "selected_modules": modules, "digest": row["digest"],
                 "origin": json.loads(origin[0]) if origin else {}}
 
+    def _relation_parts(self, connection, name, reverse, transitive, role):
+        require(role is None or role in ROLES, "unknown dependency role")
+        row = connection.execute("SELECT id FROM declarations WHERE name=?", (name,)).fetchone()
+        require(row is not None, f"unknown declaration: {name}")
+        identifier = row[0]
+        source, target = ("target", "source") if reverse else ("source", "target")
+        role_clause = f" AND (e.roles & {ROLES[role]}) != 0" if role else ""
+        if transitive:
+            prefix = f"WITH RECURSIVE scope(id) AS (SELECT ? UNION SELECT e.{target} FROM edges e JOIN scope s ON s.id=e.{source}{role_clause}) "
+            query = " FROM declarations d WHERE d.id IN (SELECT id FROM scope) AND d.id != ?"
+            return prefix, query, [identifier, identifier], "0"
+        query = f" FROM edges e JOIN declarations d ON d.id=e.{target} WHERE e.{source}=?{role_clause}"
+        return "", query, [identifier], "e.roles"
+
     def relations(self, name: str, reverse: bool = False, transitive: bool = False, role: str | None = None,
                   offset: int = 0, limit: int = 30) -> dict:
-        require(role is None or role in ROLES, "unknown dependency role")
         require(0 <= offset and 1 <= limit <= 200, "invalid dependency page")
         with self.connect() as connection:
-            row = connection.execute("SELECT id FROM declarations WHERE name=?", (name,)).fetchone()
-            require(row is not None, f"unknown declaration: {name}")
-            identifier = row[0]
-            source, target = ("target", "source") if reverse else ("source", "target")
-            role_clause = f" AND (e.roles & {ROLES[role]}) != 0" if role else ""
-            if transitive:
-                prefix = f"WITH RECURSIVE scope(id) AS (SELECT ? UNION SELECT e.{target} FROM edges e JOIN scope s ON s.id=e.{source}{role_clause}) "
-                clause = "d.id IN (SELECT id FROM scope) AND d.id != ?"
-                parameters = [identifier, identifier]
-                query = f"SELECT {SUMMARY_COLUMNS}, 0 AS edge_roles FROM declarations d WHERE "
-            else:
-                prefix = ""
-                clause = f"e.{source}=?{role_clause}"
-                parameters = [identifier]
-                query = f"SELECT {SUMMARY_COLUMNS}, e.roles AS edge_roles FROM edges e JOIN declarations d ON d.id=e.{target} WHERE "
-            count_query = prefix + "SELECT count(*) FROM (" + query + clause + ")"
-            total = connection.execute(count_query, parameters).fetchone()[0]
-            rows = connection.execute(prefix + query + clause + " ORDER BY d.name LIMIT ? OFFSET ?",
+            prefix, query, parameters, roles = self._relation_parts(connection, name, reverse, transitive, role)
+            total = connection.execute(prefix + "SELECT count(*)" + query, parameters).fetchone()[0]
+            rows = connection.execute(prefix + f"SELECT {SUMMARY_COLUMNS}, {roles} AS edge_roles" + query +
+                                      " ORDER BY d.name LIMIT ? OFFSET ?",
                                       [*parameters, limit, offset]).fetchall()
         return {"items": [{**self._summary(row), "roles": [key for key, value in ROLES.items()
                                                              if row["edge_roles"] & value]} for row in rows],
                 "total": total, "offset": offset, "limit": limit}
+
+    def dependency_names(self, name: str, reverse: bool = False, transitive: bool = False):
+        """stream all prerequisite or dependent names, excluding the starting declaration."""
+        with self.connect() as connection:
+            prefix, query, parameters, _ = self._relation_parts(connection, name, reverse, transitive, None)
+            for row in connection.execute(prefix + "SELECT d.name" + query + " ORDER BY d.name", parameters):
+                if row[0] != name:
+                    yield row[0]
+
+    def iter_edges(self):
+        """stream the complete dependency graph in declaration name order."""
+        with self.connect() as connection:
+            yield from connection.execute("""SELECT s.name, t.name FROM edges e
+                JOIN declarations s ON s.id=e.source JOIN declarations t ON t.id=e.target
+                ORDER BY s.name, t.name""")
 
     def expressions(self, name: str) -> dict:
         node = self.declaration(name)

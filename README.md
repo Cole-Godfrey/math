@@ -42,6 +42,8 @@ The mathlib integration retains upstream declaration names, docstrings, author n
 
 Search includes selected local and upstream declarations by default. Search prioritizes exact names, public declarations, and documentation matches while retaining every result. Use `search --all` for verified dependencies, `--axiom-free` for declarations using no additional axioms, or `--subject`, `--module`, and `--kind` to filter. A subject search includes child subjects; adding `--all` searches its complete prerequisite closure. `subjects --json` exposes coverage counts and module assignments.
 
+Terminal queries use the verified query snapshot and read proof expressions only for the requested declaration. Search and dependency commands retain every match without browser page limits. Complete index and proof exports stream the original artifacts. If `build/index.json` was not retained, terminal commands can still read the complete verified JSON catalog; a present query receipt must pass its integrity checks.
+
 `hierarchy NAME` orders every prerequisite before the result and groups inductive dependency cycles. Its JSON output includes every declaration, every dependency edge with its role, group levels, and paths to all foundational axioms. `--format dot` produces a Graphviz diagram of the dependency groups. Subject parent links classify topics; logical ordering comes from the extracted proof dependencies.
 
 `show --json` exposes expression and structural data. `deps --reverse` finds dependent declarations; `trace --to NAME` finds a path to any dependency. `export --format dot` produces a graph of the whole index; `export` emits the complete JSON index. `export --format lean` emits the replayable lean4export JSONL proof artifact.

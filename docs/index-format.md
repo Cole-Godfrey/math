@@ -47,12 +47,14 @@ The top-level `content_digest` hashes the entire index with that field omitted. 
 
 Logical fingerprints are independent of expression numbering. They ignore binder labels, binder visibility, expression metadata wrappers, and let nondependence optimization hints, which do not change logical term identity. Those annotations remain in the index where applicable. The separate `expression_hashes` and `declaration_hashes` continue to cover the retained records and metadata.
 
-## Browser query snapshots
+## Query snapshots
 
 Verification also publishes `index-<sha256>.sqlite` and a schema version 1 `build/index.json` receipt. The receipt binds the database bytes, complete JSON artifact bytes, catalog content digest, and verification provenance. It is published last, after input and package source checks repeat.
 
 The SQLite database retains every complete declaration record, expression record, expression hash, declaration hash, dependency edge role, source origin, and catalog metadata field. A separate `selections` table retains every selecting module, including shared generated declarations. The `names` table retains exact logical identities and supplies the names required by individual term downloads. Declaration identifiers preserve the original array order. Additional source text is archived by module. The builder checks expression bytes and hashes, edge roles, selecting modules, foreign keys, counts, and the SHA-256 of the reconstructed complete JSON artifact before publication. The reconstructed artifact must be byte-identical to `build/knowledge.json`.
 
 The explorer uses read-only immutable SQLite connections. Startup and refresh verify database, index, and proof export hashes, current verification inputs, and exact dependency sources. A running snapshot retains its archived source text; later worktree edits cannot change that view.
+
+Terminal queries use the same integrity-checked snapshot. Statistics count stored declarations; search, dependency lists, and graph exports stream complete result sets. Statement inspection reads one declaration, and `show --json` reads its complete reachable expression graph with exact name identities. Subject coverage, hierarchy, and trace commands load the declaration dependency graph without loading the proof expression array. JSON and proof exports retain the original artifact bytes. Terminal commands retain the complete catalog reader when `build/index.json` is absent; an invalid existing receipt is rejected.
 
 The local HTTP interface provides `/api/summary`, `/api/search`, `/api/declaration`, `/api/dependencies`, `/api/hierarchy`, `/api/source`, `/api/expressions`, and `/api/guide`. Search, dependency, and hierarchy pages include totals and offsets; complete graph downloads retain all edges. `/api/catalog` streams the complete original JSON artifact from SQLite, and `/api/proof-export` streams its content-addressed replayable proof export. Requests can pin a catalog digest with `snapshot`; responses identify it with `X-Math-Snapshot`. An obsolete digest is rejected. `POST /api/reload` validates and selects the latest published snapshot.
