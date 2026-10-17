@@ -1,0 +1,58 @@
+# Index format
+
+`build/knowledge.json` uses schema version 3. `knowledge.json`, the reviewed foundation and library policy, uses policy schema version 1. Rebuild older indexes with the current verifier; schema 3 requires lossless logical names and proof binding metadata.
+
+The index contains declarations, selected roots, all imported module names and their imports, the selected module hierarchy, subject categories, foundation rules, axiom budgets, source origins, and verification provenance. `module_declarations` inventories every constant from selected modules. It is exactly the union of mathematical `roots` and separately recorded `nonlogical_declarations`. `module_declarations_by_module` records each selected module's complete serialized declaration names together with constants canonically owned by that module. A generated declaration can belong to several serialized modules even when Lean attributes its canonical origin to another import. Selection, subject coverage, and axiom budgets use every selecting module; declaration `module` and source attribution retain the canonical origin. Nonlogical entries retain their kernel safety classification and explicit `meta` status. Unsafe or partial programs are excluded from mathematical proof dependencies. Safe compile-time declarations remain checked; their `meta` flag identifies compiler phase.
+
+Declaration `axioms` are the full transitive dependency closure, recomputed independently by Lean and Python. `lean_axioms` retains Lean's cached summary and must be a subset of that closure. `axiom_audit` records the method and the number of declarations whose complete dependencies exceed the cached listing. Module axiom budgets apply to the full closure.
+
+`subjects` maps subject identifiers to titles, parent identifiers, and selected module assignments. Parents form an acyclic browsing hierarchy; assignments cover every selected module. Logical dependencies remain the declaration edges extracted from Lean. `subjects --json` reports the selected coverage and full prerequisite closure of each subject, including descendants.
+
+`hierarchy NAME --format json` gives a complete dependency subgraph for one declaration. Its `groups` array orders strongly connected components with prerequisites first. Each group records its members, dependency group identifiers, longest prerequisite level, and cycle status. The `edges` array retains every original declaration edge and identifies whether it occurs in a type, value, or inductive structure. The response also includes the kernel foundation and paths to each axiom.
+
+## Expressions
+
+`expressions` is a topologically ordered array of logical expression records. Declaration `type` and `value` fields, and recursor rule `rhs` fields, reference array indices. A missing body is JSON `null`. Each expression child references an earlier array entry; cycles and forward references are rejected.
+
+| Tag | Contents |
+| --- | --- |
+| `sort` | A universe level. |
+| `const` | A declaration name and its universe arguments. |
+| `bvar` | A de Bruijn index for a bound variable. |
+| `app` | `function` and `argument` references. |
+| `lam`, `forall` | Binder name and visibility, `type`, and `body` references. |
+| `let` | Binder name, `type`, `value`, `body`, and nondependence annotation. |
+| `proj` | Parent structure name, field index, and expression reference. |
+| `nat`, `string` | A kernel literal. |
+
+Universe levels retain zero, successor, maximum, impredicative maximum, and named parameters. Unresolved universe variables and expression variables are rejected. The audit computes required binder depth and universe parameters through the graph, then checks each declaration root independently. It includes projection parents when collecting constant references.
+
+`name_data` maps each logical name identifier to its ordered components. Each component is either `{"str":"component"}` or `{"num":0}`; the empty array represents the anonymous name. Numeric components remain distinct from string components containing digits, and quoted components can contain dots. These identities cover declaration names, constants, projection parents, universe parameters, and definition groups. Binder labels remain display metadata; bound references use de Bruijn indices.
+
+`definition_group` retains the ordered mutual-definition names for definitions, theorems, and opaque declarations. `reducibility` is `"abbrev"`, `"opaque"`, or `{"regular":HEIGHT}` for definitions and `null` for other declaration kinds.
+
+`show --json` includes the declaration's reachable expression subgraph as an object keyed by the original array indices, together with the required `name_data`. Browser expression downloads also retain universe parameters, definition groups, and reduction hints. `export` includes the complete array. Readable statements and proof terms accompany the graph.
+
+The extractor spools expression records to a temporary file as their identifiers are assigned, then streams the complete array into the export. Publication, content hashing, and CLI exports stream canonical JSON records. Array order, expression sharing, and canonical bytes remain unchanged; these operations avoid allocating another serialized copy of the entire index.
+
+## Integrity and provenance
+
+`expression_hashes` contains SHA-256 hashes of canonical expression records with child references replaced by child hashes. Their values are independent of array numbering. Declaration hashes substitute these expression hashes for type, body, and recursor rule references before hashing the record. Other declaration metadata remains part of that record hash.
+
+`sources` maps modules to local source hashes or upstream repositories, commits, source paths, license notices, and original module headers. `provenance.dependencies` records exact package commits, source digests, and retained license texts. Toolchain source identity, license, verifier names, local input hashes, and the proof export digest are also retained.
+
+The top-level `content_digest` hashes the entire index with that field omitted. The content-addressed `proofs-<sha256>.jsonl` file uses the separate standard lean4export format. Lean's kernel and nanoda replay that file before publication. Hashes identify content and detect changes; mathematical validity comes from the proof checks and declared assumptions.
+
+`proof_binding` records a complete comparison against that same proof file. Its schema version 1 audit includes indexed and matched declaration counts, expression counts, the proof file digest, and a `logical_digest`. SHA-256 fingerprints cover exact name identities, declaration kinds, ordered universe parameters, types, values, definition groups, reduction hints, and inductive, constructor, quotient, and recursor data. Missing or changed indexed declarations abort publication. Extra declarations introduced by the standard exporter's inductive packages are checked by the proof checkers too.
+
+Logical fingerprints are independent of expression numbering. They ignore binder labels, binder visibility, expression metadata wrappers, and let nondependence optimization hints, which do not change logical term identity. Those annotations remain in the index where applicable. The separate `expression_hashes` and `declaration_hashes` continue to cover the retained records and metadata.
+
+## Browser query snapshots
+
+Verification also publishes `index-<sha256>.sqlite` and a schema version 1 `build/index.json` receipt. The receipt binds the database bytes, complete JSON artifact bytes, catalog content digest, and verification provenance. It is published last, after input and package source checks repeat.
+
+The SQLite database retains every complete declaration record, expression record, expression hash, declaration hash, dependency edge role, source origin, and catalog metadata field. A separate `selections` table retains every selecting module, including shared generated declarations. The `names` table retains exact logical identities and supplies the names required by individual term downloads. Declaration identifiers preserve the original array order. Additional source text is archived by module. The builder checks expression bytes and hashes, edge roles, selecting modules, foreign keys, counts, and the SHA-256 of the reconstructed complete JSON artifact before publication. The reconstructed artifact must be byte-identical to `build/knowledge.json`.
+
+The explorer uses read-only immutable SQLite connections. Startup and refresh verify database, index, and proof export hashes, current verification inputs, and exact dependency sources. A running snapshot retains its archived source text; later worktree edits cannot change that view.
+
+The local HTTP interface provides `/api/summary`, `/api/search`, `/api/declaration`, `/api/dependencies`, `/api/hierarchy`, `/api/source`, `/api/expressions`, and `/api/guide`. Search, dependency, and hierarchy pages include totals and offsets; complete graph downloads retain all edges. `/api/catalog` streams the complete original JSON artifact from SQLite, and `/api/proof-export` streams its content-addressed replayable proof export. Requests can pin a catalog digest with `snapshot`; responses identify it with `X-Math-Snapshot`. An obsolete digest is rejected. `POST /api/reload` validates and selects the latest published snapshot.

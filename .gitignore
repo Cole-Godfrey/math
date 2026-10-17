@@ -1,2 +1,9 @@
 # ignore any agents files or anything related to it
 AGENTS.md
+.lake/
+.tools/
+build/
+__pycache__/
+*.pyc
+.DS_Store
+.playwright-mcp/

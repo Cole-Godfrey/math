@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Math · verified mathematics</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/app.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="masthead">
+    <a class="brand" href="#"><span class="brand-mark">M</span><span>Math</span></a>
+    <span class="masthead-subtitle">A living library of verified mathematics</span>
+    <div class="masthead-actions">
+      <span class="verified"><span class="status-dot"></span>Verified snapshot</span>
+      <button id="reload" class="quiet-button" type="button">Refresh snapshot</button>
+      <button id="guide" class="quiet-button" type="button">Contribute</button>
+    </div>
+  </header>
+  <div class="workspace">
+    <aside class="sidebar" aria-label="Subjects">
+      <div class="sidebar-heading">Explore mathematics</div>
+      <nav id="subjects" aria-label="Mathematical subjects"></nav>
+      <div class="snapshot-card">
+        <span class="eyebrow">Verification</span>
+        <strong id="checker-label">Loading snapshot</strong>
+        <span id="binding-label" class="muted"></span>
+        <span id="snapshot-id" class="mono muted"></span>
+        <span class="muted">Proofs trace to explicit axioms and kernel rules.</span>
+        <a id="catalog-download" download="knowledge.json">Download complete index</a>
+        <a id="proof-download" download>Download replayable proofs</a>
+      </div>
+    </aside>
+    <main id="main">
+      <div id="status" role="status" aria-live="polite" class="status"></div>
+      <section id="search-view">
+        <div class="page-heading">
+          <span class="eyebrow">The formal library</span>
+          <h1 id="subject-title">Mathematics, with its foundations in view.</h1>
+          <p id="coverage" class="muted">Loading the verified library…</p>
+        </div>
+        <form id="search-form" class="search-form">
+          <label class="sr-only" for="query">Search mathematics</label>
+          <input id="query" type="search" placeholder="Find a theorem, definition or object" autocomplete="off">
+          <button class="primary-button" type="submit">Search</button>
+        </form>
+        <div class="filters">
+          <label>Kind <select id="kind"><option value="">All kinds</option><option value="theorem">Theorems</option><option value="definition">Definitions</option><option value="inductive">Objects and structures</option><option value="axiom">Axioms</option><option value="constructor">Constructors</option><option value="recursor">Recursors</option><option value="opaque">Opaque definitions</option><option value="quotient_primitive">Quotient primitives</option></select></label>
+          <label class="check-label"><input id="all" type="checkbox"> Include prerequisites</label>
+          <label class="check-label"><input id="axiom-free" type="checkbox"> No additional axioms</label>
+        </div>
+        <div class="list-heading"><h2>Declarations</h2><span id="result-count" class="muted"></span></div>
+        <div id="results" class="results"></div>
+        <div id="search-pages" class="pagination"></div>
+      </section>
+      <section id="detail-view" hidden>
+        <button id="back" class="back-button" type="button">← Search results</button>
+        <div id="declaration-heading"></div>
+        <nav id="tabs" class="tabs" aria-label="Declaration sections"></nav>
+        <div id="detail-body"></div>
+      </section>
+      <section id="guide-view" hidden>
+        <button id="guide-back" class="back-button" type="button">← Back to library</button>
+        <span class="eyebrow">Collaborative formalization</span>
+        <h1>Contribute mathematics</h1>
+        <div id="guide-text" class="guide-text"></div>
+      </section>
+    </main>
+  </div>
+  <noscript>This explorer uses JavaScript. The same library is available through the repository CLI.</noscript>
+</body>
+</html>

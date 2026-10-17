@@ -1,0 +1,702 @@
+{
+  "schema_version": 1,
+  "foundation": {
+    "id": "lean4-dependent-type-theory",
+    "kernel": "Lean 4.35.0",
+    "rules": [
+      "dependent functions and universe-polymorphic sorts",
+      "impredicative propositions and proof irrelevance",
+      "definitional equality and kernel reduction",
+      "strictly positive inductive families and their recursors",
+      "primitive quotient types and their reduction rules"
+    ],
+    "reference": "https://lean-lang.org/doc/reference/4.35.0/"
+  },
+  "axioms": {
+    "propext": {
+      "description": "logically equivalent propositions are equal",
+      "reference": "https://lean-lang.org/doc/reference/4.35.0/Axioms/"
+    },
+    "Quot.sound": {
+      "description": "related elements have equal quotient representatives",
+      "reference": "https://lean-lang.org/doc/reference/4.35.0/Axioms/"
+    },
+    "Classical.choice": {
+      "description": "a nonempty type has a chosen element",
+      "reference": "https://lean-lang.org/doc/reference/4.35.0/Axioms/"
+    }
+  },
+  "libraries": {
+    "mathlib": {
+      "repository": "https://github.com/leanprover-community/mathlib4.git",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "license": "Apache-2.0",
+      "license_file": "LICENSE",
+      "modules": {
+        "Mathlib.Data.Nat.Prime.Defs": {
+          "title": "Prime numbers",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Data.Nat.Prime.Infinite": {
+          "title": "Infinitely many primes",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Data.Int.Basic": {
+          "title": "Integers",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Data.Rat.Defs": {
+          "title": "Rational numbers",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Basic.Real.Basic": {
+          "title": "Real numbers",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Basis.Defs": {
+          "title": "Bases and coordinates",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Basis.Basic": {
+          "title": "Linear independence and spanning",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Topology.Defs.Basic": {
+          "title": "Topological spaces and continuity",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Topology.Basic": {
+          "title": "Topology",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Calculus.Deriv.MeanValue": {
+          "title": "Cauchy and Lagrange mean value theorems",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Probability.ProbabilityMassFunction.Basic": {
+          "title": "Probability mass functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Logic.Relation": {
+          "title": "Relations and transitive closures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Defs.PartialOrder": {
+          "title": "Preorders and partial orders",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Zorn": {
+          "title": "Zorn's lemma",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Cardinal.SchroederBernstein": {
+          "title": "Schroeder-Bernstein and cardinal comparison",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Basic.Complex.Basic": {
+          "title": "Complex numbers",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Dimension.RankNullity": {
+          "title": "Rank-nullity and quotient dimensions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Dimension.DivisionRing": {
+          "title": "Dimension over division rings",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Sylow": {
+          "title": "Sylow subgroups and theorems",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Euclidean.Angle.Unoriented.RightAngle": {
+          "title": "Right triangles and the Pythagorean theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Combinatorics.SimpleGraph.Basic": {
+          "title": "Simple graphs",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Combinatorics.SimpleGraph.Clique": {
+          "title": "Cliques and clique-free graphs",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Combinatorics.SimpleGraph.Extremal.Turan": {
+          "title": "Turan's extremal graph theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Combinatorics.SimpleGraph.Extremal.ErdosStoneSimonovits": {
+          "title": "Erdos-Stone minimum degree theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.Liouville": {
+          "title": "Liouville's theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.Polynomial.Basic": {
+          "title": "Fundamental theorem of algebra",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus": {
+          "title": "Fundamental theorems of calculus",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.MeasurableSpace.Defs": {
+          "title": "Measurable spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.MeasureSpaceDef": {
+          "title": "Measures and measure spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.Bochner.Basic": {
+          "title": "Bochner integration",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.CategoryTheory.Category.Basic": {
+          "title": "Categories and morphisms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.CategoryTheory.Functor.Basic": {
+          "title": "Functors and composition",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Computability.Primrec.Basic": {
+          "title": "Primitive recursive functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Computability.Primrec.List": {
+          "title": "Primitive recursion on lists and vectors",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Computability.Partrec": {
+          "title": "Partial recursive and computable functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Computability.PartrecCode": {
+          "title": "Universal codes and fixed-point theorems",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Computability.PartrecBasis": {
+          "title": "Vector basis for partial recursion",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Computability.RE": {
+          "title": "Recursively enumerable predicates",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Computability.Halting": {
+          "title": "Halting problem and Rice's theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Computability.Ackermann": {
+          "title": "Ackermann function and primitive recursion",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Computability.Reduce": {
+          "title": "Computable reductions and many-one degrees",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Computability.RecursiveIn": {
+          "title": "Oracle relative recursion",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Computability.TuringDegree": {
+          "title": "Turing reducibility and degrees",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Computability.Encoding": {
+          "title": "Encodings for computation",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Computability.StateTransition": {
+          "title": "State transitions and simulation",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Computability.TuringMachine.Tape": {
+          "title": "Turing machine tapes",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Computability.TuringMachine.PostTuringMachine": {
+          "title": "Post-Turing machines",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Computability.TuringMachine.StackTuringMachine": {
+          "title": "Stack Turing machines",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Computability.TuringMachine.Config": {
+          "title": "Sequential partial recursive evaluation",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Computability.TuringMachine.ToPartrec": {
+          "title": "Partial recursive functions on Turing machines",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Computability.TuringMachine.Computable": {
+          "title": "Finite machines and time-bounded computability",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        }
+      }
+    }
+  },
+  "subjects": {
+    "mathematics": {
+      "title": "Mathematics",
+      "parent": null,
+      "modules": [
+        "Math"
+      ]
+    },
+    "foundations": {
+      "title": "Foundations",
+      "parent": "mathematics",
+      "modules": [
+        "Math.Foundations.Equality"
+      ]
+    },
+    "logic": {
+      "title": "Logic",
+      "parent": "foundations",
+      "modules": [
+        "Math.Logic.Basic",
+        "Math.Logic.Classical",
+        "Mathlib.Logic.Relation"
+      ]
+    },
+    "sets": {
+      "title": "Sets",
+      "parent": "foundations",
+      "modules": [
+        "Math.Sets.Basic"
+      ]
+    },
+    "functions": {
+      "title": "Functions",
+      "parent": "foundations",
+      "modules": [
+        "Math.Functions.Basic"
+      ]
+    },
+    "number_systems": {
+      "title": "Number systems",
+      "parent": "mathematics",
+      "modules": [
+        "Math.Numbers.Natural",
+        "Mathlib.Data.Int.Basic",
+        "Mathlib.Data.Rat.Defs",
+        "Mathlib.Basic.Real.Basic",
+        "Mathlib.Basic.Complex.Basic"
+      ]
+    },
+    "number_theory": {
+      "title": "Number theory",
+      "parent": "mathematics",
+      "modules": [
+        "Mathlib.Data.Nat.Prime.Defs",
+        "Mathlib.Data.Nat.Prime.Infinite"
+      ]
+    },
+    "algebra": {
+      "title": "Algebra",
+      "parent": "mathematics",
+      "modules": [
+        "Math.Algebra.Monoid"
+      ]
+    },
+    "linear_algebra": {
+      "title": "Linear algebra",
+      "parent": "algebra",
+      "modules": [
+        "Mathlib.LinearAlgebra.Basis.Defs",
+        "Mathlib.LinearAlgebra.Basis.Basic",
+        "Mathlib.LinearAlgebra.Dimension.RankNullity",
+        "Mathlib.LinearAlgebra.Dimension.DivisionRing"
+      ]
+    },
+    "topology": {
+      "title": "Topology",
+      "parent": "mathematics",
+      "modules": [
+        "Mathlib.Topology.Defs.Basic",
+        "Mathlib.Topology.Basic"
+      ]
+    },
+    "analysis": {
+      "title": "Analysis",
+      "parent": "mathematics",
+      "modules": []
+    },
+    "probability": {
+      "title": "Probability",
+      "parent": "mathematics",
+      "modules": [
+        "Mathlib.Probability.ProbabilityMassFunction.Basic"
+      ]
+    },
+    "order": {
+      "title": "Order theory",
+      "parent": "foundations",
+      "modules": [
+        "Mathlib.Order.Defs.PartialOrder"
+      ]
+    },
+    "set_theory": {
+      "title": "Set theory and cardinality",
+      "parent": "foundations",
+      "modules": [
+        "Mathlib.Order.Zorn",
+        "Mathlib.SetTheory.Cardinal.SchroederBernstein"
+      ]
+    },
+    "group_theory": {
+      "title": "Group theory",
+      "parent": "algebra",
+      "modules": [
+        "Mathlib.GroupTheory.Sylow"
+      ]
+    },
+    "geometry": {
+      "title": "Geometry",
+      "parent": "mathematics",
+      "modules": [
+        "Mathlib.Geometry.Euclidean.Angle.Unoriented.RightAngle"
+      ]
+    },
+    "combinatorics": {
+      "title": "Combinatorics",
+      "parent": "mathematics",
+      "modules": []
+    },
+    "graph_theory": {
+      "title": "Graph theory",
+      "parent": "combinatorics",
+      "modules": [
+        "Mathlib.Combinatorics.SimpleGraph.Basic",
+        "Mathlib.Combinatorics.SimpleGraph.Clique",
+        "Mathlib.Combinatorics.SimpleGraph.Extremal.Turan",
+        "Mathlib.Combinatorics.SimpleGraph.Extremal.ErdosStoneSimonovits"
+      ]
+    },
+    "calculus": {
+      "title": "Calculus",
+      "parent": "analysis",
+      "modules": [
+        "Mathlib.Analysis.Calculus.Deriv.MeanValue",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus"
+      ]
+    },
+    "complex_analysis": {
+      "title": "Complex analysis",
+      "parent": "analysis",
+      "modules": [
+        "Mathlib.Analysis.Complex.Liouville",
+        "Mathlib.Analysis.Complex.Polynomial.Basic"
+      ]
+    },
+    "measure_theory": {
+      "title": "Measure theory",
+      "parent": "analysis",
+      "modules": [
+        "Mathlib.MeasureTheory.MeasurableSpace.Defs",
+        "Mathlib.MeasureTheory.Measure.MeasureSpaceDef",
+        "Mathlib.MeasureTheory.Integral.Bochner.Basic"
+      ]
+    },
+    "category_theory": {
+      "title": "Category theory",
+      "parent": "mathematics",
+      "modules": [
+        "Mathlib.CategoryTheory.Category.Basic",
+        "Mathlib.CategoryTheory.Functor.Basic"
+      ]
+    },
+    "computation": {
+      "title": "Computation",
+      "parent": "mathematics",
+      "modules": [
+        "Mathlib.Computability.Encoding",
+        "Mathlib.Computability.StateTransition"
+      ]
+    },
+    "computability": {
+      "title": "Computability",
+      "parent": "computation",
+      "modules": [
+        "Mathlib.Computability.Primrec.Basic",
+        "Mathlib.Computability.Primrec.List",
+        "Mathlib.Computability.Partrec",
+        "Mathlib.Computability.PartrecCode",
+        "Mathlib.Computability.PartrecBasis",
+        "Mathlib.Computability.RE",
+        "Mathlib.Computability.Halting",
+        "Mathlib.Computability.Ackermann",
+        "Mathlib.Computability.Reduce",
+        "Mathlib.Computability.RecursiveIn",
+        "Mathlib.Computability.TuringDegree"
+      ]
+    },
+    "turing_machines": {
+      "title": "Turing machines",
+      "parent": "computation",
+      "modules": [
+        "Mathlib.Computability.TuringMachine.Tape",
+        "Mathlib.Computability.TuringMachine.PostTuringMachine",
+        "Mathlib.Computability.TuringMachine.StackTuringMachine",
+        "Mathlib.Computability.TuringMachine.Config",
+        "Mathlib.Computability.TuringMachine.ToPartrec",
+        "Mathlib.Computability.TuringMachine.Computable"
+      ]
+    }
+  },
+  "modules": {
+    "Math": {
+      "title": "Mathematics",
+      "allowed_axioms": []
+    },
+    "Math.Logic.Basic": {
+      "title": "Constructive logic",
+      "allowed_axioms": []
+    },
+    "Math.Logic.Classical": {
+      "title": "Classical logic",
+      "allowed_axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    "Math.Foundations.Equality": {
+      "title": "Equality and extensionality",
+      "allowed_axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    "Math.Functions.Basic": {
+      "title": "Functions",
+      "allowed_axioms": []
+    },
+    "Math.Sets.Basic": {
+      "title": "Sets as predicates",
+      "allowed_axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    "Math.Numbers.Natural": {
+      "title": "Natural number arithmetic",
+      "allowed_axioms": []
+    },
+    "Math.Algebra.Monoid": {
+      "title": "Monoids and groups",
+      "allowed_axioms": [
+        "propext"
+      ]
+    }
+  }
+}

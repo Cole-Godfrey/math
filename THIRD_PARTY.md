@@ -1,0 +1,18 @@
+# Third-party sources
+
+The mathematical index retains original declaration names, source links, module author notices, and license texts. Exact dependency revisions are in `lake-manifest.json`; explicitly indexed upstream modules are registered in `knowledge.json`.
+
+| Source | License |
+| --- | --- |
+| [Lean](https://github.com/leanprover/lean4) | Apache-2.0 |
+| [mathlib](https://github.com/leanprover-community/mathlib4) | Apache-2.0 |
+| [Batteries](https://github.com/leanprover-community/batteries) | Apache-2.0 |
+| [Aesop](https://github.com/leanprover-community/aesop) | Apache-2.0 |
+| [Qq](https://github.com/leanprover-community/quote4) | Apache-2.0 |
+| [Plausible](https://github.com/leanprover-community/plausible) | Apache-2.0 |
+| [LeanSearchClient](https://github.com/leanprover-community/LeanSearchClient) | Apache-2.0 |
+| [ImportGraph](https://github.com/leanprover-community/import-graph) | Apache-2.0 |
+| [ProofWidgets](https://github.com/leanprover-community/ProofWidgets4) | Apache-2.0 |
+| [Lean CLI](https://github.com/leanprover/lean4-cli) | MIT |
+
+These dependencies include both mathematical libraries and supporting tools. Their full license notices are retained under verification provenance in the generated index. Preserve those notices when redistributing an index or its proof artifacts.
