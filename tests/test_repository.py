@@ -105,7 +105,7 @@ class RepositoryTests(unittest.TestCase):
     def test_fabricated_edges_are_rejected(self):
         raw, node = self.mutated("Math.Natural.mul_assoc")
         node["dependencies"].remove("Math.Natural.mul_add")
-        with self.assertRaisesRegex(RepositoryError, "differs from expressions"):
+        with self.assertRaisesRegex(RepositoryError, "dependencies differ from declared expression roles"):
             validate(raw, self.policy)
 
     def test_fabricated_axiom_summary_is_rejected(self):

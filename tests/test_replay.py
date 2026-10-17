@@ -73,6 +73,91 @@ end Binding
         catalog["declarations"][index] = node
         return catalog, node
 
+    def assert_rejected_before_terms(self, catalog, expected, policy=None):
+        """reject invalid summaries before constructing expression audit state."""
+        with patch("repository.core.ExpressionPool", side_effect=AssertionError("unexpected term traversal")):
+            with self.assertRaisesRegex(RepositoryError, expected):
+                validate(catalog, self.policy if policy is None else policy)
+
+    def test_invalid_declaration_metadata_is_rejected_before_terms(self):
+        cases = [("value", None, "missing or unexpected body"),
+                 ("value", True, "invalid expression reference"),
+                 ("type", len(self.catalog["expressions"]), "invalid expression reference"),
+                 ("module", "Missing", "unknown declaration module"),
+                 ("universes", ["u", "u"], "universe parameters: duplicate names"),
+                 ("axioms", [0], "axioms: expected names")]
+        for field, value, expected in cases:
+            with self.subTest(field=field, value=value):
+                catalog, node = self.altered("Binding.truth")
+                node[field] = value
+                self.assert_rejected_before_terms(catalog, expected)
+
+    def test_invalid_dependency_metadata_is_rejected_before_terms(self):
+        catalog, node = self.altered("Binding.truth")
+        node["dependencies"].remove("True.intro")
+        self.assert_rejected_before_terms(catalog, "dependencies differ from declared expression roles")
+        catalog, node = self.altered("Binding.truth")
+        node["value_dependencies"].append("Missing")
+        node["dependencies"].append("Missing")
+        self.assert_rejected_before_terms(catalog, "unresolved dependency")
+        catalog, node = self.altered("Binding.truth")
+        node["value_dependencies"].append("True.intro")
+        self.assert_rejected_before_terms(catalog, "value_dependencies: duplicate names")
+
+    def test_axiom_summaries_are_checked_before_terms(self):
+        catalog, node = self.altered("Binding.quotient_eq")
+        self.assertTrue(node["axioms"])
+        node["axioms"] = []
+        self.assert_rejected_before_terms(catalog, "axiom closure differs from fresh Lean traversal")
+        catalog, node = self.altered("Binding.truth")
+        node["lean_axioms"] = ["Classical.choice"]
+        self.assert_rejected_before_terms(catalog, "cached Lean axioms missing from dependency graph")
+        catalog, node = self.altered("Binding.truth")
+        node.update(kind="axiom", value=None, definition_group=[], value_dependencies=[],
+                    dependencies=node["type_dependencies"].copy(), axioms=["Binding.truth"])
+        self.assert_rejected_before_terms(catalog, "undeclared foundational axiom")
+
+    def test_every_selecting_module_budget_is_checked_before_terms(self):
+        policy = deepcopy(self.policy)
+        policy["modules"]["Math.Strict"] = {"title": "strict fixture", "allowed_axioms": []}
+        catalog = {**self.catalog, "modules": [*self.catalog["modules"],
+                   {"name": "Math.Strict", "imports": ["Math.Binding"]}],
+                   "module_declarations_by_module": {**self.catalog["module_declarations_by_module"],
+                                                     "Math.Strict": ["Binding.quotient_eq"]}}
+        self.assert_rejected_before_terms(catalog, "module axiom budget exceeded in Math.Strict", policy)
+
+    def test_unreachable_declarations_are_rejected_before_terms(self):
+        node = {**self.nodes["Binding.truth"], "name": "orphan", "module": "Init.Prelude",
+                "definition_group": ["orphan"]}
+        catalog = {**self.catalog, "declarations": [*self.catalog["declarations"], node]}
+        self.assert_rejected_before_terms(catalog, "export contains unreachable declarations")
+
+    def test_consistent_forged_summaries_still_require_actual_term_dependencies(self):
+        catalog, node = self.altered("Binding.truth")
+        node["value_dependencies"] = []
+        node["dependencies"] = node["type_dependencies"].copy()
+        with self.assertRaisesRegex(RepositoryError, "value_dependencies differs from expressions"):
+            validate(catalog, self.policy)
+
+    def test_valid_metadata_cannot_hide_invalid_or_unreachable_terms(self):
+        for expression, expected in [({"tag": "mvar", "name": "hidden"}, "invalid or unresolved expression"),
+                                     ({"tag": "nat", "value": 99173}, "export contains unreachable expressions")]:
+            with self.subTest(expression=expression):
+                catalog = {**self.catalog, "expressions": [*self.catalog["expressions"], expression]}
+                with self.assertRaisesRegex(RepositoryError, expected):
+                    validate(catalog, self.policy)
+        catalog, node = self.altered("Binding.truth")
+        node["value"] = next(index for index, expression in enumerate(catalog["expressions"])
+                             if expression["tag"] == "bvar" and expression["index"] == 0)
+        with self.assertRaisesRegex(RepositoryError, "unbound variable in declaration"):
+            validate(catalog, self.policy)
+        catalog, node = self.altered("Binding.truth")
+        node["value"] = len(catalog["expressions"])
+        catalog["expressions"] = [*catalog["expressions"],
+                                  {"tag": "sort", "level": {"tag": "param", "name": "unbound_u"}}]
+        with self.assertRaisesRegex(RepositoryError, "undeclared universe parameter"):
+            validate(catalog, self.policy)
+
     def test_every_indexed_declaration_is_bound_to_the_checked_export(self):
         audit = self.catalog["proof_binding"]
         self.assertEqual(audit["matched_declarations"], len(self.nodes))

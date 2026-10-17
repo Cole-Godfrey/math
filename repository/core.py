@@ -361,7 +361,7 @@ def module_order(modules: dict[str, dict], project: set[str]) -> list[str]:
 
 
 def validate(raw: dict, policy: dict) -> dict:
-    """audit an index; mathematical type checking remains Lean's responsibility."""
+    """audit declarations and every expression; proof typing is checked independently."""
     require(raw.get("schema_version") == 3, "unsupported export schema")
     revision = raw.get("lean_revision")
     require(isinstance(revision, str) and len(revision) == 40
@@ -457,22 +457,25 @@ def validate(raw: dict, policy: dict) -> dict:
             require(node["module"] in selecting_modules[name], f"{name}: missing canonical module membership")
     require(bool(roots), "empty mathematical repository")
     require(isinstance(raw.get("name_data"), dict) and bool(raw["name_data"]), "missing lossless logical names")
-    expressions = ExpressionPool(raw.get("expressions"))
+    records = raw.get("expressions")
+    require(isinstance(records, list), "missing shared expressions")
+
+    # reject inconsistent reported graphs before allocating term audit state.
     for name, node in nodes.items():
         try:
             require(node.get("module") in modules, "unknown declaration module")
-            universes = string_list(node.get("universes"), "universe parameters")
-            type_deps = expressions.references(node.get("type"), universes)
+            string_list(node.get("universes"), "universe parameters")
             value = node.get("value")
             require((value is not None) == (node["kind"] in VALUE_KINDS), "missing or unexpected body")
-            value_deps = expressions.references(value, universes) if value is not None else set()
-            structural_deps = structural_refs(node, expressions)
-            for field, expected in (("type_dependencies", type_deps),
-                                    ("value_dependencies", value_deps),
-                                    ("structural_dependencies", structural_deps),
-                                    ("dependencies", type_deps | value_deps | structural_deps)):
-                require(string_list(node.get(field), field) == expected, f"{field} differs from expressions")
-            require(set(node["dependencies"]) <= nodes.keys(), "unresolved dependency")
+            for reference in (node.get("type"), value) if value is not None else (node.get("type"),):
+                require(type(reference) is int and 0 <= reference < len(records), "invalid expression reference")
+            type_deps = string_list(node.get("type_dependencies"), "type_dependencies")
+            value_deps = string_list(node.get("value_dependencies"), "value_dependencies")
+            structural_deps = string_list(node.get("structural_dependencies"), "structural_dependencies")
+            dependencies = string_list(node.get("dependencies"), "dependencies")
+            require(dependencies == type_deps | value_deps | structural_deps,
+                    "dependencies differ from declared expression roles")
+            require(dependencies <= nodes.keys(), "unresolved dependency")
             if node["kind"] == "axiom":
                 require(name in policy["axioms"], "undeclared foundational axiom")
             string_list(node.get("axioms"), "axioms")
@@ -487,7 +490,6 @@ def validate(raw: dict, policy: dict) -> dict:
             reached.add(name)
             pending.extend(nodes[name]["dependencies"])
     require(reached == nodes.keys(), "export contains unreachable declarations")
-    require(len(expressions.used) == len(expressions.records), "export contains unreachable expressions")
     closure = axiom_closure(nodes)
     for name, node in nodes.items():
         require(closure[name] == set(node["axioms"]), f"{name}: axiom closure differs from fresh Lean traversal")
@@ -497,6 +499,24 @@ def validate(raw: dict, policy: dict) -> dict:
                 allowed = set(root_policy[module]["allowed_axioms"])
                 require(closure[name] <= allowed, f"{name}: module axiom budget exceeded in {module}: "
                         + ", ".join(sorted(closure[name] - allowed)))
+
+    # every accepted edge must still match the complete expression graph.
+    expressions = ExpressionPool(records)
+    for name, node in nodes.items():
+        try:
+            universes = set(node["universes"])
+            type_deps = expressions.references(node["type"], universes)
+            value = node["value"]
+            value_deps = expressions.references(value, universes) if value is not None else set()
+            structural_deps = structural_refs(node, expressions)
+            for field, expected in (("type_dependencies", type_deps),
+                                    ("value_dependencies", value_deps),
+                                    ("structural_dependencies", structural_deps),
+                                    ("dependencies", type_deps | value_deps | structural_deps)):
+                require(set(node[field]) == expected, f"{field} differs from expressions")
+        except RepositoryError as exc:
+            raise RepositoryError(f"{name}: {exc}") from exc
+    require(len(expressions.used) == len(expressions.records), "export contains unreachable expressions")
     return {
         **raw,
         "foundation": policy["foundation"],
