@@ -552,6 +552,111 @@ class RepositoryTests(unittest.TestCase):
                 self.assertIn(origin["revision"], origin["url"])
                 self.assertEqual(origin["license"], "Apache-2.0")
 
+    def test_probability_statements_match_reference_types(self):
+        run(ROOT, [self.lake, "env", "lean", "tests/ProbabilityStatements.lean"], capture=True)
+
+    def test_probability_objects_and_results_retain_terms_and_pinned_sources(self):
+        expected = {
+            "ProbabilityTheory.HasLaw": "Probability.HasLaw",
+            "ProbabilityTheory.IdentDistrib": "Probability.IdentDistrib",
+            "ProbabilityTheory.IndepFun": "Probability.Independence.Basic",
+            "ProbabilityTheory.iIndepFun": "Probability.Independence.Basic",
+            "ProbabilityTheory.iIndepSet": "Probability.Independence.Basic",
+            "ProbabilityTheory.iCondIndepFun": "Probability.Independence.Conditional",
+            "ProbabilityTheory.variance": "Probability.Moments.Variance",
+            "ProbabilityTheory.covariance": "Probability.Moments.Covariance",
+            "ProbabilityTheory.bernoulliMeasure": "Probability.Distributions.Bernoulli",
+            "ProbabilityTheory.binomial": "Probability.Distributions.Binomial",
+            "MeasureTheory.pdf.IsUniform": "Probability.Distributions.Uniform",
+            "ProbabilityTheory.gaussianReal": "Probability.Distributions.Gaussian.Real",
+            "ProbabilityTheory.poissonMeasure": "Probability.Distributions.Poisson.Basic",
+            "MeasureTheory.condExp": "MeasureTheory.Function.ConditionalExpectation.Basic",
+            "MeasureTheory.condExp_condExp_of_le": "MeasureTheory.Function.ConditionalExpectation.Basic",
+            "MeasureTheory.TendstoInDistribution": "MeasureTheory.Function.ConvergenceInDistribution",
+            "MeasureTheory.measure_limsup_atTop_eq_zero": "MeasureTheory.OuterMeasure.BorelCantelli",
+            "ProbabilityTheory.measure_limsup_eq_one": "Probability.BorelCantelli",
+            "ProbabilityTheory.measure_zero_or_one_of_measurableSet_limsup_atTop": "Probability.Independence.ZeroOne",
+            "ProbabilityTheory.strong_law_ae": "Probability.StrongLaw",
+            "ProbabilityTheory.strong_law_Lp": "Probability.StrongLaw",
+            "ProbabilityTheory.tendstoInDistribution_inv_sqrt_mul_sum_sub": "Probability.CentralLimitTheorem",
+            "MeasureTheory.Filtration": "Probability.Process.Filtration",
+            "MeasureTheory.StronglyAdapted": "Probability.Process.Adapted",
+            "MeasureTheory.IsStoppingTime": "Probability.Process.Stopping",
+            "MeasureTheory.stoppedValue": "Probability.Process.Stopping",
+            "MeasureTheory.hittingAfter": "Probability.Process.HittingTime",
+            "MeasureTheory.Filtration.limitProcess": "Probability.Process.LimitProcess",
+            "MeasureTheory.Martingale": "Probability.Martingale.Basic",
+            "MeasureTheory.Submartingale": "Probability.Martingale.Basic",
+            "MeasureTheory.Martingale.stoppedValue_ae_eq_condExp_of_le": "Probability.Martingale.OptionalSampling",
+            "MeasureTheory.Submartingale.expected_stoppedValue_mono": "Probability.Martingale.OptionalStopping",
+            "MeasureTheory.Submartingale.ae_tendsto_limitProcess": "Probability.Martingale.Convergence",
+            "MeasureTheory.Submartingale.tendsto_eLpNorm_one_limitProcess": "Probability.Martingale.Convergence",
+            "MeasureTheory.Martingale.ae_eq_condExp_limitProcess": "Probability.Martingale.Convergence",
+            "MeasureTheory.ae_mem_limsup_atTop_iff": "Probability.Martingale.BorelCantelli",
+        }
+        for name, suffix in expected.items():
+            with self.subTest(name=name):
+                self.assertIn(name, self.catalog["roots"])
+                node = self.nodes[name]
+                self.assertEqual(node["module"], "Mathlib." + suffix)
+                if node["kind"] in {"definition", "theorem", "opaque"}:
+                    self.assertIsInstance(node["value"], int)
+                self.assertTrue(set(node["axioms"]) <= self.policy["axioms"].keys())
+                origin = self.catalog["sources"][node["module"]]
+                self.assertEqual(origin["revision"], self.policy["libraries"]["mathlib"]["revision"])
+                self.assertIn(origin["revision"], origin["url"])
+                self.assertEqual(origin["license"], "Apache-2.0")
+
+    def test_probability_hierarchies_reach_models_assumptions_and_all_axioms(self):
+        graph = KnowledgeGraph(self.catalog)
+        expected = {
+            "ProbabilityTheory.strong_law_ae":
+                {"ProbabilityTheory.IndepFun", "ProbabilityTheory.IdentDistrib", "MeasureTheory.Integrable",
+                 "MeasureTheory.integral", "Filter.Tendsto"},
+            "ProbabilityTheory.strong_law_Lp":
+                {"MeasureTheory.MemLp", "MeasureTheory.eLpNorm", "ProbabilityTheory.IdentDistrib"},
+            "ProbabilityTheory.tendstoInDistribution_inv_sqrt_mul_sum_sub":
+                {"ProbabilityTheory.HasLaw", "ProbabilityTheory.gaussianReal", "ProbabilityTheory.variance",
+                 "ProbabilityTheory.iIndepFun", "MeasureTheory.MemLp", "MeasureTheory.TendstoInDistribution"},
+            "ProbabilityTheory.measure_limsup_eq_one":
+                {"ProbabilityTheory.iIndepSet", "MeasureTheory.Measure", "Filter.limsup"},
+            "MeasureTheory.condExp_condExp_of_le":
+                {"MeasureTheory.condExp", "MeasurableSpace", "MeasureTheory.SigmaFinite"},
+            "MeasureTheory.Martingale.stoppedValue_ae_eq_condExp_of_le":
+                {"MeasureTheory.Martingale", "MeasureTheory.Filtration", "MeasureTheory.IsStoppingTime",
+                 "MeasureTheory.stoppedValue", "MeasureTheory.condExp"},
+            "MeasureTheory.Submartingale.ae_tendsto_limitProcess":
+                {"MeasureTheory.Submartingale", "MeasureTheory.eLpNorm", "MeasureTheory.Filtration.limitProcess"},
+            "MeasureTheory.Martingale.ae_eq_condExp_limitProcess":
+                {"MeasureTheory.Martingale", "MeasureTheory.UniformIntegrable", "MeasureTheory.condExp"},
+        }
+        for name, objects in expected.items():
+            with self.subTest(name=name):
+                hierarchy = graph.hierarchy(name)
+                reached = {node["name"] for node in hierarchy["declarations"]}
+                self.assertTrue(objects <= reached, objects - reached)
+                self.assertEqual(set(hierarchy["axiom_paths"]), set(self.nodes[name]["axioms"]))
+                for axiom, path in hierarchy["axiom_paths"].items():
+                    self.assertEqual(path[0], name)
+                    self.assertEqual(path[-1], axiom)
+                    for source, target in zip(path, path[1:]):
+                        self.assertIn(target, self.nodes[source]["dependencies"])
+
+    def test_probability_subjects_include_their_results_and_parent_subjects(self):
+        graph = KnowledgeGraph(self.catalog)
+        expected = {
+            "independence": ("probability", "ProbabilityTheory.measure_zero_or_one_of_measurableSet_limsup_atTop"),
+            "probability_distributions": ("probability", "ProbabilityTheory.gaussianReal"),
+            "probability_limits": ("probability", "ProbabilityTheory.strong_law_ae"),
+            "stochastic_processes": ("probability", "MeasureTheory.IsStoppingTime"),
+            "martingales": ("stochastic_processes", "MeasureTheory.Martingale.ae_eq_condExp_limitProcess"),
+        }
+        for subject, (parent, name) in expected.items():
+            with self.subTest(subject=subject):
+                self.assertEqual(self.catalog["subjects"][subject]["parent"], parent)
+                for category in (subject, parent, "probability", "mathematics"):
+                    self.assertIn(name, {node["name"] for node in graph.search(name, subject=category)})
+
     def test_number_theory_hierarchies_reach_models_and_all_foundations(self):
         graph = KnowledgeGraph(self.catalog)
         expected = {

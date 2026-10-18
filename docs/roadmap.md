@@ -14,6 +14,8 @@ The browser inspects exact term occurrences with their binder contexts, ordered 
 
 Pinned upstream bibliographies and compiled module documentation connect explicit citation keys to retained records, publication links, and source locations. The browser distinguishes declaration citations from module references and preserves the complete bibliography for reconstruction.
 
+Probability coverage includes laws and distributions, independence and conditional independence, conditional expectations, Borel-Cantelli lemmas, the strong laws of large numbers, the real central limit theorem, stopping times, optional sampling, and martingale convergence. Statement checks retain the precise integrability, independence, boundedness, and convergence hypotheses.
+
 Work still required:
 
 - Expand registered mathlib coverage across further fields and research results, and integrate other established formal libraries while preserving upstream declarations, licenses, references, and proof dependencies.

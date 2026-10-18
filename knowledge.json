@@ -1161,6 +1161,278 @@
             "Quot.sound",
             "Classical.choice"
           ]
+        },
+        "Mathlib.Probability.HasLaw": {
+          "title": "Probability laws of random variables",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Probability.IdentDistrib": {
+          "title": "Identically distributed random variables",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Probability.Moments.Basic": {
+          "title": "Moments of random variables",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Probability.Moments.Variance": {
+          "title": "Variance",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Probability.Moments.Covariance": {
+          "title": "Covariance",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Probability.Independence.Basic": {
+          "title": "Independence of random variables and events",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Probability.Independence.Conditional": {
+          "title": "Conditional independence",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Probability.Independence.Integration": {
+          "title": "Integration of independent random variables",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Probability.Independence.Integrable": {
+          "title": "Integrability of independent products",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Probability.Independence.ZeroOne": {
+          "title": "Kolmogorov zero-one law",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Probability.Distributions.Bernoulli": {
+          "title": "Bernoulli distributions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Probability.Distributions.Binomial": {
+          "title": "Binomial distributions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Probability.Distributions.Uniform": {
+          "title": "Uniform distributions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Probability.Distributions.Gaussian.Real": {
+          "title": "Real Gaussian distributions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Probability.Distributions.Poisson.Basic": {
+          "title": "Poisson distributions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Probability.StrongLaw": {
+          "title": "Strong laws of large numbers",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Probability.CentralLimitTheorem": {
+          "title": "Central limit theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Probability.BorelCantelli": {
+          "title": "Borel-Cantelli lemmas",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Function.ConvergenceInDistribution": {
+          "title": "Convergence in distribution",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Probability.Process.Filtration": {
+          "title": "Filtrations",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Probability.Process.Adapted": {
+          "title": "Adapted stochastic processes",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Probability.Process.Stopping": {
+          "title": "Stopping times and stopped processes",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Probability.Process.HittingTime": {
+          "title": "Hitting times",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Probability.Process.LimitProcess": {
+          "title": "Limits of stochastic processes",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Probability.Martingale.Basic": {
+          "title": "Martingales and submartingales",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Probability.Martingale.OptionalSampling": {
+          "title": "Optional sampling",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Probability.Martingale.OptionalStopping": {
+          "title": "Optional stopping and maximal inequalities",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Probability.Martingale.Upcrossing": {
+          "title": "Doob upcrossing inequality",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Probability.Martingale.Convergence": {
+          "title": "Martingale convergence theorems",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Probability.Martingale.BorelCantelli": {
+          "title": "Conditional Borel-Cantelli lemma",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Function.ConditionalExpectation.Basic": {
+          "title": "Conditional expectations",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Function.ConditionalExpectation.CondJensen": {
+          "title": "Conditional Jensen inequality",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Function.ConditionalExpectation.PullOut": {
+          "title": "Conditional expectation of measurable factors",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.OuterMeasure.BorelCantelli": {
+          "title": "First Borel-Cantelli lemma",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
         }
       }
     }
@@ -1257,7 +1529,12 @@
       "title": "Probability",
       "parent": "mathematics",
       "modules": [
-        "Mathlib.Probability.ProbabilityMassFunction.Basic"
+        "Mathlib.Probability.ProbabilityMassFunction.Basic",
+        "Mathlib.Probability.HasLaw",
+        "Mathlib.Probability.IdentDistrib",
+        "Mathlib.Probability.Moments.Basic",
+        "Mathlib.Probability.Moments.Variance",
+        "Mathlib.Probability.Moments.Covariance"
       ]
     },
     "order": {
@@ -1327,7 +1604,10 @@
       "modules": [
         "Mathlib.MeasureTheory.MeasurableSpace.Defs",
         "Mathlib.MeasureTheory.Measure.MeasureSpaceDef",
-        "Mathlib.MeasureTheory.Integral.Bochner.Basic"
+        "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+        "Mathlib.MeasureTheory.Function.ConditionalExpectation.Basic",
+        "Mathlib.MeasureTheory.Function.ConditionalExpectation.CondJensen",
+        "Mathlib.MeasureTheory.Function.ConditionalExpectation.PullOut"
       ]
     },
     "category_theory": {
@@ -1503,6 +1783,62 @@
         "Mathlib.NumberTheory.NumberField.Units.Regulator",
         "Mathlib.NumberTheory.KummerDedekind",
         "Mathlib.NumberTheory.NumberField.Ideal.KummerDedekind"
+      ]
+    },
+    "independence": {
+      "title": "Independence",
+      "parent": "probability",
+      "modules": [
+        "Mathlib.Probability.Independence.Basic",
+        "Mathlib.Probability.Independence.Conditional",
+        "Mathlib.Probability.Independence.Integration",
+        "Mathlib.Probability.Independence.Integrable",
+        "Mathlib.Probability.Independence.ZeroOne"
+      ]
+    },
+    "probability_distributions": {
+      "title": "Probability distributions",
+      "parent": "probability",
+      "modules": [
+        "Mathlib.Probability.Distributions.Bernoulli",
+        "Mathlib.Probability.Distributions.Binomial",
+        "Mathlib.Probability.Distributions.Uniform",
+        "Mathlib.Probability.Distributions.Gaussian.Real",
+        "Mathlib.Probability.Distributions.Poisson.Basic"
+      ]
+    },
+    "probability_limits": {
+      "title": "Probability limit theorems",
+      "parent": "probability",
+      "modules": [
+        "Mathlib.Probability.StrongLaw",
+        "Mathlib.Probability.CentralLimitTheorem",
+        "Mathlib.Probability.BorelCantelli",
+        "Mathlib.MeasureTheory.Function.ConvergenceInDistribution",
+        "Mathlib.MeasureTheory.OuterMeasure.BorelCantelli"
+      ]
+    },
+    "stochastic_processes": {
+      "title": "Stochastic processes",
+      "parent": "probability",
+      "modules": [
+        "Mathlib.Probability.Process.Filtration",
+        "Mathlib.Probability.Process.Adapted",
+        "Mathlib.Probability.Process.Stopping",
+        "Mathlib.Probability.Process.HittingTime",
+        "Mathlib.Probability.Process.LimitProcess"
+      ]
+    },
+    "martingales": {
+      "title": "Martingales",
+      "parent": "stochastic_processes",
+      "modules": [
+        "Mathlib.Probability.Martingale.Basic",
+        "Mathlib.Probability.Martingale.OptionalSampling",
+        "Mathlib.Probability.Martingale.OptionalStopping",
+        "Mathlib.Probability.Martingale.Upcrossing",
+        "Mathlib.Probability.Martingale.Convergence",
+        "Mathlib.Probability.Martingale.BorelCantelli"
       ]
     }
   },

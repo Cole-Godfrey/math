@@ -2,7 +2,7 @@
 
 A growing repository of formal mathematics with Lean-checked proofs and explicit foundational dependencies.
 
-The goal is a universal, living account of mathematics, from logical foundations to contemporary research. Current coverage includes logic, relations, orders, cardinality, number systems through complex numbers, groups, primality, quadratic reciprocity, Pell equations, algebraic number theory, vector spaces, commutative algebra, Galois theory, the Nullstellensatz, topology, calculus, measure theory, geometry, extremal graph theory, categories, probability mass functions, recursive functions, and Turing machines. The full goal remains open. See [representative results and their scope](docs/coverage.md).
+The goal is a universal, living account of mathematics, from logical foundations to contemporary research. Current coverage includes logic, relations, orders, cardinality, number systems through complex numbers, groups, primality, quadratic reciprocity, Pell equations, algebraic number theory, vector spaces, commutative algebra, Galois theory, the Nullstellensatz, topology, calculus, measure theory, geometry, extremal graph theory, categories, probability distributions, laws of large numbers, the central limit theorem, martingales, recursive functions, and Turing machines. The full goal remains open. See [representative results and their scope](docs/coverage.md).
 
 Install [Lean and elan](https://lean-lang.org/install/), then run:
 
@@ -18,6 +18,7 @@ python3 -m repository show Sylow.exists_subgroup_card_pow_prime
 python3 -m repository subjects
 python3 -m repository search "mean value" --subject analysis
 python3 -m repository search "halting" --subject computation
+python3 -m repository search "strong law" --subject probability
 python3 -m repository show ComputablePred.rice₂ --proof
 python3 -m repository hierarchy Math.Natural.mul_comm --format json
 ```
