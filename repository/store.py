@@ -13,6 +13,7 @@ from threading import Lock
 
 from .core import CHILD_FIELDS, canonical, digest, expression_names, require, selected_module_roots
 from .explore import KnowledgeGraph
+from .terms import inspect_term
 
 
 ROLES = {"type": 1, "value": 2, "structure": 4}
@@ -465,6 +466,30 @@ class Snapshot:
                 "universes": node["universes"], "definition_group": node.get("definition_group", []),
                 "reducibility": node.get("reducibility"),
                 "name_data": identities}
+
+    def term(self, name: str, root: str = "value", path: str = "", rule: int | None = None) -> dict:
+        """read an exact term occurrence and preserve its local binder context."""
+        node = self.declaration(name)
+        records = {}
+        with self.connect() as connection:
+            def read(identifier):
+                if identifier not in records:
+                    row = connection.execute("SELECT record, digest FROM expressions WHERE id=?", (identifier,)).fetchone()
+                    require(row is not None, "query store has a missing proof expression")
+                    records[identifier] = {**json.loads(row[0]), "digest": row[1]}
+                return records[identifier]
+
+            result = inspect_term(node, read, root, path, rule)
+            names = expression_names({"name": node["name"], "universes": node["universes"]}, records.values())
+            identities = {}
+            ordered = sorted(names)
+            for offset in range(0, len(ordered), 500):
+                batch = ordered[offset:offset + 500]
+                marks = ",".join("?" for _ in batch)
+                for key, parts in connection.execute(f"SELECT name, parts FROM names WHERE name IN ({marks})", batch):
+                    identities[key] = json.loads(parts)
+            require(identities.keys() == names, "query store has a missing logical name")
+        return {**result, "name_data": identities}
 
     def source(self, name: str, full: bool = False) -> dict:
         node = self.declaration(name)

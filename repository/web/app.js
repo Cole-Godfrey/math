@@ -42,6 +42,7 @@ function nameLink(name, className = "node-chip") {
   parameters.set("tab", "statement");
   parameters.delete("group");
   parameters.delete("level");
+  for (const key of ["term_root", "term_rule", "term_path"]) parameters.delete(key);
   link.href = "#" + parameters.toString();
   return link;
 }
@@ -171,7 +172,7 @@ function renderHeading(node, tab) {
   navigation.replaceChildren();
   for (const label of tabs) {
     const name = label.toLowerCase();
-    const control = button(label, () => route({tab: name, group: null}), "tab" + (tab === name ? " active" : ""));
+    const control = button(label, () => route({tab: name, group: null, term_root: null, term_rule: null, term_path: null}), "tab" + (tab === name ? " active" : ""));
     if (tab === name) control.setAttribute("aria-current", "page");
     navigation.append(control);
   }
@@ -184,14 +185,148 @@ function downloadLink(text, path, name) {
   return link;
 }
 
-async function proofView(body, node, request) {
+function termLink(text, data, path, className = "small-button") {
+  const link = element("a", text, className);
+  const parameters = new URLSearchParams(location.hash.slice(1));
+  parameters.set("tab", "proof");
+  parameters.set("term_root", data.root);
+  if (data.rule === null) parameters.delete("term_rule");
+  else parameters.set("term_rule", data.rule);
+  if (path) parameters.set("term_path", path);
+  else parameters.delete("term_path");
+  link.href = "#" + parameters.toString();
+  return link;
+}
+
+function binderLabel(name) {
+  if (!name) return "_";
+  return !name.includes("«") && name.includes("._hygCtx._hyg.") ? name.split("._@.")[0] : name;
+}
+
+function termDescription(item) {
+  if (item.tag === "const" || item.tag === "proj") return item.name;
+  if (item.tag === "bvar") return `${binderLabel(item.binding.name)} · bound variable ${item.index}`;
+  if (item.tag === "lam" || item.tag === "forall" || item.tag === "let") return binderLabel(item.name);
+  return {app: "Application", sort: "Universe", nat: "Natural number", string: "String"}[item.tag] || item.tag;
+}
+
+function renderTerm(body, data) {
+  const focused = data.expression;
+  const section = element("section", null, "term-inspector");
+  section.setAttribute("aria-label", "Checked term inspector");
+  const controls = element("div", null, "section-tools");
+  const select = element("select");
+  select.id = "term-root";
+  select.setAttribute("aria-label", "Term root");
+  for (const [index, root] of data.roots.entries()) {
+    const option = element("option", root.label);
+    option.value = index;
+    option.selected = root.root === data.root && root.rule === data.rule;
+    select.append(option);
+  }
+  select.addEventListener("change", () => {
+    const root = data.roots[select.value];
+    route({term_root: root.root, term_rule: root.rule, term_path: null});
+  });
+  controls.append(select);
+  if (data.path) {
+    const parent = termLink("Parent", data, data.path.slice(0, -1));
+    parent.id = "term-parent";
+    controls.append(parent, termLink("Root", data, ""));
+  }
+  controls.append(element("span", data.path ? `${data.path.length} steps from the root` : "Root expression", "muted"));
+  section.append(controls);
+  const card = element("article", null, "term-card");
+  const titles = {app: "Application", lam: "Function", forall: "Dependent function type", let: "Local definition",
+    const: "Referenced declaration", bvar: "Bound variable", sort: "Universe", proj: "Projection",
+    nat: "Natural number literal", string: "String literal"};
+  const explanations = {
+    app: "The function is applied to the arguments in order.",
+    lam: "The function binds this variable with the specified type.",
+    forall: "The body may depend on the variable with the specified type.",
+    let: "The body may refer to this local definition.",
+    bvar: "This occurrence refers to the binding identified below.",
+    const: "Follow the declaration to inspect its statement, proof, and foundations.",
+    proj: "This expression selects a field from a structure.",
+  };
+  card.append(element("h2", titles[focused.tag] || focused.tag));
+  if (explanations[focused.tag]) card.append(element("p", explanations[focused.tag], "muted"));
+  if (["const", "proj"].includes(focused.tag)) card.append(nameLink(focused.name));
+  else if (["lam", "forall", "let"].includes(focused.tag)) {
+    card.append(element("p", `${binderLabel(focused.name)}${focused.binder ? " · " + focused.binder.replaceAll("_", " ") : ""}`, "term-binding-name"));
+  } else if (focused.tag === "bvar") {
+    card.append(element("p", `${binderLabel(data.binding.name)} · bound variable ${focused.index}`, "term-binding-name"));
+  } else if (["nat", "string"].includes(focused.tag)) {
+    card.append(element("pre", focused.tag === "string" ? JSON.stringify(focused.value) : String(focused.value), "term-literal"));
+  } else if (focused.tag === "sort") {
+    card.append(element("pre", focused.level.tag === "zero" ? "Prop" : "Sort " + JSON.stringify(focused.level), "term-literal"));
+  }
+  if (focused.levels?.length) card.append(element("p", "Universe arguments: " + JSON.stringify(focused.levels), "term-universes"));
+  if (focused.tag === "proj") card.append(element("p", `Field index: ${focused.index} (starting at zero)`, "muted"));
+  const children = element("div", null, "term-children");
+  function addChild(label, child) {
+    const row = element("div", null, "term-child");
+    row.append(termLink(label, data, child.path), child.tag === "const"
+      ? nameLink(child.name, "term-child-description")
+      : element("span", termDescription(child), "term-child-description"));
+    children.append(row);
+  }
+  if (data.application) {
+    addChild("Function", data.application.function);
+    data.application.arguments.forEach((item, index) => addChild(`Argument ${index + 1}`, item));
+  } else {
+    const labels = {type: "Type", body: "Body", value: "Value", expression: "Structure", function: "Function", argument: "Argument"};
+    for (const child of data.children) addChild(labels[child.field], child);
+  }
+  card.append(children);
+  section.append(card);
+  if (data.context.length) {
+    const context = element("section", null, "term-context");
+    context.append(element("h3", "Bound assumptions and variables"));
+    const list = element("ol");
+    for (const binding of data.context) {
+      const row = element("li");
+      if (data.binding?.depth === binding.depth) row.classList.add("term-binding-active");
+      const label = `${binderLabel(binding.name)} · ${binding.kind === "let" ? "local definition" : (binding.binder || "explicit").replaceAll("_", " ")} · index ${binding.index}`;
+      row.append(element("span", label, "term-binding-name"),
+        termLink("Inspect type", data, data.path.slice(0, binding.depth) + "t"));
+      if (binding.kind === "let") row.append(termLink("Inspect value", data, data.path.slice(0, binding.depth) + "v"));
+      list.append(row);
+    }
+    context.append(list);
+    section.append(context);
+  }
+  const exact = element("details", null, "term-exact");
+  exact.append(element("summary", "Exact expression and logical names"),
+    element("pre", JSON.stringify({root: data.root, rule: data.rule, path: data.path,
+      expression: focused, context: data.context, names: data.name_data, universes: data.universes}, null, 2), "proof-code"));
+  section.append(exact);
+  body.append(section);
+}
+
+async function proofView(body, node, request, parameters) {
   const tools = element("div", null, "section-tools");
-  tools.append(element("p", "Term preview. Download expressions for the complete checked term."),
+  tools.append(element("p", "Follow the checked term through its arguments and bound assumptions."),
     downloadLink("Download expressions", "/api/expressions", node.name));
   body.append(tools);
-  const data = await api("/api/declaration", {name: node.name, proof: 1});
+  const data = await api("/api/term", {name: node.name, root: parameters.get("term_root") || (node.value === null ? "type" : "value"),
+    rule: parameters.get("term_rule"), path: parameters.get("term_path") || ""});
   if (request !== activeRequest) return;
-  body.append(element("pre", data.proof || "This is a kernel primitive or structural declaration. Its reduction data is included in the expression download.", "proof-code"));
+  renderTerm(body, data);
+  if (node.value !== null) {
+    const preview = element("details", null, "term-preview");
+    preview.append(element("summary", "Readable preview"), element("p", "Lean's readable preview may abbreviate subterms. The inspector and expression download retain their exact structure.", "muted"));
+    let loaded = false;
+    preview.addEventListener("toggle", async () => {
+      if (!preview.open || loaded) return;
+      loaded = true;
+      try {
+        const result = await api("/api/declaration", {name: node.name, proof: 1});
+        if (request === activeRequest) preview.append(element("pre", result.proof, "proof-code"));
+      } catch (error) { loaded = false; if (request === activeRequest) status(error.message, true); }
+    });
+    body.append(preview);
+  }
 }
 
 async function dependenciesView(body, node, request) {
@@ -338,7 +473,7 @@ async function showDeclaration(parameters, request) {
     body.append(element("pre", node.statement, "statement"));
     if (node.doc) body.append(formatted(element("div", null, "documentation"), node.doc.trim()));
     body.append(element("p", node.axioms.length ? `Foundational axioms: ${node.axioms.join(", ")}` : "No additional axioms beyond the kernel rules and bound assumptions.", "notice"));
-  } else if (tab === "proof") await proofView(body, node, request);
+  } else if (tab === "proof") await proofView(body, node, request, parameters);
   else if (tab === "dependencies") await dependenciesView(body, node, request);
   else if (tab === "foundations") await foundationsView(body, node, request);
   else if (tab === "hierarchy") await hierarchyView(body, node, request, parameters);

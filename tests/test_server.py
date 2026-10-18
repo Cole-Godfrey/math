@@ -60,6 +60,7 @@ class ServerTests(unittest.TestCase):
             ("/api/dependencies", {"name": "Math.Fixture.alias_truth", "transitive": "1"}),
             ("/api/hierarchy", {"name": "Math.Fixture.alias_truth", "format": "json"}),
             ("/api/expressions", {"name": "Math.Fixture.identity"}),
+            ("/api/term", {"name": "Math.Fixture.identity", "root": "value", "path": "bb"}),
             ("/api/source", {"name": "Math.Fixture.truth"}),
             ("/api/guide", {}),
         ]:
@@ -78,7 +79,7 @@ class ServerTests(unittest.TestCase):
             self.assertEqual(self.request(endpoint, method="HEAD")[2], b"")
 
     def test_requests_cannot_silently_switch_snapshots(self):
-        for endpoint in ["/api/search", "/api/catalog", "/api/proof-export"]:
+        for endpoint in ["/api/search", "/api/catalog", "/api/proof-export", "/api/term"]:
             status, _, body = self.request(endpoint, {"snapshot": "0" * 64})
             self.assertEqual(status, 400)
             self.assertIn("snapshot changed", json.loads(body)["error"])
@@ -101,11 +102,23 @@ class ServerTests(unittest.TestCase):
     def test_invalid_queries_and_arbitrary_files_are_rejected(self):
         for path, parameters in [("/api/search", {"limit": 0}), ("/api/search", {"offset": 2 ** 100}),
                                  ("/api/declaration", {"name": "../../AGENTS.md"}),
-                                 ("/api/dependencies", {"name": "Math.Fixture.truth", "role": "unsafe"})]:
+                                 ("/api/dependencies", {"name": "Math.Fixture.truth", "role": "unsafe"}),
+                                 ("/api/term", {"name": "Math.Fixture.identity", "root": "value", "path": "bbx"}),
+                                 ("/api/term", {"name": "Math.Fixture.identity", "root": "rule", "rule": "-1"})]:
             status, _, _ = self.request(path, parameters)
             self.assertEqual(status, 400)
         self.assertEqual(self.request("/../AGENTS.md")[0], 404)
         self.assertEqual(self.request("/api/search?q=a&q=b")[0], 400)
+        self.assertEqual(self.request("/api/term?name=Math.Fixture.identity&path=b&path=t")[0], 400)
+
+    def test_term_occurrences_retain_binder_scope_and_snapshot_identity(self):
+        status, headers, body = self.request("/api/term", {"name": "Math.Fixture.identity", "path": "bb"})
+        self.assertEqual(status, 200)
+        result = json.loads(body)
+        self.assertEqual(result["expression"]["id"], 3)
+        self.assertEqual(result["binding"]["name"], "h")
+        self.assertEqual(headers["X-Math-Snapshot"], self.catalog["content_digest"])
+        self.assertEqual(self.request("/api/term", {"name": "Math.Fixture.identity", "path": "bb"}, method="HEAD")[2], b"")
 
     def test_foreign_hosts_and_reload_origins_are_rejected(self):
         self.assertEqual(self.request("/api/summary", headers={"Host": "example.invalid"})[0], 400)

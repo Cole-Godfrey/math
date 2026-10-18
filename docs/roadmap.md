@@ -10,6 +10,8 @@ Number theory now includes modular arithmetic, quadratic reciprocity, Pell equat
 
 Browser and terminal queries share immutable query snapshots. Terminal search, dependency, and export commands retain complete results while avoiding the full proof expression array. Catalog-only terminal use remains available when a query receipt was not retained.
 
+The browser inspects exact term occurrences with their binder contexts, ordered application arguments, local definitions, referenced declarations, and recursor reduction rules. Structured navigation reads each requested path from the immutable snapshot and retains full term downloads.
+
 Work still required:
 
 - Expand registered mathlib coverage across further fields and research results, and integrate other established formal libraries while preserving upstream declarations, licenses, references, and proof dependencies.

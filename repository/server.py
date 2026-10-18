@@ -130,6 +130,9 @@ def make_handler(state: ExplorerState):
                     result = snapshot.source(name, arg("full") == "1")
                 elif request.path == "/api/expressions":
                     result = snapshot.expressions(name)
+                elif request.path == "/api/term":
+                    result = snapshot.term(name, arg("root", "value"), arg("path"),
+                                           number("rule", 0) if arg("rule") else None)
                 elif request.path == "/api/hierarchy":
                     graph = state.hierarchy(snapshot.metadata["content_digest"], name)
                     if arg("format") == "json":

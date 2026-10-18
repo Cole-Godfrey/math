@@ -12,6 +12,7 @@ from unittest.mock import patch
 from repository.build import find_lake, verify
 from repository.core import CHILD_FIELDS, RepositoryError, validate
 from repository.replay import Hashes, bind_replay, fingerprint, name_hashes
+from repository.store import open_snapshot
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -165,6 +166,21 @@ end Binding
         self.assertEqual(audit["proof_export_digest"], self.catalog["provenance"]["proof_export_digest"])
         self.assertEqual({node["kind"] for node in self.nodes.values()},
                          {"axiom", "definition", "theorem", "opaque", "inductive", "constructor", "recursor", "quotient_primitive"})
+
+    def test_term_inspection_retains_checked_reduction_rules_and_exact_names(self):
+        snapshot = open_snapshot(self.root)
+        name = "Binding.Tree.rec"
+        for index, rule in enumerate(self.nodes[name]["structure"]["rules"]):
+            with self.subTest(rule=index):
+                result = snapshot.term(name, root="rule", rule=index)
+                expected = self.catalog["expressions"][rule["rhs"]]
+                self.assertEqual(result["expression"], {"id": rule["rhs"], **expected,
+                                                       "digest": self.catalog["expression_hashes"][rule["rhs"]]})
+                self.assertEqual(result["context"], [])
+        for name in ("Binding.«a.b»", "Binding.«0»"):
+            with self.subTest(name=name):
+                result = snapshot.term(name)
+                self.assertEqual(result["name_data"][name], self.catalog["name_data"][name])
 
     def test_ill_typed_body_that_passes_structural_audit_is_rejected(self):
         catalog, node = self.altered("Binding.truth")
