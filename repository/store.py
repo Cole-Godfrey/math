@@ -14,6 +14,7 @@ from threading import Lock
 from .core import CHILD_FIELDS, canonical, digest, expression_names, require, selected_module_roots
 from .explore import KnowledgeGraph
 from .terms import inspect_term
+from .bibliography import resolve_citations
 
 
 ROLES = {"type": 1, "value": 2, "structure": 4}
@@ -283,6 +284,8 @@ class Snapshot:
                 "lean_version": self.metadata["lean_version"], "foundation": self.metadata["foundation"],
                 "axiom_policy": self.metadata["axiom_policy"], "axiom_audit": self.metadata["axiom_audit"],
                 "proof_binding": self.metadata["proof_binding"],
+                "bibliography_keys": sorted({key for package, bibliography in self.metadata.get("bibliographies", {}).items()
+                                             for name in bibliography["entries"] for key in (name, package + ":" + name)}),
                 "checkers": self.metadata["provenance"]["checkers"], "subjects": self.graph.subject_coverage()}
 
     def statistics(self) -> dict:
@@ -490,6 +493,25 @@ class Snapshot:
                     identities[key] = json.loads(parts)
             require(identities.keys() == names, "query store has a missing logical name")
         return {**result, "name_data": identities}
+
+    def citations(self, name: str) -> dict:
+        """distinguish citations in declaration documentation from module references."""
+        node = self.declaration(name)
+        package = node["origin"].get("package")
+        bibliographies = self.metadata.get("bibliographies", {})
+        module = next((item for item in self.metadata.get("modules", []) if item["name"] == node["module"]), {})
+        docs = module.get("docs", [])
+        return {"declaration": name, "module": node["module"], "origin": node["origin"],
+                "declaration_doc": node["doc"] or "", "module_docs": docs,
+                "declaration_citations": resolve_citations(bibliographies, node["doc"] or "", package),
+                "module_citations": resolve_citations(bibliographies, "\n\n".join(item["text"] for item in docs), package),
+                "bibliographies": [{key: value for key, value in bibliography.items() if key not in {"entries", "text"}}
+                                   for bibliography in bibliographies.values()]}
+
+    def bibliography(self, package: str) -> dict:
+        entries = self.metadata.get("bibliographies", {})
+        require(package in entries, f"unknown bibliography: {package}")
+        return entries[package]
 
     def source(self, name: str, full: bool = False) -> dict:
         node = self.declaration(name)

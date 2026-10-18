@@ -13,6 +13,7 @@ import tempfile
 from .core import RepositoryError, canonical, canonical_chunks, digest, registered_modules, require, stream_digest, subject_policy, validate
 from .json_reader import read_object
 from .libraries import package_provenance, snapshot_packages, source_origins
+from .bibliography import archive_bibliographies
 
 
 def read_json(path: Path) -> dict:
@@ -146,6 +147,7 @@ def verify(root: Path, clean: bool = False) -> dict:
         catalog = validate(raw, policy)
         catalog["proof_binding"] = bind_replay(catalog, replay_path)
         catalog["sources"] = source_origins(root, catalog, packages, policy)
+        catalog["bibliographies"] = archive_bibliographies(packages, policy)
         prefix = Path(run(root, [lake, "env", "lean", "--print-prefix"], capture=True).strip())
         license_text = (prefix / "LICENSE").read_text()
         run(root, [lake, "env", "leanchecker", "--from-export", str(replay_path)], capture=True)

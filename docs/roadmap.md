@@ -12,11 +12,13 @@ Browser and terminal queries share immutable query snapshots. Terminal search, d
 
 The browser inspects exact term occurrences with their binder contexts, ordered application arguments, local definitions, referenced declarations, and recursor reduction rules. Structured navigation reads each requested path from the immutable snapshot and retains full term downloads.
 
+Pinned upstream bibliographies and compiled module documentation connect explicit citation keys to retained records, publication links, and source locations. The browser distinguishes declaration citations from module references and preserves the complete bibliography for reconstruction.
+
 Work still required:
 
 - Expand registered mathlib coverage across further fields and research results, and integrate other established formal libraries while preserving upstream declarations, licenses, references, and proof dependencies.
 - Extend mathematical coverage across number systems, relations, order, algebra, analysis, geometry, topology, probability, computation, and research results.
-- Connect informal statements and bibliographic references to precise formal declarations and record competing formulations and generalizations.
+- Connect further informal statements and references to precise formal declarations, support project bibliographies, and record competing formulations and generalizations.
 - Extend browser proof inspection to explanatory proof steps, informal references, and contribution history.
 - Publish reproducible verification artifacts and compare formal statements with trusted reference specifications and additional proof checkers.
 - Extend shared expression storage to incremental indexing, stable identifiers across renames, larger-scale storage and search, and additional versioned library imports.

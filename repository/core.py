@@ -83,6 +83,11 @@ def registered_modules(policy: dict) -> dict[str, dict]:
                 f"{package}: library revision must be an exact commit")
         require(bool(library.get("license")) and bool(library.get("license_file")),
                 f"{package}: missing license attribution")
+        bibliography = library.get("bibliography")
+        if bibliography is not None:
+            require(isinstance(bibliography, str) and bool(bibliography)
+                    and not bibliography.startswith("/") and "\\" not in bibliography
+                    and ".." not in bibliography.split("/"), f"{package}: invalid bibliography path")
         modules = library.get("modules")
         require(isinstance(modules, dict) and bool(modules), f"{package}: no registered modules")
         for name, module in modules.items():

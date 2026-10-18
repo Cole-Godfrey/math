@@ -18,3 +18,5 @@ To index another upstream mathlib module, add its title and axiom budget under `
 Subject parent links organize browsing and must be acyclic. Every selected module must have a subject assignment. The `hierarchy` command derives logical prerequisites from kernel declarations independently of this classification.
 
 Library upgrades must pin a full commit in `lakefile.toml`, update the Lake lockfile, and match the revision in `knowledge.json`. Preserve the library's license attribution. Verification compares tracked dependency bytes with their Git objects and rejects changed, missing, or untracked sources. `make verify` cleans the local package while retaining dependency caches; it rechecks their reachable proof terms.
+
+An upstream library can register a `bibliography` path relative to its pinned checkout. The file must be tracked at that revision. Cite an entry with `[bibkey]` or `[Author, Title][bibkey]` in documentation. The source library's entries take precedence; `library:bibkey` selects another registered bibliography explicitly. The explorer keeps declaration citations and module references distinct.

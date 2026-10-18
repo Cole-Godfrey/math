@@ -16,3 +16,5 @@ The mathematical index retains original declaration names, source links, module 
 | [Lean CLI](https://github.com/leanprover/lean4-cli) | MIT |
 
 These dependencies include both mathematical libraries and supporting tools. Their full license notices are retained under verification provenance in the generated index. Preserve those notices when redistributing an index or its proof artifacts.
+
+Registered bibliographies retain their complete source text, exact source revision, file digest, and library license attribution. Individual entries preserve their original BibTeX and source line ranges. References cited only in module documentation are identified at that scope.

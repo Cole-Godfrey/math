@@ -34,7 +34,8 @@ class ReplayBindingTests(unittest.TestCase):
         (cls.root / "lakefile.toml").write_text('name = "math"\n[[lean_lib]]\nname = "Math"\n')
         (cls.root / "lake-manifest.json").write_text(json.dumps({
             "version": "1.3.0", "name": "math", "packages": [], "packagesDir": ".lake/packages"}))
-        (cls.root / "Math/Binding.lean").write_text('''universe u
+        (cls.root / "Math/Binding.lean").write_text('''/-! fixture module reference [fixturebook]. -/
+universe u
 namespace Binding
 theorem truth : True := True.intro
 theorem alias_truth : True := True.intro
@@ -166,6 +167,11 @@ end Binding
         self.assertEqual(audit["proof_export_digest"], self.catalog["provenance"]["proof_export_digest"])
         self.assertEqual({node["kind"] for node in self.nodes.values()},
                          {"axiom", "definition", "theorem", "opaque", "inductive", "constructor", "recursor", "quotient_primitive"})
+
+    def test_module_documentation_is_extracted_from_the_lean_environment(self):
+        module = next(item for item in self.catalog["modules"] if item["name"] == "Math.Binding")
+        self.assertIn("fixture module reference [fixturebook]", module["docs"][0]["text"])
+        self.assertEqual(module["docs"][0]["line"], 1)
 
     def test_term_inspection_retains_checked_reduction_rules_and_exact_names(self):
         snapshot = open_snapshot(self.root)

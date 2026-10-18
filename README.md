@@ -50,4 +50,6 @@ Terminal queries use the verified query snapshot and read proof expressions only
 
 The browser's Proof tab inspects exact term occurrences. Follow a function and its ordered arguments, enter a binder's body, inspect local assumptions and definitions, or select a recursor reduction rule. Bound variables resolve in the scope of the selected occurrence. Referenced constants link to their declarations and foundations. The readable preview and complete expression download remain available.
 
+The References tab separates citations in a declaration's documentation from references in its module documentation. Citation keys link to retained BibTeX records, publication URLs, and bibliography entries at the pinned source revision. The complete bibliography is downloadable with the snapshot.
+
 See [foundations](docs/foundations.md), [index format](docs/index-format.md), [contributing](CONTRIBUTING.md), and [remaining work](docs/roadmap.md).

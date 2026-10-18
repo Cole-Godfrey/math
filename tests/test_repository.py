@@ -467,6 +467,30 @@ class RepositoryTests(unittest.TestCase):
     def test_number_theory_statements_match_reference_types(self):
         run(ROOT, [self.lake, "env", "lean", "tests/NumberTheoryStatements.lean"], capture=True)
 
+    def test_pinned_bibliography_retains_every_source_byte_and_entry(self):
+        bibliography = self.catalog["bibliographies"]["mathlib"]
+        path = ROOT / ".lake/packages/mathlib" / self.policy["libraries"]["mathlib"]["bibliography"]
+        data = path.read_bytes()
+        self.assertEqual(bibliography["text"].encode(), data)
+        self.assertEqual(bibliography["sha256"], hashlib.sha256(data).hexdigest())
+        self.assertEqual(len(bibliography["entries"]), sum(line.startswith(b"@") for line in data.splitlines()))
+        self.assertEqual(bibliography["revision"], self.policy["libraries"]["mathlib"]["revision"])
+        self.assertEqual(bibliography["license"], "Apache-2.0")
+        self.assertIn(bibliography["revision"], bibliography["url"])
+
+    def test_mathematical_references_preserve_declaration_and_module_scopes(self):
+        snapshot = open_snapshot(ROOT)
+        pell = snapshot.citations("Pell.exists_of_not_isSquare")
+        self.assertEqual(pell["declaration_citations"], [])
+        self.assertIn("IrelandRosen1990", {item["key"] for item in pell["module_citations"]})
+        name = "RingOfIntegers.isPrincipalIdealRing_of_isPrincipal_of_pow_le_of_mem_primesOver_of_mem_Icc"
+        result = snapshot.citations(name)
+        self.assertIn("marcus1977number", {item["key"] for item in result["declaration_citations"]})
+        self.assertIn("marcus1977number", {item["key"] for item in result["module_citations"]})
+        number_field = snapshot.citations("NumberField")
+        self.assertTrue({"marcus1977number", "cassels1967algebraic", "samuel1967"} <=
+                        {item["key"] for item in number_field["module_citations"]})
+
     def test_number_theory_objects_and_results_retain_terms_and_pinned_sources(self):
         expected = {
             "ZMod": "Data.ZMod.Defs",

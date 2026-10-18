@@ -2,6 +2,7 @@
 
 import http.client
 from http.server import ThreadingHTTPServer
+import hashlib
 import json
 from pathlib import Path
 import tempfile
@@ -10,6 +11,9 @@ import unittest
 from urllib.parse import urlencode
 
 from repository.server import ExplorerState, make_handler
+from repository.bibliography import BibTeX
+from repository.core import canonical, digest
+from repository.store import create_store
 from tests.store_fixture import fixture
 
 
@@ -19,6 +23,25 @@ class ServerTests(unittest.TestCase):
         cls.temporary = tempfile.TemporaryDirectory()
         cls.root = Path(cls.temporary.name)
         cls.catalog, cls.receipt = fixture(cls.root)
+        text = '@book{FixtureBook,title={Fixture book},year=2026}\n'
+        cls.catalog["bibliographies"] = {"fixture": {
+            "package": "fixture", "path": "references.bib", "text": text,
+            "sha256": hashlib.sha256(text.encode()).hexdigest(), "revision": "1" * 40,
+            "license": "fixture-license", "url": "https://example.invalid/references.bib",
+            "entries": BibTeX(text).entries()}}
+        cls.catalog["modules"] = [{"name": "Math.Fixture", "imports": [],
+                                  "docs": [{"text": "module reference [FixtureBook]", "line": 1, "end_line": 1}]}]
+        node = next(item for item in cls.catalog["declarations"] if item["name"] == "Math.Fixture.truth")
+        node["doc"] += " [FixtureBook]"
+        cls.catalog["declaration_hashes"][node["name"]] = digest(node)
+        cls.catalog.pop("content_digest")
+        cls.catalog["content_digest"] = digest(cls.catalog)
+        data = canonical(cls.catalog) + b"\n"
+        (cls.root / "build/knowledge.json").write_bytes(data)
+        cls.receipt = create_store(cls.root / "build", cls.catalog,
+                                   {"Math.Fixture": (cls.root / "Math/Fixture.lean").read_text()},
+                                   hashlib.sha256(data).hexdigest())
+        (cls.root / "build/index.json").write_bytes(canonical(cls.receipt))
         cls.state = ExplorerState(cls.root)
         cls.server = ThreadingHTTPServer(("127.0.0.1", 0), make_handler(cls.state))
         cls.thread = Thread(target=cls.server.serve_forever, daemon=True)
@@ -61,6 +84,7 @@ class ServerTests(unittest.TestCase):
             ("/api/hierarchy", {"name": "Math.Fixture.alias_truth", "format": "json"}),
             ("/api/expressions", {"name": "Math.Fixture.identity"}),
             ("/api/term", {"name": "Math.Fixture.identity", "root": "value", "path": "bb"}),
+            ("/api/citations", {"name": "Math.Fixture.truth"}),
             ("/api/source", {"name": "Math.Fixture.truth"}),
             ("/api/guide", {}),
         ]:
@@ -79,7 +103,7 @@ class ServerTests(unittest.TestCase):
             self.assertEqual(self.request(endpoint, method="HEAD")[2], b"")
 
     def test_requests_cannot_silently_switch_snapshots(self):
-        for endpoint in ["/api/search", "/api/catalog", "/api/proof-export", "/api/term"]:
+        for endpoint in ["/api/search", "/api/catalog", "/api/proof-export", "/api/term", "/api/citations", "/api/bibliography"]:
             status, _, body = self.request(endpoint, {"snapshot": "0" * 64})
             self.assertEqual(status, 400)
             self.assertIn("snapshot changed", json.loads(body)["error"])
@@ -119,6 +143,21 @@ class ServerTests(unittest.TestCase):
         self.assertEqual(result["binding"]["name"], "h")
         self.assertEqual(headers["X-Math-Snapshot"], self.catalog["content_digest"])
         self.assertEqual(self.request("/api/term", {"name": "Math.Fixture.identity", "path": "bb"}, method="HEAD")[2], b"")
+
+    def test_bibliography_downloads_retain_bytes_attribution_and_citation_scopes(self):
+        status, headers, body = self.request("/api/bibliography", {"package": "fixture"})
+        self.assertEqual(status, 200)
+        self.assertEqual(body, self.catalog["bibliographies"]["fixture"]["text"].encode())
+        self.assertIn('filename="fixture-references.bib"', headers["Content-Disposition"])
+        self.assertEqual(headers["X-Math-Snapshot"], self.catalog["content_digest"])
+        status, _, body = self.request("/api/citations", {"name": "Math.Fixture.truth"})
+        self.assertEqual(status, 200)
+        data = json.loads(body)
+        self.assertEqual(data["declaration_citations"][0]["key"], "FixtureBook")
+        self.assertEqual(data["module_citations"][0]["key"], "FixtureBook")
+        self.assertEqual(self.request("/api/bibliography", {"package": "missing"})[0], 400)
+        self.assertEqual(self.request("/api/citations", {"name": "missing"})[0], 400)
+        self.assertEqual(self.request("/api/bibliography", {"package": "fixture"}, method="HEAD")[2], b"")
 
     def test_foreign_hosts_and_reload_origins_are_rejected(self):
         self.assertEqual(self.request("/api/summary", headers={"Host": "example.invalid"})[0], 400)

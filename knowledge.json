@@ -32,6 +32,7 @@
       "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
       "license": "Apache-2.0",
       "license_file": "LICENSE",
+      "bibliography": "docs/references.bib",
       "modules": {
         "Mathlib.Data.Nat.Prime.Defs": {
           "title": "Prime numbers",

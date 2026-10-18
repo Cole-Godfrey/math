@@ -1,8 +1,9 @@
 "use strict";
 
 const $ = id => document.getElementById(id);
-const tabs = ["Statement", "Proof", "Dependencies", "Foundations", "Hierarchy", "Source"];
+const tabs = ["Statement", "Proof", "Dependencies", "Foundations", "Hierarchy", "References", "Source"];
 let summary = null;
+let bibliographyKeys = new Set();
 let activeRequest = 0;
 let searchTimer;
 let focusSearch = false;
@@ -14,13 +15,23 @@ function element(tag, text, className) {
   return node;
 }
 
-function formatted(node, text) {
-  for (const part of text.split(/(`[^`]+`|\*\*[^*]+\*\*|\[[^\]]+\]\(https?:\/\/[^\s)]+\))/g)) {
+function formatted(node, text, declaration = null) {
+  for (const part of text.split(/(`[^`]+`|\*\*[^*]+\*\*|\[[^\]]+\]\(https?:\/\/[^\s)]+\)|\[[^\]]+\]\[[A-Za-z0-9_:-]+\]|\[[A-Za-z0-9_:-]+\](?!\())/g)) {
     if (part.startsWith("`")) node.append(element("code", part.slice(1, -1)));
     else if (part.startsWith("**")) node.append(element("strong", part.slice(2, -2)));
     else if (part.startsWith("[")) {
       const match = part.match(/^\[([^\]]+)\]\((https?:\/\/[^)]+)\)$/);
-      node.append(match ? externalLink(match[1], match[2]) : document.createTextNode(part));
+      const citation = part.match(/^\[([^\]]+)\](?:\[([A-Za-z0-9_:-]+)\])?$/);
+      const key = citation && (citation[2] || citation[1]);
+      if (match) node.append(externalLink(match[1], match[2]));
+      else if (declaration && bibliographyKeys.has(key)) {
+        const link = nameLink(declaration, "reference-link");
+        link.textContent = citation[2] ? citation[1] : part;
+        const parameters = new URLSearchParams(link.hash.slice(1));
+        parameters.set("tab", "references"); parameters.set("reference", key);
+        link.hash = parameters.toString();
+        node.append(link);
+      } else node.append(document.createTextNode(part));
     } else node.append(document.createTextNode(part));
   }
   return node;
@@ -42,6 +53,7 @@ function nameLink(name, className = "node-chip") {
   parameters.set("tab", "statement");
   parameters.delete("group");
   parameters.delete("level");
+  parameters.delete("reference");
   for (const key of ["term_root", "term_rule", "term_path"]) parameters.delete(key);
   link.href = "#" + parameters.toString();
   return link;
@@ -144,7 +156,7 @@ async function showSearch(parameters, request) {
     const top = element("div", null, "result-top");
     top.append(nameLink(item.name, "result-name"), element("span", item.kind, "badge"));
     card.append(top);
-    if (item.doc) card.append(formatted(element("p", null, "result-doc"), item.doc.trim().split("\n").slice(0, 2).join(" ")));
+    if (item.doc) card.append(formatted(element("p", null, "result-doc"), item.doc.trim().split("\n").slice(0, 2).join(" "), item.name));
     card.append(element("pre", item.statement, "result-type"));
     const metadata = element("div", null, "result-meta");
     metadata.append(element("span", item.module), element("span", item.axioms.length ? `${item.axioms.length} foundational axioms` : "Kernel rules only"));
@@ -175,6 +187,11 @@ function renderHeading(node, tab) {
     const control = button(label, () => route({tab: name, group: null, term_root: null, term_rule: null, term_path: null}), "tab" + (tab === name ? " active" : ""));
     if (tab === name) control.setAttribute("aria-current", "page");
     navigation.append(control);
+  }
+  const selected = navigation.querySelector(".active");
+  if (selected) {
+    const offset = selected.getBoundingClientRect().left - navigation.getBoundingClientRect().left;
+    navigation.scrollLeft += offset - (navigation.clientWidth - selected.offsetWidth) / 2;
   }
 }
 
@@ -459,6 +476,64 @@ async function sourceView(body, node, request) {
   await load();
 }
 
+async function referencesView(body, node, request, parameters) {
+  const data = await api("/api/citations", {name: node.name});
+  if (request !== activeRequest) return;
+  const tools = element("div", null, "section-tools");
+  tools.append(element("p", "Bibliographic references retained from the pinned upstream documentation."));
+  for (const bibliography of data.bibliographies) {
+    const link = element("a", `Download ${bibliography.package} bibliography`, "small-button");
+    link.href = "/api/bibliography?" + new URLSearchParams({package: bibliography.package, snapshot: summary.catalog_digest});
+    link.download = bibliography.package + "-references.bib";
+    tools.append(link);
+  }
+  body.append(tools);
+  const cards = [];
+  function section(title, entries, empty) {
+    body.append(element("h2", title));
+    if (!entries.length) body.append(element("p", empty, "muted"));
+    for (const item of entries) {
+      const card = element("article", null, "reference-card");
+      card.dataset.reference = item.citation_key;
+      if (item.ambiguous) {
+        card.append(element("h3", item.citation_key), element("p", "This citation key occurs in several bibliographies."));
+        for (const candidate of item.candidates) card.append(element("p", candidate.package + ":" + candidate.key));
+      } else {
+        const fields = item.fields;
+        card.append(element("span", item.package + " · " + item.key, "reference-key"),
+          element("h3", fields.title || item.key));
+        const authors = fields.author || fields.editor;
+        if (authors) card.append(element("p", authors, "reference-authors"));
+        const publication = [fields.journal || fields.booktitle || fields.publisher, fields.year].filter(Boolean);
+        if (publication.length) card.append(element("p", publication.join(" · "), "muted"));
+        const links = element("div", null, "section-tools");
+        if (fields.url) links.append(externalLink("Publication ↗", fields.url));
+        else if (fields.doi) links.append(externalLink("DOI ↗", "https://doi.org/" + fields.doi));
+        links.append(externalLink("Pinned bibliography entry ↗", item.source_url));
+        card.append(links);
+        const raw = element("details");
+        raw.append(element("summary", "BibTeX"), element("pre", item.raw, "proof-code"));
+        card.append(raw);
+      }
+      if (item.citation_key === parameters.get("reference")) card.classList.add("reference-selected");
+      cards.push(card);
+      body.append(card);
+    }
+  }
+  section("Cited in this declaration", data.declaration_citations, "No bibliography citations in this declaration's documentation.");
+  section("Module references", data.module_citations, "No bibliography citations in this module's documentation.");
+  if (data.module_docs.length) {
+    const docs = element("details", null, "reference-module-docs");
+    docs.append(element("summary", "Module documentation"));
+    for (const doc of data.module_docs) {
+      if (data.origin.url) docs.append(externalLink(`Pinned source · line ${doc.line} ↗`, data.origin.url + "#L" + doc.line));
+      docs.append(formatted(element("div", null, "documentation"), doc.text.trim(), node.name));
+    }
+    body.append(docs);
+  }
+  cards.find(card => card.classList.contains("reference-selected"))?.scrollIntoView({block: "nearest"});
+}
+
 async function showDeclaration(parameters, request) {
   $("search-view").hidden = true;
   $("detail-view").hidden = false;
@@ -471,12 +546,13 @@ async function showDeclaration(parameters, request) {
   const body = $("detail-body");
   if (tab === "statement") {
     body.append(element("pre", node.statement, "statement"));
-    if (node.doc) body.append(formatted(element("div", null, "documentation"), node.doc.trim()));
+    if (node.doc) body.append(formatted(element("div", null, "documentation"), node.doc.trim(), node.name));
     body.append(element("p", node.axioms.length ? `Foundational axioms: ${node.axioms.join(", ")}` : "No additional axioms beyond the kernel rules and bound assumptions.", "notice"));
   } else if (tab === "proof") await proofView(body, node, request, parameters);
   else if (tab === "dependencies") await dependenciesView(body, node, request);
   else if (tab === "foundations") await foundationsView(body, node, request);
   else if (tab === "hierarchy") await hierarchyView(body, node, request, parameters);
+  else if (tab === "references") await referencesView(body, node, request, parameters);
   else if (tab === "source") await sourceView(body, node, request);
   else throw new Error("Unknown declaration section.");
 }
@@ -527,6 +603,7 @@ async function initialize() {
 }
 
 function snapshotLabels() {
+  bibliographyKeys = new Set(summary.bibliography_keys || []);
   $("checker-label").textContent = `Lean ${summary.lean_version} + nanoda`;
   $("binding-label").textContent = `${summary.proof_binding.matched_declarations.toLocaleString()} declarations matched to verified terms`;
   $("snapshot-id").textContent = summary.catalog_digest.slice(0, 16);

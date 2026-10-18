@@ -133,6 +133,14 @@ def make_handler(state: ExplorerState):
                 elif request.path == "/api/term":
                     result = snapshot.term(name, arg("root", "value"), arg("path"),
                                            number("rule", 0) if arg("rule") else None)
+                elif request.path == "/api/citations":
+                    result = snapshot.citations(name)
+                elif request.path == "/api/bibliography":
+                    bibliography = snapshot.bibliography(arg("package"))
+                    data = bibliography["text"].encode("utf-8")
+                    self.download([data], bibliography["package"] + "-references.bib",
+                                  "application/x-bibtex; charset=utf-8", len(data))
+                    return
                 elif request.path == "/api/hierarchy":
                     graph = state.hierarchy(snapshot.metadata["content_digest"], name)
                     if arg("format") == "json":

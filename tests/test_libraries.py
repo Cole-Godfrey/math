@@ -11,6 +11,7 @@ import unittest
 
 from repository.core import RepositoryError, registered_modules
 from repository.libraries import package_provenance, snapshot_packages, source_origins
+from repository.bibliography import archive_bibliographies
 
 
 class LibraryTests(unittest.TestCase):
@@ -26,6 +27,7 @@ class LibraryTests(unittest.TestCase):
         (self.package / "LICENSE").write_text("fixture license notice\n")
         (self.package / "Fixture/Basic.lean").write_text(
             "/- authors: fixture contributors -/\ntheorem fixture : True := True.intro\n")
+        (self.package / "references.bib").write_text('@book{fixturebook,title={Fixture book},year=2026}\n')
         self.git("add", ".")
         self.git("-c", "user.name=Repository tests", "-c", "user.email=tests@example.invalid",
                  "commit", "-qm", "fixture sources", "--no-gpg-sign")
@@ -58,6 +60,32 @@ class LibraryTests(unittest.TestCase):
         self.assertEqual(origin["revision"], self.revision)
         self.assertIn("fixture contributors", origin["notice"])
         self.assertEqual(origin["url"], f"https://example.invalid/mathematics/blob/{self.revision}/Fixture/Basic.lean")
+
+    def test_bibliographies_retain_pinned_bytes_and_entry_locations(self):
+        self.policy["libraries"]["fixture"]["bibliography"] = "references.bib"
+        bibliography = archive_bibliographies(self.snapshot(), self.policy)["fixture"]
+        self.assertEqual(bibliography["text"], (self.package / "references.bib").read_text())
+        self.assertEqual(bibliography["revision"], self.revision)
+        self.assertIn(self.revision, bibliography["url"])
+        self.assertEqual(bibliography["entries"]["fixturebook"]["line"], 1)
+        self.assertEqual(bibliography["license"], "fixture-license")
+
+    def test_untracked_or_changed_bibliographies_are_rejected(self):
+        packages = self.snapshot()
+        self.policy["libraries"]["fixture"]["bibliography"] = "missing.bib"
+        with self.assertRaisesRegex(RepositoryError, "not a tracked source"):
+            archive_bibliographies(packages, self.policy)
+        self.policy["libraries"]["fixture"]["bibliography"] = "references.bib"
+        (self.package / "references.bib").write_text('@book{changed,title={changed}}')
+        with self.assertRaisesRegex(RepositoryError, "changed before archival"):
+            archive_bibliographies(packages, self.policy)
+
+    def test_bibliography_paths_stay_inside_the_pinned_checkout(self):
+        packages = self.snapshot()
+        for path in ("/tmp/source.bib", "../source.bib", "dir\\source.bib", True, ""):
+            self.policy["libraries"]["fixture"]["bibliography"] = path
+            with self.subTest(path=path), self.assertRaisesRegex(RepositoryError, "invalid bibliography path"):
+                archive_bibliographies(packages, self.policy)
 
     def test_modified_source_is_rejected_even_with_preserved_timestamps(self):
         source = self.package / "Fixture/Basic.lean"

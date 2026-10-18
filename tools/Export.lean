@@ -313,7 +313,11 @@ private unsafe def exportIndex (output replay : String) (expressionPath : System
       ("reason", toJson (if isMarkedMeta env n then "metaprogram" else "runtime implementation outside the logic")) ])),
     ("modules", toJson (env.header.modules.mapIdx fun i m => obj [
       ("name", toJson m.module.toString),
-      ("imports", names (env.header.moduleData[i]!.imports.map (·.module)))])),
+      ("imports", names (env.header.moduleData[i]!.imports.map (·.module))),
+      ("docs", toJson (((getModuleDoc? env m.module).getD #[]).map fun doc => obj [
+        ("text", toJson doc.doc),
+        ("line", toJson doc.declarationRange.pos.line),
+        ("end_line", toJson doc.declarationRange.endPos.line)]))])),
     ("declarations", toJson ((declarations.qsort (fun a b => Name.lt a.1 b.1)).map Prod.snd))]
   IO.FS.withFile output .write fun handle => do
     handle.putStr "{\"expressions\":["
