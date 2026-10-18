@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import hashlib
-import json
 import os
 from pathlib import Path
 import re
@@ -12,20 +11,14 @@ import subprocess
 import tempfile
 
 from .core import RepositoryError, canonical, canonical_chunks, digest, registered_modules, require, stream_digest, subject_policy, validate
+from .json_reader import read_object
 from .libraries import package_provenance, snapshot_packages, source_origins
-
-
-def _unique_object(pairs: list[tuple]) -> dict:
-    result = {}
-    for name, value in pairs:
-        require(name not in result, f"duplicate json field: {name}")
-        result[name] = value
-    return result
 
 
 def read_json(path: Path) -> dict:
     try:
-        result = json.loads(path.read_text(), object_pairs_hook=_unique_object)
+        with path.open(encoding="utf-8") as handle:
+            result = read_object(handle)
     except (OSError, ValueError) as exc:
         raise RepositoryError(f"cannot read {path}: {exc}") from exc
     require(isinstance(result, dict), f"{path}: expected a json object")

@@ -712,6 +712,454 @@
             "Quot.sound",
             "Classical.choice"
           ]
+        },
+        "Mathlib.Data.Nat.GCD.Basic": {
+          "title": "Greatest common divisors of natural numbers",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Data.Nat.ModEq": {
+          "title": "Congruences of natural numbers",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Data.Int.GCD": {
+          "title": "Greatest common divisors of integers",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Data.Int.ModEq": {
+          "title": "Congruences of integers",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Algebra.EuclideanDomain.Int": {
+          "title": "Euclidean division in the integers",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Data.ZMod.Defs": {
+          "title": "Residue class rings",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Data.ZMod.Basic": {
+          "title": "Arithmetic in residue class rings",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Data.ZMod.Units": {
+          "title": "Units of residue class rings",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.LegendreSymbol.QuadraticChar.Basic": {
+          "title": "Quadratic characters of finite fields",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.LegendreSymbol.QuadraticChar.GaussSum": {
+          "title": "Quadratic Gauss sums",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.LegendreSymbol.Basic": {
+          "title": "Legendre symbols",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.LegendreSymbol.QuadraticReciprocity": {
+          "title": "Quadratic reciprocity and supplementary laws",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.LegendreSymbol.JacobiSymbol": {
+          "title": "Jacobi symbols and reciprocity",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.Zsqrtd.Basic": {
+          "title": "Quadratic integer rings",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.Pell": {
+          "title": "Pell equations and fundamental solutions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Algebra.EuclideanDomain.Defs": {
+          "title": "Euclidean domains",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Algebra.EuclideanDomain.Basic": {
+          "title": "Euclidean domain laws",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RingTheory.Localization.FractionRing": {
+          "title": "Fraction fields",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RingTheory.IntegralClosure.IsIntegral.Defs": {
+          "title": "Integral elements",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RingTheory.IntegralClosure.IsIntegral.Basic": {
+          "title": "Integral element laws",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RingTheory.IntegralClosure.IntegrallyClosed": {
+          "title": "Integrally closed rings",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RingTheory.IntegralClosure.Algebra.Defs": {
+          "title": "Integral closure",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RingTheory.IntegralClosure.Algebra.Basic": {
+          "title": "Integral closure laws",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RingTheory.DedekindDomain.Basic": {
+          "title": "Dedekind domains",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RingTheory.DedekindDomain.Ideal.Basic": {
+          "title": "Ideals in Dedekind domains",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RingTheory.DedekindDomain.Ideal.Lemmas": {
+          "title": "Dedekind ideal laws",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RingTheory.DedekindDomain.IntegralClosure": {
+          "title": "Integral closure of Dedekind domains",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RingTheory.FractionalIdeal.Basic": {
+          "title": "Fractional ideals",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RingTheory.FractionalIdeal.Operations": {
+          "title": "Fractional ideal arithmetic",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RingTheory.FractionalIdeal.Inverse": {
+          "title": "Inverses of fractional ideals",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RingTheory.DedekindDomain.Factorization": {
+          "title": "Prime ideal factorization",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RingTheory.ClassGroup.Basic": {
+          "title": "Ideal class groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ClassNumber.AdmissibleAbs": {
+          "title": "Admissible absolute values for class groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ClassNumber.Finite": {
+          "title": "Finiteness of ideal class groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.NumberField.Basic": {
+          "title": "Number fields and rings of integers",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.NumberField.Norm": {
+          "title": "Norms in number fields",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.NumberField.FractionalIdeal": {
+          "title": "Norms of fractional ideals in number fields",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.NumberField.Ideal.Basic": {
+          "title": "Ideals in rings of integers",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.NumberField.CanonicalEmbedding.Basic": {
+          "title": "Canonical embeddings of number fields",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.NumberField.CanonicalEmbedding.ConvexBody": {
+          "title": "Minkowski bounds in number fields",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.NumberField.InfinitePlace.Basic": {
+          "title": "Infinite places of number fields",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.NumberField.InfinitePlace.Embeddings": {
+          "title": "Embeddings and infinite places",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.NumberField.Completion.FinitePlace": {
+          "title": "Finite places and completions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.NumberField.ProductFormula": {
+          "title": "Product formula for number fields",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.NumberField.Discriminant.Defs": {
+          "title": "Number field discriminants",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.NumberField.Discriminant.Basic": {
+          "title": "Discriminant laws and bounds",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.NumberField.ClassNumber": {
+          "title": "Class numbers and bounded ideal representatives",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.NumberField.Units.Basic": {
+          "title": "Units and torsion in number rings",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.NumberField.Units.DirichletTheorem": {
+          "title": "Dirichlet unit theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.NumberField.Units.Regulator": {
+          "title": "Regulators of number fields",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.KummerDedekind": {
+          "title": "Kummer-Dedekind criterion",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.NumberField.Ideal.KummerDedekind": {
+          "title": "Splitting of rational primes in number fields",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RingTheory.Norm.Defs": {
+          "title": "Norm maps of algebras",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RingTheory.Norm.Basic": {
+          "title": "Algebra norm laws",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RingTheory.Ideal.Norm.AbsNorm": {
+          "title": "Absolute norms of ideals",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Algebra.Module.NatInt": {
+          "title": "Canonical modules over natural numbers and integers",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
         }
       }
     }
@@ -787,7 +1235,8 @@
         "Mathlib.LinearAlgebra.Basis.Defs",
         "Mathlib.LinearAlgebra.Basis.Basic",
         "Mathlib.LinearAlgebra.Dimension.RankNullity",
-        "Mathlib.LinearAlgebra.Dimension.DivisionRing"
+        "Mathlib.LinearAlgebra.Dimension.DivisionRing",
+        "Mathlib.Algebra.Module.NatInt"
       ]
     },
     "topology": {
@@ -937,7 +1386,27 @@
         "Mathlib.RingTheory.Ideal.Basic",
         "Mathlib.RingTheory.Noetherian.Basic",
         "Mathlib.RingTheory.Jacobson.Ring",
-        "Mathlib.RingTheory.Noetherian.Defs"
+        "Mathlib.RingTheory.Noetherian.Defs",
+        "Mathlib.Algebra.EuclideanDomain.Defs",
+        "Mathlib.Algebra.EuclideanDomain.Basic",
+        "Mathlib.RingTheory.Localization.FractionRing",
+        "Mathlib.RingTheory.IntegralClosure.IsIntegral.Defs",
+        "Mathlib.RingTheory.IntegralClosure.IsIntegral.Basic",
+        "Mathlib.RingTheory.IntegralClosure.IntegrallyClosed",
+        "Mathlib.RingTheory.IntegralClosure.Algebra.Defs",
+        "Mathlib.RingTheory.IntegralClosure.Algebra.Basic",
+        "Mathlib.RingTheory.DedekindDomain.Basic",
+        "Mathlib.RingTheory.DedekindDomain.Ideal.Basic",
+        "Mathlib.RingTheory.DedekindDomain.Ideal.Lemmas",
+        "Mathlib.RingTheory.DedekindDomain.IntegralClosure",
+        "Mathlib.RingTheory.FractionalIdeal.Basic",
+        "Mathlib.RingTheory.FractionalIdeal.Operations",
+        "Mathlib.RingTheory.FractionalIdeal.Inverse",
+        "Mathlib.RingTheory.DedekindDomain.Factorization",
+        "Mathlib.RingTheory.ClassGroup.Basic",
+        "Mathlib.RingTheory.Norm.Defs",
+        "Mathlib.RingTheory.Norm.Basic",
+        "Mathlib.RingTheory.Ideal.Norm.AbsNorm"
       ]
     },
     "field_theory": {
@@ -974,6 +1443,65 @@
         "Mathlib.RingTheory.Spectrum.Prime.Defs",
         "Mathlib.RingTheory.Spectrum.Prime.Basic",
         "Mathlib.RingTheory.Nullstellensatz"
+      ]
+    },
+    "modular_arithmetic": {
+      "title": "Modular arithmetic",
+      "parent": "number_theory",
+      "modules": [
+        "Mathlib.Data.Nat.GCD.Basic",
+        "Mathlib.Data.Nat.ModEq",
+        "Mathlib.Data.Int.GCD",
+        "Mathlib.Data.Int.ModEq",
+        "Mathlib.Algebra.EuclideanDomain.Int",
+        "Mathlib.Data.ZMod.Defs",
+        "Mathlib.Data.ZMod.Basic",
+        "Mathlib.Data.ZMod.Units"
+      ]
+    },
+    "quadratic_reciprocity": {
+      "title": "Quadratic reciprocity",
+      "parent": "number_theory",
+      "modules": [
+        "Mathlib.NumberTheory.LegendreSymbol.QuadraticChar.Basic",
+        "Mathlib.NumberTheory.LegendreSymbol.QuadraticChar.GaussSum",
+        "Mathlib.NumberTheory.LegendreSymbol.Basic",
+        "Mathlib.NumberTheory.LegendreSymbol.QuadraticReciprocity",
+        "Mathlib.NumberTheory.LegendreSymbol.JacobiSymbol"
+      ]
+    },
+    "diophantine_equations": {
+      "title": "Diophantine equations",
+      "parent": "number_theory",
+      "modules": [
+        "Mathlib.NumberTheory.Zsqrtd.Basic",
+        "Mathlib.NumberTheory.Pell"
+      ]
+    },
+    "algebraic_number_theory": {
+      "title": "Algebraic number theory",
+      "parent": "number_theory",
+      "modules": [
+        "Mathlib.NumberTheory.ClassNumber.AdmissibleAbs",
+        "Mathlib.NumberTheory.ClassNumber.Finite",
+        "Mathlib.NumberTheory.NumberField.Basic",
+        "Mathlib.NumberTheory.NumberField.Norm",
+        "Mathlib.NumberTheory.NumberField.FractionalIdeal",
+        "Mathlib.NumberTheory.NumberField.Ideal.Basic",
+        "Mathlib.NumberTheory.NumberField.CanonicalEmbedding.Basic",
+        "Mathlib.NumberTheory.NumberField.CanonicalEmbedding.ConvexBody",
+        "Mathlib.NumberTheory.NumberField.InfinitePlace.Basic",
+        "Mathlib.NumberTheory.NumberField.InfinitePlace.Embeddings",
+        "Mathlib.NumberTheory.NumberField.Completion.FinitePlace",
+        "Mathlib.NumberTheory.NumberField.ProductFormula",
+        "Mathlib.NumberTheory.NumberField.Discriminant.Defs",
+        "Mathlib.NumberTheory.NumberField.Discriminant.Basic",
+        "Mathlib.NumberTheory.NumberField.ClassNumber",
+        "Mathlib.NumberTheory.NumberField.Units.Basic",
+        "Mathlib.NumberTheory.NumberField.Units.DirichletTheorem",
+        "Mathlib.NumberTheory.NumberField.Units.Regulator",
+        "Mathlib.NumberTheory.KummerDedekind",
+        "Mathlib.NumberTheory.NumberField.Ideal.KummerDedekind"
       ]
     }
   },

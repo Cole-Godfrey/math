@@ -16,7 +16,7 @@ from unittest.mock import patch
 
 from repository.__main__ import main
 from repository.build import find_lake, input_hashes, load_catalog, proof_export_path, run, verify
-from repository.core import ExpressionPool, RepositoryError, axiom_closure, dependency_path, validate
+from repository.core import ExpressionPool, RepositoryError, axiom_closure, canonical_chunks, dependency_path, validate
 from repository.explore import KnowledgeGraph
 from repository.store import open_snapshot
 
@@ -175,7 +175,9 @@ class RepositoryTests(unittest.TestCase):
             self.clone_artifact(root)
             raw, node = self.mutated(self.catalog["declarations"][0]["name"])
             node["statement"] = "False"
-            (root / "build/knowledge.json").write_text(json.dumps(raw))
+            with (root / "build/knowledge.json").open("wb") as handle:
+                for chunk in canonical_chunks(raw):
+                    handle.write(chunk)
             with self.assertRaisesRegex(RepositoryError, "content digest mismatch"):
                 load_catalog(root)
 
@@ -265,7 +267,8 @@ class RepositoryTests(unittest.TestCase):
             self.clone_inputs(root)
             self.clone_artifact(root)
             proof = next((root / "build").glob("proofs-*.jsonl"))
-            proof.write_text(proof.read_text() + "tampered\n")
+            with proof.open("ab") as handle:
+                handle.write(b"tampered\n")
             with self.assertRaisesRegex(RepositoryError, "proof export digest mismatch"):
                 load_catalog(root)
             proof.unlink()
@@ -460,6 +463,120 @@ class RepositoryTests(unittest.TestCase):
 
     def test_algebra_statements_match_reference_types(self):
         run(ROOT, [self.lake, "env", "lean", "tests/AlgebraStatements.lean"], capture=True)
+
+    def test_number_theory_statements_match_reference_types(self):
+        run(ROOT, [self.lake, "env", "lean", "tests/NumberTheoryStatements.lean"], capture=True)
+
+    def test_number_theory_objects_and_results_retain_terms_and_pinned_sources(self):
+        expected = {
+            "ZMod": "Data.ZMod.Defs",
+            "EuclideanDomain": "Algebra.EuclideanDomain.Defs",
+            "quadraticChar": "NumberTheory.LegendreSymbol.QuadraticChar.Basic",
+            "legendreSym": "NumberTheory.LegendreSymbol.Basic",
+            "jacobiSym": "NumberTheory.LegendreSymbol.JacobiSymbol",
+            "legendreSym.quadratic_reciprocity": "NumberTheory.LegendreSymbol.QuadraticReciprocity",
+            "jacobiSym.quadratic_reciprocity": "NumberTheory.LegendreSymbol.JacobiSymbol",
+            "Zsqrtd": "NumberTheory.Zsqrtd.Basic",
+            "Pell.Solution₁": "NumberTheory.Pell",
+            "Pell.IsFundamental": "NumberTheory.Pell",
+            "Pell.exists_of_not_isSquare": "NumberTheory.Pell",
+            "Pell.existsUnique_pos_generator": "NumberTheory.Pell",
+            "IsIntegral": "RingTheory.IntegralClosure.IsIntegral.Defs",
+            "Algebra.IsIntegral": "RingTheory.IntegralClosure.Algebra.Defs",
+            "integralClosure": "RingTheory.IntegralClosure.Algebra.Basic",
+            "IsIntegrallyClosed": "RingTheory.IntegralClosure.IntegrallyClosed",
+            "FractionRing": "RingTheory.Localization.FractionRing",
+            "IsFractionRing": "RingTheory.Localization.FractionRing",
+            "FractionalIdeal": "RingTheory.FractionalIdeal.Basic",
+            "ClassGroup": "RingTheory.ClassGroup.Basic",
+            "IsDedekindDomain": "RingTheory.DedekindDomain.Basic",
+            "Algebra.norm": "RingTheory.Norm.Defs",
+            "Ideal.absNorm": "RingTheory.Ideal.Norm.AbsNorm",
+            "Ideal.uniqueFactorizationMonoid": "RingTheory.DedekindDomain.Ideal.Basic",
+            "Ideal.finprod_heightOneSpectrum_factorization": "RingTheory.DedekindDomain.Factorization",
+            "FractionalIdeal.finprod_heightOneSpectrum_factorization'": "RingTheory.DedekindDomain.Factorization",
+            "NumberField": "NumberTheory.NumberField.Basic",
+            "NumberField.RingOfIntegers": "NumberTheory.NumberField.Basic",
+            "NumberField.InfinitePlace": "NumberTheory.NumberField.InfinitePlace.Basic",
+            "NumberField.FinitePlace": "NumberTheory.NumberField.Completion.FinitePlace",
+            "NumberField.discr": "NumberTheory.NumberField.Discriminant.Defs",
+            "NumberField.classNumber": "NumberTheory.NumberField.ClassNumber",
+            "NumberField.classNumber_pos": "NumberTheory.NumberField.ClassNumber",
+            "NumberField.classNumber_eq_one_iff": "NumberTheory.NumberField.ClassNumber",
+            "NumberField.exists_ideal_in_class_of_norm_le": "NumberTheory.NumberField.ClassNumber",
+            "NumberField.Units.torsion": "NumberTheory.NumberField.Units.Basic",
+            "NumberField.Units.rank": "NumberTheory.NumberField.Units.DirichletTheorem",
+            "NumberField.Units.finrank_modTorsion": "NumberTheory.NumberField.Units.DirichletTheorem",
+            "NumberField.Units.basisModTorsion": "NumberTheory.NumberField.Units.DirichletTheorem",
+            "NumberField.Units.exist_unique_eq_mul_prod": "NumberTheory.NumberField.Units.DirichletTheorem",
+            "NumberField.Units.regulator": "NumberTheory.NumberField.Units.Regulator",
+            "NumberField.Units.regulator_pos": "NumberTheory.NumberField.Units.Regulator",
+            "NumberField.prod_abs_eq_one": "NumberTheory.NumberField.ProductFormula",
+            "RingOfIntegers.exponent": "NumberTheory.NumberField.Ideal.KummerDedekind",
+            "NumberField.Ideal.primesOverSpanEquivMonicFactorsMod": "NumberTheory.NumberField.Ideal.KummerDedekind",
+        }
+        for name, suffix in expected.items():
+            with self.subTest(name=name):
+                self.assertIn(name, self.catalog["roots"])
+                node = self.nodes[name]
+                self.assertEqual(node["module"], "Mathlib." + suffix)
+                if node["kind"] in {"definition", "theorem", "opaque"}:
+                    self.assertIsInstance(node["value"], int)
+                self.assertTrue(set(node["axioms"]) <= self.policy["axioms"].keys())
+                origin = self.catalog["sources"][node["module"]]
+                self.assertEqual(origin["revision"], self.policy["libraries"]["mathlib"]["revision"])
+                self.assertIn(origin["revision"], origin["url"])
+                self.assertEqual(origin["license"], "Apache-2.0")
+
+    def test_number_theory_hierarchies_reach_models_and_all_foundations(self):
+        graph = KnowledgeGraph(self.catalog)
+        expected = {
+            "legendreSym.quadratic_reciprocity": {"legendreSym", "quadraticChar", "ZMod", "Nat.Prime"},
+            "jacobiSym.quadratic_reciprocity": {"jacobiSym", "legendreSym", "Odd"},
+            "Pell.exists_of_not_isSquare": {"Int", "IsSquare", "Real.sqrt", "Irrational"},
+            "Pell.existsUnique_pos_generator": {"Pell.Solution₁", "Pell.IsFundamental", "Zsqrtd"},
+            "Ideal.finprod_heightOneSpectrum_factorization":
+                {"Ideal", "IsDedekindDomain", "IsDedekindDomain.HeightOneSpectrum",
+                 "IsDedekindDomain.HeightOneSpectrum.maxPowDividing"},
+            "NumberField.classNumber_eq_one_iff":
+                {"NumberField", "NumberField.RingOfIntegers", "ClassGroup", "IsPrincipalIdealRing"},
+            "NumberField.exists_ideal_in_class_of_norm_le":
+                {"ClassGroup", "Ideal.absNorm", "NumberField.discr", "Real.sqrt", "NumberField.InfinitePlace"},
+            "NumberField.Units.finrank_modTorsion":
+                {"NumberField.Units.torsion", "NumberField.Units.rank", "NumberField.InfinitePlace", "Module.finrank"},
+            "NumberField.Units.exist_unique_eq_mul_prod":
+                {"NumberField.RingOfIntegers", "NumberField.Units.torsion", "NumberField.Units.fundSystem", "Module.Basis"},
+            "NumberField.prod_abs_eq_one":
+                {"NumberField.InfinitePlace", "NumberField.FinitePlace", "Algebra.norm", "NumberField.RingOfIntegers"},
+            "NumberField.Ideal.primesOverSpanEquivMonicFactorsMod":
+                {"RingOfIntegers.exponent", "minpoly", "Ideal.primesOver", "ZMod", "Nat.Prime"},
+        }
+        for name, objects in expected.items():
+            with self.subTest(name=name):
+                hierarchy = graph.hierarchy(name)
+                reached = {node["name"] for node in hierarchy["declarations"]}
+                self.assertTrue(objects <= reached, objects - reached)
+                self.assertEqual(set(hierarchy["axiom_paths"]), set(self.nodes[name]["axioms"]))
+                for axiom, path in hierarchy["axiom_paths"].items():
+                    self.assertEqual(path[0], name)
+                    self.assertEqual(path[-1], axiom)
+                    for source, target in zip(path, path[1:]):
+                        self.assertIn(target, self.nodes[source]["dependencies"])
+
+    def test_number_theory_subjects_include_results_and_parent_subjects(self):
+        graph = KnowledgeGraph(self.catalog)
+        expected = {
+            "modular_arithmetic": ("number_theory", "ZMod"),
+            "quadratic_reciprocity": ("number_theory", "legendreSym.quadratic_reciprocity"),
+            "diophantine_equations": ("number_theory", "Pell.existsUnique_pos_generator"),
+            "algebraic_number_theory": ("number_theory", "NumberField.Units.exist_unique_eq_mul_prod"),
+            "commutative_algebra": ("algebra", "ClassGroup"),
+        }
+        for subject, (parent, name) in expected.items():
+            with self.subTest(subject=subject):
+                self.assertEqual(self.catalog["subjects"][subject]["parent"], parent)
+                for category in (subject, parent, "mathematics"):
+                    self.assertIn(name, {node["name"] for node in graph.search(name, subject=category)})
 
     def test_algebra_objects_and_results_retain_terms_and_pinned_sources(self):
         expected = {
