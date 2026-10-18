@@ -555,6 +555,121 @@ class RepositoryTests(unittest.TestCase):
     def test_probability_statements_match_reference_types(self):
         run(ROOT, [self.lake, "env", "lean", "tests/ProbabilityStatements.lean"], capture=True)
 
+    def test_topology_statements_match_reference_types(self):
+        run(ROOT, [self.lake, "env", "lean", "tests/TopologyStatements.lean"], capture=True)
+
+    def test_topology_objects_and_results_retain_terms_and_pinned_sources(self):
+        expected = {
+            "Path": "Topology.Path",
+            "ZerothHomotopy": "Topology.Connected.PathConnected",
+            "PathConnectedSpace": "Topology.Connected.PathConnected",
+            "ContinuousMap.Homotopy": "Topology.Homotopy.Basic",
+            "ContinuousMap.HomotopyRel": "Topology.Homotopy.Basic",
+            "ContinuousMap.HomotopyEquiv": "Topology.Homotopy.Equiv",
+            "ContractibleSpace": "Topology.Homotopy.Contractible",
+            "SimplyConnectedSpace": "AlgebraicTopology.FundamentalGroupoid.SimplyConnected",
+            "SimplyConnectedSpace.ofContractible": "AlgebraicTopology.FundamentalGroupoid.SimplyConnected",
+            "FundamentalGroupoid": "AlgebraicTopology.FundamentalGroupoid.Basic",
+            "FundamentalGroup": "AlgebraicTopology.FundamentalGroupoid.FundamentalGroup",
+            "FundamentalGroup.fundamentalGroupMulEquivOfPathConnected": "AlgebraicTopology.FundamentalGroupoid.FundamentalGroup",
+            "HomotopyGroup": "Topology.Homotopy.HomotopyGroup",
+            "HomotopyGroup.commGroup": "Topology.Homotopy.HomotopyGroup",
+            "EckmannHilton.mul_comm": "GroupTheory.EckmannHilton",
+            "HomotopyGroup.pi0EquivZerothHomotopy": "Topology.Homotopy.HomotopyGroup",
+            "HomotopyGroup.pi1MulEquivFundamentalGroup": "Topology.Homotopy.HomotopyGroup",
+            "IsCoveringMap": "Topology.Covering.Basic",
+            "IsQuotientCoveringMap": "Topology.Covering.Quotient",
+            "IsQuotientCoveringMap.fundamentalGroupEquiv": "Topology.Homotopy.Lifting",
+            "deck": "Topology.Covering.Deck",
+            "AddCircle.zsmulLoop": "Topology.Covering.FundamentalGroupCircle",
+            "AddCircle.windingNumberIso": "Topology.Covering.FundamentalGroupCircle",
+            "AddCircle.windingNumber": "Topology.Covering.FundamentalGroupCircle",
+            "AddCircle.windingNumber_eq_div": "Topology.Covering.FundamentalGroupCircle",
+            "AddCircle.windingNumber_zsmulLoop": "Topology.Covering.FundamentalGroupCircle",
+            "TopCat": "Topology.Category.TopCat.Basic",
+            "TopCat.Homotopy": "Topology.Homotopy.TopCat.Basic",
+            "SSet": "AlgebraicTopology.SimplicialSet.Basic",
+            "CategoryTheory.SimplicialObject": "AlgebraicTopology.SimplicialObject.Basic",
+            "TopCat.toSSet": "AlgebraicTopology.SingularSet",
+            "SSet.toTop": "AlgebraicTopology.SingularSet",
+            "sSetTopAdj": "AlgebraicTopology.SingularSet",
+            "HomologicalComplex": "Algebra.Homology.HomologicalComplex",
+            "ChainComplex": "Algebra.Homology.HomologicalComplex",
+            "CategoryTheory.ShortComplex": "Algebra.Homology.ShortComplex.Basic",
+            "CategoryTheory.CategoryWithHomology": "Algebra.Homology.ShortComplex.Homology",
+            "HomologicalComplex.homologyFunctor": "Algebra.Homology.ShortComplex.HomologicalComplex",
+            "Homotopy": "Algebra.Homology.Homotopy",
+            "Homotopy.homologyMap_eq": "Algebra.Homology.Homotopy",
+            "AlgebraicTopology.singularChainComplexFunctor": "AlgebraicTopology.SingularHomology.Basic",
+            "AlgebraicTopology.singularHomologyFunctor": "AlgebraicTopology.SingularHomology.Basic",
+            "AlgebraicTopology.isZero_singularHomologyFunctor_of_totallyDisconnectedSpace": "AlgebraicTopology.SingularHomology.Basic",
+            "TopCat.singularHomology₀Iso": "AlgebraicTopology.SingularHomology.HomologyZero",
+            "TopCat.Homotopy.singularChainComplexFunctorObjMap": "AlgebraicTopology.SingularHomology.HomotopyInvariance",
+            "TopCat.Homotopy.congr_homologyMap_singularChainComplexFunctor": "AlgebraicTopology.SingularHomology.HomotopyInvariance",
+        }
+        for name, suffix in expected.items():
+            with self.subTest(name=name):
+                self.assertIn(name, self.catalog["roots"])
+                node = self.nodes[name]
+                self.assertEqual(node["module"], "Mathlib." + suffix)
+                if node["kind"] in {"definition", "theorem", "opaque"}:
+                    self.assertIsInstance(node["value"], int)
+                self.assertTrue(set(node["axioms"]) <= self.policy["axioms"].keys())
+                origin = self.catalog["sources"][node["module"]]
+                self.assertEqual(origin["revision"], self.policy["libraries"]["mathlib"]["revision"])
+                self.assertIn(origin["revision"], origin["url"])
+                self.assertEqual(origin["license"], "Apache-2.0")
+
+    def test_topology_hierarchies_reach_models_assumptions_and_all_axioms(self):
+        graph = KnowledgeGraph(self.catalog)
+        expected = {
+            "AddCircle.windingNumberIso":
+                {"FundamentalGroup", "AddCircle", "Int", "SimplyConnectedSpace", "IsAddQuotientCoveringMap"},
+            "AddCircle.windingNumber_zsmulLoop":
+                {"AddCircle.zsmulLoop", "AddCircle.windingNumber", "Path", "FundamentalGroup"},
+            "HomotopyGroup.commGroup":
+                {"HomotopyGroup", "GenLoop", "ContinuousMap.HomotopyRel", "EckmannHilton.mul_comm"},
+            "SimplyConnectedSpace.ofContractible":
+                {"ContractibleSpace", "SimplyConnectedSpace", "FundamentalGroupoid", "ContinuousMap.HomotopyEquiv"},
+            "IsQuotientCoveringMap.fundamentalGroupEquiv":
+                {"IsQuotientCoveringMap", "FundamentalGroup", "SimplyConnectedSpace", "MulOpposite"},
+            "sSetTopAdj": {"SSet.toTop", "TopCat.toSSet", "CategoryTheory.Adjunction", "SimplexCategory"},
+            "TopCat.singularHomology₀Iso":
+                {"AlgebraicTopology.singularHomologyFunctor", "ZerothHomotopy",
+                 "HomologicalComplex.homologyFunctor", "CategoryTheory.CategoryWithHomology"},
+            "TopCat.Homotopy.congr_homologyMap_singularChainComplexFunctor":
+                {"TopCat.Homotopy", "Homotopy", "AlgebraicTopology.singularChainComplexFunctor",
+                 "HomologicalComplex.homologyMap", "CategoryTheory.CategoryWithHomology"},
+        }
+        for name, objects in expected.items():
+            with self.subTest(name=name):
+                hierarchy = graph.hierarchy(name)
+                reached = {node["name"] for node in hierarchy["declarations"]}
+                self.assertTrue(objects <= reached, objects - reached)
+                self.assertEqual(set(hierarchy["axiom_paths"]), set(self.nodes[name]["axioms"]))
+                for axiom, path in hierarchy["axiom_paths"].items():
+                    self.assertEqual(path[0], name)
+                    self.assertEqual(path[-1], axiom)
+                    for source, target in zip(path, path[1:]):
+                        self.assertIn(target, self.nodes[source]["dependencies"])
+
+    def test_topology_subjects_include_their_results_and_parent_subjects(self):
+        graph = KnowledgeGraph(self.catalog)
+        expected = {
+            "algebraic_topology": ("topology", "AddCircle.windingNumberIso"),
+            "fundamental_groups": ("algebraic_topology", "FundamentalGroup"),
+            "homotopy_theory": ("algebraic_topology", "HomotopyGroup.commGroup"),
+            "covering_spaces": ("algebraic_topology", "AddCircle.windingNumberIso"),
+            "simplicial_topology": ("algebraic_topology", "sSetTopAdj"),
+            "homology": ("algebraic_topology", "TopCat.singularHomology₀Iso"),
+            "homological_algebra": ("algebra", "Homotopy.homologyMap_eq"),
+        }
+        for subject, (parent, name) in expected.items():
+            with self.subTest(subject=subject):
+                self.assertEqual(self.catalog["subjects"][subject]["parent"], parent)
+                for category in (subject, parent, "mathematics"):
+                    self.assertIn(name, {node["name"] for node in graph.search(name, subject=category)})
+
     def test_probability_objects_and_results_retain_terms_and_pinned_sources(self):
         expected = {
             "ProbabilityTheory.HasLaw": "Probability.HasLaw",

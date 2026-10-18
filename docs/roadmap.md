@@ -16,6 +16,8 @@ Pinned upstream bibliographies and compiled module documentation connect explici
 
 Probability coverage includes laws and distributions, independence and conditional independence, conditional expectations, Borel-Cantelli lemmas, the strong laws of large numbers, the real central limit theorem, stopping times, optional sampling, and martingale convergence. Statement checks retain the precise integrability, independence, boundedness, and convergence hypotheses.
 
+Algebraic topology includes paths, fundamental groupoids and groups, higher homotopy groups, contractible and simply connected spaces, coverings, circle winding numbers, singular simplicial sets, geometric realization, chain complexes, and singular homology. Signature checks cover the circle's fundamental group, commutativity of higher homotopy groups, homotopy invariance, and zeroth homology as a coproduct over path components.
+
 Work still required:
 
 - Expand registered mathlib coverage across further fields and research results, and integrate other established formal libraries while preserving upstream declarations, licenses, references, and proof dependencies.

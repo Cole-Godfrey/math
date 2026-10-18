@@ -1433,6 +1433,382 @@
             "Quot.sound",
             "Classical.choice"
           ]
+        },
+        "Mathlib.Topology.Path": {
+          "title": "Paths and path-connected spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicTopology.FundamentalGroupoid.Basic": {
+          "title": "Fundamental groupoids",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicTopology.FundamentalGroupoid.FundamentalGroup": {
+          "title": "Fundamental groups and basepoint changes",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicTopology.FundamentalGroupoid.InducedMaps": {
+          "title": "Maps of fundamental groupoids",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicTopology.FundamentalGroupoid.Product": {
+          "title": "Fundamental groupoids of products",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicTopology.FundamentalGroupoid.PUnit": {
+          "title": "Fundamental groupoid of a point",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicTopology.FundamentalGroupoid.SimplyConnected": {
+          "title": "Simply connected spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Topology.Homotopy.Basic": {
+          "title": "Homotopies of continuous maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Topology.Homotopy.Path": {
+          "title": "Path homotopies",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Topology.Homotopy.Equiv": {
+          "title": "Homotopy equivalences",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Topology.Homotopy.Contractible": {
+          "title": "Contractible spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Topology.Homotopy.Product": {
+          "title": "Homotopies of products",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Topology.Homotopy.HomotopyGroup": {
+          "title": "Higher homotopy groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Topology.Homotopy.LocallyContractible": {
+          "title": "Locally contractible spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Topology.Homotopy.TopCat.Basic": {
+          "title": "Homotopies in the category of topological spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Topology.Homotopy.TopCat.Path": {
+          "title": "Categorical path spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Topology.Homotopy.TopCat.ZerothHomotopy": {
+          "title": "Path components of topological spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Topology.Covering.Basic": {
+          "title": "Covering maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Topology.Covering.AddCircle": {
+          "title": "Coverings of additive circles",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Topology.Covering.Quotient": {
+          "title": "Quotient covering maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Topology.Covering.Deck": {
+          "title": "Deck transformation groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Topology.Covering.FundamentalGroupCircle": {
+          "title": "Fundamental group and winding numbers of the circle",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Topology.Homotopy.Lifting": {
+          "title": "Homotopy lifting and monodromy",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicTopology.SimplexCategory.Basic": {
+          "title": "Simplex category",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicTopology.TopologicalSimplex": {
+          "title": "Topological simplices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicTopology.SimplicialObject.Basic": {
+          "title": "Simplicial objects",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicTopology.SimplicialSet.Basic": {
+          "title": "Simplicial sets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicTopology.SimplicialSet.StdSimplex": {
+          "title": "Standard simplicial sets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicTopology.SingularSet": {
+          "title": "Singular simplicial sets and geometric realization",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Topology.Homotopy.TopCat.ToSSet": {
+          "title": "Singular simplicial homotopies",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicTopology.SimplicialSet.Homology.Basic": {
+          "title": "Homology of simplicial sets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicTopology.SimplicialSet.Homology.HomotopyInvariance": {
+          "title": "Homotopy invariance of simplicial homology",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicTopology.SimplicialSet.Homology.HomologyZero": {
+          "title": "Zeroth homology of simplicial sets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicTopology.SingularHomology.Basic": {
+          "title": "Singular chain complexes and homology",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicTopology.SingularHomology.HomotopyInvariance": {
+          "title": "Homotopy invariance of singular homology",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicTopology.SingularHomology.HomologyZero": {
+          "title": "Zeroth singular homology and path components",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Algebra.Homology.ComplexShape": {
+          "title": "Shapes of chain complexes",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Algebra.Homology.HomologicalComplex": {
+          "title": "Chain complexes and their morphisms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Algebra.Homology.ShortComplex.Basic": {
+          "title": "Short complexes",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Algebra.Homology.ShortComplex.Homology": {
+          "title": "Homology of short complexes",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Algebra.Homology.ShortComplex.HomologicalComplex": {
+          "title": "Cycles boundaries and homology",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Algebra.Homology.Homotopy": {
+          "title": "Chain homotopies",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.CategoryTheory.Preadditive.Basic": {
+          "title": "Preadditive categories",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.CategoryTheory.Abelian.Basic": {
+          "title": "Abelian categories",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Topology.Category.TopCat.Basic": {
+          "title": "Category of topological spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Topology.Connected.PathConnected": {
+          "title": "Path-connected spaces and path components",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.EckmannHilton": {
+          "title": "Eckmann-Hilton interchange argument",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
         }
       }
     }
@@ -1615,7 +1991,10 @@
       "parent": "mathematics",
       "modules": [
         "Mathlib.CategoryTheory.Category.Basic",
-        "Mathlib.CategoryTheory.Functor.Basic"
+        "Mathlib.CategoryTheory.Functor.Basic",
+        "Mathlib.CategoryTheory.Preadditive.Basic",
+        "Mathlib.CategoryTheory.Abelian.Basic",
+        "Mathlib.Topology.Category.TopCat.Basic"
       ]
     },
     "computation": {
@@ -1839,6 +2218,91 @@
         "Mathlib.Probability.Martingale.Upcrossing",
         "Mathlib.Probability.Martingale.Convergence",
         "Mathlib.Probability.Martingale.BorelCantelli"
+      ]
+    },
+    "algebraic_topology": {
+      "title": "Algebraic topology",
+      "parent": "topology",
+      "modules": []
+    },
+    "fundamental_groups": {
+      "title": "Fundamental groups",
+      "parent": "algebraic_topology",
+      "modules": [
+        "Mathlib.Topology.Path",
+        "Mathlib.AlgebraicTopology.FundamentalGroupoid.Basic",
+        "Mathlib.AlgebraicTopology.FundamentalGroupoid.FundamentalGroup",
+        "Mathlib.AlgebraicTopology.FundamentalGroupoid.InducedMaps",
+        "Mathlib.AlgebraicTopology.FundamentalGroupoid.Product",
+        "Mathlib.AlgebraicTopology.FundamentalGroupoid.PUnit",
+        "Mathlib.AlgebraicTopology.FundamentalGroupoid.SimplyConnected",
+        "Mathlib.Topology.Connected.PathConnected"
+      ]
+    },
+    "homotopy_theory": {
+      "title": "Homotopy theory",
+      "parent": "algebraic_topology",
+      "modules": [
+        "Mathlib.Topology.Homotopy.Basic",
+        "Mathlib.Topology.Homotopy.Path",
+        "Mathlib.Topology.Homotopy.Equiv",
+        "Mathlib.Topology.Homotopy.Contractible",
+        "Mathlib.Topology.Homotopy.Product",
+        "Mathlib.Topology.Homotopy.HomotopyGroup",
+        "Mathlib.Topology.Homotopy.LocallyContractible",
+        "Mathlib.Topology.Homotopy.TopCat.Basic",
+        "Mathlib.Topology.Homotopy.TopCat.Path",
+        "Mathlib.Topology.Homotopy.TopCat.ZerothHomotopy",
+        "Mathlib.GroupTheory.EckmannHilton"
+      ]
+    },
+    "covering_spaces": {
+      "title": "Covering spaces",
+      "parent": "algebraic_topology",
+      "modules": [
+        "Mathlib.Topology.Covering.Basic",
+        "Mathlib.Topology.Covering.AddCircle",
+        "Mathlib.Topology.Covering.Quotient",
+        "Mathlib.Topology.Covering.Deck",
+        "Mathlib.Topology.Covering.FundamentalGroupCircle",
+        "Mathlib.Topology.Homotopy.Lifting"
+      ]
+    },
+    "simplicial_topology": {
+      "title": "Simplicial topology",
+      "parent": "algebraic_topology",
+      "modules": [
+        "Mathlib.AlgebraicTopology.SimplexCategory.Basic",
+        "Mathlib.AlgebraicTopology.TopologicalSimplex",
+        "Mathlib.AlgebraicTopology.SimplicialObject.Basic",
+        "Mathlib.AlgebraicTopology.SimplicialSet.Basic",
+        "Mathlib.AlgebraicTopology.SimplicialSet.StdSimplex",
+        "Mathlib.AlgebraicTopology.SingularSet",
+        "Mathlib.Topology.Homotopy.TopCat.ToSSet"
+      ]
+    },
+    "homology": {
+      "title": "Homology",
+      "parent": "algebraic_topology",
+      "modules": [
+        "Mathlib.AlgebraicTopology.SimplicialSet.Homology.Basic",
+        "Mathlib.AlgebraicTopology.SimplicialSet.Homology.HomotopyInvariance",
+        "Mathlib.AlgebraicTopology.SimplicialSet.Homology.HomologyZero",
+        "Mathlib.AlgebraicTopology.SingularHomology.Basic",
+        "Mathlib.AlgebraicTopology.SingularHomology.HomotopyInvariance",
+        "Mathlib.AlgebraicTopology.SingularHomology.HomologyZero"
+      ]
+    },
+    "homological_algebra": {
+      "title": "Homological algebra",
+      "parent": "algebra",
+      "modules": [
+        "Mathlib.Algebra.Homology.ComplexShape",
+        "Mathlib.Algebra.Homology.HomologicalComplex",
+        "Mathlib.Algebra.Homology.ShortComplex.Basic",
+        "Mathlib.Algebra.Homology.ShortComplex.Homology",
+        "Mathlib.Algebra.Homology.ShortComplex.HomologicalComplex",
+        "Mathlib.Algebra.Homology.Homotopy"
       ]
     }
   },
