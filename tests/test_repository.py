@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from contextlib import redirect_stderr, redirect_stdout
 from copy import deepcopy
+import gc
 import hashlib
 import io
 import json
@@ -24,13 +25,8 @@ from repository.store import open_snapshot
 ROOT = Path(__file__).resolve().parents[1]
 
 
-class RepositoryTests(unittest.TestCase):
-    @classmethod
-    def setUpClass(cls):
-        cls.catalog = verify(ROOT, clean=True)
-        cls.nodes = {node["name"]: node for node in cls.catalog["declarations"]}
-        cls.policy = json.loads((ROOT / "knowledge.json").read_text())
-        cls.lake = find_lake(ROOT)
+class RepositoryArtifacts:
+    """copy locked sources and proof artifacts for isolated checks."""
 
     def clone_inputs(self, root: Path) -> None:
         for relative in input_hashes(ROOT):
@@ -45,6 +41,21 @@ class RepositoryTests(unittest.TestCase):
         source = proof_export_path(ROOT, self.catalog)
         shutil.copyfile(source, root / "build" / source.name)
         shutil.copyfile(ROOT / "build/knowledge.json", root / "build/knowledge.json")
+
+
+class RepositoryTests(RepositoryArtifacts, unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.catalog = verify(ROOT, clean=True)
+        cls.nodes = {node["name"]: node for node in cls.catalog["declarations"]}
+        cls.policy = json.loads((ROOT / "knowledge.json").read_text())
+        cls.lake = find_lake(ROOT)
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.nodes.clear()
+        cls.catalog.clear()
+        gc.collect()
 
     def mutated(self, name: str) -> tuple[dict, dict]:
         raw = {**self.catalog, "declarations": self.catalog["declarations"].copy()}
@@ -157,30 +168,6 @@ class RepositoryTests(unittest.TestCase):
         with self.assertRaisesRegex(RepositoryError, "forbidden axiom"):
             validate(self.catalog, policy)
 
-    def test_source_changes_invalidate_index(self):
-        with tempfile.TemporaryDirectory() as directory:
-            root = Path(directory)
-            self.clone_inputs(root)
-            self.clone_artifact(root)
-            self.assertEqual(load_catalog(root)["roots"], self.catalog["roots"])
-            source = root / "Math/Logic/Basic.lean"
-            source.write_text(source.read_text() + "\n")
-            with self.assertRaisesRegex(RepositoryError, "index is stale"):
-                load_catalog(root)
-
-    def test_artifact_changes_are_detected(self):
-        with tempfile.TemporaryDirectory() as directory:
-            root = Path(directory)
-            self.clone_inputs(root)
-            self.clone_artifact(root)
-            raw, node = self.mutated(self.catalog["declarations"][0]["name"])
-            node["statement"] = "False"
-            with (root / "build/knowledge.json").open("wb") as handle:
-                for chunk in canonical_chunks(raw):
-                    handle.write(chunk)
-            with self.assertRaisesRegex(RepositoryError, "content digest mismatch"):
-                load_catalog(root)
-
     def test_cli_shows_proofs_and_axioms(self):
         output = io.StringIO()
         with redirect_stdout(output):
@@ -260,20 +247,6 @@ class RepositoryTests(unittest.TestCase):
             "    type := Lean.mkConst ``False\n"
             "    value := Lean.mkConst ``True.intro\n"
             "  })\n", "leanchecker")
-
-    def test_proof_export_is_required_and_checked(self):
-        with tempfile.TemporaryDirectory() as directory:
-            root = Path(directory)
-            self.clone_inputs(root)
-            self.clone_artifact(root)
-            proof = next((root / "build").glob("proofs-*.jsonl"))
-            with proof.open("ab") as handle:
-                handle.write(b"tampered\n")
-            with self.assertRaisesRegex(RepositoryError, "proof export digest mismatch"):
-                load_catalog(root)
-            proof.unlink()
-            with self.assertRaisesRegex(RepositoryError, "proof export is missing"):
-                load_catalog(root)
 
     def test_sources_outside_mathematical_tree_are_rejected(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -1070,6 +1043,54 @@ class RepositoryTests(unittest.TestCase):
         self.assertEqual(binding["proof_export_digest"], self.catalog["provenance"]["proof_export_digest"])
         snapshot = open_snapshot(ROOT)
         self.assertEqual(snapshot.summary()["proof_binding"], binding)
+
+
+class VerifiedCatalogLoadingTests(RepositoryArtifacts, unittest.TestCase):
+    """load full catalogs after graph checks release their expression arrays."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.catalog = open_snapshot(ROOT).metadata
+
+    def test_source_changes_invalidate_index(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            self.clone_inputs(root)
+            self.clone_artifact(root)
+            self.assertEqual(load_catalog(root)["roots"], self.catalog["roots"])
+            source = root / "Math/Logic/Basic.lean"
+            source.write_text(source.read_text() + "\n")
+            with self.assertRaisesRegex(RepositoryError, "index is stale"):
+                load_catalog(root)
+
+    def test_artifact_changes_are_detected(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            self.clone_inputs(root)
+            self.clone_artifact(root)
+            raw = load_catalog(ROOT)
+            raw["declarations"][0]["statement"] = "False"
+            with (root / "build/knowledge.json").open("wb") as handle:
+                for chunk in canonical_chunks(raw):
+                    handle.write(chunk)
+            del raw
+            gc.collect()
+            with self.assertRaisesRegex(RepositoryError, "content digest mismatch"):
+                load_catalog(root)
+
+    def test_proof_export_is_required_and_checked(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            self.clone_inputs(root)
+            self.clone_artifact(root)
+            proof = next((root / "build").glob("proofs-*.jsonl"))
+            with proof.open("ab") as handle:
+                handle.write(b"tampered\n")
+            with self.assertRaisesRegex(RepositoryError, "proof export digest mismatch"):
+                load_catalog(root)
+            proof.unlink()
+            with self.assertRaisesRegex(RepositoryError, "proof export is missing"):
+                load_catalog(root)
 
 
 if __name__ == "__main__":

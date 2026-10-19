@@ -4,16 +4,51 @@ import io
 import json
 from pathlib import Path
 import random
+import subprocess
+import sys
 import tempfile
 import unittest
 from unittest.mock import patch
 
 from repository.build import read_json
-from repository.core import RepositoryError
+from repository.core import RepositoryError, canonical
 from repository.json_reader import read_object
 
 
 class JsonReaderTests(unittest.TestCase):
+    def test_large_integer_tokens_preserve_every_digit_across_chunks(self):
+        value = 10 ** 5000 + 179
+        original = {"expressions": [{"tag": "nat", "value": value}],
+                    "metadata": {"positive": value, "negative": -value}}
+        encoded = canonical(original).decode()
+        for size in (1, 31, 257, 65536):
+            with self.subTest(size=size):
+                self.assertEqual(read_object(io.StringIO(encoded), size), original)
+        self.assertEqual(json.loads(encoded), original)
+
+    def test_package_import_allows_large_literals_under_a_restrictive_python_setting(self):
+        source = '''import json
+import sys
+digits = "1" + "0" * 5000
+if hasattr(sys, "get_int_max_str_digits"):
+    assert sys.get_int_max_str_digits() == 640
+    try:
+        int(digits)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("expected the initial conversion limit")
+from repository.core import canonical
+value = 10 ** 5000
+assert int(digits) == value
+assert str(value) == digits
+assert canonical({"value": value}) == ("{\\"value\\":" + digits + "}").encode()
+assert json.loads("{\\"value\\":" + digits + "}")["value"] == value
+'''
+        result = subprocess.run([sys.executable, "-X", "int_max_str_digits=640", "-c", source],
+                                cwd=Path(__file__).resolve().parents[1], capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0, result.stderr)
+
     def test_objects_match_the_standard_decoder_across_chunk_sizes(self):
         randomizer = random.Random(20261017)
 

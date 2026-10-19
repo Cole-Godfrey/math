@@ -114,7 +114,7 @@ class TermInspectionTests(unittest.TestCase):
         self.assertEqual(len(result["ancestors"]), 2500)
 
     def test_natural_literals_keep_every_digit_for_browser_clients(self):
-        value = 10 ** 120 + 179
+        value = 10 ** 5000 + 179
         self.records.append({"tag": "nat", "value": value})
         self.node["value"] = len(self.records) - 1
         result = self.inspect()

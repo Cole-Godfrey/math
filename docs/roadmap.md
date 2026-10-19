@@ -12,6 +12,8 @@ Browser and terminal queries share immutable query snapshots. Terminal search, d
 
 The browser inspects exact term occurrences with their binder contexts, ordered application arguments, local definitions, referenced declarations, and recursor reduction rules. Structured navigation reads each requested path from the immutable snapshot and retains full term downloads.
 
+Natural literals retain every decimal digit beyond Python's default conversion limit, including in proof replay, stored expressions, and browser inspection. Catalog tests release the earlier expression arrays before loading the complete corpus again.
+
 Pinned upstream bibliographies and compiled module documentation connect explicit citation keys to retained records, publication links, and source locations. The browser distinguishes declaration citations from module references and preserves the complete bibliography for reconstruction.
 
 Probability coverage includes laws and distributions, independence and conditional independence, conditional expectations, Borel-Cantelli lemmas, the strong laws of large numbers, the real central limit theorem, stopping times, optional sampling, and martingale convergence. Statement checks retain the precise integrability, independence, boundedness, and convergence hypotheses.

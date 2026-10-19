@@ -1,17 +1,22 @@
 """check exact index binding against real kernel replay artifacts and altered terms."""
 
 from copy import deepcopy
+import http.client
+from http.server import ThreadingHTTPServer
 import json
 import os
 from pathlib import Path
 import shutil
 import tempfile
+from threading import Thread
 import unittest
+from urllib.parse import urlencode
 from unittest.mock import patch
 
-from repository.build import find_lake, verify
-from repository.core import CHILD_FIELDS, RepositoryError, validate
+from repository.build import find_lake, read_json, verify
+from repository.core import CHILD_FIELDS, RepositoryError, canonical, validate
 from repository.replay import Hashes, bind_replay, fingerprint, name_hashes
+from repository.server import ExplorerState, make_handler
 from repository.store import open_snapshot
 
 
@@ -34,6 +39,7 @@ class ReplayBindingTests(unittest.TestCase):
         (cls.root / "lakefile.toml").write_text('name = "math"\n[[lean_lib]]\nname = "Math"\n')
         (cls.root / "lake-manifest.json").write_text(json.dumps({
             "version": "1.3.0", "name": "math", "packages": [], "packagesDir": ".lake/packages"}))
+        cls.large_natural_digits = "1" + "0" * 5000
         (cls.root / "Math/Binding.lean").write_text('''/-! fixture module reference [fixturebook]. -/
 universe u
 namespace Binding
@@ -41,6 +47,8 @@ theorem truth : True := True.intro
 theorem alias_truth : True := True.intro
 theorem identity (P : Prop) (h : P) : P := h
 def zero : Nat := 0
+def largeNatural : Nat := LARGE_NATURAL
+theorem largeNatural_eq : largeNatural = LARGE_NATURAL := rfl
 def message : String := "logical \\"text\\" λ"
 def project {α β : Type u} (p : α × β) : α := p.1
 def localValue (n : Nat) : Nat := let x := n + 1; x + x
@@ -53,7 +61,7 @@ inductive Tree (α : Type u) where
 def quotient (n : Nat) : Quot (fun a b : Nat => a = b) := Quot.mk _ n
 theorem quotient_eq (a b : Nat) (h : a = b) : quotient a = quotient b := Quot.sound h
 end Binding
-''')
+'''.replace("LARGE_NATURAL", cls.large_natural_digits))
         policy = json.loads((ROOT / "knowledge.json").read_text())
         cls.policy = {key: policy[key] for key in ["schema_version", "foundation", "axioms"]}
         cls.policy["modules"] = {name: {"title": name, "allowed_axioms": list(policy["axioms"])}
@@ -172,6 +180,65 @@ end Binding
         module = next(item for item in self.catalog["modules"] if item["name"] == "Math.Binding")
         self.assertIn("fixture module reference [fixturebook]", module["docs"][0]["text"])
         self.assertEqual(module["docs"][0]["line"], 1)
+
+    def test_large_naturals_survive_kernel_replay_storage_and_catalog_reconstruction(self):
+        snapshot = open_snapshot(self.root)
+        term = snapshot.term("Binding.largeNatural")
+        argument = next(item for item in term["application"]["arguments"]
+                        if item.get("literal") == self.large_natural_digits)
+        focused = snapshot.term("Binding.largeNatural", path=argument["path"])
+        self.assertEqual(focused["expression"]["tag"], "nat")
+        self.assertEqual(focused["expression"]["value"], self.large_natural_digits)
+        self.assertEqual(str(self.catalog["expressions"][focused["expression"]["id"]]["value"]),
+                         self.large_natural_digits)
+        self.assertEqual(json.loads(canonical(focused))["expression"]["value"], self.large_natural_digits)
+        data = b"".join(snapshot.catalog_chunks())
+        self.assertEqual(data, (self.root / "build/knowledge.json").read_bytes())
+        self.assertEqual(read_json(self.root / "build/knowledge.json"), self.catalog)
+        self.assertEqual(self.catalog["provenance"]["checkers"],
+                         ["Lean 4.35.0 kernel replay", "nanoda_bin 0.4.19"])
+
+    def test_large_natural_literal_changes_are_rejected_by_proof_binding(self):
+        catalog = {**self.catalog, "expressions": [dict(node) for node in self.catalog["expressions"]]}
+        expression = next(node for node in catalog["expressions"]
+                          if node["tag"] == "nat" and node["value"] == int(self.large_natural_digits))
+        expression["value"] += 1
+        validate(catalog, self.policy)
+        with self.assertRaisesRegex(RepositoryError, "indexed declaration differs"):
+            bind_replay(catalog, self.proof)
+
+    def test_large_naturals_remain_exact_over_http(self):
+        state = ExplorerState(self.root)
+        server = ThreadingHTTPServer(("127.0.0.1", 0), make_handler(state))
+        thread = Thread(target=server.serve_forever, daemon=True)
+        thread.start()
+        try:
+            def request(endpoint, **parameters):
+                parameters["snapshot"] = self.catalog["content_digest"]
+                connection = http.client.HTTPConnection("127.0.0.1", server.server_port)
+                try:
+                    connection.request("GET", endpoint + "?" + urlencode(parameters))
+                    response = connection.getresponse()
+                    self.assertEqual(response.status, 200)
+                    self.assertEqual(response.getheader("X-Math-Snapshot"), self.catalog["content_digest"])
+                    return response.read()
+                finally:
+                    connection.close()
+
+            root = json.loads(request("/api/term", name="Binding.largeNatural"))
+            argument = next(item for item in root["application"]["arguments"]
+                            if item.get("literal") == self.large_natural_digits)
+            term = json.loads(request("/api/term", name="Binding.largeNatural", path=argument["path"]))
+            self.assertEqual(term["expression"]["value"], self.large_natural_digits)
+            expressions = json.loads(request("/api/expressions", name="Binding.largeNatural"))
+            self.assertIn(int(self.large_natural_digits),
+                          [item["value"] for item in expressions["expressions"].values() if item["tag"] == "nat"])
+            self.assertEqual(request("/api/catalog"), (self.root / "build/knowledge.json").read_bytes())
+            self.assertEqual(request("/api/proof-export"), self.proof.read_bytes())
+        finally:
+            server.shutdown()
+            server.server_close()
+            thread.join()
 
     def test_term_inspection_retains_checked_reduction_rules_and_exact_names(self):
         snapshot = open_snapshot(self.root)
