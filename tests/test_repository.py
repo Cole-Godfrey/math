@@ -643,6 +643,154 @@ class RepositoryTests(RepositoryArtifacts, unittest.TestCase):
                 for category in (subject, parent, "mathematics"):
                     self.assertIn(name, {node["name"] for node in graph.search(name, subject=category)})
 
+    def test_model_theory_statements_match_reference_types(self):
+        run(ROOT, [self.lake, "env", "lean", "tests/ModelTheoryStatements.lean"], capture=True)
+
+    def test_model_theory_objects_and_results_retain_terms_and_pinned_sources(self):
+        expected = {
+            "FirstOrder.Language": "Basic",
+            "FirstOrder.Language.Structure": "Basic",
+            "FirstOrder.Language.Term": "Syntax",
+            "FirstOrder.Language.BoundedFormula": "Syntax",
+            "FirstOrder.Language.Formula": "Syntax",
+            "FirstOrder.Language.Sentence": "Syntax",
+            "FirstOrder.Language.Theory": "Syntax",
+            "FirstOrder.Language.BoundedFormula.Realize": "Semantics",
+            "FirstOrder.Language.BoundedFormula.realize_subst": "Semantics",
+            "FirstOrder.Language.Theory.Model": "Semantics",
+            "FirstOrder.Language.completeTheory": "Semantics",
+            "FirstOrder.Language.ElementarilyEquivalent": "Semantics",
+            "FirstOrder.Language.BoundedFormula.IsQF": "Complexity",
+            "FirstOrder.Language.BoundedFormula.IsPrenex": "Complexity",
+            "FirstOrder.Language.BoundedFormula.toPrenex": "Complexity",
+            "FirstOrder.Language.BoundedFormula.realize_toPrenex": "Complexity",
+            "FirstOrder.Language.Substructure": "Substructures",
+            "FirstOrder.Language.ElementaryEmbedding": "ElementaryMaps",
+            "FirstOrder.Language.elementaryDiagram": "ElementaryMaps",
+            "FirstOrder.Language.ElementarySubstructure": "ElementarySubstructures",
+            "FirstOrder.Language.Substructure.isElementary_of_exists": "ElementarySubstructures",
+            "FirstOrder.Language.Theory.IsSatisfiable": "Satisfiability",
+            "FirstOrder.Language.Theory.IsFinitelySatisfiable": "Satisfiability",
+            "FirstOrder.Language.Theory.isSatisfiable_iff_isFinitelySatisfiable": "Satisfiability",
+            "FirstOrder.Language.Theory.models_iff_finset_models": "Satisfiability",
+            "FirstOrder.Language.Theory.IsComplete": "Satisfiability",
+            "FirstOrder.Language.exists_elementaryEmbedding_card_eq_of_ge": "Satisfiability",
+            "FirstOrder.Language.exists_elementarySubstructure_card_eq": "Skolem",
+            "FirstOrder.Language.Ultraproduct.sentence_realize": "Ultraproducts",
+            "FirstOrder.Language.IsFraisse": "Fraisse",
+            "FirstOrder.Language.IsFraisseLimit": "Fraisse",
+            "FirstOrder.Language.IsFraisseLimit.nonempty_equiv": "Fraisse",
+            "Set.Definable": "Definability",
+            "FirstOrder.Language.Theory.CompleteType": "Types",
+            "FirstOrder.Language.Theory.CompleteType.nonempty_iff": "Types",
+            "FirstOrder.Language.Theory.exists_modelType_is_realized_in": "Types",
+            "CompleteType.isClopen_typesWith": "Topology.Types",
+            "FirstOrder.Language.ring": "Algebra.Ring.Basic",
+            "FirstOrder.Language.Theory.ACF": "Algebra.Field.IsAlgClosed",
+            "FirstOrder.Field.ACF_isComplete": "Algebra.Field.IsAlgClosed",
+            "FirstOrder.Field.ACF_zero_realize_iff_infinite_ACF_prime_realize": "Algebra.Field.IsAlgClosed",
+            "FirstOrder.Field.ACF_zero_realize_iff_finite_ACF_prime_not_realize": "Algebra.Field.IsAlgClosed",
+            "FirstOrder.Language.presburger": "Arithmetic.Presburger.Basic",
+            "IsSemilinearSet": "Arithmetic.Presburger.Semilinear.Defs",
+            "FirstOrder.Language.presburger.definable_iff_isSemilinearSet": "Arithmetic.Presburger.Definability",
+            "FirstOrder.Language.presburger.definable₁_iff_ultimately_periodic": "Arithmetic.Presburger.Definability",
+            "FirstOrder.Language.presburger.mul_not_definable": "Arithmetic.Presburger.Definability",
+        }
+        for name, suffix in expected.items():
+            with self.subTest(name=name):
+                self.assertIn(name, self.catalog["roots"])
+                node = self.nodes[name]
+                self.assertEqual(node["module"], "Mathlib.ModelTheory." + suffix)
+                if node["kind"] in {"definition", "theorem", "opaque"}:
+                    self.assertIsInstance(node["value"], int)
+                self.assertTrue(set(node["axioms"]) <= self.policy["axioms"].keys())
+                origin = self.catalog["sources"][node["module"]]
+                self.assertEqual(origin["revision"], self.policy["libraries"]["mathlib"]["revision"])
+                self.assertIn(origin["revision"], origin["url"])
+                self.assertEqual(origin["license"], "Apache-2.0")
+
+    def test_model_theory_hierarchies_reach_models_assumptions_and_all_axioms(self):
+        graph = KnowledgeGraph(self.catalog)
+        expected = {
+            "FirstOrder.Language.Theory.isSatisfiable_iff_isFinitelySatisfiable": {
+                "FirstOrder.Language.Ultraproduct.sentence_realize",
+                "FirstOrder.Language.Theory.IsSatisfiable",
+                "FirstOrder.Language.Theory.IsFinitelySatisfiable",
+            },
+            "FirstOrder.Language.Ultraproduct.sentence_realize": {
+                "FirstOrder.Language.BoundedFormula.Realize",
+                "Quotient",
+            },
+            "FirstOrder.Language.exists_elementarySubstructure_card_eq": {
+                "FirstOrder.Language.ElementarySubstructure",
+                "FirstOrder.Language.Substructure",
+            },
+            "FirstOrder.Language.exists_elementaryEmbedding_card_eq_of_ge": {
+                "FirstOrder.Language.ElementaryEmbedding",
+                "FirstOrder.Language.Theory.isSatisfiable_iff_isFinitelySatisfiable",
+            },
+            "FirstOrder.Field.ACF_isComplete": {
+                "FirstOrder.Language.Theory.ACF",
+                "FirstOrder.Language.Theory.IsComplete",
+                "IsAlgClosed",
+            },
+            "FirstOrder.Field.ACF_zero_realize_iff_finite_ACF_prime_not_realize": {
+                "FirstOrder.Language.Theory.ACF",
+                "FirstOrder.Field.ACF_isComplete",
+                "FirstOrder.Language.Theory.models_iff_finset_models",
+            },
+            "FirstOrder.Language.presburger.definable_iff_isSemilinearSet": {
+                "FirstOrder.Language.presburger",
+                "Set.Definable",
+                "IsSemilinearSet",
+            },
+            "FirstOrder.Language.presburger.mul_not_definable": {
+                "FirstOrder.Language.presburger.definable₁_iff_ultimately_periodic",
+            },
+            "FirstOrder.Language.IsFraisseLimit.nonempty_equiv": {
+                "FirstOrder.Language.IsFraisseLimit",
+                "FirstOrder.Language.PartialEquiv",
+            },
+        }
+        for name, objects in expected.items():
+            with self.subTest(name=name):
+                hierarchy = graph.hierarchy(name)
+                reached = {node["name"] for node in hierarchy["declarations"]}
+                self.assertTrue(objects <= reached, objects - reached)
+                self.assertEqual(set(hierarchy["axiom_paths"]), set(self.nodes[name]["axioms"]))
+                for axiom, path in hierarchy["axiom_paths"].items():
+                    self.assertEqual(path[0], name)
+                    self.assertEqual(path[-1], axiom)
+                    for source, target in zip(path, path[1:]):
+                        self.assertIn(target, self.nodes[source]["dependencies"])
+
+    def test_model_theory_subjects_include_their_results_and_parent_subjects(self):
+        graph = KnowledgeGraph(self.catalog)
+        expected = {
+            "first_order_logic": ("logic", "FirstOrder.Language.BoundedFormula"),
+            "model_theory": ("first_order_logic", "FirstOrder.Language.Theory.isSatisfiable_iff_isFinitelySatisfiable"),
+            "types_and_definability": ("model_theory", "FirstOrder.Language.Theory.CompleteType"),
+            "algebraic_model_theory": ("model_theory", "FirstOrder.Field.ACF_isComplete"),
+            "presburger_arithmetic": ("first_order_logic", "FirstOrder.Language.presburger.mul_not_definable"),
+        }
+        for subject, (parent, name) in expected.items():
+            with self.subTest(subject=subject):
+                self.assertEqual(self.catalog["subjects"][subject]["parent"], parent)
+                for category in (subject, parent, "mathematics"):
+                    self.assertIn(name, {node["name"] for node in graph.search(name, subject=category)})
+
+    def test_model_theory_references_link_their_pinned_records(self):
+        snapshot = open_snapshot(ROOT)
+        expected = {
+            "FirstOrder.Language": {"flypitch_cpp", "flypitch_itp"},
+            "FirstOrder.Language.presburger.definable_iff_isSemilinearSet":
+                {"ginsburg1964", "ginsburg1966", "eilenberg1969"},
+        }
+        for name, keys in expected.items():
+            with self.subTest(name=name):
+                references = snapshot.citations(name)
+                self.assertTrue(keys <= {entry["key"] for entry in references["module_citations"]})
+
     def test_probability_objects_and_results_retain_terms_and_pinned_sources(self):
         expected = {
             "ProbabilityTheory.HasLaw": "Probability.HasLaw",

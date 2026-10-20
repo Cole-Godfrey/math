@@ -1809,6 +1809,278 @@
             "Quot.sound",
             "Classical.choice"
           ]
+        },
+        "Mathlib.ModelTheory.Basic": {
+          "title": "First-order languages and structures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.ModelTheory.LanguageMap": {
+          "title": "Maps and expansions of first-order languages",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.ModelTheory.Syntax": {
+          "title": "First-order terms, formulas, sentences, and theories",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.ModelTheory.Semantics": {
+          "title": "Realization and models of first-order theories",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.ModelTheory.Equivalence": {
+          "title": "Semantic implication and equivalence of formulas",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.ModelTheory.Complexity": {
+          "title": "Quantifier complexity and prenex normal forms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.ModelTheory.Encoding": {
+          "title": "Encoding first-order syntax",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.ModelTheory.Bundled": {
+          "title": "Bundled first-order structures and models",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.ModelTheory.Substructures": {
+          "title": "First-order substructures and generated closures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.ModelTheory.FinitelyGenerated": {
+          "title": "Finitely and countably generated structures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.ModelTheory.ElementaryMaps": {
+          "title": "Elementary embeddings, maps, and diagrams",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.ModelTheory.ElementarySubstructures": {
+          "title": "Elementary substructures and the Tarski-Vaught criterion",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.ModelTheory.PartialEquiv": {
+          "title": "Partial isomorphisms and extension pairs",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.ModelTheory.Quotients": {
+          "title": "Quotients of first-order structures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.ModelTheory.DirectLimit": {
+          "title": "Direct limits of first-order structures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.ModelTheory.Ultraproducts": {
+          "title": "Ultraproducts and Łoś's theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.ModelTheory.Skolem": {
+          "title": "Skolem functions and downward Löwenheim–Skolem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.ModelTheory.Satisfiability": {
+          "title": "Compactness and upward Löwenheim–Skolem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.ModelTheory.Fraisse": {
+          "title": "Fraïssé classes and uniqueness of limits",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.ModelTheory.Order": {
+          "title": "First-order theories of ordered structures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.ModelTheory.Graph": {
+          "title": "First-order structures of simple graphs",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.ModelTheory.Definability": {
+          "title": "Definable sets with parameters",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.ModelTheory.Types": {
+          "title": "Complete types and their realizations",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.ModelTheory.Topology.Types": {
+          "title": "Topology of complete type spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.ModelTheory.Algebra.Ring.Basic": {
+          "title": "The first-order language and theory of rings",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.ModelTheory.Algebra.Ring.FreeCommRing": {
+          "title": "Ring terms and free commutative rings",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.ModelTheory.Algebra.Ring.Definability": {
+          "title": "Definability of ring operations",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.ModelTheory.Algebra.Field.Basic": {
+          "title": "The first-order theory of fields",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.ModelTheory.Algebra.Field.CharP": {
+          "title": "First-order field characteristics",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.ModelTheory.Algebra.Field.IsAlgClosed": {
+          "title": "Algebraically closed fields and the Lefschetz principle",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.ModelTheory.Arithmetic.Presburger.Basic": {
+          "title": "The language of Presburger arithmetic",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.ModelTheory.Arithmetic.Presburger.Semilinear.Defs": {
+          "title": "Linear and semilinear sets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.ModelTheory.Arithmetic.Presburger.Semilinear.Basic": {
+          "title": "Closure properties of semilinear sets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.ModelTheory.Arithmetic.Presburger.Definability": {
+          "title": "Presburger definability and semilinearity",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
         }
       }
     }
@@ -2303,6 +2575,70 @@
         "Mathlib.Algebra.Homology.ShortComplex.Homology",
         "Mathlib.Algebra.Homology.ShortComplex.HomologicalComplex",
         "Mathlib.Algebra.Homology.Homotopy"
+      ]
+    },
+    "first_order_logic": {
+      "title": "First-order logic",
+      "parent": "logic",
+      "modules": [
+        "Mathlib.ModelTheory.Basic",
+        "Mathlib.ModelTheory.LanguageMap",
+        "Mathlib.ModelTheory.Syntax",
+        "Mathlib.ModelTheory.Semantics",
+        "Mathlib.ModelTheory.Equivalence",
+        "Mathlib.ModelTheory.Complexity",
+        "Mathlib.ModelTheory.Encoding"
+      ]
+    },
+    "model_theory": {
+      "title": "Model theory",
+      "parent": "first_order_logic",
+      "modules": [
+        "Mathlib.ModelTheory.Bundled",
+        "Mathlib.ModelTheory.Substructures",
+        "Mathlib.ModelTheory.FinitelyGenerated",
+        "Mathlib.ModelTheory.ElementaryMaps",
+        "Mathlib.ModelTheory.ElementarySubstructures",
+        "Mathlib.ModelTheory.PartialEquiv",
+        "Mathlib.ModelTheory.Quotients",
+        "Mathlib.ModelTheory.DirectLimit",
+        "Mathlib.ModelTheory.Ultraproducts",
+        "Mathlib.ModelTheory.Skolem",
+        "Mathlib.ModelTheory.Satisfiability",
+        "Mathlib.ModelTheory.Fraisse",
+        "Mathlib.ModelTheory.Order",
+        "Mathlib.ModelTheory.Graph"
+      ]
+    },
+    "types_and_definability": {
+      "title": "Types and definability",
+      "parent": "model_theory",
+      "modules": [
+        "Mathlib.ModelTheory.Definability",
+        "Mathlib.ModelTheory.Types",
+        "Mathlib.ModelTheory.Topology.Types"
+      ]
+    },
+    "algebraic_model_theory": {
+      "title": "Model theory of rings and fields",
+      "parent": "model_theory",
+      "modules": [
+        "Mathlib.ModelTheory.Algebra.Ring.Basic",
+        "Mathlib.ModelTheory.Algebra.Ring.FreeCommRing",
+        "Mathlib.ModelTheory.Algebra.Ring.Definability",
+        "Mathlib.ModelTheory.Algebra.Field.Basic",
+        "Mathlib.ModelTheory.Algebra.Field.CharP",
+        "Mathlib.ModelTheory.Algebra.Field.IsAlgClosed"
+      ]
+    },
+    "presburger_arithmetic": {
+      "title": "Presburger arithmetic",
+      "parent": "first_order_logic",
+      "modules": [
+        "Mathlib.ModelTheory.Arithmetic.Presburger.Basic",
+        "Mathlib.ModelTheory.Arithmetic.Presburger.Semilinear.Defs",
+        "Mathlib.ModelTheory.Arithmetic.Presburger.Semilinear.Basic",
+        "Mathlib.ModelTheory.Arithmetic.Presburger.Definability"
       ]
     }
   },

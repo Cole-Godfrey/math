@@ -20,6 +20,8 @@ Probability coverage includes laws and distributions, independence and condition
 
 Algebraic topology includes paths, fundamental groupoids and groups, higher homotopy groups, contractible and simply connected spaces, coverings, circle winding numbers, singular simplicial sets, geometric realization, chain complexes, and singular homology. Signature checks cover the circle's fundamental group, commutativity of higher homotopy groups, homotopy invariance, and zeroth homology as a coproduct over path components.
 
+First-order logic and model theory include syntax, realization, prenex forms, elementary embeddings and substructures, ultraproducts, compactness, Löwenheim–Skolem theorems, definability, complete types and their topology, Fraïssé limits, and theories of orders, graphs, rings, and fields. Statement checks include completeness of algebraically closed fields, the Lefschetz principle, Presburger semilinearity and periodicity, and undefinability of multiplication.
+
 Work still required:
 
 - Expand registered mathlib coverage across further fields and research results, and integrate other established formal libraries while preserving upstream declarations, licenses, references, and proof dependencies.
