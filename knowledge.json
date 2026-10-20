@@ -2849,6 +2849,1190 @@
             "Quot.sound",
             "Classical.choice"
           ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.Adjoint": {
+          "title": "Adjoint of operators on Hilbert spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.Affine": {
+          "title": "Normed affine spaces over an inner product space",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.Basic": {
+          "title": "Properties of inner product spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.Calculus": {
+          "title": "Calculus in inner product spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.CanonicalTensor": {
+          "title": "Canonical tensors in real inner product spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.Coalgebra": {
+          "title": "Finite-dimensional inner product space with a (co)algebra structure",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.Completion": {
+          "title": "Completion of an inner product space",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.ConformalLinearMap": {
+          "title": "Conformal maps between inner product spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.Continuous": {
+          "title": "Continuity of inner product",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.Convex": {
+          "title": "Convexity properties of inner product spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.Defs": {
+          "title": "Inner product spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.Dual": {
+          "title": "The Fréchet-Riesz representation theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.EuclideanDist": {
+          "title": "Euclidean distance on a finite-dimensional space",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.ExteriorPower": {
+          "title": "Inner product space structure on exterior powers",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.GramMatrix": {
+          "title": "Gram Matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.GramSchmidtOrtho": {
+          "title": "Gram-Schmidt Orthogonalization and Orthonormalization",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.Harmonic.Basic": {
+          "title": "Harmonic Functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.Harmonic.Constructions": {
+          "title": "Construction of Harmonic Functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.Harmonic.HarmonicContOnCl": {
+          "title": "Functions Harmonic on a Domain and Continuous on Its Closure",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.JointEigenspace": {
+          "title": "Joint eigenspaces of commuting symmetric operators",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.Laplacian": {
+          "title": "The Laplacian",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.LaxMilgram": {
+          "title": "The Lax-Milgram Theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.LinearMap": {
+          "title": "Linear maps on inner product spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.LinearPMap": {
+          "title": "Partially defined linear operators on Hilbert spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.MeanErgodic": {
+          "title": "Von Neumann Mean Ergodic Theorem in a Hilbert Space",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.MulOpposite": {
+          "title": "Inner product space on `Hᵐᵒᵖ",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.NormDet": {
+          "title": "Norm determinant of a linear map",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.NormPow": {
+          "title": "Properties about the powers of the norm",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.OfNorm": {
+          "title": "Inner product space derived from a norm",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.Orientation": {
+          "title": "Orientations of real inner product spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.Orthogonal": {
+          "title": "Orthogonal complements of submodules",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.Orthonormal": {
+          "title": "Orthonormal sets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.PiL2": {
+          "title": "L²` inner product space structure on finite products of inner product spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.Positive": {
+          "title": "Positive operators",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.ProdL2": {
+          "title": "L²` inner product space structure on products of inner product spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.Projection.Basic": {
+          "title": "The orthogonal projection",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.Projection.FiniteDimensional": {
+          "title": "Orthogonal projections in finite-dimensional spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.Projection.Minimal": {
+          "title": "Existence of minimizers (Hilbert projection theorem)",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.Projection.Reflection": {
+          "title": "Reflection",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.Projection.Submodule": {
+          "title": "Subspaces associated with orthogonal projections",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.Rayleigh": {
+          "title": "The Rayleigh quotient",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.Reproducing.Operations": {
+          "title": "Operations on RKHS",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.Reproducing": {
+          "title": "Reproducing Kernel Hilbert Spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.Semisimple": {
+          "title": "Semisimple operators on inner product spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.SingularValues": {
+          "title": "Singular values for finite-dimensional linear maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.Spectrum": {
+          "title": "Spectral theory of self-adjoint operators",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.StandardSubspace": {
+          "title": "Standard subspaces of a Hilbert space",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.StarOrder": {
+          "title": "Continuous linear maps on a Hilbert space are a `StarOrderedRing",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.Subspace": {
+          "title": "Subspaces of inner product spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.Symmetric": {
+          "title": "Symmetric linear maps in an inner product space",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.TensorProduct": {
+          "title": "Inner product space structure on tensor product spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.Trace": {
+          "title": "Traces in inner product spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.TwoDim": {
+          "title": "Oriented two-dimensional real inner product spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.WeakOperatorTopology": {
+          "title": "The weak operator topology in Hilbert spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.InnerProductSpace.l2Space": {
+          "title": "Hilbert sum of a family of inner product spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Operator.Asymptotics": {
+          "title": "Asymptotic statements about the operator norm",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Operator.Banach": {
+          "title": "Banach open mapping theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Operator.BanachSteinhaus": {
+          "title": "The Banach-Steinhaus theorem: Uniform Boundedness Principle",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Operator.Basic": {
+          "title": "Operator norm on the space of continuous linear maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Operator.Bilinear": {
+          "title": "Operator norm: bilinear maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Operator.BoundedLinearMaps": {
+          "title": "Bounded linear maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Operator.Compact.Basic": {
+          "title": "Compact operators",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Operator.Compact.FiniteDimension": {
+          "title": "Compact operators and finite dimensional spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Operator.Compact.FredholmAlternative": {
+          "title": "Spectral theory of compact operators",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Operator.Compact": {
+          "title": "Compact operators",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Operator.CompleteCodomain": {
+          "title": "Completeness of spaces of linear and multilinear maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Operator.Completeness": {
+          "title": "Operators on complete normed spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Operator.Conformal": {
+          "title": "Conformal Linear Maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Operator.ContinuousAlgEquiv": {
+          "title": "Continuous algebra equivalences of operator algebras",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Operator.ContinuousLinearMap": {
+          "title": "Constructions of continuous linear maps between (semi-)normed spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Operator.Extend": {
+          "title": "Extension of continuous linear maps on Banach spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Operator.Fredholm.Basic": {
+          "title": "Fredholm operators between topological vector spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Operator.Fredholm.Open": {
+          "title": "The set of Fredholm operators is open, and the index is locally constant",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Operator.FredholmAlternative": {
+          "title": "Fredholm alternative for compact operators",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Operator.LinearIsometry": {
+          "title": "(Semi-)linear isometries",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Operator.Mul": {
+          "title": "Results about operator norms in normed algebras",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Operator.NNNorm": {
+          "title": "Operator norm as an `NNNorm",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Operator.NormedSpace": {
+          "title": "Operator norm for maps on normed spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Operator.Perturbation.StrictByFinite": {
+          "title": "Strict linear maps with closed range are closed under finite-rank perturbation",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Operator.Prod": {
+          "title": "Operator norm: Cartesian products",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Algebra.Basic": {
+          "title": "Normed algebras",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Algebra.DualNumber": {
+          "title": "Results on `DualNumber R` related to the norm",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Algebra.Exponential": {
+          "title": "Exponential in a Banach algebra",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Algebra.GelfandFormula": {
+          "title": "Gelfand's formula and other results on the spectrum in complex Banach algebras",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Algebra.GelfandMazur": {
+          "title": "Gelfand–Mazur theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Algebra.Logarithm": {
+          "title": "The logarithm in a topological algebra",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Algebra.MatrixExponential": {
+          "title": "Lemmas about the matrix exponential",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Algebra.QuaternionExponential": {
+          "title": "Lemmas about `NormedSpace.exp` on `Quaternion`s",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Algebra.Spectrum": {
+          "title": "The spectrum of elements in a complete normed algebra",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Algebra.TrivSqZeroExt": {
+          "title": "Results on `TrivSqZeroExt R M` related to the norm",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Algebra.Ultra": {
+          "title": "Normed algebra preserves ultrametricity",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Algebra.Unitization": {
+          "title": "Unitization norms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Algebra.UnitizationL1": {
+          "title": "Unitization equipped with the $L^1$ norm",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Module.Alternating.Basic": {
+          "title": "Operator norm on the space of continuous alternating maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Module.Alternating.Curry": {
+          "title": "Currying continuous alternating forms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Module.Alternating.Uncurry.Fin": {
+          "title": "Uncurrying continuous alternating maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Module.Ball.Action": {
+          "title": "Multiplicative actions of/on balls and spheres",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Module.Ball.Homeomorph": {
+          "title": "(Local) homeomorphism between a normed space and a ball",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Module.Ball.Pointwise": {
+          "title": "Properties of pointwise scalar multiplication of sets in normed spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Module.Ball.RadialEquiv": {
+          "title": "Homeomorphism between a normed space and sphere times `(0, +∞)",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Module.Bases": {
+          "title": "Schauder Bases and Generalized Bases",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Module.Basic": {
+          "title": "Normed spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Module.Complemented": {
+          "title": "Complemented subspaces of Banach spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Module.Completion": {
+          "title": "Normed space structure on the completion of a normed space",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Module.Connected": {
+          "title": "Connectedness of subsets of vector spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Module.ContinuousInverse": {
+          "title": "Continuous linear maps with a continuous left/right inverse",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Module.Convex": {
+          "title": "Metric properties of convex sets in normed spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Module.DoubleDual": {
+          "title": "The double dual of a normed space",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Module.Dual": {
+          "title": "Polar sets in the strong dual of a normed space",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Module.Extr": {
+          "title": "(Local) maximums in a normed space",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Module.FiniteDimension": {
+          "title": "Finite-dimensional normed spaces over complete fields",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Module.HahnBanach": {
+          "title": "Hahn-Banach extension theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Module.MStructure": {
+          "title": "M-structure",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Module.Multilinear.Basic": {
+          "title": "Operator norm on the space of continuous multilinear maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Module.Multilinear.Curry": {
+          "title": "Currying and uncurrying continuous multilinear maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Module.MultipliableUniformlyOn": {
+          "title": "Uniform convergence of products of functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Module.Normalize": {
+          "title": "Normalized vector",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Module.PiTensorProduct.InjectiveSeminorm": {
+          "title": "Injective seminorm on the tensor of a finite family of normed spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Module.PiTensorProduct.ProjectiveSeminorm": {
+          "title": "Projective seminorm on the tensor of a finite family of normed spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Module.RCLike.Basic": {
+          "title": "Normed spaces over R or C",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Module.RCLike.Extend": {
+          "title": "Norm properties of the extension of continuous `ℝ`-linear functionals to `𝕜`-linear functionals",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Module.RCLike.Real": {
+          "title": "Basic facts about real (semi)normed spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Module.Ray": {
+          "title": "Rays in a real normed vector space",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Module.RieszLemma": {
+          "title": "Applications of the Hausdorff distance in normed spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Module.Seminorm.Basic": {
+          "title": "Seminorms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Module.Seminorm.Norm": {
+          "title": "The norm as a seminorm",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Module.Shrink": {
+          "title": "Transfer normed algebraic structures from `α` to `Shrink α",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Module.Span": {
+          "title": "The span of a single vector",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Module.TransferInstance": {
+          "title": "Transfer normed algebraic structures across `Equiv`s or `AddEquiv`s",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Normed.Module.WeakDual": {
+          "title": "Weak dual of normed space",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.LocallyConvex.AbsConvex": {
+          "title": "Absolutely convex sets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.LocallyConvex.AbsConvexOpen": {
+          "title": "Absolutely convex open sets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.LocallyConvex.BalancedCoreHull": {
+          "title": "Balanced Core and Balanced Hull",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.LocallyConvex.Barrelled": {
+          "title": "Barrelled spaces and the Banach-Steinhaus theorem / Uniform Boundedness Principle",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.LocallyConvex.Basic": {
+          "title": "Local convexity",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.LocallyConvex.Bounded": {
+          "title": "Von Neumann Boundedness",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.LocallyConvex.ContinuousOfBounded": {
+          "title": "Continuity and Von Neumann boundedness",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.LocallyConvex.HahnBanach": {
+          "title": "Hahn-Banach theorem for polynormable spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.LocallyConvex.Montel": {
+          "title": "Montel spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.LocallyConvex.PointwiseConvergence": {
+          "title": "The topology of pointwise convergence is locally convex",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.LocallyConvex.Polar": {
+          "title": "Polar set",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.LocallyConvex.SeparatingDual": {
+          "title": "Spaces with separating dual",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.LocallyConvex.Separation": {
+          "title": "Separation Hahn-Banach theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.LocallyConvex.StrongTopology": {
+          "title": "Local convexity of the strong topology",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.LocallyConvex.WeakDual": {
+          "title": "Weak Dual in Topological Vector Spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.LocallyConvex.WeakOperatorTopology": {
+          "title": "The weak operator topology",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.LocallyConvex.WeakSpace": {
+          "title": "Closures of convex sets in locally convex spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.LocallyConvex.WithSeminorms": {
+          "title": "Topology induced by a family of seminorms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
         }
       }
     }
@@ -3602,6 +4786,232 @@
       "modules": [
         "Mathlib.Dynamics.Circle.RotationNumber.TranslationNumber"
       ]
+    },
+    "functional_analysis": {
+      "title": "Functional analysis",
+      "parent": "analysis",
+      "modules": [
+        "Mathlib.Analysis.Normed.Module.Alternating.Basic",
+        "Mathlib.Analysis.Normed.Module.Alternating.Curry",
+        "Mathlib.Analysis.Normed.Module.Alternating.Uncurry.Fin",
+        "Mathlib.Analysis.Normed.Module.Ball.Action",
+        "Mathlib.Analysis.Normed.Module.Ball.Homeomorph",
+        "Mathlib.Analysis.Normed.Module.Ball.Pointwise",
+        "Mathlib.Analysis.Normed.Module.Ball.RadialEquiv",
+        "Mathlib.Analysis.Normed.Module.Bases",
+        "Mathlib.Analysis.Normed.Module.Basic",
+        "Mathlib.Analysis.Normed.Module.Complemented",
+        "Mathlib.Analysis.Normed.Module.Completion",
+        "Mathlib.Analysis.Normed.Module.Connected",
+        "Mathlib.Analysis.Normed.Module.ContinuousInverse",
+        "Mathlib.Analysis.Normed.Module.Convex",
+        "Mathlib.Analysis.Normed.Module.DoubleDual",
+        "Mathlib.Analysis.Normed.Module.Dual",
+        "Mathlib.Analysis.Normed.Module.Extr",
+        "Mathlib.Analysis.Normed.Module.FiniteDimension",
+        "Mathlib.Analysis.Normed.Module.HahnBanach",
+        "Mathlib.Analysis.Normed.Module.MStructure",
+        "Mathlib.Analysis.Normed.Module.Multilinear.Basic",
+        "Mathlib.Analysis.Normed.Module.Multilinear.Curry",
+        "Mathlib.Analysis.Normed.Module.MultipliableUniformlyOn",
+        "Mathlib.Analysis.Normed.Module.Normalize",
+        "Mathlib.Analysis.Normed.Module.PiTensorProduct.InjectiveSeminorm",
+        "Mathlib.Analysis.Normed.Module.PiTensorProduct.ProjectiveSeminorm",
+        "Mathlib.Analysis.Normed.Module.RCLike.Basic",
+        "Mathlib.Analysis.Normed.Module.RCLike.Extend",
+        "Mathlib.Analysis.Normed.Module.RCLike.Real",
+        "Mathlib.Analysis.Normed.Module.Ray",
+        "Mathlib.Analysis.Normed.Module.RieszLemma",
+        "Mathlib.Analysis.Normed.Module.Seminorm.Basic",
+        "Mathlib.Analysis.Normed.Module.Seminorm.Norm",
+        "Mathlib.Analysis.Normed.Module.Shrink",
+        "Mathlib.Analysis.Normed.Module.Span",
+        "Mathlib.Analysis.Normed.Module.TransferInstance",
+        "Mathlib.Analysis.Normed.Module.WeakDual",
+        "Math.Analysis.LaxMilgram"
+      ]
+    },
+    "hilbert_spaces": {
+      "title": "Hilbert and inner product spaces",
+      "parent": "functional_analysis",
+      "modules": [
+        "Mathlib.Analysis.InnerProductSpace.Adjoint",
+        "Mathlib.Analysis.InnerProductSpace.Affine",
+        "Mathlib.Analysis.InnerProductSpace.Basic",
+        "Mathlib.Analysis.InnerProductSpace.Calculus",
+        "Mathlib.Analysis.InnerProductSpace.CanonicalTensor",
+        "Mathlib.Analysis.InnerProductSpace.Coalgebra",
+        "Mathlib.Analysis.InnerProductSpace.Completion",
+        "Mathlib.Analysis.InnerProductSpace.ConformalLinearMap",
+        "Mathlib.Analysis.InnerProductSpace.Continuous",
+        "Mathlib.Analysis.InnerProductSpace.Convex",
+        "Mathlib.Analysis.InnerProductSpace.Defs",
+        "Mathlib.Analysis.InnerProductSpace.Dual",
+        "Mathlib.Analysis.InnerProductSpace.EuclideanDist",
+        "Mathlib.Analysis.InnerProductSpace.ExteriorPower",
+        "Mathlib.Analysis.InnerProductSpace.GramMatrix",
+        "Mathlib.Analysis.InnerProductSpace.GramSchmidtOrtho",
+        "Mathlib.Analysis.InnerProductSpace.Harmonic.Basic",
+        "Mathlib.Analysis.InnerProductSpace.Harmonic.Constructions",
+        "Mathlib.Analysis.InnerProductSpace.Harmonic.HarmonicContOnCl",
+        "Mathlib.Analysis.InnerProductSpace.JointEigenspace",
+        "Mathlib.Analysis.InnerProductSpace.Laplacian",
+        "Mathlib.Analysis.InnerProductSpace.LaxMilgram",
+        "Mathlib.Analysis.InnerProductSpace.LinearMap",
+        "Mathlib.Analysis.InnerProductSpace.LinearPMap",
+        "Mathlib.Analysis.InnerProductSpace.MeanErgodic",
+        "Mathlib.Analysis.InnerProductSpace.MulOpposite",
+        "Mathlib.Analysis.InnerProductSpace.NormDet",
+        "Mathlib.Analysis.InnerProductSpace.NormPow",
+        "Mathlib.Analysis.InnerProductSpace.OfNorm",
+        "Mathlib.Analysis.InnerProductSpace.Orientation",
+        "Mathlib.Analysis.InnerProductSpace.Orthogonal",
+        "Mathlib.Analysis.InnerProductSpace.Orthonormal",
+        "Mathlib.Analysis.InnerProductSpace.PiL2",
+        "Mathlib.Analysis.InnerProductSpace.Positive",
+        "Mathlib.Analysis.InnerProductSpace.ProdL2",
+        "Mathlib.Analysis.InnerProductSpace.Projection.Basic",
+        "Mathlib.Analysis.InnerProductSpace.Projection.FiniteDimensional",
+        "Mathlib.Analysis.InnerProductSpace.Projection.Minimal",
+        "Mathlib.Analysis.InnerProductSpace.Projection.Reflection",
+        "Mathlib.Analysis.InnerProductSpace.Projection.Submodule",
+        "Mathlib.Analysis.InnerProductSpace.Rayleigh",
+        "Mathlib.Analysis.InnerProductSpace.Reproducing.Operations",
+        "Mathlib.Analysis.InnerProductSpace.Reproducing",
+        "Mathlib.Analysis.InnerProductSpace.Semisimple",
+        "Mathlib.Analysis.InnerProductSpace.SingularValues",
+        "Mathlib.Analysis.InnerProductSpace.Spectrum",
+        "Mathlib.Analysis.InnerProductSpace.StandardSubspace",
+        "Mathlib.Analysis.InnerProductSpace.StarOrder",
+        "Mathlib.Analysis.InnerProductSpace.Subspace",
+        "Mathlib.Analysis.InnerProductSpace.Symmetric",
+        "Mathlib.Analysis.InnerProductSpace.TensorProduct",
+        "Mathlib.Analysis.InnerProductSpace.Trace",
+        "Mathlib.Analysis.InnerProductSpace.TwoDim",
+        "Mathlib.Analysis.InnerProductSpace.WeakOperatorTopology",
+        "Mathlib.Analysis.InnerProductSpace.l2Space",
+        "Math.Analysis.LaxMilgram"
+      ]
+    },
+    "operator_theory": {
+      "title": "Operator theory",
+      "parent": "functional_analysis",
+      "modules": [
+        "Mathlib.Analysis.Normed.Operator.Asymptotics",
+        "Mathlib.Analysis.Normed.Operator.Banach",
+        "Mathlib.Analysis.Normed.Operator.BanachSteinhaus",
+        "Mathlib.Analysis.Normed.Operator.Basic",
+        "Mathlib.Analysis.Normed.Operator.Bilinear",
+        "Mathlib.Analysis.Normed.Operator.BoundedLinearMaps",
+        "Mathlib.Analysis.Normed.Operator.CompleteCodomain",
+        "Mathlib.Analysis.Normed.Operator.Completeness",
+        "Mathlib.Analysis.Normed.Operator.Conformal",
+        "Mathlib.Analysis.Normed.Operator.ContinuousAlgEquiv",
+        "Mathlib.Analysis.Normed.Operator.ContinuousLinearMap",
+        "Mathlib.Analysis.Normed.Operator.Extend",
+        "Mathlib.Analysis.Normed.Operator.LinearIsometry",
+        "Mathlib.Analysis.Normed.Operator.Mul",
+        "Mathlib.Analysis.Normed.Operator.NNNorm",
+        "Mathlib.Analysis.Normed.Operator.NormedSpace",
+        "Mathlib.Analysis.Normed.Operator.Prod"
+      ]
+    },
+    "compact_operators": {
+      "title": "Compact operators",
+      "parent": "operator_theory",
+      "modules": [
+        "Mathlib.Analysis.Normed.Operator.Compact.Basic",
+        "Mathlib.Analysis.Normed.Operator.Compact.FiniteDimension",
+        "Mathlib.Analysis.Normed.Operator.Compact.FredholmAlternative",
+        "Mathlib.Analysis.Normed.Operator.Compact",
+        "Mathlib.Analysis.Normed.Operator.FredholmAlternative"
+      ]
+    },
+    "fredholm_operators": {
+      "title": "Fredholm operators",
+      "parent": "operator_theory",
+      "modules": [
+        "Mathlib.Analysis.Normed.Operator.Fredholm.Basic",
+        "Mathlib.Analysis.Normed.Operator.Fredholm.Open",
+        "Mathlib.Analysis.Normed.Operator.Perturbation.StrictByFinite"
+      ]
+    },
+    "normed_algebras": {
+      "title": "Normed and Banach algebras",
+      "parent": "functional_analysis",
+      "modules": [
+        "Mathlib.Analysis.Normed.Algebra.Basic",
+        "Mathlib.Analysis.Normed.Algebra.DualNumber",
+        "Mathlib.Analysis.Normed.Algebra.Exponential",
+        "Mathlib.Analysis.Normed.Algebra.GelfandFormula",
+        "Mathlib.Analysis.Normed.Algebra.GelfandMazur",
+        "Mathlib.Analysis.Normed.Algebra.Logarithm",
+        "Mathlib.Analysis.Normed.Algebra.MatrixExponential",
+        "Mathlib.Analysis.Normed.Algebra.QuaternionExponential",
+        "Mathlib.Analysis.Normed.Algebra.Spectrum",
+        "Mathlib.Analysis.Normed.Algebra.TrivSqZeroExt",
+        "Mathlib.Analysis.Normed.Algebra.Ultra",
+        "Mathlib.Analysis.Normed.Algebra.Unitization",
+        "Mathlib.Analysis.Normed.Algebra.UnitizationL1"
+      ]
+    },
+    "locally_convex_spaces": {
+      "title": "Locally convex spaces",
+      "parent": "functional_analysis",
+      "modules": [
+        "Mathlib.Analysis.LocallyConvex.AbsConvex",
+        "Mathlib.Analysis.LocallyConvex.AbsConvexOpen",
+        "Mathlib.Analysis.LocallyConvex.BalancedCoreHull",
+        "Mathlib.Analysis.LocallyConvex.Barrelled",
+        "Mathlib.Analysis.LocallyConvex.Basic",
+        "Mathlib.Analysis.LocallyConvex.Bounded",
+        "Mathlib.Analysis.LocallyConvex.ContinuousOfBounded",
+        "Mathlib.Analysis.LocallyConvex.HahnBanach",
+        "Mathlib.Analysis.LocallyConvex.Montel",
+        "Mathlib.Analysis.LocallyConvex.PointwiseConvergence",
+        "Mathlib.Analysis.LocallyConvex.Polar",
+        "Mathlib.Analysis.LocallyConvex.SeparatingDual",
+        "Mathlib.Analysis.LocallyConvex.Separation",
+        "Mathlib.Analysis.LocallyConvex.StrongTopology",
+        "Mathlib.Analysis.LocallyConvex.WeakDual",
+        "Mathlib.Analysis.LocallyConvex.WeakOperatorTopology",
+        "Mathlib.Analysis.LocallyConvex.WeakSpace",
+        "Mathlib.Analysis.LocallyConvex.WithSeminorms"
+      ]
+    },
+    "dual_spaces": {
+      "title": "Dual spaces and extension theorems",
+      "parent": "functional_analysis",
+      "modules": [
+        "Mathlib.Analysis.InnerProductSpace.Dual",
+        "Mathlib.Analysis.Normed.Module.DoubleDual",
+        "Mathlib.Analysis.Normed.Module.Dual",
+        "Mathlib.Analysis.Normed.Module.HahnBanach",
+        "Mathlib.Analysis.Normed.Module.WeakDual",
+        "Mathlib.Analysis.LocallyConvex.HahnBanach",
+        "Mathlib.Analysis.LocallyConvex.Polar",
+        "Mathlib.Analysis.LocallyConvex.SeparatingDual",
+        "Mathlib.Analysis.LocallyConvex.Separation",
+        "Mathlib.Analysis.LocallyConvex.StrongTopology",
+        "Mathlib.Analysis.LocallyConvex.WeakDual",
+        "Math.Analysis.LaxMilgram"
+      ]
+    },
+    "spectral_theory": {
+      "title": "Spectral theory",
+      "parent": "operator_theory",
+      "modules": [
+        "Mathlib.Analysis.InnerProductSpace.JointEigenspace",
+        "Mathlib.Analysis.InnerProductSpace.Positive",
+        "Mathlib.Analysis.InnerProductSpace.Rayleigh",
+        "Mathlib.Analysis.InnerProductSpace.Semisimple",
+        "Mathlib.Analysis.InnerProductSpace.SingularValues",
+        "Mathlib.Analysis.InnerProductSpace.Spectrum",
+        "Mathlib.Analysis.Normed.Operator.Compact.FredholmAlternative",
+        "Mathlib.Analysis.Normed.Algebra.GelfandFormula",
+        "Mathlib.Analysis.Normed.Algebra.GelfandMazur",
+        "Mathlib.Analysis.Normed.Algebra.Spectrum"
+      ]
     }
   },
   "modules": {
@@ -3651,6 +5061,14 @@
     },
     "Math.SetTheory.OrdinalNotation": {
       "title": "Normal ordinal notations and epsilon zero",
+      "allowed_axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    "Math.Analysis.LaxMilgram": {
+      "title": "Lax–Milgram weak solutions and stability",
       "allowed_axioms": [
         "propext",
         "Quot.sound",

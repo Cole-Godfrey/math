@@ -1,5 +1,7 @@
 # ignore any agents files or anything related to it
 AGENTS.md
+CLAUDE.md
+claude.md
 .lake/
 .tools/
 build/

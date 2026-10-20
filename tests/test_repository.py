@@ -983,6 +983,261 @@ class RepositoryTests(RepositoryArtifacts, unittest.TestCase):
         references = snapshot.citations("Ordinal.veblen")
         self.assertIn("Miller_1976", {entry["key"] for entry in references["module_citations"]})
 
+    def test_functional_analysis_statements_match_reference_types(self):
+        run(ROOT, [self.lake, "env", "lean", "tests/FunctionalAnalysisStatements.lean"], capture=True)
+
+    def test_functional_analysis_covers_every_module_in_its_pinned_directories(self):
+        base = ROOT / ".lake/packages/mathlib"
+        directories = ("Mathlib/Analysis/InnerProductSpace", "Mathlib/Analysis/Normed/Operator",
+                       "Mathlib/Analysis/Normed/Algebra", "Mathlib/Analysis/Normed/Module",
+                       "Mathlib/Analysis/LocallyConvex")
+        expected = {".".join(path.relative_to(base).with_suffix("").parts)
+                    for directory in directories for path in (base / directory).rglob("*.lean")}
+        registered = self.policy["libraries"]["mathlib"]["modules"]
+        prefixes = tuple(directory.replace("/", ".") + "." for directory in directories)
+        actual = {name for name in registered if name.startswith(prefixes)}
+        self.assertEqual(actual, expected)
+        self.assertEqual(len(expected), 148)
+        for module in expected:
+            with self.subTest(module=module):
+                self.assertIn(module, self.catalog["module_policy"])
+                self.assertIn(module, self.catalog["module_declarations_by_module"])
+                self.assertIn(module, self.catalog["sources"])
+
+    def test_functional_analysis_objects_and_results_retain_terms_and_pinned_sources(self):
+        expected = {
+            "NormedSpace": "Mathlib.Analysis.Normed.Module.Basic",
+            "InnerProductSpace": "Mathlib.Analysis.InnerProductSpace.Defs",
+            "NormedAlgebra": "Mathlib.Analysis.Normed.Module.Basic",
+            "IsCoercive": "Mathlib.Analysis.Normed.Operator.NormedSpace",
+            "IsCompactOperator": "Mathlib.Analysis.Normed.Operator.Compact.Basic",
+            "ContinuousLinearMap.IsFredholm": "Mathlib.Analysis.Normed.Operator.Fredholm.Basic",
+            "ContinuousLinearMap.FredholmPackage": "Mathlib.Analysis.Normed.Operator.Fredholm.Basic",
+            "exists_extension_norm_eq": "Mathlib.Analysis.Normed.Module.HahnBanach",
+            "exists_dual_vector": "Mathlib.Analysis.Normed.Module.HahnBanach",
+            "banach_steinhaus": "Mathlib.Analysis.Normed.Operator.BanachSteinhaus",
+            "ContinuousLinearMap.isOpenMap": "Mathlib.Analysis.Normed.Operator.Banach",
+            "ContinuousLinearEquiv.ofBijective": "Mathlib.Analysis.Normed.Operator.Banach",
+            "LinearMap.continuous_of_isClosed_graph": "Mathlib.Analysis.Normed.Operator.Banach",
+            "LinearMap.continuous_of_seq_closed_graph": "Mathlib.Analysis.Normed.Operator.Banach",
+            "exists_norm_eq_iInf_of_complete_convex": "Mathlib.Analysis.InnerProductSpace.Projection.Minimal",
+            "Submodule.exists_norm_eq_iInf_of_complete_subspace": "Mathlib.Analysis.InnerProductSpace.Projection.Minimal",
+            "Submodule.orthogonalProjectionOnto": "Mathlib.Analysis.InnerProductSpace.Projection.Basic",
+            "InnerProductSpace.toDual": "Mathlib.Analysis.InnerProductSpace.Dual",
+            "InnerProductSpace.toDual_symm_apply": "Mathlib.Analysis.InnerProductSpace.Dual",
+            "IsCoercive.continuousLinearEquivOfBilin": "Mathlib.Analysis.InnerProductSpace.LaxMilgram",
+            "IsCoercive.continuousLinearEquivOfBilin_apply": "Mathlib.Analysis.InnerProductSpace.LaxMilgram",
+            "ContinuousLinearMap.tendsto_birkhoffAverage_orthogonalProjection": "Mathlib.Analysis.InnerProductSpace.MeanErgodic",
+            "ContinuousLinearMap.adjoint": "Mathlib.Analysis.InnerProductSpace.Adjoint",
+            "LinearMap.IsSymmetric.eigenvectorBasis": "Mathlib.Analysis.InnerProductSpace.Spectrum",
+            "LinearMap.IsSymmetric.apply_eigenvectorBasis": "Mathlib.Analysis.InnerProductSpace.Spectrum",
+            "ContinuousLinearMap.orthogonalComplement_iSup_eigenspaces_eq_bot": "Mathlib.Analysis.InnerProductSpace.Spectrum",
+            "ContinuousLinearMap.finite_dimensional_eigenspace": "Mathlib.Analysis.InnerProductSpace.Spectrum",
+            "LinearMap.singularValues": "Mathlib.Analysis.InnerProductSpace.SingularValues",
+            "LinearMap.hasEigenvalue_adjoint_comp_self_sq_singularValues": "Mathlib.Analysis.InnerProductSpace.SingularValues",
+            "LinearMap.card_support_singularValues": "Mathlib.Analysis.InnerProductSpace.SingularValues",
+            "IsCompactOperator.hasEigenvalue_or_mem_resolventSet": "Mathlib.Analysis.Normed.Operator.Compact.FredholmAlternative",
+            "IsCompactOperator.hasEigenvalue_iff_mem_spectrum": "Mathlib.Analysis.Normed.Operator.Compact.FredholmAlternative",
+            "ContinuousLinearMap.isOpen_setOfPred_isFredholm": "Mathlib.Analysis.Normed.Operator.Fredholm.Open",
+            "ContinuousLinearMap.IsFredholm.eventually_nhds_index_eq": "Mathlib.Analysis.Normed.Operator.Fredholm.Open",
+            "WeakDual.isCompact_closedBall": "Mathlib.Analysis.Normed.Module.WeakDual",
+            "WeakDual.isCompact_polar": "Mathlib.Analysis.Normed.Module.WeakDual",
+            "geometric_hahn_banach_compact_closed": "Mathlib.Analysis.LocallyConvex.Separation",
+            "geometric_hahn_banach_point_closed": "Mathlib.Analysis.LocallyConvex.Separation",
+            "Convex.toWeakSpace_closure": "Mathlib.Analysis.LocallyConvex.WeakSpace",
+            "spectrum.pow_nnnorm_pow_one_div_tendsto_nhds_spectralRadius": "Mathlib.Analysis.Normed.Algebra.GelfandFormula",
+            "spectrum.nonempty": "Mathlib.Analysis.Normed.Algebra.GelfandFormula",
+            "spectrum.map_polynomial_aeval": "Mathlib.Analysis.Normed.Algebra.GelfandFormula",
+            "NormedRing.algEquivComplexOfComplete": "Mathlib.Analysis.Normed.Algebra.GelfandFormula",
+            "NormedAlgebra.Complex.nonempty_algEquiv": "Mathlib.Analysis.Normed.Algebra.GelfandMazur",
+            "NormedAlgebra.Real.nonempty_algEquiv_or": "Mathlib.Analysis.Normed.Algebra.GelfandMazur",
+            "NormedSpace.exp": "Mathlib.Analysis.Normed.Algebra.Exponential",
+            "NormedSpace.exp_add_of_commute": "Mathlib.Analysis.Normed.Algebra.Exponential",
+            "PiTensorProduct.projectiveSeminorm": "Mathlib.Analysis.Normed.Module.PiTensorProduct.ProjectiveSeminorm",
+        }
+        for name, module in expected.items():
+            with self.subTest(name=name):
+                self.assertIn(name, self.catalog["roots"])
+                node = self.nodes[name]
+                self.assertEqual(node["module"], module)
+                if node["kind"] in {"definition", "theorem", "opaque"}:
+                    self.assertIsInstance(node["value"], int)
+                self.assertTrue(set(node["axioms"]) <= self.policy["axioms"].keys())
+                origin = self.catalog["sources"][module]
+                self.assertEqual(origin["revision"], self.policy["libraries"]["mathlib"]["revision"])
+                self.assertIn(origin["revision"], origin["url"])
+                self.assertEqual(origin["license"], "Apache-2.0")
+
+    def test_functional_analysis_hierarchies_reach_models_hypotheses_and_all_axioms(self):
+        graph = KnowledgeGraph(self.catalog)
+        expected = {
+            "Math.FunctionalAnalysis.existsUnique_weak_solution": {
+                "InnerProductSpace.toDual",
+                "IsCoercive.continuousLinearEquivOfBilin",
+                "Math.FunctionalAnalysis.weakSolutionEquiv",
+                "ContinuousLinearEquiv.ofBijective",
+                "CompleteSpace",
+            },
+            "Math.FunctionalAnalysis.norm_weakSolution_le": {
+                "IsCoercive",
+                "ContinuousLinearMap.le_opNorm",
+                "Math.FunctionalAnalysis.bilinear_weakSolution",
+            },
+            "Math.FunctionalAnalysis.dist_weakSolution_le": {
+                "Math.FunctionalAnalysis.norm_weakSolution_le",
+                "Math.FunctionalAnalysis.weakSolution_sub",
+                "Math.FunctionalAnalysis.weakSolutionEquiv",
+            },
+            "ContinuousLinearMap.tendsto_birkhoffAverage_orthogonalProjection": {
+                "birkhoffAverage",
+                "Submodule.orthogonalProjectionOnto",
+                "InnerProductSpace",
+                "CompleteSpace",
+                "LinearMap.eqLocus",
+            },
+            "exists_extension_norm_eq": {
+                "StrongDual",
+                "Module.Dual.exists_continuous_extension_of_le_seminorm",
+                "IsRCLikeNormedField",
+            },
+            "ContinuousLinearMap.isOpenMap": {
+                "ContinuousLinearMap",
+                "Metric.isOpen_iff",
+                "nonempty_interior_of_iUnion_of_closed",
+                "CompleteSpace",
+            },
+            "IsCompactOperator.hasEigenvalue_or_mem_resolventSet": {
+                "IsCompactOperator",
+                "Module.End.HasEigenvalue",
+                "resolventSet",
+                "IsCompactOperator.antilipschitz_of_not_hasEigenvalue",
+            },
+            "WeakDual.isCompact_closedBall": {
+                "WeakDual",
+                "IsCompact",
+                "ProperSpace",
+                "WeakDual.toStrongDual",
+                "Metric.closedBall",
+            },
+            "spectrum.pow_nnnorm_pow_one_div_tendsto_nhds_spectralRadius": {
+                "spectralRadius",
+                "Filter.Tendsto",
+                "NormedAlgebra",
+                "Complex",
+            },
+            "LinearMap.IsSymmetric.apply_eigenvectorBasis": {
+                "LinearMap.IsSymmetric",
+                "OrthonormalBasis",
+                "Module.End.HasEigenvector",
+                "FiniteDimensional",
+            },
+            "ContinuousLinearMap.orthogonalComplement_iSup_eigenspaces_eq_bot": {
+                "IsCompactOperator",
+                "Submodule.orthogonal",
+                "Module.End.eigenspace",
+                "InnerProductSpace",
+            },
+            "ContinuousLinearMap.IsFredholm.eventually_nhds_index_eq": {
+                "ContinuousLinearMap.IsFredholm",
+                "LinearMap.index",
+                "ContinuousLinearMap.FredholmPackage",
+                "CompleteSpace",
+            },
+            "geometric_hahn_banach_compact_closed": {
+                "Convex",
+                "ContinuousLinearMap",
+                "LocallyConvexSpace",
+            },
+            "LinearMap.hasEigenvalue_adjoint_comp_self_sq_singularValues": {
+                "LinearMap.singularValues",
+                "LinearMap.adjoint",
+                "Module.End.HasEigenvalue",
+                "Real.sqrt",
+            },
+            "banach_steinhaus": {
+                "ContinuousLinearMap",
+                "CompleteSpace",
+                "WithSeminorms.banach_steinhaus",
+                "Bornology.IsVonNBounded",
+            },
+        }
+        for name, objects in expected.items():
+            with self.subTest(name=name):
+                hierarchy = graph.hierarchy(name)
+                reached = {node["name"] for node in hierarchy["declarations"]}
+                self.assertTrue(objects <= reached, objects - reached)
+                self.assertEqual(set(hierarchy["axiom_paths"]), set(self.nodes[name]["axioms"]))
+                for axiom, path in hierarchy["axiom_paths"].items():
+                    self.assertEqual(path[0], name)
+                    self.assertEqual(path[-1], axiom)
+                    for source, target in zip(path, path[1:]):
+                        self.assertIn(target, self.nodes[source]["dependencies"])
+
+    def test_functional_analysis_subjects_include_their_results_and_parent_subjects(self):
+        graph = KnowledgeGraph(self.catalog)
+        expected = {
+            "functional_analysis": ("analysis", "Math.FunctionalAnalysis.existsUnique_weak_solution"),
+            "hilbert_spaces": ("functional_analysis", "InnerProductSpace.toDual"),
+            "operator_theory": ("functional_analysis", "ContinuousLinearMap.isOpenMap"),
+            "compact_operators": ("operator_theory", "IsCompactOperator.hasEigenvalue_iff_mem_spectrum"),
+            "fredholm_operators": ("operator_theory", "ContinuousLinearMap.IsFredholm.eventually_nhds_index_eq"),
+            "normed_algebras": ("functional_analysis", "spectrum.nonempty"),
+            "locally_convex_spaces": ("functional_analysis", "geometric_hahn_banach_compact_closed"),
+            "dual_spaces": ("functional_analysis", "exists_extension_norm_eq"),
+            "spectral_theory": ("operator_theory", "ContinuousLinearMap.orthogonalComplement_iSup_eigenspaces_eq_bot"),
+        }
+        for subject, (parent, name) in expected.items():
+            with self.subTest(subject=subject):
+                self.assertEqual(self.catalog["subjects"][subject]["parent"], parent)
+                for category in (subject, parent, "functional_analysis", "analysis", "mathematics"):
+                    self.assertIn(name, {node["name"] for node in graph.search(name, subject=category)})
+
+    def test_functional_analysis_references_link_their_pinned_records(self):
+        snapshot = open_snapshot(ROOT)
+        expected = {
+            "LinearMap.singularValues": "axler2024",
+            "NormedAlgebra.Complex.nonempty_algEquiv": "ostrowski1916",
+            "IsCoercive.continuousLinearEquivOfBilin": "howard",
+        }
+        for name, key in expected.items():
+            with self.subTest(name=name):
+                references = snapshot.citations(name)
+                self.assertIn(key, {entry["key"] for entry in references["module_citations"]})
+
+    def test_lax_milgram_weak_solutions_retain_local_proofs_and_source(self):
+        names = [
+            "Math.FunctionalAnalysis.weakSolutionEquiv",
+            "Math.FunctionalAnalysis.weakSolution",
+            "Math.FunctionalAnalysis.bilinear_weakSolution",
+            "Math.FunctionalAnalysis.eq_weakSolution",
+            "Math.FunctionalAnalysis.existsUnique_weak_solution",
+            "Math.FunctionalAnalysis.weakSolution_zero",
+            "Math.FunctionalAnalysis.weakSolution_add",
+            "Math.FunctionalAnalysis.weakSolution_sub",
+            "Math.FunctionalAnalysis.weakSolution_smul",
+            "Math.FunctionalAnalysis.continuous_weakSolution",
+            "Math.FunctionalAnalysis.norm_weakSolution_le",
+            "Math.FunctionalAnalysis.dist_weakSolution_le",
+        ]
+        module = "Math.Analysis.LaxMilgram"
+        path = ROOT / "Math/Analysis/LaxMilgram.lean"
+        origin = self.catalog["sources"][module]
+        self.assertEqual(origin["package"], "math")
+        self.assertEqual(origin["path"], path.relative_to(ROOT).as_posix())
+        self.assertEqual(origin["sha256"], hashlib.sha256(path.read_bytes()).hexdigest())
+        for name in names:
+            with self.subTest(name=name):
+                self.assertIn(name, self.catalog["roots"])
+                node = self.nodes[name]
+                self.assertEqual(node["module"], module)
+                self.assertIsInstance(node["value"], int)
+                self.assertGreater(node["source"]["line"], 0)
+                self.assertTrue(set(node["axioms"]) <= set(self.policy["modules"][module]["allowed_axioms"]))
+        graph = KnowledgeGraph(self.catalog)
+        name = "Math.FunctionalAnalysis.existsUnique_weak_solution"
+        for subject in ("functional_analysis", "hilbert_spaces", "dual_spaces", "analysis", "mathematics"):
+            self.assertIn(name, {node["name"] for node in graph.search(name, subject=subject)})
+
     def test_dynamics_statements_match_reference_types(self):
         run(ROOT, [self.lake, "env", "lean", "tests/DynamicsStatements.lean"], capture=True)
 

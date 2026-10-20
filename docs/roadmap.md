@@ -28,6 +28,8 @@ Local proofs connect finite ordinal notations with epsilon zero in the Veblen hi
 
 Differential equations and dynamical systems include all modules in the pinned library’s `Analysis/ODE` and `Dynamics` directories. Coverage includes integral curves, Picard–Lindelöf existence and local flows, ODE uniqueness, Grönwall inequalities, fixed and periodic points, omega-limit sets, minimal and transitive actions, Poincaré recurrence, invariant probability measures, ergodic circle maps, translation numbers, topological entropy, symbolic subshifts, and algebraic Newton iteration. Signature checks retain the assumptions and domains of the representative results.
 
+Functional analysis includes all modules in the pinned library’s `Analysis/InnerProductSpace`, `Analysis/Normed/Module`, `Analysis/Normed/Operator`, `Analysis/Normed/Algebra`, and `Analysis/LocallyConvex` directories. Coverage includes Hilbert spaces and projections, duality, Hahn–Banach extension and separation, uniform boundedness, open mapping and closed graphs, Banach–Alaoglu, compact and Fredholm operators, spectral theory, singular values, mean ergodic convergence, tensor seminorms, reproducing kernels, Banach algebras, and Gelfand–Mazur. Local Lax–Milgram proofs give the unique weak solution for every continuous linear load, package the solution map as a continuous linear equivalence, and prove quantitative bounds on the solution and its response to perturbations.
+
 Work still required:
 
 - Expand registered mathlib coverage across further fields and research results, and integrate other established formal libraries while preserving upstream declarations, licenses, references, and proof dependencies.

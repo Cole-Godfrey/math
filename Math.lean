@@ -6,3 +6,4 @@ import Math.Sets.Basic
 import Math.Numbers.Natural
 import Math.Algebra.Monoid
 import Math.SetTheory.OrdinalNotation
+import Math.Analysis.LaxMilgram
