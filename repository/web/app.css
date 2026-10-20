@@ -48,10 +48,9 @@ p{margin:0}
 
 /* bar */
 .bar{position:sticky;top:0;z-index:10;height:var(--bar);display:flex;align-items:center;gap:32px;padding:0 max(var(--gutter),calc((100% - var(--column))/2 + var(--gutter)));background:var(--ground);border-bottom:1px solid var(--rule)}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-size:16px;font-weight:600;letter-spacing:-.015em}
-.mark{width:24px;height:24px;overflow:visible}
-.mark-ring{fill:none;stroke:currentColor;stroke-width:3}
-.mark-point{fill:var(--accent);stroke:var(--ground);stroke-width:3;paint-order:stroke}
+.brand{display:flex;align-items:center;color:var(--text);text-decoration:none}
+.mark{display:block;height:15px;width:auto;fill:currentColor}
+.mark-forall{fill:var(--accent)}
 .bar-nav{display:flex;gap:24px}
 .bar-nav a{color:var(--muted);text-decoration:none;font-size:14px;transition:color .12s}
 .bar-nav a:hover,.bar-nav a.active{color:var(--text)}
