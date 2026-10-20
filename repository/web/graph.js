@@ -25,7 +25,8 @@
   let highlight = null;
   let animation = null;
   let pointer = null;
-  let touches = new Map();
+  const touches = new Map();
+  let digest = null;
   let prefetchTimer = null;
   let width = 0;
   let height = 0;
@@ -44,9 +45,12 @@
     return node.kind === "subject" || node.kind === "module";
   }
 
+  function graphHash(id) {
+    return !id || id === "s:mathematics" ? "#view=graph" : "#" + new URLSearchParams({view: "graph", at: id});
+  }
+
   function target(node) {
-    return drillable(node) ? "#" + new URLSearchParams({view: "graph", at: node.id}) :
-      "#" + new URLSearchParams({name: node.id.slice(2), tab: "statement"});
+    return drillable(node) ? graphHash(node.id) : "#" + new URLSearchParams({name: node.id.slice(2), tab: "statement"});
   }
 
   /* layout */
@@ -241,7 +245,7 @@
     const value = name => style.getPropertyValue(name).trim();
     palette = {ground: value("--ground"), surface: value("--surface"), raised: value("--raised"), border: value("--border"),
       strong: value("--control"), text: value("--text"), muted: value("--muted"), accent: value("--accent"),
-      edge: value("--edge"), ink: value("--primary"), inkText: value("--primary-text")};
+      edge: value("--edge"), accentText: value("--accent-text")};
   }
 
   function resize() {
@@ -279,7 +283,7 @@
   }
 
   function nodeStyle(node) {
-    if (node.role === "foundation") return {fill: palette.ink, stroke: null, text: palette.inkText};
+    if (node.role === "foundation") return {fill: palette.accent, stroke: null, text: palette.accentText};
     if (node.role === "external") return {fill: palette.ground, stroke: palette.strong, line: 1, dash: true, text: palette.muted};
     if (node.kind === "definition" || node.kind === "opaque") return {fill: palette.raised, stroke: null, text: palette.text};
     if (node.kind === "inductive") return {fill: palette.surface, stroke: palette.text, line: 1.5, text: palette.text};
@@ -388,19 +392,24 @@
     return node;
   }
 
+  /** the drawn declarations of a subject or module, as theorems and definitions. */
+  function split(item) {
+    const definitions = item.units - item.theorems;
+    return `${item.theorems.toLocaleString()} ${item.theorems === 1 ? "theorem" : "theorems"} · ${definitions.toLocaleString()} ${definitions === 1 ? "definition" : "definitions"}`;
+  }
+
   function renderChrome(scene) {
     const {view} = scene;
     const trail = $("graph-trail");
     trail.replaceChildren();
     view.trail.slice(0, -1).forEach(item => {
       const link = element("a", item.title);
-      link.href = "#" + new URLSearchParams({view: "graph", at: item.id === "s:mathematics" ? "" : item.id});
-      if (item.id === "s:mathematics") link.href = "#view=graph";
+      link.href = graphHash(item.id);
       trail.append(link);
     });
     $("graph-title").textContent = view.title;
     const children = view.nodes.filter(node => node.role === "child");
-    const parts = [`${view.units.toLocaleString()} declarations`, `${view.theorems.toLocaleString()} theorems`];
+    const parts = [split(view)];
     if (view.id.startsWith("m:")) parts.unshift(view.id.slice(2));
     $("graph-meta").textContent = parts.join(" · ");
     const legend = $("graph-legend");
@@ -453,7 +462,7 @@
     card.classList.add("summary");
     card.replaceChildren(element("p", view.id.startsWith("m:") ? "Module" : view.trail.length > 1 ? "Subject" : "All subjects", "card-kind"),
       element("h2", view.title, "card-title"),
-      element("p", `${view.units.toLocaleString()} declarations · ${view.theorems.toLocaleString()} theorems`, "card-meta"));
+      element("p", split(view), "card-meta"));
     const bottom = (role, heading) => {
       const entries = scene.nodes.filter(node => node.role === role).map(node => ({node: node.index,
         weight: node.users.reduce((sum, item) => sum + (scene.nodes[item.node].role === "child" ? item.weight : 0), 0)}));
@@ -475,7 +484,7 @@
     const kind = node.role === "external" ? `Outside prerequisite · ${kindLabels[node.kind] || node.kind}` : kindLabels[node.kind] || node.kind;
     card.append(element("p", kind, "card-kind"), element("h2", node.title, node.compact ? "card-title mono" : "card-title"));
     if (!node.compact) {
-      card.append(element("p", `${node.units.toLocaleString()} declarations · ${node.theorems.toLocaleString()} theorems`, "card-meta"));
+      card.append(element("p", split(node), "card-meta"));
     } else {
       const statement = element("pre", statements.get(node.id) || "", "card-statement");
       card.append(statement);
@@ -486,15 +495,18 @@
         }).catch(() => {});
       }
     }
+    // on touch the action leads, since the card is short and scrolls.
+    if (touch) {
+      const action = element("a", drillable(node) ? "Open" : "View declaration", "card-action");
+      action.href = target(node);
+      card.append(action);
+    }
     const below = linkList(scene, node.links, "Rests on");
     const above = linkList(scene, node.users, "Used by");
     if (below) card.append(below);
     if (above) card.append(above);
     if (!below && node.role === "child") card.append(element("p", "Rests on the kernel rules alone.", "card-meta"));
-    const action = element("a", drillable(node) ? "Open" : "View declaration", "card-action");
-    action.href = target(node);
-    if (touch) card.append(action);
-    else card.append(element("p", drillable(node) ? "Click to open" : "Click to view the declaration", "card-hint"));
+    if (!touch) card.append(element("p", drillable(node) ? "Click to open" : "Click to view the declaration", "card-hint"));
   }
 
   /* interaction */
@@ -605,8 +617,9 @@
   $("zoom-in").addEventListener("click", () => tween({...camera, k: Math.min(6, camera.k * 1.4)}, 220, easeOut));
   $("zoom-out").addEventListener("click", () => tween({...camera, k: Math.max(0.03, camera.k / 1.4)}, 220, easeOut));
   $("zoom-fit").addEventListener("click", () => current && tween(fit(current), 320, easeInOut));
-  stage.addEventListener("keydown", event => {
-    if (!current) return;
+  document.addEventListener("keydown", event => {
+    const typing = ["INPUT", "TEXTAREA", "SELECT"].includes(document.activeElement.tagName);
+    if (!current || $("graph-view").hidden || typing || event.metaKey || event.ctrlKey || event.altKey) return;
     const step = 80 / camera.k;
     const moves = {ArrowLeft: [-step, 0], ArrowRight: [step, 0], ArrowUp: [0, -step], ArrowDown: [0, step]};
     if (moves[event.key]) { camera.x += moves[event.key][0]; camera.y += moves[event.key][1]; draw(); }
@@ -615,8 +628,7 @@
     else if (event.key === "0") tween(fit(current), 320, easeInOut);
     else if (event.key === "Escape" && !$("graph-card").classList.contains("summary")) { selected = null; setHighlight(hover); showCard(null); draw(); }
     else if (event.key === "Escape" && current.view.trail.length > 1) {
-      const parent = current.view.trail[current.view.trail.length - 2].id;
-      location.hash = "#" + new URLSearchParams({view: "graph", at: parent === "s:mathematics" ? "" : parent});
+      location.hash = graphHash(current.view.trail[current.view.trail.length - 2].id);
     } else return;
     event.preventDefault();
   });
@@ -628,6 +640,12 @@
   /** show a level of the atlas, zooming through the node that leads to it. */
   async function open(at, options) {
     api = options.api;
+    if (options.digest !== digest) {
+      // a refreshed snapshot invalidates every cached view and statement.
+      views.clear();
+      statements.clear();
+      digest = options.digest;
+    }
     readPalette();
     resize();
     await document.fonts.load(`13px JuliaMono`).catch(() => {});
@@ -638,7 +656,13 @@
     const pending = load(at);
     if (doorway) await tween(around(doorway, 0.9), 420, easeIn, 0);
     else if (upward) await tween({...camera, k: camera.k * 0.45}, 300, easeIn, 0);
-    const view = await pending;
+    let view;
+    try { view = await pending; }
+    catch (error) {
+      // keep the previous level on screen when the next one cannot load.
+      if (previous) await tween(fit(previous), 240, easeOut, 1);
+      throw error;
+    }
     if (!options.request()) return;
     const scene = layout(view);
     current = scene;

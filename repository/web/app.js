@@ -90,6 +90,10 @@ function status(text = "", error = false) {
   $("status").classList.toggle("error", error);
 }
 
+function title(text) {
+  document.title = text ? `${text} · Math` : "Math";
+}
+
 function count(value) {
   return Number(value || 0).toLocaleString();
 }
@@ -121,10 +125,13 @@ function pageButtons(container, total, offset, limit, change) {
 
 function showView(name) {
   for (const view of views) $(view + "-view").hidden = view !== name;
+  // the visible view leads the document, so its h1 is the page's first.
+  const section = $(name + "-view");
+  if ($("main").children[1] !== section) $("status").after(section);
   document.body.dataset.view = name;
-  const section = name === "search" || name === "detail" ? "browse" : name;
+  const area = name === "search" || name === "detail" ? "browse" : name;
   for (const link of document.querySelectorAll("[data-nav]")) {
-    const current = link.dataset.nav === section;
+    const current = link.dataset.nav === area;
     link.classList.toggle("active", current);
     if (current) link.setAttribute("aria-current", "page");
     else link.removeAttribute("aria-current");
@@ -676,9 +683,12 @@ function facts(node) {
     return index ? [document.createTextNode(", "), link] : [link];
   }).flat();
   row("Axioms", ...(axioms.length ? axioms : [document.createTextNode("None beyond the kernel rules")]));
-  const prerequisites = element("a", `${count(node.dependencies.length)} direct`);
-  prerequisites.href = href({name: node.name, tab: "dependencies"});
-  row("Prerequisites", prerequisites);
+  const prerequisites = element("div", null, "chip-list");
+  for (const name of node.dependencies.slice(0, 10)) prerequisites.append(nameLink(name));
+  const all = element("a", node.dependencies.length > 10 ? `All ${count(node.dependencies.length)}` : "Details", "facts-more");
+  all.href = href({name: node.name, tab: "dependencies"});
+  if (node.dependencies.length) prerequisites.append(all);
+  row("Rests on", node.dependencies.length ? prerequisites : document.createTextNode("Nothing beyond the kernel rules"));
   row("Module", element("span", node.module, "mono"));
   return list;
 }
@@ -734,14 +744,23 @@ async function render() {
   try {
     if (view === "guide") {
       showView("guide");
+      title("Contribute");
       const data = await api("/api/guide");
       if (request === activeRequest) renderGuide(data.text);
     } else if (view === "graph") {
       showView("graph");
-      await window.MathGraph.open(parameters.get("at") || "", {api, request: () => request === activeRequest});
-    } else if (parameters.has("name")) await showDeclaration(parameters, request);
-    else if (browsing(parameters)) await showSearch(parameters, request);
-    else renderHome();
+      await window.MathGraph.open(parameters.get("at") || "", {api, digest: summary.catalog_digest, request: () => request === activeRequest});
+      if (request === activeRequest) title($("graph-title").textContent + " · Graph");
+    } else if (parameters.has("name")) {
+      title(parameters.get("name"));
+      await showDeclaration(parameters, request);
+    } else if (browsing(parameters)) {
+      await showSearch(parameters, request);
+      if (request === activeRequest) title($("subject-title").textContent);
+    } else {
+      title("");
+      renderHome();
+    }
     if (request === activeRequest) { clearTimeout(slow); status(); }
   } catch (error) {
     clearTimeout(slow);
