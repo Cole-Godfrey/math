@@ -28,6 +28,8 @@ python3 -m repository hierarchy Math.Natural.mul_comm --format json
 
 `serve` runs a local explorer at http://127.0.0.1:8000. Browse subjects, search declarations, inspect statements and complete proof terms, follow prerequisites and axiom paths, and read the source retained with each snapshot. Hierarchy levels and pages retain access to every dependency. Downloads include expression graphs, complete dependency graphs, the complete index, and replayable proofs. Use `--port PORT` to select another port.
 
+The home page shows an estimate of how much of mathematics is verified. The number lives in `repository/web/progress.json`. The graph puts the axioms at the bottom and draws each subject, module, and declaration above its exact prerequisites. Click a subject or module to zoom in, or a declaration to open its page.
+
 After changing mathematical or verification sources, run `make check`, then choose **Refresh snapshot**. The explorer serves one immutable verified snapshot until refreshed; startup and refresh reject stale inputs or changed artifacts.
 
 `make fetch` materializes locked dependencies and downloads the caches for registered mathlib modules. `make check` fetches these dependencies, verifies the library, and tests the extractor, policy checks, CLI, and adversarial contributions. GitHub Actions runs it for pushes and pull requests and retains the verified index and proof export as an artifact.
