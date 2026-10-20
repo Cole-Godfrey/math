@@ -7,12 +7,14 @@ Three additional axioms are declared in `knowledge.json`:
 | Axiom | Assumption |
 | --- | --- |
 | `propext` | Equivalent propositions are equal. |
-| `Quot.sound` | Related elements have equal quotient representatives. |
-| `Classical.choice` | An inhabited type has a chosen element. |
+| `Quot.sound` | Related elements have equal images in the quotient. |
+| `Classical.choice` | A nonempty type has a chosen element. |
 
 The kernel cannot prove these assumptions or their consistency. Their use is recorded per declaration. See [Lean's axiom documentation](https://lean-lang.org/doc/reference/4.35.0/Axioms/).
 
 Constructive logic, functions, and natural number arithmetic allow no additional axioms. Extensional equality of functions uses `Quot.sound`; equality of predicates also uses `propext`. Classical logic allows all three. The algebra module allows `propext` because Lean generates constructor injectivity lemmas stated as equalities of propositions; its authored monoid and group results use no additional axioms.
+
+`ZFSet.{u}` is constructed as the quotient of pre-sets by extensional equivalence. Its pre-set indices inhabit `Type u`; the sets themselves inhabit `Type (u + 1)`. Classes are predicates on these sets. Set-theoretic laws, including regularity, replacement for definable functions, and choice, are proved within Lean's foundation and retain their actual axiom dependencies. They add no axioms to the allowlist. `Ordinal.toZFSetIso` identifies type-theoretic ordinals with the ZFC sets satisfying `IsOrdinal`, ordered by inclusion. The formal statements retain all universe parameters.
 
 ## Verification
 

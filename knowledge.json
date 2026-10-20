@@ -18,7 +18,7 @@
       "reference": "https://lean-lang.org/doc/reference/4.35.0/Axioms/"
     },
     "Quot.sound": {
-      "description": "related elements have equal quotient representatives",
+      "description": "related elements have equal images in the quotient",
       "reference": "https://lean-lang.org/doc/reference/4.35.0/Axioms/"
     },
     "Classical.choice": {
@@ -2081,6 +2081,446 @@
             "Quot.sound",
             "Classical.choice"
           ]
+        },
+        "Mathlib.SetTheory.Cardinal.Defs": {
+          "title": "Cardinal numbers and type cardinalities",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Cardinal.Basic": {
+          "title": "Basic cardinal comparison and arithmetic",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Cardinal.Embedding": {
+          "title": "Embeddings and cardinal comparison",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Cardinal.Finite": {
+          "title": "Finite and infinite cardinalities",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Cardinal.Order": {
+          "title": "Ordering cardinal numbers",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Cardinal.Ordinal": {
+          "title": "Initial ordinals and cardinal numbers",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Cardinal.HasCardinalLT": {
+          "title": "Cardinality bounds for types and sets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Cardinal.UnivLE": {
+          "title": "Universe cardinality bounds",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Cardinal.Arithmetic": {
+          "title": "Infinite cardinal sums, products, and powers",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Cardinal.Divisibility": {
+          "title": "Divisibility of cardinals",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Cardinal.CountableCover": {
+          "title": "Countable covers and cardinal bounds",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Cardinal.EventuallyConst": {
+          "title": "Eventually constant functions and cardinalities",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Cardinal.ENat": {
+          "title": "Extended natural cardinalities",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Cardinal.ENNReal": {
+          "title": "Extended nonnegative real cardinalities",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Cardinal.Finsupp": {
+          "title": "Cardinalities of finitely supported functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Cardinal.Free": {
+          "title": "Cardinalities of free algebraic structures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Cardinal.NatCard": {
+          "title": "Finite cardinality as a natural number",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Cardinal.NatCount": {
+          "title": "Counting values with natural cardinals",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Cardinal.Pigeonhole": {
+          "title": "Cardinal pigeonhole principles",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Cardinal.Rat": {
+          "title": "Countability of the rational numbers",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Cardinal.Subfield": {
+          "title": "Cardinalities of generated subfields",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Cardinal.ToNat": {
+          "title": "Conversion of cardinals to natural numbers",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Cardinal.Aleph": {
+          "title": "Aleph, beth, and initial ordinal hierarchies",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Cardinal.Cofinality": {
+          "title": "Cofinality of ordinals and cardinals",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Cardinal.Cofinality.Basic": {
+          "title": "Cofinality in well-ordered types",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Cardinal.Cofinality.Club": {
+          "title": "Club and stationary sets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Cardinal.Cofinality.Enum": {
+          "title": "Cofinality and increasing enumerations",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Cardinal.Cofinality.Ordinal": {
+          "title": "Ordinal cofinality laws",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Cardinal.Continuum": {
+          "title": "The cardinality of the continuum",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Cardinal.Regular": {
+          "title": "Regular, singular, and inaccessible cardinals",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Ordinal.Basic": {
+          "title": "Ordinals as equivalence classes of well-orders",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Ordinal.Enum": {
+          "title": "Increasing enumerations of ordinal sets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Ordinal.Family": {
+          "title": "Suprema and limits of ordinal families",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Ordinal.Rank": {
+          "title": "Ordinal ranks of well-founded relations",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Ordinal.Topology": {
+          "title": "The order topology on ordinals",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Ordinal.Univ": {
+          "title": "Universe ordinals",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Ordinal.Arithmetic": {
+          "title": "Ordinal addition, subtraction, multiplication, and division",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Ordinal.Exponential": {
+          "title": "Ordinal exponentiation and logarithms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Ordinal.Commute": {
+          "title": "Commuting ordinal operations",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Ordinal.Principal": {
+          "title": "Principal ordinals",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Ordinal.CantorNormalForm": {
+          "title": "Cantor normal forms in ordinal bases",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Ordinal.FixedPoint": {
+          "title": "Fixed points and derivatives of normal ordinal functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Ordinal.FixedPointApproximants": {
+          "title": "Approximating ordinal fixed points",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Ordinal.FundamentalSequence": {
+          "title": "Fundamental sequences and cofinality",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Ordinal.Notation": {
+          "title": "Constructive ordinal notations below epsilon zero",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Ordinal.Veblen": {
+          "title": "Veblen, epsilon, and gamma hierarchies",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.ZFC.PSet": {
+          "title": "Pre-sets and extensional equivalence",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.ZFC.Basic": {
+          "title": "ZFC sets and set-theoretic operations",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.ZFC.Cardinal": {
+          "title": "Cardinalities of ZFC sets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.ZFC.Ordinal": {
+          "title": "Von Neumann ordinals as ZFC sets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.ZFC.Class": {
+          "title": "Classes and the Burali-Forti paradox",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.ZFC.Rank": {
+          "title": "Ordinal ranks of ZFC sets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.ZFC.VonNeumann": {
+          "title": "The von Neumann cumulative hierarchy",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Lists": {
+          "title": "Computable finite hereditary lists with atoms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.SetTheory.Descriptive.Tree": {
+          "title": "Prefix-closed trees of finite sequences",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
         }
       }
     }
@@ -2639,6 +3079,116 @@
         "Mathlib.ModelTheory.Arithmetic.Presburger.Semilinear.Defs",
         "Mathlib.ModelTheory.Arithmetic.Presburger.Semilinear.Basic",
         "Mathlib.ModelTheory.Arithmetic.Presburger.Definability"
+      ]
+    },
+    "cardinal_numbers": {
+      "title": "Cardinal numbers",
+      "parent": "set_theory",
+      "modules": [
+        "Mathlib.SetTheory.Cardinal.Defs",
+        "Mathlib.SetTheory.Cardinal.Basic",
+        "Mathlib.SetTheory.Cardinal.Embedding",
+        "Mathlib.SetTheory.Cardinal.Finite",
+        "Mathlib.SetTheory.Cardinal.Order",
+        "Mathlib.SetTheory.Cardinal.Ordinal",
+        "Mathlib.SetTheory.Cardinal.HasCardinalLT",
+        "Mathlib.SetTheory.Cardinal.UnivLE",
+        "Mathlib.SetTheory.Cardinal.SchroederBernstein"
+      ]
+    },
+    "cardinal_arithmetic": {
+      "title": "Cardinal arithmetic",
+      "parent": "cardinal_numbers",
+      "modules": [
+        "Mathlib.SetTheory.Cardinal.Arithmetic",
+        "Mathlib.SetTheory.Cardinal.Divisibility",
+        "Mathlib.SetTheory.Cardinal.CountableCover",
+        "Mathlib.SetTheory.Cardinal.EventuallyConst",
+        "Mathlib.SetTheory.Cardinal.ENat",
+        "Mathlib.SetTheory.Cardinal.ENNReal",
+        "Mathlib.SetTheory.Cardinal.Finsupp",
+        "Mathlib.SetTheory.Cardinal.Free",
+        "Mathlib.SetTheory.Cardinal.NatCard",
+        "Mathlib.SetTheory.Cardinal.NatCount",
+        "Mathlib.SetTheory.Cardinal.Pigeonhole",
+        "Mathlib.SetTheory.Cardinal.Rat",
+        "Mathlib.SetTheory.Cardinal.Subfield",
+        "Mathlib.SetTheory.Cardinal.ToNat"
+      ]
+    },
+    "cofinality": {
+      "title": "Cofinality and cardinal hierarchies",
+      "parent": "cardinal_numbers",
+      "modules": [
+        "Mathlib.SetTheory.Cardinal.Aleph",
+        "Mathlib.SetTheory.Cardinal.Cofinality",
+        "Mathlib.SetTheory.Cardinal.Cofinality.Basic",
+        "Mathlib.SetTheory.Cardinal.Cofinality.Club",
+        "Mathlib.SetTheory.Cardinal.Cofinality.Enum",
+        "Mathlib.SetTheory.Cardinal.Cofinality.Ordinal",
+        "Mathlib.SetTheory.Cardinal.Continuum",
+        "Mathlib.SetTheory.Cardinal.Regular"
+      ]
+    },
+    "ordinals": {
+      "title": "Ordinals",
+      "parent": "set_theory",
+      "modules": [
+        "Mathlib.SetTheory.Ordinal.Basic",
+        "Mathlib.SetTheory.Ordinal.Enum",
+        "Mathlib.SetTheory.Ordinal.Family",
+        "Mathlib.SetTheory.Ordinal.Rank",
+        "Mathlib.SetTheory.Ordinal.Topology",
+        "Mathlib.SetTheory.Ordinal.Univ"
+      ]
+    },
+    "ordinal_arithmetic": {
+      "title": "Ordinal arithmetic",
+      "parent": "ordinals",
+      "modules": [
+        "Mathlib.SetTheory.Ordinal.Arithmetic",
+        "Mathlib.SetTheory.Ordinal.Exponential",
+        "Mathlib.SetTheory.Ordinal.Commute",
+        "Mathlib.SetTheory.Ordinal.Principal",
+        "Mathlib.SetTheory.Ordinal.CantorNormalForm"
+      ]
+    },
+    "ordinal_notation": {
+      "title": "Ordinal notation and fixed points",
+      "parent": "ordinal_arithmetic",
+      "modules": [
+        "Mathlib.SetTheory.Ordinal.FixedPoint",
+        "Mathlib.SetTheory.Ordinal.FixedPointApproximants",
+        "Mathlib.SetTheory.Ordinal.FundamentalSequence",
+        "Mathlib.SetTheory.Ordinal.Notation",
+        "Mathlib.SetTheory.Ordinal.Veblen"
+      ]
+    },
+    "zfc_sets": {
+      "title": "ZFC sets and classes",
+      "parent": "set_theory",
+      "modules": [
+        "Mathlib.SetTheory.ZFC.PSet",
+        "Mathlib.SetTheory.ZFC.Basic",
+        "Mathlib.SetTheory.ZFC.Cardinal",
+        "Mathlib.SetTheory.ZFC.Ordinal",
+        "Mathlib.SetTheory.ZFC.Class",
+        "Mathlib.SetTheory.ZFC.Rank",
+        "Mathlib.SetTheory.ZFC.VonNeumann"
+      ]
+    },
+    "finite_set_models": {
+      "title": "Finite hereditary lists and atoms",
+      "parent": "set_theory",
+      "modules": [
+        "Mathlib.SetTheory.Lists"
+      ]
+    },
+    "set_theoretic_trees": {
+      "title": "Set-theoretic trees",
+      "parent": "set_theory",
+      "modules": [
+        "Mathlib.SetTheory.Descriptive.Tree"
       ]
     }
   },

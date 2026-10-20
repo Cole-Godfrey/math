@@ -22,6 +22,8 @@ Algebraic topology includes paths, fundamental groupoids and groups, higher homo
 
 First-order logic and model theory include syntax, realization, prenex forms, elementary embeddings and substructures, ultraproducts, compactness, Löwenheim–Skolem theorems, definability, complete types and their topology, Fraïssé limits, and theories of orders, graphs, rings, and fields. Statement checks include completeness of algebraically closed fields, the Lefschetz principle, Presburger semilinearity and periodicity, and undefinability of multiplication.
 
+Set theory includes all modules in the pinned library's `SetTheory` directory: ZFC sets and classes, ranks and the cumulative hierarchy, ordinals and cardinal numbers, arithmetic, Cantor normal forms, constructive ordinal notation, Veblen functions, aleph and beth hierarchies, cofinality, regular cardinals, club and stationary sets, finite hereditary lists, and prefix-closed trees. Signature checks cover the set-theoretic laws, the Burali–Forti paradox, ordinal representation, the hierarchy's cardinalities, normal notation arithmetic, and Fodor's lemma.
+
 Work still required:
 
 - Expand registered mathlib coverage across further fields and research results, and integrate other established formal libraries while preserving upstream declarations, licenses, references, and proof dependencies.

@@ -791,6 +791,198 @@ class RepositoryTests(RepositoryArtifacts, unittest.TestCase):
                 references = snapshot.citations(name)
                 self.assertTrue(keys <= {entry["key"] for entry in references["module_citations"]})
 
+    def test_set_theory_statements_match_reference_types(self):
+        run(ROOT, [self.lake, "env", "lean", "tests/SetTheoryStatements.lean"], capture=True)
+
+    def test_set_theory_objects_and_results_retain_terms_and_pinned_sources(self):
+        expected = {
+            "PSet": "ZFC.PSet",
+            "PSet.Equiv": "ZFC.PSet",
+            "PSet.omega": "ZFC.PSet",
+            "ZFSet": "ZFC.Basic",
+            "ZFSet.Definable": "ZFC.Basic",
+            "ZFSet.sep": "ZFC.Basic",
+            "ZFSet.ext": "ZFC.Basic",
+            "ZFSet.powerset": "ZFC.Basic",
+            "ZFSet.omega": "ZFC.Basic",
+            "ZFSet.omega_zero": "ZFC.Basic",
+            "ZFSet.omega_succ": "ZFC.Basic",
+            "ZFSet.regularity": "ZFC.Basic",
+            "ZFSet.mem_image": "ZFC.Basic",
+            "ZFSet.choice": "ZFC.Class",
+            "ZFSet.choice_isFunc": "ZFC.Class",
+            "ZFSet.choice_cmem": "ZFC.Class",
+            "ZFClass": "ZFC.Class",
+            "ZFClass.CMem": "ZFC.Class",
+            "ZFSet.isOrdinal_notCMem_univ": "ZFC.Class",
+            "Classical.allZFSetDefinable": "ZFC.Basic",
+            "ZFSet.IsOrdinal": "ZFC.Ordinal",
+            "Ordinal.toZFSet": "ZFC.Ordinal",
+            "Ordinal.toZFSetIso": "ZFC.Ordinal",
+            "Ordinal.rank_toZFSet": "ZFC.Ordinal",
+            "ZFSet.rank": "ZFC.Rank",
+            "ZFSet.rank_lt_of_mem": "ZFC.Rank",
+            "ZFSet.card": "ZFC.Cardinal",
+            "ZFSet.card_powerset": "ZFC.Cardinal",
+            "ZFSet.vonNeumann": "ZFC.VonNeumann",
+            "ZFSet.mem_vonNeumann": "ZFC.VonNeumann",
+            "ZFSet.vonNeumann_add_one": "ZFC.VonNeumann",
+            "ZFSet.exists_mem_vonNeumann": "ZFC.VonNeumann",
+            "ZFSet.card_vonNeumann": "ZFC.VonNeumann",
+            "Ordinal": "Ordinal.Basic",
+            "Ordinal.instPow": "Ordinal.Exponential",
+            "Ordinal.CNF": "Ordinal.CantorNormalForm",
+            "Ordinal.CNF.foldr": "Ordinal.CantorNormalForm",
+            "Ordinal.nfp": "Ordinal.FixedPoint",
+            "Ordinal.deriv": "Ordinal.FixedPoint",
+            "Ordinal.veblen": "Ordinal.Veblen",
+            "Ordinal.gamma": "Ordinal.Veblen",
+            "Ordinal.omega0_opow_epsilon": "Ordinal.Veblen",
+            "Ordinal.epsilon_zero_le_of_omega0_opow_le": "Ordinal.Veblen",
+            "Ordinal.IsFundamentalSeq": "Ordinal.FundamentalSequence",
+            "Ordinal.exists_isFundamentalSeq": "Ordinal.FundamentalSequence",
+            "ONote": "Ordinal.Notation",
+            "ONote.NF": "Ordinal.Notation",
+            "NONote": "Ordinal.Notation",
+            "ONote.repr_add": "Ordinal.Notation",
+            "ONote.repr_mul": "Ordinal.Notation",
+            "ONote.repr_opow": "Ordinal.Notation",
+            "Cardinal": "Cardinal.Defs",
+            "Cardinal.cantor": "Cardinal.Order",
+            "Cardinal.add_eq_self": "Cardinal.Arithmetic",
+            "Cardinal.mul_eq_self": "Cardinal.Arithmetic",
+            "Cardinal.aleph": "Cardinal.Aleph",
+            "Cardinal.beth": "Cardinal.Aleph",
+            "Cardinal.preBeth": "Cardinal.Aleph",
+            "Cardinal.continuum": "Cardinal.Continuum",
+            "Cardinal.beth_one": "Cardinal.Continuum",
+            "Cardinal.IsRegular": "Cardinal.Regular",
+            "Cardinal.IsSingular": "Cardinal.Regular",
+            "Cardinal.IsInaccessible": "Cardinal.Regular",
+            "Cardinal.isRegular_aleph_add_one": "Cardinal.Regular",
+            "Order.cof": "Cardinal.Cofinality.Basic",
+            "Ordinal.cof": "Cardinal.Cofinality.Ordinal",
+            "IsClub": "Cardinal.Cofinality.Club",
+            "IsStationary": "Cardinal.Cofinality.Club",
+            "exists_isStationary_preimage_singleton": "Cardinal.Cofinality.Club",
+            "Lists": "Lists",
+            "Lists'": "Lists",
+            "Descriptive.tree": "Descriptive.Tree",
+            "Descriptive.Tree.mem_of_prefix": "Descriptive.Tree",
+            "Descriptive.Tree.pullSub_adjunction": "Descriptive.Tree",
+        }
+        for name, suffix in expected.items():
+            with self.subTest(name=name):
+                self.assertIn(name, self.catalog["roots"])
+                node = self.nodes[name]
+                self.assertEqual(node["module"], "Mathlib.SetTheory." + suffix)
+                if node["kind"] in {"definition", "theorem", "opaque"}:
+                    self.assertIsInstance(node["value"], int)
+                self.assertTrue(set(node["axioms"]) <= self.policy["axioms"].keys())
+                origin = self.catalog["sources"][node["module"]]
+                self.assertEqual(origin["revision"], self.policy["libraries"]["mathlib"]["revision"])
+                self.assertIn(origin["revision"], origin["url"])
+                self.assertEqual(origin["license"], "Apache-2.0")
+
+    def test_set_theory_hierarchies_reach_models_assumptions_and_all_axioms(self):
+        graph = KnowledgeGraph(self.catalog)
+        expected = {
+            "ZFSet.regularity": {
+                "PSet",
+                "Quotient",
+                "WellFounded",
+            },
+            "ZFSet.choice_isFunc": {
+                "Classical.choice",
+                "Classical.allZFSetDefinable",
+                "ZFSet.IsFunc",
+                "ZFSet.map",
+                "ZFSet.choice",
+            },
+            "ZFSet.isOrdinal_notCMem_univ": {
+                "ZFSet.IsOrdinal",
+                "ZFClass.CMem",
+                "ZFClass.cmem_irrefl",
+            },
+            "Ordinal.toZFSetIso": {
+                "ZFSet.IsOrdinal",
+                "ZFSet.rank",
+                "Ordinal.toZFSet",
+            },
+            "ZFSet.card_vonNeumann": {
+                "ZFSet.vonNeumann",
+                "Cardinal.preBeth",
+                "ZFSet.card",
+                "Ordinal.limitRecOn",
+            },
+            "Ordinal.CNF.foldr": {
+                "Ordinal.CNF",
+                "Ordinal.instPow",
+            },
+            "ONote.repr_opow": {
+                "ONote.repr",
+                "ONote.NF",
+                "ONote.opow",
+                "Ordinal.instPow",
+            },
+            "Ordinal.omega0_opow_epsilon": {
+                "Ordinal.veblen",
+                "Ordinal.deriv",
+                "Ordinal.deriv_fp",
+            },
+            "exists_isStationary_preimage_singleton": {
+                "IsClub.diag",
+                "IsStationary",
+                "Order.cof",
+                "Classical.choice",
+            },
+            "Cardinal.beth_one": {
+                "Cardinal.beth",
+                "Cardinal.continuum",
+                "Cardinal.beth_succ",
+            },
+            "Ordinal.exists_isFundamentalSeq": {
+                "Ordinal.IsFundamentalSeq",
+                "Order.cof",
+                "Ordinal.cof",
+            },
+        }
+        for name, objects in expected.items():
+            with self.subTest(name=name):
+                hierarchy = graph.hierarchy(name)
+                reached = {node["name"] for node in hierarchy["declarations"]}
+                self.assertTrue(objects <= reached, objects - reached)
+                self.assertEqual(set(hierarchy["axiom_paths"]), set(self.nodes[name]["axioms"]))
+                for axiom, path in hierarchy["axiom_paths"].items():
+                    self.assertEqual(path[0], name)
+                    self.assertEqual(path[-1], axiom)
+                    for source, target in zip(path, path[1:]):
+                        self.assertIn(target, self.nodes[source]["dependencies"])
+
+    def test_set_theory_subjects_include_their_results_and_parent_subjects(self):
+        graph = KnowledgeGraph(self.catalog)
+        expected = {
+            "cardinal_numbers": ("set_theory", "Cardinal"),
+            "cardinal_arithmetic": ("cardinal_numbers", "Cardinal.add_eq_self"),
+            "cofinality": ("cardinal_numbers", "exists_isStationary_preimage_singleton"),
+            "ordinals": ("set_theory", "Ordinal"),
+            "ordinal_arithmetic": ("ordinals", "Ordinal.CNF.foldr"),
+            "ordinal_notation": ("ordinal_arithmetic", "ONote.repr_opow"),
+            "zfc_sets": ("set_theory", "ZFSet.choice_isFunc"),
+            "finite_set_models": ("set_theory", "Lists"),
+            "set_theoretic_trees": ("set_theory", "Descriptive.tree"),
+        }
+        for subject, (parent, name) in expected.items():
+            with self.subTest(subject=subject):
+                self.assertEqual(self.catalog["subjects"][subject]["parent"], parent)
+                for category in (subject, parent, "mathematics"):
+                    self.assertIn(name, {node["name"] for node in graph.search(name, subject=category)})
+
+    def test_set_theory_references_link_their_pinned_records(self):
+        snapshot = open_snapshot(ROOT)
+        references = snapshot.citations("Ordinal.veblen")
+        self.assertIn("Miller_1976", {entry["key"] for entry in references["module_citations"]})
+
     def test_probability_objects_and_results_retain_terms_and_pinned_sources(self):
         expected = {
             "ProbabilityTheory.HasLaw": "Probability.HasLaw",
