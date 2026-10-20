@@ -121,6 +121,25 @@ assert json.loads("{\\"value\\":" + digits + "}")["value"] == value
         original = {"declarations": [{"proof": "λ 𝓞 K \\\n" * 10000}], "after": {"complete": True}}
         self.assertEqual(read_object(io.StringIO(json.dumps(original)), 65536), original)
 
+    def test_fixed_syntax_tags_share_storage_without_changing_the_catalog(self):
+        original = {"expressions": [{"tag": "sort", "level": {"tag": "succ", "of": {"tag": "zero"}}},
+                                     {"tag": "const", "name": "α", "levels": [{"tag": "param", "name": "u"}]}] * 1000}
+        encoded = canonical(original)
+        for size in (17, 257, 65536):
+            with self.subTest(size=size):
+                actual = read_object(io.StringIO(encoded.decode()), size)
+                self.assertEqual(canonical(actual), encoded)
+                for offset in (0, 1):
+                    self.assertEqual(len({id(row["tag"]) for row in actual["expressions"][offset::2]}), 1)
+                self.assertEqual(len({id(row["level"]["tag"]) for row in actual["expressions"][::2]}), 1)
+
+    def test_unknown_and_nonstring_tags_remain_available_for_validation(self):
+        tags = ["unknown", "appλ", "const ", "", None, 7, False, [], {"tag": "const"}]
+        original = {"expressions": [{"tag": tag, "value": "λ 𝓞 K"} for tag in tags]}
+        for size in (1, 7, 65536):
+            with self.subTest(size=size):
+                self.assertEqual(read_object(io.StringIO(json.dumps(original)), size), original)
+
     def test_file_reader_avoids_read_text_and_preserves_error_context(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "catalog.json"

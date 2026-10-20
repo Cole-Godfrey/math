@@ -91,6 +91,7 @@ input[type="search"]::-webkit-search-cancel-button{-webkit-appearance:none}
 @keyframes ring-draw{from{stroke-dashoffset:100}to{stroke-dashoffset:0}}
 .ring-label{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:500;text-align:center}
 .ring-number{font-size:clamp(52px,9vh,84px);line-height:1;letter-spacing:-.05em;font-variant-numeric:tabular-nums}
+.ring-number[data-precision="4"]{font-size:clamp(52px,min(9vh,16vw),80px)}
 .ring-caption{margin-top:14px;font-size:14px;font-weight:400;letter-spacing:0;color:var(--muted)}
 .home-search{margin-top:clamp(32px,5vh,48px);width:min(560px,100%);height:48px;display:flex;align-items:center;gap:10px;padding:0 14px;background:var(--surface);border:1px solid var(--control);border-radius:8px;color:var(--muted);transition:border-color .12s}
 .home-search:focus-within{border-color:var(--text);color:var(--text)}

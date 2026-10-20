@@ -181,7 +181,6 @@ class ExpressionPool:
     def __init__(self, records: Any):
         require(isinstance(records, list), "missing shared expressions")
         self.records = records
-        self.children: list[list[int]] = []
         self.loose: list[int] = []
         self.parameters: list[frozenset[str]] = []
         universe_sets: dict[frozenset[str], frozenset[str]] = {}
@@ -225,7 +224,6 @@ class ExpressionPool:
                 require(isinstance(node.get("value"), str), "invalid string literal")
             elif tag != "app":
                 raise RepositoryError(f"invalid or unresolved expression: {tag}")
-            self.children.append(children)
             self.loose.append(loose)
             frozen = frozenset(parameters)
             self.parameters.append(universe_sets.setdefault(frozen, frozen))
@@ -248,7 +246,7 @@ class ExpressionPool:
                 node = self.records[index]
                 if node["tag"] in {"const", "proj"}:
                     names.add(node["name"])
-                pending.extend(self.children[index])
+                pending.extend(node[field] for field in CHILD_FIELDS.get(node["tag"], ()))
             self.used |= seen
             self.cache[reference] = names
         return self.cache[reference].copy()

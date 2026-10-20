@@ -22,7 +22,17 @@ jobs:
           sh /tmp/elan-init.sh -y --default-toolchain none --no-modify-path
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
       - name: Verify proofs and contribution checks
-        run: make check
+        run: |
+          set -euo pipefail
+          while true; do
+            date -u +'%Y-%m-%dT%H:%M:%SZ'
+            free -m
+            ps -eo pid,ppid,rss,comm --sort=-rss | sed -n '1,8p'
+            sleep 60
+          done &
+          resources_pid=$!
+          trap 'kill "$resources_pid" 2>/dev/null || true' EXIT
+          make check
       - name: Retain verified mathematical knowledge
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:

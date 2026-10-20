@@ -4033,6 +4033,246 @@
             "Quot.sound",
             "Classical.choice"
           ]
+        },
+        "Mathlib.Analysis.Fourier.AddCircle": {
+          "title": "Fourier analysis on the additive circle",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Fourier.AddCircleMulti": {
+          "title": "Multivariate Fourier series",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Fourier.BoundedContinuousFunctionChar": {
+          "title": "Definition of BoundedContinuousFunction.char",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Fourier.Convolution": {
+          "title": "Convolution",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Fourier.FiniteAbelian.Orthogonality": {
+          "title": "Orthogonality of characters of a finite abelian group",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Fourier.FiniteAbelian.PontryaginDuality": {
+          "title": "Pontryagin duality for finite abelian groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Fourier.FourierTransform": {
+          "title": "The Fourier transform",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Fourier.FourierTransformDeriv": {
+          "title": "Derivatives of the Fourier transform",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Fourier.Inversion": {
+          "title": "Fourier inversion formula",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Fourier.LpSpace": {
+          "title": "The Fourier transform on $L^p$",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Fourier.Notation": {
+          "title": "Notation",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Fourier.PoissonSummation": {
+          "title": "Poisson's summation formula",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Fourier.RiemannLebesgueLemma": {
+          "title": "The Riemann-Lebesgue Lemma",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Fourier.ZMod": {
+          "title": "Fourier theory on `ZMod N`",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff": {
+          "title": "Functions which vanish as distributions vanish as functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Distribution.ContDiffMapSupportedIn": {
+          "title": "Continuously differentiable functions supported in a given compact set",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Distribution.DerivNotation": {
+          "title": "DerivNotation",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Distribution.Distribution": {
+          "title": "Distributions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Distribution.FourierMultiplier": {
+          "title": "FourierMultiplier",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Distribution.SchwartzSpace.Basic": {
+          "title": "Schwartz space",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Distribution.SchwartzSpace.Deriv": {
+          "title": "Derivatives of Schwartz functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Distribution.SchwartzSpace.Fourier": {
+          "title": "Fourier transform on Schwartz functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Distribution.Sobolev": {
+          "title": "Sobolev",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Distribution.Support": {
+          "title": "Support",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Distribution.TemperateGrowth": {
+          "title": "TemperateGrowth",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Distribution.TemperedDistribution": {
+          "title": "TemperedDistribution",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Distribution.TestFunction": {
+          "title": "Continuously differentiable functions with compact support",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.SpecialFunctions.Gaussian.FourierTransform": {
+          "title": "Fourier transform of the Gaussian",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.SpecialFunctions.Gaussian.GaussianIntegral": {
+          "title": "Gaussian integral",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.SpecialFunctions.Gaussian.PoissonSummation": {
+          "title": "Poisson summation applied to the Gaussian",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
         }
       }
     }
@@ -5012,6 +5252,140 @@
         "Mathlib.Analysis.Normed.Algebra.GelfandMazur",
         "Mathlib.Analysis.Normed.Algebra.Spectrum"
       ]
+    },
+    "harmonic_analysis": {
+      "title": "Harmonic analysis",
+      "parent": "analysis",
+      "modules": [
+        "Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff",
+        "Mathlib.Analysis.Distribution.ContDiffMapSupportedIn",
+        "Mathlib.Analysis.Distribution.DerivNotation",
+        "Mathlib.Analysis.Distribution.Distribution",
+        "Mathlib.Analysis.Distribution.FourierMultiplier",
+        "Mathlib.Analysis.Distribution.SchwartzSpace.Basic",
+        "Mathlib.Analysis.Distribution.SchwartzSpace.Deriv",
+        "Mathlib.Analysis.Distribution.SchwartzSpace.Fourier",
+        "Mathlib.Analysis.Distribution.Sobolev",
+        "Mathlib.Analysis.Distribution.Support",
+        "Mathlib.Analysis.Distribution.TemperateGrowth",
+        "Mathlib.Analysis.Distribution.TemperedDistribution",
+        "Mathlib.Analysis.Distribution.TestFunction",
+        "Mathlib.Analysis.Fourier.AddCircle",
+        "Mathlib.Analysis.Fourier.AddCircleMulti",
+        "Mathlib.Analysis.Fourier.BoundedContinuousFunctionChar",
+        "Mathlib.Analysis.Fourier.Convolution",
+        "Mathlib.Analysis.Fourier.FiniteAbelian.Orthogonality",
+        "Mathlib.Analysis.Fourier.FiniteAbelian.PontryaginDuality",
+        "Mathlib.Analysis.Fourier.FourierTransform",
+        "Mathlib.Analysis.Fourier.FourierTransformDeriv",
+        "Mathlib.Analysis.Fourier.Inversion",
+        "Mathlib.Analysis.Fourier.LpSpace",
+        "Mathlib.Analysis.Fourier.Notation",
+        "Mathlib.Analysis.Fourier.PoissonSummation",
+        "Mathlib.Analysis.Fourier.RiemannLebesgueLemma",
+        "Mathlib.Analysis.Fourier.ZMod",
+        "Mathlib.Analysis.SpecialFunctions.Gaussian.FourierTransform",
+        "Mathlib.Analysis.SpecialFunctions.Gaussian.GaussianIntegral",
+        "Mathlib.Analysis.SpecialFunctions.Gaussian.PoissonSummation",
+        "Math.Analysis.BesselEquation"
+      ]
+    },
+    "fourier_analysis": {
+      "title": "Fourier analysis",
+      "parent": "harmonic_analysis",
+      "modules": [
+        "Mathlib.Analysis.Fourier.AddCircle",
+        "Mathlib.Analysis.Fourier.AddCircleMulti",
+        "Mathlib.Analysis.Fourier.BoundedContinuousFunctionChar",
+        "Mathlib.Analysis.Fourier.Convolution",
+        "Mathlib.Analysis.Fourier.FiniteAbelian.Orthogonality",
+        "Mathlib.Analysis.Fourier.FiniteAbelian.PontryaginDuality",
+        "Mathlib.Analysis.Fourier.FourierTransform",
+        "Mathlib.Analysis.Fourier.FourierTransformDeriv",
+        "Mathlib.Analysis.Fourier.Inversion",
+        "Mathlib.Analysis.Fourier.LpSpace",
+        "Mathlib.Analysis.Fourier.Notation",
+        "Mathlib.Analysis.Fourier.PoissonSummation",
+        "Mathlib.Analysis.Fourier.RiemannLebesgueLemma",
+        "Mathlib.Analysis.Fourier.ZMod",
+        "Mathlib.Analysis.SpecialFunctions.Gaussian.FourierTransform",
+        "Mathlib.Analysis.SpecialFunctions.Gaussian.GaussianIntegral",
+        "Mathlib.Analysis.SpecialFunctions.Gaussian.PoissonSummation",
+        "Mathlib.Analysis.Distribution.SchwartzSpace.Fourier",
+        "Mathlib.Analysis.Distribution.TemperedDistribution",
+        "Mathlib.Analysis.Distribution.FourierMultiplier",
+        "Math.Analysis.BesselEquation"
+      ]
+    },
+    "fourier_series": {
+      "title": "Fourier series and Poisson summation",
+      "parent": "fourier_analysis",
+      "modules": [
+        "Mathlib.Analysis.Fourier.AddCircle",
+        "Mathlib.Analysis.Fourier.AddCircleMulti",
+        "Mathlib.Analysis.Fourier.PoissonSummation",
+        "Mathlib.Analysis.SpecialFunctions.Gaussian.PoissonSummation"
+      ]
+    },
+    "finite_fourier_analysis": {
+      "title": "Finite Fourier analysis",
+      "parent": "fourier_analysis",
+      "modules": [
+        "Mathlib.Analysis.Fourier.ZMod",
+        "Mathlib.Analysis.Fourier.FiniteAbelian.Orthogonality",
+        "Mathlib.Analysis.Fourier.FiniteAbelian.PontryaginDuality"
+      ]
+    },
+    "distribution_theory": {
+      "title": "Distribution theory",
+      "parent": "harmonic_analysis",
+      "modules": [
+        "Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff",
+        "Mathlib.Analysis.Distribution.ContDiffMapSupportedIn",
+        "Mathlib.Analysis.Distribution.DerivNotation",
+        "Mathlib.Analysis.Distribution.Distribution",
+        "Mathlib.Analysis.Distribution.FourierMultiplier",
+        "Mathlib.Analysis.Distribution.SchwartzSpace.Basic",
+        "Mathlib.Analysis.Distribution.SchwartzSpace.Deriv",
+        "Mathlib.Analysis.Distribution.SchwartzSpace.Fourier",
+        "Mathlib.Analysis.Distribution.Sobolev",
+        "Mathlib.Analysis.Distribution.Support",
+        "Mathlib.Analysis.Distribution.TemperateGrowth",
+        "Mathlib.Analysis.Distribution.TemperedDistribution",
+        "Mathlib.Analysis.Distribution.TestFunction",
+        "Math.Analysis.BesselEquation"
+      ]
+    },
+    "schwartz_spaces": {
+      "title": "Schwartz spaces and tempered distributions",
+      "parent": "distribution_theory",
+      "modules": [
+        "Mathlib.Analysis.Distribution.SchwartzSpace.Basic",
+        "Mathlib.Analysis.Distribution.SchwartzSpace.Deriv",
+        "Mathlib.Analysis.Distribution.SchwartzSpace.Fourier",
+        "Mathlib.Analysis.Distribution.TemperedDistribution",
+        "Mathlib.Analysis.Distribution.FourierMultiplier",
+        "Math.Analysis.BesselEquation"
+      ]
+    },
+    "sobolev_spaces": {
+      "title": "Sobolev spaces and regularity",
+      "parent": "distribution_theory",
+      "modules": [
+        "Mathlib.Analysis.Distribution.Sobolev",
+        "Math.Analysis.BesselEquation"
+      ]
+    },
+    "partial_differential_equations": {
+      "title": "Partial differential equations",
+      "parent": "analysis",
+      "modules": [
+        "Mathlib.Analysis.InnerProductSpace.Laplacian",
+        "Math.Analysis.LaxMilgram",
+        "Mathlib.Analysis.Distribution.FourierMultiplier",
+        "Mathlib.Analysis.Distribution.Sobolev",
+        "Math.Analysis.BesselEquation"
+      ]
     }
   },
   "modules": {
@@ -5069,6 +5443,14 @@
     },
     "Math.Analysis.LaxMilgram": {
       "title": "Lax–Milgram weak solutions and stability",
+      "allowed_axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    "Math.Analysis.BesselEquation": {
+      "title": "Bessel potentials and elliptic regularity",
       "allowed_axioms": [
         "propext",
         "Quot.sound",

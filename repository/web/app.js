@@ -144,7 +144,7 @@ function percentText(value, decimals) {
   return value.toLocaleString(undefined, {minimumFractionDigits: decimals, maximumFractionDigits: decimals}) + "%";
 }
 
-/** fill the ring clockwise to the recorded share of mathematics, once per visit. */
+/** fill the ring clockwise to the recorded share of mathematics. */
 async function renderRing() {
   if (ringStarted) return;
   ringStarted = true;
@@ -157,7 +157,8 @@ async function renderRing() {
   const arc = $("ring-value");
   if (!Number.isFinite(percent)) { number.textContent = "–"; return; }
   const target = Math.min(100, Math.max(0, percent));
-  const decimals = Math.min(2, (String(percent).split(".")[1] || "").length);
+  const decimals = Math.min(4, (String(percent).split(".")[1] || "").length);
+  number.dataset.precision = String(decimals);
   const final = () => {
     arc.style.strokeDasharray = `${target} 100`;
     number.textContent = percentText(target, decimals);
@@ -812,6 +813,7 @@ $("reload").addEventListener("click", async () => {
   $("reload").disabled = true; status("Checking the latest verified snapshot…");
   try {
     summary = await api("/api/reload", {}, {method: "POST"});
+    ringStarted = false;
     snapshotLabels();
     status();
     await render();

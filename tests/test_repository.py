@@ -983,6 +983,264 @@ class RepositoryTests(RepositoryArtifacts, unittest.TestCase):
         references = snapshot.citations("Ordinal.veblen")
         self.assertIn("Miller_1976", {entry["key"] for entry in references["module_citations"]})
 
+    def test_harmonic_analysis_statements_match_reference_types(self):
+        run(ROOT, [self.lake, "env", "lean", "tests/HarmonicAnalysisStatements.lean"], capture=True)
+
+    def test_harmonic_analysis_covers_every_module_in_its_pinned_directories(self):
+        base = ROOT / ".lake/packages/mathlib"
+        directories = ("Mathlib/Analysis/Fourier", "Mathlib/Analysis/Distribution",
+                       "Mathlib/Analysis/SpecialFunctions/Gaussian")
+        expected = {".".join(path.relative_to(base).with_suffix("").parts)
+                    for directory in directories for path in (base / directory).rglob("*.lean")}
+        prefixes = tuple(directory.replace("/", ".") + "." for directory in directories)
+        registered = self.policy["libraries"]["mathlib"]["modules"]
+        self.assertEqual({name for name in registered if name.startswith(prefixes)}, expected)
+        self.assertEqual(len(expected), 30)
+        for module in expected:
+            with self.subTest(module=module):
+                self.assertIn(module, self.catalog["module_policy"])
+                self.assertIn(module, self.catalog["module_declarations_by_module"])
+                self.assertIn(module, self.catalog["sources"])
+
+    def test_harmonic_analysis_objects_retain_terms_and_pinned_sources(self):
+        expected = {
+            "FourierTransform": "Mathlib.Analysis.Fourier.Notation",
+            "FourierTransform.fourierEquiv": "Mathlib.Analysis.Fourier.Notation",
+            "MeasureTheory.Integrable.fourierInv_fourier_eq": "Mathlib.Analysis.Fourier.Inversion",
+            "Continuous.fourierInv_fourier_eq": "Mathlib.Analysis.Fourier.Inversion",
+            "MeasureTheory.Lp.fourierTransformₗᵢ": "Mathlib.Analysis.Fourier.LpSpace",
+            "MeasureTheory.Lp.norm_fourier_eq": "Mathlib.Analysis.Fourier.LpSpace",
+            "MeasureTheory.Lp.inner_fourier_eq": "Mathlib.Analysis.Fourier.LpSpace",
+            "SchwartzMap.toLp_fourier_eq": "Mathlib.Analysis.Fourier.LpSpace",
+            "MeasureTheory.Lp.fourier_toTemperedDistribution_eq": "Mathlib.Analysis.Fourier.LpSpace",
+            "Real.fourier_mul_convolution_eq": "Mathlib.Analysis.Fourier.Convolution",
+            "SchwartzMap.convolution": "Mathlib.Analysis.Fourier.Convolution",
+            "SchwartzMap.fourier_convolution": "Mathlib.Analysis.Fourier.Convolution",
+            "SchwartzMap.convolution_apply": "Mathlib.Analysis.Fourier.Convolution",
+            "fourierBasis": "Mathlib.Analysis.Fourier.AddCircle",
+            "fourierCoeff": "Mathlib.Analysis.Fourier.AddCircle",
+            "hasSum_fourier_series_L2": "Mathlib.Analysis.Fourier.AddCircle",
+            "tsum_sq_fourierCoeff": "Mathlib.Analysis.Fourier.AddCircle",
+            "SchwartzMap.tsum_eq_tsum_fourier": "Mathlib.Analysis.Fourier.PoissonSummation",
+            "Real.tsum_eq_tsum_fourier_of_rpow_decay": "Mathlib.Analysis.Fourier.PoissonSummation",
+            "ZMod.dft": "Mathlib.Analysis.Fourier.ZMod",
+            "ZMod.dft_dft": "Mathlib.Analysis.Fourier.ZMod",
+            "AddChar.complexBasis": "Mathlib.Analysis.Fourier.FiniteAbelian.PontryaginDuality",
+            "AddChar.doubleDualEquiv": "Mathlib.Analysis.Fourier.FiniteAbelian.PontryaginDuality",
+            "AddChar.wInner_cWeight_eq_boole": "Mathlib.Analysis.Fourier.FiniteAbelian.Orthogonality",
+            "Real.zero_at_infty_fourier": "Mathlib.Analysis.Fourier.RiemannLebesgueLemma",
+            "SchwartzMap": "Mathlib.Analysis.Distribution.SchwartzSpace.Basic",
+            "SchwartzMap.fourierTransformCLM": "Mathlib.Analysis.Distribution.SchwartzSpace.Fourier",
+            "SchwartzMap.integral_norm_sq_fourier": "Mathlib.Analysis.Distribution.SchwartzSpace.Fourier",
+            "SchwartzMap.norm_fourier_toL2_eq": "Mathlib.Analysis.Distribution.SchwartzSpace.Fourier",
+            "SchwartzMap.fourier_lineDerivOp_eq": "Mathlib.Analysis.Distribution.SchwartzSpace.Fourier",
+            "Distribution": "Mathlib.Analysis.Distribution.Distribution",
+            "Distribution.ofFun": "Mathlib.Analysis.Distribution.Distribution",
+            "Distribution.delta": "Mathlib.Analysis.Distribution.Distribution",
+            "Distribution.lineDerivCLM": "Mathlib.Analysis.Distribution.Distribution",
+            "Distribution.lineDerivOp_apply_apply": "Mathlib.Analysis.Distribution.Distribution",
+            "Distribution.ofFun_injective": "Mathlib.Analysis.Distribution.Distribution",
+            "TestFunction": "Mathlib.Analysis.Distribution.TestFunction",
+            "TemperedDistribution": "Mathlib.Analysis.Distribution.TemperedDistribution",
+            "TemperedDistribution.delta": "Mathlib.Analysis.Distribution.TemperedDistribution",
+            "TemperedDistribution.fourier_delta_zero": "Mathlib.Analysis.Distribution.TemperedDistribution",
+            "MeasureTheory.Lp.ker_toTemperedDistributionCLM_eq_bot": "Mathlib.Analysis.Distribution.TemperedDistribution",
+            "TemperedDistribution.fourierMultiplierCLM": "Mathlib.Analysis.Distribution.FourierMultiplier",
+            "TemperedDistribution.laplacian_eq_fourierMultiplierCLM": "Mathlib.Analysis.Distribution.FourierMultiplier",
+            "TemperedDistribution.besselPotential": "Mathlib.Analysis.Distribution.Sobolev",
+            "TemperedDistribution.MemSobolev": "Mathlib.Analysis.Distribution.Sobolev",
+            "SchwartzMap.memSobolev": "Mathlib.Analysis.Distribution.Sobolev",
+            "TemperedDistribution.MemSobolev.lineDerivOp": "Mathlib.Analysis.Distribution.Sobolev",
+            "TemperedDistribution.MemSobolev.laplacian": "Mathlib.Analysis.Distribution.Sobolev",
+            "TemperedDistribution.MemSobolev.fourier_memL1": "Mathlib.Analysis.Distribution.Sobolev",
+            "Distribution.dsupport": "Mathlib.Analysis.Distribution.Support",
+            "Distribution.TemperedDistribution.dsupport_delta": "Mathlib.Analysis.Distribution.Support",
+            "Distribution.TemperedDistribution.dsupport_lineDerivOp_subset": "Mathlib.Analysis.Distribution.Support",
+            "integral_gaussian": "Mathlib.Analysis.SpecialFunctions.Gaussian.GaussianIntegral",
+            "fourier_gaussian_pi": "Mathlib.Analysis.SpecialFunctions.Gaussian.FourierTransform",
+            "GaussianFourier.integral_rexp_neg_mul_sq_norm": "Mathlib.Analysis.SpecialFunctions.Gaussian.FourierTransform",
+            "Real.tsum_exp_neg_mul_int_sq": "Mathlib.Analysis.SpecialFunctions.Gaussian.PoissonSummation",
+            "Complex.tsum_exp_neg_quadratic": "Mathlib.Analysis.SpecialFunctions.Gaussian.PoissonSummation"
+        }
+        for name, module in expected.items():
+            with self.subTest(name=name):
+                self.assertIn(name, self.catalog["roots"])
+                node = self.nodes[name]
+                self.assertEqual(node["module"], module)
+                if node["kind"] in {"definition", "theorem", "opaque"}:
+                    self.assertIsInstance(node["value"], int)
+                self.assertTrue(set(node["axioms"]) <= self.policy["axioms"].keys())
+                origin = self.catalog["sources"][module]
+                self.assertEqual(origin["package"], "mathlib")
+                self.assertEqual(origin["revision"], self.policy["libraries"]["mathlib"]["revision"])
+                self.assertIn(origin["revision"], origin["url"])
+                self.assertEqual(origin["license"], "Apache-2.0")
+
+    def test_harmonic_analysis_hierarchies_retain_models_and_axiom_paths(self):
+        graph = KnowledgeGraph(self.catalog)
+        expected = {
+            "Math.HarmonicAnalysis.existsUnique_elliptic_solution": [
+                "Math.HarmonicAnalysis.besselPotential_two_eq",
+                "Math.HarmonicAnalysis.eq_ellipticSolution",
+                "TemperedDistribution.besselPotential",
+                "TemperedDistribution.fourierMultiplierCLM",
+                "TemperedDistribution"
+            ],
+            "Math.HarmonicAnalysis.ellipticSolution_memSobolev_iff": [
+                "TemperedDistribution.MemSobolev",
+                "TemperedDistribution.besselPotential_besselPotential_apply",
+                "Math.HarmonicAnalysis.ellipticSolution"
+            ],
+            "Math.HarmonicAnalysis.fourier_ellipticSolution": [
+                "TemperedDistribution.besselPotential",
+                "TemperedDistribution.fourierMultiplierCLM",
+                "TemperedDistribution.smulLeftCLM"
+            ],
+            "Math.HarmonicAnalysis.besselPotentialEquiv": [
+                "TemperedDistribution.besselPotential",
+                "ContinuousLinearEquiv.equivOfInverse",
+                "TemperedDistribution.besselPotential_besselPotential_apply"
+            ],
+            "MeasureTheory.Integrable.fourierInv_fourier_eq": [
+                "Real.tendsto_integral_gaussian_smul",
+                "GaussianFourier.integral_rexp_neg_mul_sq_norm",
+                "MeasureTheory.Integrable",
+                "ContinuousAt"
+            ],
+            "MeasureTheory.Lp.norm_fourier_eq": [
+                "MeasureTheory.Lp.fourierTransformₗᵢ",
+                "SchwartzMap.norm_fourier_toL2_eq",
+                "SchwartzMap.toLpCLM",
+                "SchwartzMap"
+            ],
+            "Real.fourier_mul_convolution_eq": [
+                "Real.fourier_bilin_convolution_eq",
+                "MeasureTheory.Integrable",
+                "ContinuousLinearMap"
+            ],
+            "SchwartzMap.tsum_eq_tsum_fourier": [
+                "Real.tsum_eq_tsum_fourier_of_rpow_decay",
+                "SchwartzMap.isBigO_cocompact_rpow",
+                "SchwartzMap"
+            ],
+            "tsum_sq_fourierCoeff": [
+                "fourierBasis",
+                "HilbertBasis",
+                "MeasureTheory.Lp"
+            ],
+            "ZMod.dft_dft": [
+                "ZMod.dft",
+                "ZMod",
+                "Complex"
+            ],
+            "AddChar.doubleDualEquiv": [
+                "AddChar.doubleDualEmb",
+                "AddChar.complexBasis",
+                "AddChar"
+            ],
+            "TemperedDistribution.MemSobolev.laplacian": [
+                "TemperedDistribution.besselPotential_neg_two_laplacian_eq",
+                "TemperedDistribution.MemSobolev.fourierMultiplierCLM_of_bounded",
+                "TemperedDistribution.MemSobolev"
+            ],
+            "Distribution.TemperedDistribution.dsupport_delta": [
+                "TemperedDistribution.delta",
+                "Distribution.dsupport",
+                "SchwartzMap"
+            ],
+            "Distribution.lineDerivOp_apply_apply": [
+                "Distribution.lineDerivCLM",
+                "TestFunction",
+                "Distribution"
+            ],
+            "Real.tsum_exp_neg_mul_int_sq": [
+                "fourier_gaussian_pi'",
+                "Real.tsum_eq_tsum_fourier_of_rpow_decay",
+                "Complex.exp"
+            ]
+        }
+        for name, objects in expected.items():
+            with self.subTest(name=name):
+                hierarchy = graph.hierarchy(name)
+                reached = {node["name"] for node in hierarchy["declarations"]}
+                self.assertTrue(set(objects) <= reached, set(objects) - reached)
+                self.assertEqual(set(hierarchy["axiom_paths"]), set(self.nodes[name]["axioms"]))
+                for axiom, path in hierarchy["axiom_paths"].items():
+                    self.assertEqual(path[0], name)
+                    self.assertEqual(path[-1], axiom)
+                    for source, target in zip(path, path[1:]):
+                        self.assertIn(target, self.nodes[source]["dependencies"])
+
+    def test_harmonic_analysis_subjects_retain_results_and_ancestors(self):
+        graph = KnowledgeGraph(self.catalog)
+        expected = {
+            "harmonic_analysis": ("analysis", "Math.HarmonicAnalysis.existsUnique_elliptic_solution"),
+            "fourier_analysis": ("harmonic_analysis", "MeasureTheory.Lp.norm_fourier_eq"),
+            "fourier_series": ("fourier_analysis", "tsum_sq_fourierCoeff"),
+            "finite_fourier_analysis": ("fourier_analysis", "AddChar.doubleDualEquiv"),
+            "distribution_theory": ("harmonic_analysis", "Distribution.lineDerivOp_apply_apply"),
+            "schwartz_spaces": ("distribution_theory", "SchwartzMap.fourierTransformCLM"),
+            "sobolev_spaces": ("distribution_theory", "TemperedDistribution.MemSobolev.laplacian"),
+            "partial_differential_equations": ("analysis", "Math.HarmonicAnalysis.existsUnique_elliptic_solution"),
+        }
+        for subject, (parent, name) in expected.items():
+            with self.subTest(subject=subject):
+                self.assertEqual(self.catalog["subjects"][subject]["parent"], parent)
+                for category in (subject, parent, "harmonic_analysis", "analysis", "mathematics"):
+                    self.assertIn(name, {node["name"] for node in graph.search(name, subject=category)})
+
+    def test_distribution_references_retain_their_pinned_bibliography_records(self):
+        snapshot = open_snapshot(ROOT)
+        expected = {
+            "Distribution": {"schwartz1950", "schwartz1957", "hormander2003"},
+            "TemperedDistribution.MemSobolev": {"taylorPDE1", "mclean2000"},
+        }
+        for name, keys in expected.items():
+            with self.subTest(name=name):
+                references = snapshot.citations(name)
+                resolved = {entry["key"] for entry in references["module_citations"]}
+                self.assertTrue(keys <= resolved, keys - resolved)
+
+    def test_elliptic_solutions_retain_local_proofs_and_source(self):
+        names = [
+            "Math.HarmonicAnalysis.besselPotentialEquiv",
+            "Math.HarmonicAnalysis.besselPotentialEquiv_apply",
+            "Math.HarmonicAnalysis.besselPotentialEquiv_symm_apply",
+            "Math.HarmonicAnalysis.fourierMultiplier_add",
+            "Math.HarmonicAnalysis.besselPotential_two_eq",
+            "Math.HarmonicAnalysis.ellipticSolution",
+            "Math.HarmonicAnalysis.ellipticSolution_spec",
+            "Math.HarmonicAnalysis.eq_ellipticSolution",
+            "Math.HarmonicAnalysis.existsUnique_elliptic_solution",
+            "Math.HarmonicAnalysis.ellipticSolution_zero",
+            "Math.HarmonicAnalysis.ellipticSolution_add",
+            "Math.HarmonicAnalysis.ellipticSolution_smul",
+            "Math.HarmonicAnalysis.continuous_ellipticSolution",
+            "Math.HarmonicAnalysis.fourier_ellipticSolution",
+            "Math.HarmonicAnalysis.elliptic_homogeneous_iff",
+            "Math.HarmonicAnalysis.ellipticSolution_memSobolev_iff",
+            "Math.HarmonicAnalysis.ellipticSolution_memSobolev"
+        ]
+        module = "Math.Analysis.BesselEquation"
+        path = ROOT / "Math/Analysis/BesselEquation.lean"
+        origin = self.catalog["sources"][module]
+        self.assertEqual(origin["package"], "math")
+        self.assertEqual(origin["path"], path.relative_to(ROOT).as_posix())
+        self.assertEqual(origin["sha256"], hashlib.sha256(path.read_bytes()).hexdigest())
+        for name in names:
+            with self.subTest(name=name):
+                self.assertIn(name, self.catalog["roots"])
+                node = self.nodes[name]
+                self.assertEqual(node["module"], module)
+                self.assertIsInstance(node["value"], int)
+                self.assertGreater(node["source"]["line"], 0)
+                self.assertTrue(set(node["axioms"]) <= set(self.policy["modules"][module]["allowed_axioms"]))
+        graph = KnowledgeGraph(self.catalog)
+        name = "Math.HarmonicAnalysis.existsUnique_elliptic_solution"
+        for subject in ("harmonic_analysis", "fourier_analysis", "distribution_theory", "sobolev_spaces",
+                        "partial_differential_equations", "analysis", "mathematics"):
+            self.assertIn(name, {node["name"] for node in graph.search(name, subject=subject)})
+
     def test_functional_analysis_statements_match_reference_types(self):
         run(ROOT, [self.lake, "env", "lean", "tests/FunctionalAnalysisStatements.lean"], capture=True)
 

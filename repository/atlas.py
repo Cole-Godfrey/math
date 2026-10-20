@@ -83,7 +83,7 @@ class Atlas:
             while current is not None:
                 chain, current = chain + 1, self.subjects[current]["parent"]
             depth[subject] = chain
-        # a module listed by several subjects lives under the most specific one.
+        # canonical breadcrumbs use the most specific subject.
         self.module_subject = {}
         for subject in sorted(self.subjects, key=lambda item: (-depth[item], item)):
             for module in self.subjects[subject]["modules"]:
@@ -141,10 +141,15 @@ class Atlas:
         for subject, info in sorted(self.subjects.items(), key=lambda item: item[1]["title"].casefold()):
             if info["parent"] is not None:
                 self.subject_children[info["parent"]].append(subject)
-        self.subject_modules = {subject: [] for subject in self.subjects}
-        for module, subject in sorted(self.module_subject.items(), key=lambda item: self.title("m:" + item[0]).casefold()):
-            if module in self.module_units:
-                self.subject_modules[subject].append(module)
+        self.subject_modules = {}
+        subject_coverage = {}
+        for subject in sorted(self.subjects, key=lambda item: (-depth[item], item)):
+            descendants = set().union(*(subject_coverage[child] for child in self.subject_children[subject]))
+            direct = set(self.subjects[subject]["modules"]) & self.module_units.keys()
+            subject_coverage[subject] = direct | descendants
+            # descendant categories already expose their modules in this view.
+            self.subject_modules[subject] = sorted(direct - descendants,
+                                                  key=lambda module: self.title("m:" + module).casefold())
         self.paths = {}
         for subject in self.subjects:
             chain, current = [], subject
@@ -168,12 +173,12 @@ class Atlas:
         if key.startswith("m:"):
             return self.module_units.get(key[2:], [])
         subject = key[2:]
-        result = []
+        result = set()
         for child in self.subject_children[subject]:
-            result.extend(self.collect("s:" + child))
+            result.update(self.collect("s:" + child))
         for module in self.subject_modules[subject]:
-            result.extend(self.module_units[module])
-        return result
+            result.update(self.module_units[module])
+        return sorted(result)
 
     def title(self, key: str) -> str:
         if key.startswith("s:"):
@@ -206,32 +211,37 @@ class Atlas:
         path = self.paths[key]
         if key.startswith("m:"):
             children = ["d:" + self.names[unit] for unit in self.units[key]]
-            member = {unit: index for index, unit in enumerate(self.units[key])}
+            member = {unit: [index] for index, unit in enumerate(self.units[key])}
         else:
             subject = key[2:]
             children = ["s:" + item for item in self.subject_children[subject] if self.units["s:" + item]]
             children += ["m:" + item for item in self.subject_modules[subject]]
-            member = {unit: index for index, child in enumerate(children) for unit in self.units[child]}
+            member = {}
+            for index, child in enumerate(children):
+                for unit in self.units[child]:
+                    member.setdefault(unit, []).append(index)
         foundation_index = {unit: index for index, unit in enumerate(self.foundations)}
         group_index: dict[str, int] = {}
         # weights count the declaration-level edges behind each drawn edge.
         weights: list[Counter] = [Counter() for _ in children]
         outside: list[Counter] = [Counter() for _ in children]
         bottom: list[Counter] = [Counter() for _ in children]
-        for unit, child in member.items():
-            for target in self.prerequisites[unit]:
-                if target in foundation_index:
-                    bottom[child][foundation_index[target]] += 1
-                elif target in member:
-                    if member[target] != child:
-                        weights[child][member[target]] += 1
-                else:
-                    # an outside prerequisite is grouped under the branch it shares with this view.
-                    other = self.unit_paths[target]
-                    shared = 0
-                    while shared < len(path) and other[shared] == path[shared]:
-                        shared += 1
-                    outside[child][group_index.setdefault(other[shared], len(group_index))] += 1
+        for unit, owners in member.items():
+            for child in owners:
+                for target in self.prerequisites[unit]:
+                    if target in foundation_index:
+                        bottom[child][foundation_index[target]] += 1
+                    elif target in member:
+                        if child not in member[target]:
+                            for destination in member[target]:
+                                weights[child][destination] += 1
+                    else:
+                        # an outside prerequisite is grouped under the branch it shares with this view.
+                        other = self.unit_paths[target]
+                        shared = 0
+                        while shared < len(path) and other[shared] == path[shared]:
+                            shared += 1
+                        outside[child][group_index.setdefault(other[shared], len(group_index))] += 1
         externals = sorted(group_index, key=lambda item: self.title(item).casefold())
         renumber = {group_index[item]: index for index, item in enumerate(externals)}
         outside = [Counter({renumber[item]: count for item, count in edges.items()}) for edges in outside]

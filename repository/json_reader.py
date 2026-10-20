@@ -9,11 +9,19 @@ from typing import TextIO
 from .core import RepositoryError, require
 
 
+_SYNTAX_TAGS = {tag: tag for tag in (
+    "app", "lam", "forall", "let", "proj", "bvar", "sort", "const", "nat", "string",
+    "zero", "succ", "max", "imax", "param",
+)}
+
+
 def _unique_object(pairs: list[tuple], *, keys: dict[str, str]) -> dict:
     result = {}
     for name, value in pairs:
         name = keys.setdefault(name, name)
         require(name not in result, f"duplicate json field: {name}")
+        if name == "tag" and isinstance(value, str):
+            value = _SYNTAX_TAGS.get(value, value)
         result[name] = value
     return result
 
