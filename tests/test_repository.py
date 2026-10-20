@@ -983,6 +983,96 @@ class RepositoryTests(RepositoryArtifacts, unittest.TestCase):
         references = snapshot.citations("Ordinal.veblen")
         self.assertIn("Miller_1976", {entry["key"] for entry in references["module_citations"]})
 
+    def test_ordinal_notation_correspondence_matches_reference_types(self):
+        run(ROOT, [self.lake, "env", "lean", "tests/OrdinalNotationStatements.lean"], capture=True)
+
+    def test_ordinal_notation_correspondence_retains_local_terms_and_source(self):
+        names = [
+            "Math.OrdinalNotation.repr_lt_epsilon_zero",
+            "Math.OrdinalNotation.exists_normal_repr",
+            "Math.OrdinalNotation.normal_repr_lt_epsilon_zero",
+            "Math.OrdinalNotation.normal_repr_injective",
+            "Math.OrdinalNotation.lt_epsilon_zero_iff",
+            "Math.OrdinalNotation.normal_repr_bijective",
+            "Math.OrdinalNotation.normal_order_iso",
+            "Math.OrdinalNotation.normal_order_iso_apply",
+            "Math.OrdinalNotation.repr_normal_order_iso_symm",
+            "Math.OrdinalNotation.repr_ne_epsilon_zero",
+            "Math.OrdinalNotation.normal_order_iso_add",
+            "Math.OrdinalNotation.normal_order_iso_sub",
+            "Math.OrdinalNotation.normal_order_iso_mul",
+            "Math.OrdinalNotation.normal_order_iso_opow",
+            "Math.OrdinalNotation.exists_unique_normal_form",
+            "Math.OrdinalNotation.opow_lt_epsilon_zero",
+        ]
+        module = "Math.SetTheory.OrdinalNotation"
+        origin = self.catalog["sources"][module]
+        path = ROOT / "Math/SetTheory/OrdinalNotation.lean"
+        self.assertEqual(origin["package"], "math")
+        self.assertEqual(origin["path"], path.relative_to(ROOT).as_posix())
+        self.assertEqual(origin["sha256"], hashlib.sha256(path.read_bytes()).hexdigest())
+        for name in names:
+            with self.subTest(name=name):
+                self.assertIn(name, self.catalog["roots"])
+                node = self.nodes[name]
+                self.assertEqual(node["module"], module)
+                self.assertIsInstance(node["value"], int)
+                self.assertTrue(set(node["axioms"]) <= set(self.policy["modules"][module]["allowed_axioms"]))
+                self.assertGreater(node["source"]["line"], 0)
+
+    def test_ordinal_notation_correspondence_reaches_both_models_and_all_axioms(self):
+        graph = KnowledgeGraph(self.catalog)
+        expected = {
+            "Math.OrdinalNotation.repr_lt_epsilon_zero": {
+                "ONote",
+                "Ordinal.IsPrincipal",
+                "Ordinal.veblen",
+                "Ordinal.opow_mul_lt_opow",
+            },
+            "Math.OrdinalNotation.exists_normal_repr": {
+                "Ordinal.log",
+                "ONote.NF",
+                "Ordinal.epsilon_zero_le_of_omega0_opow_le",
+                "Ordinal.div_opow_log_lt",
+            },
+            "Math.OrdinalNotation.normal_order_iso": {
+                "Math.OrdinalNotation.repr_lt_epsilon_zero",
+                "Math.OrdinalNotation.exists_normal_repr",
+                "Equiv.ofBijective",
+                "NONote.repr",
+            },
+            "Math.OrdinalNotation.exists_unique_normal_form": {
+                "Math.OrdinalNotation.normal_repr_injective",
+                "Math.OrdinalNotation.repr_lt_epsilon_zero",
+                "Math.OrdinalNotation.exists_normal_repr",
+            },
+            "Math.OrdinalNotation.opow_lt_epsilon_zero": {
+                "NONote.opow",
+                "NONote.repr_opow",
+                "Math.OrdinalNotation.normal_repr_lt_epsilon_zero",
+                "Math.OrdinalNotation.exists_normal_repr",
+            },
+        }
+        for name, objects in expected.items():
+            with self.subTest(name=name):
+                hierarchy = graph.hierarchy(name)
+                reached = {node["name"] for node in hierarchy["declarations"]}
+                self.assertTrue(objects <= reached, objects - reached)
+                self.assertEqual(set(hierarchy["axiom_paths"]), set(self.nodes[name]["axioms"]))
+                for axiom, path in hierarchy["axiom_paths"].items():
+                    self.assertEqual(path[0], name)
+                    self.assertEqual(path[-1], axiom)
+                    for source, target in zip(path, path[1:]):
+                        self.assertIn(target, self.nodes[source]["dependencies"])
+
+    def test_ordinal_notation_correspondence_is_browsable_through_foundations(self):
+        graph = KnowledgeGraph(self.catalog)
+        name = "Math.OrdinalNotation.normal_order_iso"
+        for subject in ("ordinal_notation", "ordinal_arithmetic", "ordinals", "set_theory",
+                        "foundations", "mathematics"):
+            with self.subTest(subject=subject):
+                self.assertIn(name, {node["name"] for node in graph.search(name, subject=subject)})
+
     def test_probability_objects_and_results_retain_terms_and_pinned_sources(self):
         expected = {
             "ProbabilityTheory.HasLaw": "Probability.HasLaw",

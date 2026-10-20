@@ -24,6 +24,8 @@ First-order logic and model theory include syntax, realization, prenex forms, el
 
 Set theory includes all modules in the pinned library's `SetTheory` directory: ZFC sets and classes, ranks and the cumulative hierarchy, ordinals and cardinal numbers, arithmetic, Cantor normal forms, constructive ordinal notation, Veblen functions, aleph and beth hierarchies, cofinality, regular cardinals, club and stationary sets, finite hereditary lists, and prefix-closed trees. Signature checks cover the set-theoretic laws, the Burali–Forti paradox, ordinal representation, the hierarchy's cardinalities, normal notation arithmetic, and Fodor's lemma.
 
+Local proofs connect finite ordinal notations with epsilon zero in the Veblen hierarchy. They establish the bound for all raw notations, a unique normal representation, and an order isomorphism with every ordinal below epsilon zero, together with arithmetic compatibility and exponentiation closure.
+
 Work still required:
 
 - Expand registered mathlib coverage across further fields and research results, and integrate other established formal libraries while preserving upstream declarations, licenses, references, and proof dependencies.

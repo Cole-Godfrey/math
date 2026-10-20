@@ -3161,7 +3161,8 @@
         "Mathlib.SetTheory.Ordinal.FixedPointApproximants",
         "Mathlib.SetTheory.Ordinal.FundamentalSequence",
         "Mathlib.SetTheory.Ordinal.Notation",
-        "Mathlib.SetTheory.Ordinal.Veblen"
+        "Mathlib.SetTheory.Ordinal.Veblen",
+        "Math.SetTheory.OrdinalNotation"
       ]
     },
     "zfc_sets": {
@@ -3235,6 +3236,14 @@
       "title": "Monoids and groups",
       "allowed_axioms": [
         "propext"
+      ]
+    },
+    "Math.SetTheory.OrdinalNotation": {
+      "title": "Normal ordinal notations and epsilon zero",
+      "allowed_axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
       ]
     }
   }
