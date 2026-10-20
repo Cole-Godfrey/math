@@ -3,72 +3,126 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light">
-  <title>Math · verified mathematics</title>
+  <meta name="color-scheme" content="light dark">
+  <title>Math</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preload" href="/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/app.css">
+  <script src="/graph.js" defer></script>
   <script src="/app.js" defer></script>
 </head>
 <body>
-  <header class="masthead">
-    <a class="brand" href="#"><span class="brand-mark">M</span><span>Math</span></a>
-    <span class="masthead-subtitle">A living library of verified mathematics</span>
-    <div class="masthead-actions">
-      <span class="verified"><span class="status-dot"></span>Verified snapshot</span>
-      <button id="reload" class="quiet-button" type="button">Refresh snapshot</button>
-      <button id="guide" class="quiet-button" type="button">Contribute</button>
-    </div>
+  <header class="bar">
+    <a class="brand" href="#" aria-label="Math home">
+      <svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><circle class="mark-ring" cx="16" cy="17" r="11"/><circle class="mark-point" cx="16" cy="6" r="4"/></svg>
+      <span>Math</span>
+    </a>
+    <nav class="bar-nav" aria-label="Sections">
+      <a href="#view=browse" data-nav="browse">Browse</a>
+      <a href="#view=graph" data-nav="graph">Graph</a>
+      <a href="#view=guide" data-nav="guide">Contribute</a>
+    </nav>
+    <form id="bar-search" class="bar-search" role="search">
+      <label class="sr-only" for="bar-query">Search</label>
+      <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>
+      <input id="bar-query" type="search" placeholder="Search" autocomplete="off" spellcheck="false">
+      <kbd>/</kbd>
+    </form>
   </header>
-  <div class="workspace">
-    <aside class="sidebar" aria-label="Subjects">
-      <div class="sidebar-heading">Explore mathematics</div>
-      <nav id="subjects" aria-label="Mathematical subjects"></nav>
-      <div class="snapshot-card">
-        <span class="eyebrow">Verification</span>
-        <strong id="checker-label">Loading snapshot</strong>
-        <span id="binding-label" class="muted"></span>
-        <span id="snapshot-id" class="mono muted"></span>
-        <span class="muted">Proofs trace to explicit axioms and kernel rules.</span>
-        <a id="catalog-download" download="knowledge.json">Download complete index</a>
-        <a id="proof-download" download>Download replayable proofs</a>
+
+  <main id="main">
+    <div id="status" class="status" role="status" aria-live="polite"></div>
+
+    <section id="home-view" class="home" hidden>
+      <div class="home-lead">
+        <figure class="ring" id="ring">
+          <svg class="ring-svg" viewBox="0 0 400 400" aria-hidden="true">
+            <circle class="ring-track" cx="200" cy="200" r="188" pathLength="100" transform="rotate(-90 200 200)"/>
+            <circle class="ring-value" id="ring-value" cx="200" cy="200" r="188" pathLength="100" transform="rotate(-90 200 200)"/>
+          </svg>
+          <h1 class="ring-label"><span class="ring-number" id="ring-number">0.01%</span><span class="ring-caption">of mathematics formally verified</span></h1>
+        </figure>
+        <form id="search-home" class="home-search" role="search">
+          <label class="sr-only" for="home-query">Search mathematics</label>
+          <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>
+          <input id="home-query" type="search" placeholder="Search theorems and definitions" autocomplete="off" spellcheck="false">
+          <kbd>/</kbd>
+        </form>
+        <p class="home-facts" id="home-facts"></p>
       </div>
-    </aside>
-    <main id="main">
-      <div id="status" role="status" aria-live="polite" class="status"></div>
-      <section id="search-view">
-        <div class="page-heading">
-          <span class="eyebrow">The formal library</span>
-          <h1 id="subject-title">Mathematics, with its foundations in view.</h1>
-          <p id="coverage" class="muted">Loading the verified library…</p>
+      <section class="home-section" aria-labelledby="subjects-heading">
+        <h2 id="subjects-heading">Subjects</h2>
+        <div id="areas" class="areas"></div>
+      </section>
+      <section class="home-section" aria-labelledby="axioms-heading">
+        <h2 id="axioms-heading">Axioms</h2>
+        <ul id="axioms" class="axioms"></ul>
+      </section>
+    </section>
+
+    <section id="search-view" class="browse" hidden>
+      <aside class="browse-subjects" aria-label="Subjects">
+        <nav id="subjects"></nav>
+      </aside>
+      <div class="browse-main">
+        <div class="title-row">
+          <h1 id="subject-title">All subjects</h1>
+          <span id="result-count" class="count"></span>
         </div>
-        <form id="search-form" class="search-form">
+        <form id="search-form" class="search-form" role="search">
           <label class="sr-only" for="query">Search mathematics</label>
-          <input id="query" type="search" placeholder="Find a theorem, definition or object" autocomplete="off">
-          <button class="primary-button" type="submit">Search</button>
+          <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>
+          <input id="query" type="search" placeholder="Search theorems and definitions" autocomplete="off" spellcheck="false">
         </form>
         <div class="filters">
-          <label>Kind <select id="kind"><option value="">All kinds</option><option value="theorem">Theorems</option><option value="definition">Definitions</option><option value="inductive">Objects and structures</option><option value="axiom">Axioms</option><option value="constructor">Constructors</option><option value="recursor">Recursors</option><option value="opaque">Opaque definitions</option><option value="quotient_primitive">Quotient primitives</option></select></label>
-          <label class="check-label"><input id="all" type="checkbox"> Include prerequisites</label>
-          <label class="check-label"><input id="axiom-free" type="checkbox"> No additional axioms</label>
+          <label class="select"><span class="sr-only">Kind</span><select id="kind"><option value="">All kinds</option><option value="theorem">Theorems</option><option value="definition">Definitions</option><option value="inductive">Structures</option><option value="axiom">Axioms</option><option value="constructor">Constructors</option><option value="recursor">Recursors</option><option value="opaque">Opaque definitions</option><option value="quotient_primitive">Quotient primitives</option></select></label>
+          <label class="check"><input id="all" type="checkbox"> Include prerequisites</label>
+          <label class="check"><input id="axiom-free" type="checkbox"> No axioms</label>
         </div>
-        <div class="list-heading"><h2>Declarations</h2><span id="result-count" class="muted"></span></div>
         <div id="results" class="results"></div>
         <div id="search-pages" class="pagination"></div>
-      </section>
-      <section id="detail-view" hidden>
-        <button id="back" class="back-button" type="button">← Search results</button>
-        <div id="declaration-heading"></div>
-        <nav id="tabs" class="tabs" aria-label="Declaration sections"></nav>
-        <div id="detail-body"></div>
-      </section>
-      <section id="guide-view" hidden>
-        <button id="guide-back" class="back-button" type="button">← Back to library</button>
-        <span class="eyebrow">Collaborative formalization</span>
-        <h1>Contribute mathematics</h1>
-        <div id="guide-text" class="guide-text"></div>
-      </section>
-    </main>
-  </div>
-  <noscript>This explorer uses JavaScript. The same library is available through the repository CLI.</noscript>
+      </div>
+    </section>
+
+    <section id="detail-view" class="detail" hidden>
+      <div id="declaration-heading" class="detail-head"></div>
+      <nav id="tabs" class="tabs" aria-label="Declaration sections"></nav>
+      <div id="detail-body" class="detail-body"></div>
+    </section>
+
+    <section id="graph-view" class="graph" hidden>
+      <div class="graph-stage" id="graph-stage" tabindex="0" aria-label="Dependency graph. Arrow keys pan, plus and minus zoom, 0 fits, Escape goes up a level.">
+        <canvas id="graph-canvas" aria-hidden="true"></canvas>
+      </div>
+      <div class="graph-head">
+        <nav id="graph-trail" class="trail" aria-label="Graph location"></nav>
+        <h1 id="graph-title">Mathematics</h1>
+        <p id="graph-meta" class="graph-meta"></p>
+      </div>
+      <div class="graph-tools">
+        <div id="graph-legend" class="legend"></div>
+        <div class="zoom" role="group" aria-label="Zoom">
+          <button type="button" id="zoom-out" aria-label="Zoom out" title="Zoom out"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8h9"/></svg></button>
+          <button type="button" id="zoom-fit" aria-label="Fit to screen" title="Fit to screen"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 6V2.5H6M10 2.5h3.5V6M13.5 10v3.5H10M6 13.5H2.5V10"/></svg></button>
+          <button type="button" id="zoom-in" aria-label="Zoom in" title="Zoom in"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8h9M8 3.5v9"/></svg></button>
+        </div>
+      </div>
+      <aside id="graph-card" class="graph-card" aria-live="polite"></aside>
+      <ul id="graph-list" class="sr-only" aria-label="Nodes in this view"></ul>
+    </section>
+
+    <section id="guide-view" class="guide" hidden>
+      <h1>Contribute</h1>
+      <div id="guide-text" class="prose"></div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span id="snapshot-label"></span>
+    <button id="reload" class="text-button" type="button">Refresh snapshot</button>
+    <a id="catalog-download" download="knowledge.json">Index</a>
+    <a id="proof-download" download>Proofs</a>
+  </footer>
+  <noscript><p class="noscript">This explorer needs JavaScript. The same library is available through <code>python3 -m repository</code>.</p></noscript>
 </body>
 </html>

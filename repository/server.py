@@ -6,17 +6,30 @@ from functools import lru_cache
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 import sqlite3
-from threading import Lock
+from threading import Lock, Thread
 from urllib.parse import parse_qs, urlsplit
 
+from .atlas import Atlas
 from .core import RepositoryError, canonical, require
 from .store import open_snapshot
 
 
-ASSETS = {"/": ("index.html", "text/html; charset=utf-8"),
-          "/app.js": ("app.js", "text/javascript; charset=utf-8"),
-          "/app.css": ("app.css", "text/css; charset=utf-8"),
-          "/favicon.svg": ("favicon.svg", "image/svg+xml")}
+WEB = Path(__file__).parent / "web"
+TYPES = {".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8",
+         ".css": "text/css; charset=utf-8", ".svg": "image/svg+xml",
+         ".json": "application/json; charset=utf-8", ".woff2": "font/woff2"}
+
+
+def asset(path: str) -> Path | None:
+    """resolve a static explorer file without leaving the web directory."""
+    relative = "index.html" if path == "/" else path[1:]
+    parts = relative.split("/")
+    if not all(part and not part.startswith(".") for part in parts):
+        return None
+    target = WEB.joinpath(*parts)
+    if target.suffix not in TYPES or not target.is_file() or target.is_symlink():
+        return None
+    return target if target.resolve().is_relative_to(WEB.resolve()) else None
 
 
 class ExplorerState:
@@ -24,13 +37,46 @@ class ExplorerState:
         self.root = root
         self.snapshot = open_snapshot(root)
         self.lock = Lock()
+        self.atlas_lock = Lock()
+        self.atlases = {}
 
     def reload(self):
         snapshot = open_snapshot(self.root)
         with self.lock:
             self.snapshot = snapshot
             self.hierarchy.cache_clear()
+            self.atlas_view.cache_clear()
+            self.summary.cache_clear()
+        with self.atlas_lock:
+            self.atlases.clear()
         return snapshot.summary()
+
+    @lru_cache(maxsize=2)
+    def summary(self, digest: str):
+        snapshot = self.snapshot
+        require(snapshot.metadata["content_digest"] == digest, "snapshot changed; repeat the request")
+        return snapshot.summary()
+
+    def prepare(self):
+        """compute the summary and graph atlas before the first pages ask for them."""
+        snapshot = self.snapshot
+        self.summary(snapshot.metadata["content_digest"])
+        self.atlas(snapshot)
+
+    def atlas(self, snapshot) -> Atlas:
+        """build the graph atlas once per snapshot."""
+        digest = snapshot.metadata["content_digest"]
+        with self.atlas_lock:
+            if digest not in self.atlases:
+                self.atlases.clear()
+                self.atlases[digest] = Atlas(snapshot.graph)
+            return self.atlases[digest]
+
+    @lru_cache(maxsize=64)
+    def atlas_view(self, digest: str, node: str):
+        snapshot = self.snapshot
+        require(snapshot.metadata["content_digest"] == digest, "snapshot changed; repeat the request")
+        return self.atlas(snapshot).view(node)
 
     @lru_cache(maxsize=2)
     def hierarchy(self, digest: str, name: str):
@@ -86,9 +132,9 @@ def make_handler(state: ExplorerState):
             try:
                 self.local_request()
                 request = urlsplit(self.path)
-                if request.path in ASSETS:
-                    filename, content_type = ASSETS[request.path]
-                    self.send(200, (Path(__file__).parent / "web" / filename).read_bytes(), content_type)
+                static = None if request.path.startswith("/api/") else asset(request.path)
+                if static is not None:
+                    self.send(200, static.read_bytes(), TYPES[static.suffix])
                     return
                 arguments = parse_qs(request.query, keep_blank_values=True)
 
@@ -116,7 +162,7 @@ def make_handler(state: ExplorerState):
                         self.download(chunks, snapshot.proof_path.name, "application/x-ndjson", snapshot.proof_path.stat().st_size)
                     return
                 elif request.path == "/api/summary":
-                    result = snapshot.summary()
+                    result = state.summary(self.snapshot_digest)
                 elif request.path == "/api/search":
                     result = snapshot.search(arg("q"), arg("subject") or None, arg("all") == "1",
                                              arg("kind") or None, arg("axiom_free") == "1",
@@ -159,6 +205,10 @@ def make_handler(state: ExplorerState):
                                   "limit": limit, "levels": graph["levels"],
                                   "declarations": len(graph["declarations"]), "groups": len(graph["groups"]),
                                   "axioms": graph["axioms"], "axiom_paths": graph["axiom_paths"]}
+                elif request.path == "/api/atlas":
+                    node = arg("node")
+                    require(len(node) <= 1000 and (not node or node[:2] in {"s:", "m:", "d:"}), "invalid graph node")
+                    result = state.atlas_view(snapshot.metadata["content_digest"], node)
                 elif request.path == "/api/guide":
                     result = {"title": "Contribute mathematics", "text": (state.root / "CONTRIBUTING.md").read_text()}
                 else:
@@ -193,6 +243,7 @@ def serve(root: Path, port: int = 8000):
     require(0 <= port <= 65535, "invalid server port")
     state = ExplorerState(root)
     server = ThreadingHTTPServer(("127.0.0.1", port), make_handler(state))
+    Thread(target=state.prepare, daemon=True).start()
     print(f"Math explorer: http://127.0.0.1:{server.server_port}", flush=True)
     try:
         server.serve_forever(poll_interval=0.25)

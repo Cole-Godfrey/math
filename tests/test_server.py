@@ -92,6 +92,39 @@ class ServerTests(unittest.TestCase):
             self.assertEqual(status, 200, (path, body))
             self.assertIsInstance(json.loads(body), dict)
 
+    def test_static_files_stay_inside_the_web_directory(self):
+        for path, content_type in [("/app.js", "text/javascript; charset=utf-8"), ("/graph.js", "text/javascript; charset=utf-8"),
+                                   ("/app.css", "text/css; charset=utf-8"), ("/favicon.svg", "image/svg+xml"),
+                                   ("/fonts/geist.woff2", "font/woff2")]:
+            status, headers, _ = self.request(path)
+            self.assertEqual((status, headers["Content-Type"]), (200, content_type), path)
+        status, _, body = self.request("/progress.json")
+        self.assertEqual(status, 200)
+        self.assertIsInstance(json.loads(body)["percent"], (int, float))
+        for path in ["/.hidden", "/server.py", "/../server.py", "/fonts/../../server.py", "/api/missing"]:
+            self.assertEqual(self.request(path)[0], 404, path)
+
+    def test_graph_atlas_draws_exact_projected_dependencies(self):
+        status, _, body = self.request("/api/atlas")
+        self.assertEqual(status, 200)
+        root = json.loads(body)
+        self.assertEqual([node["id"] for node in root["nodes"]], ["m:Math.Fixture"])
+        self.assertEqual(root["units"], 3)
+        status, _, body = self.request("/api/atlas", {"node": "m:Math.Fixture"})
+        self.assertEqual(status, 200)
+        view = json.loads(body)
+        names = [node["id"] for node in view["nodes"]]
+        self.assertEqual(set(names), {"d:Math.Fixture.truth", "d:Math.Fixture.alias_truth", "d:Math.Fixture.identity"})
+        edges = {(names[source], names[target], flag) for source, target, _, flag in view["edges"]}
+        self.assertEqual(edges, {("d:Math.Fixture.alias_truth", "d:Math.Fixture.truth", 1)})
+        levels = {node["id"]: node["level"] for node in view["nodes"]}
+        self.assertGreater(levels["d:Math.Fixture.alias_truth"], levels["d:Math.Fixture.truth"])
+        self.assertEqual([item["id"] for item in view["trail"]], ["s:mathematics", "m:Math.Fixture"])
+        status, _, body = self.request("/api/atlas", {"node": "d:Math.Fixture.truth"})
+        self.assertEqual((status, json.loads(body)["focus"]), (200, "d:Math.Fixture.truth"))
+        for node in ["d:True.intro", "d:missing", "m:Missing", "x:Math", "s:missing"]:
+            self.assertEqual(self.request("/api/atlas", {"node": node})[0], 400, node)
+
     def test_complete_downloads_preserve_verified_artifact_bytes(self):
         for endpoint, path in [("/api/catalog", self.root / "build/knowledge.json"),
                                ("/api/proof-export", self.state.snapshot.proof_path)]:

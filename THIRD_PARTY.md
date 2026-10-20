@@ -14,7 +14,11 @@ The mathematical index retains original declaration names, source links, module 
 | [ImportGraph](https://github.com/leanprover-community/import-graph) | Apache-2.0 |
 | [ProofWidgets](https://github.com/leanprover-community/ProofWidgets4) | Apache-2.0 |
 | [Lean CLI](https://github.com/leanprover/lean4-cli) | MIT |
+| [Geist](https://github.com/vercel/geist-font) (explorer text) | OFL-1.1 |
+| [JuliaMono](https://github.com/cormullion/juliamono) (explorer code, subset) | OFL-1.1 |
 
 These dependencies include both mathematical libraries and supporting tools. Their full license notices are retained under verification provenance in the generated index. Preserve those notices when redistributing an index or its proof artifacts.
 
 Registered bibliographies retain their complete source text, exact source revision, file digest, and library license attribution. Individual entries preserve their original BibTeX and source line ranges. References cited only in module documentation are identified at that scope.
+
+The explorer fonts and their license texts are in `repository/web/fonts`.
