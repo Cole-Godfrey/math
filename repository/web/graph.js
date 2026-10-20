@@ -633,7 +633,7 @@
     event.preventDefault();
   });
   new ResizeObserver(() => { if (!$("graph-view").hidden) resize(); }).observe(stage);
-  matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => { readPalette(); draw(); });
+  new MutationObserver(() => { readPalette(); draw(); }).observe(document.documentElement, {attributes: true, attributeFilter: ["data-theme"]});
 
   /* navigation */
 

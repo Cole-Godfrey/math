@@ -7,6 +7,7 @@
   <title>Math</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="preload" href="/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+  <script src="/theme.js"></script>
   <link rel="stylesheet" href="/app.css">
   <script src="/graph.js" defer></script>
   <script src="/app.js" defer></script>
@@ -14,7 +15,7 @@
 <body>
   <header class="bar">
     <a class="brand" href="#" aria-label="Math home">
-      <svg class="mark" viewBox="74 0 2982 710" aria-hidden="true"><path d="M74 0H277L458 517L638 0H841V710H689V250L522 708H392L226 250V710H74Z"/><path class="mark-forall" d="M1236 710H1416L1672 0H1514L1462 151H1189L1137 0H980ZM1420 276 1326 550 1232 276Z"/><path d="M1976 128H1763V0H2341V128H2129V710H1976Z"/><path d="M2483 0H2635V337L2568 289H2972L2904 337V0H3056V710H2904V369L2972 417H2568L2635 369V710H2483Z"/></svg>
+      <svg class="mark" viewBox="0 0 506 100" aria-hidden="true"><path d="M0 0L9 0L9 100L0 100ZM95 0L104 0L104 100L95 100ZM0 0L10.14 0L52 80.49L93.86 0L104 0L52 100ZM150 0L159.98 0L198 79.2L236.02 0L246 0L198 100ZM167.04 35.5L228.96 35.5L224.64 44.5L171.36 44.5ZM292 0L376 0L376 9L292 9ZM329.5 0L338.5 0L338.5 100L329.5 100ZM422 0L431 0L431 100L422 100ZM497 0L506 0L506 100L497 100ZM422 45.5L506 45.5L506 54.5L422 54.5Z"/></svg>
     </a>
     <nav class="bar-nav" aria-label="Sections">
       <a href="#view=browse" data-nav="browse">Browse</a>
@@ -27,6 +28,10 @@
       <input id="bar-query" type="search" placeholder="Search" autocomplete="off" spellcheck="false">
       <kbd>/</kbd>
     </form>
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark theme">
+      <svg class="icon moon" viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 9.6A5.5 5.5 0 1 1 6.4 2.5a4.5 4.5 0 0 0 7.1 7.1Z"/></svg>
+      <svg class="icon sun" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="3"/><path d="M8 1.5V3m0 10v1.5M1.5 8H3m10 0h1.5M3.4 3.4l1.06 1.06m7.08 7.08 1.06 1.06M3.4 12.6l1.06-1.06m7.08-7.08L12.6 3.4"/></svg>
+    </button>
   </header>
 
   <main id="main">
