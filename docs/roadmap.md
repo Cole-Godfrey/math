@@ -26,6 +26,8 @@ Set theory includes all modules in the pinned library's `SetTheory` directory: Z
 
 Local proofs connect finite ordinal notations with epsilon zero in the Veblen hierarchy. They establish the bound for all raw notations, a unique normal representation, and an order isomorphism with every ordinal below epsilon zero, together with arithmetic compatibility and exponentiation closure.
 
+Differential equations and dynamical systems include all modules in the pinned library’s `Analysis/ODE` and `Dynamics` directories. Coverage includes integral curves, Picard–Lindelöf existence and local flows, ODE uniqueness, Grönwall inequalities, fixed and periodic points, omega-limit sets, minimal and transitive actions, Poincaré recurrence, invariant probability measures, ergodic circle maps, translation numbers, topological entropy, symbolic subshifts, and algebraic Newton iteration. Signature checks retain the assumptions and domains of the representative results.
+
 Work still required:
 
 - Expand registered mathlib coverage across further fields and research results, and integrate other established formal libraries while preserving upstream declarations, licenses, references, and proof dependencies.

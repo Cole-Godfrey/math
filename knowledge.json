@@ -2521,6 +2521,334 @@
             "Quot.sound",
             "Classical.choice"
           ]
+        },
+        "Mathlib.Analysis.ODE.Basic": {
+          "title": "Integral curves of vector fields on a normed vector space",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.ODE.DiscreteGronwall": {
+          "title": "Discrete Grönwall inequality",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.ODE.ExistUnique": {
+          "title": "Existence and uniqueness of solutions to ODEs",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.ODE.Gronwall": {
+          "title": "Grönwall's inequality",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.ODE.PicardLindelof": {
+          "title": "Picard-Lindelöf (Cauchy-Lipschitz) Theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.ODE.Transform": {
+          "title": "Translation and scaling of integral curves",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Dynamics.BirkhoffSum.Average": {
+          "title": "Birkhoff average",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Dynamics.BirkhoffSum.Basic": {
+          "title": "Birkhoff sums",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Dynamics.BirkhoffSum.NormedSpace": {
+          "title": "Birkhoff average in a normed space",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Dynamics.BirkhoffSum.QuasiMeasurePreserving": {
+          "title": "Birkhoff sum and average for quasi-measure-preserving maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Dynamics.Circle.RotationNumber.TranslationNumber": {
+          "title": "Translation numbers for lifts of circle maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Dynamics.Ergodic.Action.Basic": {
+          "title": "Ergodic group actions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Dynamics.Ergodic.Action.OfMinimal": {
+          "title": "Ergodicity from minimality",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Dynamics.Ergodic.Action.Regular": {
+          "title": "Regular action of a group on itself is ergodic",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Dynamics.Ergodic.AddCircle": {
+          "title": "Ergodic maps of the additive circle",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Dynamics.Ergodic.AddCircleAdd": {
+          "title": "Ergodicity of an irrational rotation",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Dynamics.Ergodic.Conservative": {
+          "title": "Conservative systems",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Dynamics.Ergodic.EmpiricalMeasure": {
+          "title": "Empirical measures and the Krylov–Bogolyubov theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Dynamics.Ergodic.Ergodic": {
+          "title": "Ergodic maps and measures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Dynamics.Ergodic.Extreme": {
+          "title": "Ergodic measures as extreme points",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Dynamics.Ergodic.Function": {
+          "title": "Functions invariant under a (quasi)ergodic map",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Dynamics.Ergodic.MeasurePreserving": {
+          "title": "Measure-preserving maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Dynamics.Ergodic.RadonNikodym": {
+          "title": "Radon-Nikodym derivative of invariant measures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Dynamics.FixedPoints.Basic": {
+          "title": "Fixed points of a self-map",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Dynamics.FixedPoints.Defs": {
+          "title": "Fixed points of a self-map",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Dynamics.FixedPoints.Prufer": {
+          "title": "Results about pointwise operations on sets with iteration",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Dynamics.FixedPoints.Support": {
+          "title": "Support of a self-map",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Dynamics.FixedPoints.Topology": {
+          "title": "Topological properties of fixed points",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Dynamics.Flow": {
+          "title": "Flows and invariant sets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Dynamics.Minimal": {
+          "title": "Minimal action of a group",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Dynamics.Newton": {
+          "title": "Newton-Raphson method",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Dynamics.OmegaLimit": {
+          "title": "ω-limits",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Dynamics.PeriodicPts.Defs": {
+          "title": "Periodic points",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Dynamics.PeriodicPts.Lemmas": {
+          "title": "Extra lemmas about periodic points",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Dynamics.SymbolicDynamics.Basic": {
+          "title": "Symbolic dynamics on cancellative monoids",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Dynamics.TopologicalEntropy.CoverEntropy": {
+          "title": "Topological entropy via covers",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Dynamics.TopologicalEntropy.DynamicalEntourage": {
+          "title": "Dynamical entourages",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Dynamics.TopologicalEntropy.NetEntropy": {
+          "title": "Topological entropy via nets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Dynamics.TopologicalEntropy.Semiconj": {
+          "title": "Topological entropy of the image of a set under a semiconjugacy",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Dynamics.TopologicalEntropy.Subset": {
+          "title": "Topological entropy of subsets: monotonicity, closure, union",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Dynamics.Transitive": {
+          "title": "Topologically transitive monoid actions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
         }
       }
     }
@@ -3190,6 +3518,89 @@
       "parent": "set_theory",
       "modules": [
         "Mathlib.SetTheory.Descriptive.Tree"
+      ]
+    },
+    "dynamical_systems": {
+      "title": "Dynamical systems",
+      "parent": "analysis",
+      "modules": [
+        "Mathlib.Dynamics.FixedPoints.Basic",
+        "Mathlib.Dynamics.FixedPoints.Defs",
+        "Mathlib.Dynamics.FixedPoints.Prufer",
+        "Mathlib.Dynamics.FixedPoints.Support",
+        "Mathlib.Dynamics.FixedPoints.Topology",
+        "Mathlib.Dynamics.Newton",
+        "Mathlib.Dynamics.PeriodicPts.Defs",
+        "Mathlib.Dynamics.PeriodicPts.Lemmas"
+      ]
+    },
+    "ordinary_differential_equations": {
+      "title": "Ordinary differential equations",
+      "parent": "dynamical_systems",
+      "modules": [
+        "Mathlib.Analysis.ODE.Basic",
+        "Mathlib.Analysis.ODE.DiscreteGronwall",
+        "Mathlib.Analysis.ODE.ExistUnique",
+        "Mathlib.Analysis.ODE.Gronwall",
+        "Mathlib.Analysis.ODE.PicardLindelof",
+        "Mathlib.Analysis.ODE.Transform"
+      ]
+    },
+    "topological_dynamics": {
+      "title": "Topological dynamics",
+      "parent": "dynamical_systems",
+      "modules": [
+        "Mathlib.Dynamics.Flow",
+        "Mathlib.Dynamics.Minimal",
+        "Mathlib.Dynamics.OmegaLimit",
+        "Mathlib.Dynamics.Transitive"
+      ]
+    },
+    "ergodic_theory": {
+      "title": "Ergodic theory",
+      "parent": "dynamical_systems",
+      "modules": [
+        "Mathlib.Dynamics.BirkhoffSum.Average",
+        "Mathlib.Dynamics.BirkhoffSum.Basic",
+        "Mathlib.Dynamics.BirkhoffSum.NormedSpace",
+        "Mathlib.Dynamics.BirkhoffSum.QuasiMeasurePreserving",
+        "Mathlib.Dynamics.Ergodic.Action.Basic",
+        "Mathlib.Dynamics.Ergodic.Action.OfMinimal",
+        "Mathlib.Dynamics.Ergodic.Action.Regular",
+        "Mathlib.Dynamics.Ergodic.AddCircle",
+        "Mathlib.Dynamics.Ergodic.AddCircleAdd",
+        "Mathlib.Dynamics.Ergodic.Conservative",
+        "Mathlib.Dynamics.Ergodic.EmpiricalMeasure",
+        "Mathlib.Dynamics.Ergodic.Ergodic",
+        "Mathlib.Dynamics.Ergodic.Extreme",
+        "Mathlib.Dynamics.Ergodic.Function",
+        "Mathlib.Dynamics.Ergodic.MeasurePreserving",
+        "Mathlib.Dynamics.Ergodic.RadonNikodym"
+      ]
+    },
+    "symbolic_dynamics": {
+      "title": "Symbolic dynamics",
+      "parent": "topological_dynamics",
+      "modules": [
+        "Mathlib.Dynamics.SymbolicDynamics.Basic"
+      ]
+    },
+    "topological_entropy": {
+      "title": "Topological entropy",
+      "parent": "topological_dynamics",
+      "modules": [
+        "Mathlib.Dynamics.TopologicalEntropy.CoverEntropy",
+        "Mathlib.Dynamics.TopologicalEntropy.DynamicalEntourage",
+        "Mathlib.Dynamics.TopologicalEntropy.NetEntropy",
+        "Mathlib.Dynamics.TopologicalEntropy.Semiconj",
+        "Mathlib.Dynamics.TopologicalEntropy.Subset"
+      ]
+    },
+    "circle_dynamics": {
+      "title": "Circle dynamics",
+      "parent": "topological_dynamics",
+      "modules": [
+        "Mathlib.Dynamics.Circle.RotationNumber.TranslationNumber"
       ]
     }
   },

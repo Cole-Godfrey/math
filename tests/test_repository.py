@@ -983,6 +983,184 @@ class RepositoryTests(RepositoryArtifacts, unittest.TestCase):
         references = snapshot.citations("Ordinal.veblen")
         self.assertIn("Miller_1976", {entry["key"] for entry in references["module_citations"]})
 
+    def test_dynamics_statements_match_reference_types(self):
+        run(ROOT, [self.lake, "env", "lean", "tests/DynamicsStatements.lean"], capture=True)
+
+    def test_dynamics_cover_every_pinned_dynamics_and_ode_module(self):
+        base = ROOT / ".lake/packages/mathlib"
+        paths = list((base / "Mathlib/Dynamics").rglob("*.lean"))
+        paths.extend((base / "Mathlib/Analysis/ODE").rglob("*.lean"))
+        expected = {".".join(path.relative_to(base).with_suffix("").parts) for path in paths}
+        registered = self.policy["libraries"]["mathlib"]["modules"]
+        actual = {name for name in registered
+                  if name.startswith(("Mathlib.Dynamics.", "Mathlib.Analysis.ODE."))}
+        self.assertEqual(actual, expected)
+        self.assertEqual(len(expected), 41)
+        for module in expected:
+            with self.subTest(module=module):
+                self.assertIn(module, self.catalog["module_policy"])
+                self.assertIn(module, self.catalog["sources"])
+
+    def test_dynamics_objects_and_results_retain_terms_and_pinned_sources(self):
+        expected = {
+            "IsIntegralCurve": "Mathlib.Analysis.ODE.Basic",
+            "IsIntegralCurveOn": "Mathlib.Analysis.ODE.Basic",
+            "IsPicardLindelof": "Mathlib.Analysis.ODE.PicardLindelof",
+            "ODE.picard": "Mathlib.Analysis.ODE.PicardLindelof",
+            "IsPicardLindelof.exists_eq_forall_mem_Icc_hasDerivWithinAt": "Mathlib.Analysis.ODE.ExistUnique",
+            "IsPicardLindelof.exists_forall_mem_closedBall_eq_hasDerivWithinAt_continuousOn": "Mathlib.Analysis.ODE.ExistUnique",
+            "ContDiffAt.exists_forall_mem_closedBall_exists_eq_forall_mem_Ioo_hasDerivAt₀": "Mathlib.Analysis.ODE.ExistUnique",
+            "ODE_solution_unique_univ": "Mathlib.Analysis.ODE.ExistUnique",
+            "gronwallBound": "Mathlib.Analysis.ODE.Gronwall",
+            "norm_le_gronwallBound_of_norm_deriv_right_le": "Mathlib.Analysis.ODE.Gronwall",
+            "discrete_gronwall": "Mathlib.Analysis.ODE.DiscreteGronwall",
+            "Function.fixedPoints": "Mathlib.Dynamics.FixedPoints.Defs",
+            "Function.IsPeriodicPt": "Mathlib.Dynamics.PeriodicPts.Defs",
+            "Function.IsPeriodicPt.add": "Mathlib.Dynamics.PeriodicPts.Defs",
+            "Flow": "Mathlib.Dynamics.Flow",
+            "Flow.map_add": "Mathlib.Dynamics.Flow",
+            "omegaLimit": "Mathlib.Dynamics.OmegaLimit",
+            "isClosed_omegaLimit": "Mathlib.Dynamics.OmegaLimit",
+            "MulAction.IsMinimal": "Mathlib.Dynamics.Minimal",
+            "MulAction.IsTopologicallyTransitive": "Mathlib.Dynamics.Transitive",
+            "Polynomial.newtonMap": "Mathlib.Dynamics.Newton",
+            "Polynomial.existsUnique_nilpotent_sub_and_aeval_eq_zero": "Mathlib.Dynamics.Newton",
+            "birkhoffSum": "Mathlib.Dynamics.BirkhoffSum.Basic",
+            "birkhoffAverage": "Mathlib.Dynamics.BirkhoffSum.Average",
+            "MeasureTheory.Conservative": "Mathlib.Dynamics.Ergodic.Conservative",
+            "MeasureTheory.Conservative.ae_mem_imp_frequently_image_mem": "Mathlib.Dynamics.Ergodic.Conservative",
+            "Ergodic": "Mathlib.Dynamics.Ergodic.Ergodic",
+            "PreErgodic.prob_eq_zero_or_one": "Mathlib.Dynamics.Ergodic.Ergodic",
+            "MeasureTheory.empiricalMeasure": "Mathlib.Dynamics.Ergodic.EmpiricalMeasure",
+            "MeasureTheory.exists_measurePreserving_probabilityMeasure": "Mathlib.Dynamics.Ergodic.EmpiricalMeasure",
+            "Ergodic.iff_mem_extremePoints": "Mathlib.Dynamics.Ergodic.Extreme",
+            "AddCircle.ergodic_add_left": "Mathlib.Dynamics.Ergodic.AddCircleAdd",
+            "AddCircle.ergodic_nsmul": "Mathlib.Dynamics.Ergodic.AddCircle",
+            "CircleDeg1Lift": "Mathlib.Dynamics.Circle.RotationNumber.TranslationNumber",
+            "CircleDeg1Lift.translationNumber": "Mathlib.Dynamics.Circle.RotationNumber.TranslationNumber",
+            "CircleDeg1Lift.translationNumber_eq_rat_iff": "Mathlib.Dynamics.Circle.RotationNumber.TranslationNumber",
+            "Dynamics.coverEntropy": "Mathlib.Dynamics.TopologicalEntropy.CoverEntropy",
+            "Dynamics.netEntropyEntourage": "Mathlib.Dynamics.TopologicalEntropy.NetEntropy",
+            "Dynamics.coverEntropy_eq_iSup_netEntropyEntourage": "Mathlib.Dynamics.TopologicalEntropy.NetEntropy",
+            "Dynamics.coverEntropy_image_le_of_uniformContinuous": "Mathlib.Dynamics.TopologicalEntropy.Semiconj",
+            "Dynamics.coverEntropy_restrict": "Mathlib.Dynamics.TopologicalEntropy.Semiconj",
+            "SymbolicDynamics.FullShift.Pattern": "Mathlib.Dynamics.SymbolicDynamics.Basic",
+            "SymbolicDynamics.FullShift.MulSubshift": "Mathlib.Dynamics.SymbolicDynamics.Basic",
+            "SymbolicDynamics.FullShift.mulForbidden": "Mathlib.Dynamics.SymbolicDynamics.Basic",
+            "SymbolicDynamics.FullShift.isClosed_mulForbidden": "Mathlib.Dynamics.SymbolicDynamics.Basic",
+        }
+        for name, module in expected.items():
+            with self.subTest(name=name):
+                self.assertIn(name, self.catalog["roots"])
+                node = self.nodes[name]
+                self.assertEqual(node["module"], module)
+                if node["kind"] in {"definition", "theorem", "opaque"}:
+                    self.assertIsInstance(node["value"], int)
+                self.assertTrue(set(node["axioms"]) <= self.policy["axioms"].keys())
+                origin = self.catalog["sources"][module]
+                self.assertEqual(origin["revision"], self.policy["libraries"]["mathlib"]["revision"])
+                self.assertIn(origin["revision"], origin["url"])
+                self.assertEqual(origin["license"], "Apache-2.0")
+
+    def test_dynamics_hierarchies_reach_models_hypotheses_and_all_axioms(self):
+        graph = KnowledgeGraph(self.catalog)
+        expected = {
+            "IsPicardLindelof.exists_eq_forall_mem_Icc_hasDerivWithinAt": {
+                "IsPicardLindelof",
+                "ODE.picard",
+                "ContractingWith",
+                "CompleteSpace",
+                "HasDerivWithinAt",
+            },
+            "ODE_solution_unique_univ": {
+                "LipschitzOnWith",
+                "HasDerivAt",
+                "gronwallBound",
+                "Real.exp",
+            },
+            "MeasureTheory.Conservative.ae_mem_imp_frequently_image_mem": {
+                "MeasureTheory.Conservative",
+                "MeasureTheory.Measure",
+                "Nat.iterate",
+                "Filter.Frequently",
+            },
+            "MeasureTheory.exists_measurePreserving_probabilityMeasure": {
+                "MeasureTheory.empiricalMeasure",
+                "MeasureTheory.ProbabilityMeasure",
+                "MeasureTheory.MeasurePreserving",
+                "Continuous",
+            },
+            "Dynamics.coverEntropy_image_le_of_uniformContinuous": {
+                "Dynamics.coverEntropy",
+                "Dynamics.coverMincard",
+                "UniformContinuous",
+                "Function.Semiconj",
+                "Dynamics.dynEntourage",
+            },
+            "AddCircle.ergodic_add_left": {
+                "AddCircle",
+                "Ergodic",
+                "addOrderOf",
+            },
+            "CircleDeg1Lift.translationNumber_eq_rat_iff": {
+                "CircleDeg1Lift.translationNumber",
+                "CircleDeg1Lift",
+                "Continuous",
+                "Nat.iterate",
+            },
+            "Polynomial.existsUnique_nilpotent_sub_and_aeval_eq_zero": {
+                "Polynomial.newtonMap",
+                "IsNilpotent",
+                "IsUnit",
+                "Polynomial.aeval",
+            },
+            "SymbolicDynamics.FullShift.isClosed_mulForbidden": {
+                "SymbolicDynamics.FullShift.Pattern",
+                "SymbolicDynamics.FullShift.mulForbidden",
+                "SymbolicDynamics.FullShift.Pattern.mulOccursInAt",
+                "IsClosed",
+                "DiscreteTopology",
+            },
+            "Ergodic.iff_mem_extremePoints": {
+                "Ergodic",
+                "Set.extremePoints",
+                "MeasureTheory.MeasurePreserving",
+            },
+        }
+        for name, objects in expected.items():
+            with self.subTest(name=name):
+                hierarchy = graph.hierarchy(name)
+                reached = {node["name"] for node in hierarchy["declarations"]}
+                self.assertTrue(objects <= reached, objects - reached)
+                self.assertEqual(set(hierarchy["axiom_paths"]), set(self.nodes[name]["axioms"]))
+                for axiom, path in hierarchy["axiom_paths"].items():
+                    self.assertEqual(path[0], name)
+                    self.assertEqual(path[-1], axiom)
+                    for source, target in zip(path, path[1:]):
+                        self.assertIn(target, self.nodes[source]["dependencies"])
+
+    def test_dynamics_subjects_include_their_results_and_parent_subjects(self):
+        graph = KnowledgeGraph(self.catalog)
+        expected = {
+            "dynamical_systems": ("analysis", "Polynomial.newtonMap"),
+            "ordinary_differential_equations": ("dynamical_systems", "ODE_solution_unique_univ"),
+            "topological_dynamics": ("dynamical_systems", "Flow.map_add"),
+            "ergodic_theory": ("dynamical_systems", "Ergodic.iff_mem_extremePoints"),
+            "symbolic_dynamics": ("topological_dynamics", "SymbolicDynamics.FullShift.mulForbidden"),
+            "topological_entropy": ("topological_dynamics", "Dynamics.coverEntropy_restrict"),
+            "circle_dynamics": ("topological_dynamics", "CircleDeg1Lift.translationNumber_eq_rat_iff"),
+        }
+        for subject, (parent, name) in expected.items():
+            with self.subTest(subject=subject):
+                self.assertEqual(self.catalog["subjects"][subject]["parent"], parent)
+                for category in (subject, parent, "dynamical_systems", "analysis", "mathematics"):
+                    self.assertIn(name, {node["name"] for node in graph.search(name, subject=category)})
+
+    def test_dynamics_references_link_their_pinned_records(self):
+        snapshot = open_snapshot(ROOT)
+        references = snapshot.citations("discrete_gronwall")
+        self.assertIn("Gronwall_1919", {entry["key"] for entry in references["module_citations"]})
+
     def test_ordinal_notation_correspondence_matches_reference_types(self):
         run(ROOT, [self.lake, "env", "lean", "tests/OrdinalNotationStatements.lean"], capture=True)
 
