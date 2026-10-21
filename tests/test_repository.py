@@ -986,6 +986,292 @@ class RepositoryTests(RepositoryArtifacts, unittest.TestCase):
         references = snapshot.citations("Ordinal.veblen")
         self.assertIn("Miller_1976", {entry["key"] for entry in references["module_citations"]})
 
+    def test_conditional_l2_results_retain_local_proofs_and_source(self):
+        expected = {
+            "Math.Probability.aestronglyMeasurable_l2Predictor": "theorem",
+            "Math.Probability.l2Predictor_eq_self_iff": "theorem",
+            "Math.Probability.l2Predictor_idempotent": "theorem",
+            "Math.Probability.inner_residual_l2Predictor_eq_zero": "theorem",
+            "Math.Probability.l2_prediction_error_sq": "theorem",
+            "Math.Probability.l2_norm_sq_decomposition": "theorem",
+            "Math.Probability.l2_prediction_error_minimal": "theorem",
+            "Math.Probability.l2_prediction_error_eq_iff": "theorem",
+            "Math.Probability.dist_l2Predictor_le": "theorem",
+            "Math.Probability.l2Predictor_larger_fixes_smaller": "theorem",
+            "Math.Probability.l2Predictor_tower": "theorem",
+            "Math.Probability.l2_prediction_information_gap": "theorem",
+            "Math.Probability.l2_prediction_error_antitone": "theorem",
+            "Math.Probability.l2Predictor": "definition"
+        }
+        module = "Math.Probability.ConditionalL2"
+        path = ROOT / "Math/Probability/ConditionalL2.lean"
+        origin = self.catalog["sources"][module]
+        self.assertEqual(origin["package"], "math")
+        self.assertEqual(origin["path"], path.relative_to(ROOT).as_posix())
+        self.assertEqual(origin["sha256"], hashlib.sha256(path.read_bytes()).hexdigest())
+        graph = KnowledgeGraph(self.catalog)
+        for name, kind in expected.items():
+            with self.subTest(name=name):
+                self.assertIn(name, self.catalog["roots"])
+                self.assertIn(name, self.catalog["module_declarations_by_module"][module])
+                node = self.nodes[name]
+                self.assertEqual(node["kind"], kind)
+                self.assertEqual(node["module"], module)
+                self.assertIsInstance(node["value"], int)
+                self.assertTrue(node["proof"])
+                self.assertGreater(node["source"]["line"], 0)
+                self.assertTrue(set(node["axioms"]) <= set(self.policy["modules"][module]["allowed_axioms"]))
+                for subject in ("conditional_expectation", "measure_theory", "probability", "hilbert_spaces", "functional_analysis", "analysis", "mathematics"):
+                    self.assertIn(name, {node["name"] for node in graph.search(name, subject=subject)})
+
+    def test_conditional_l2_statements_match_reference_types(self):
+        run(ROOT, [self.lake, "env", "lean", "tests/ConditionalL2Statements.lean"], capture=True)
+
+    def test_measure_statements_match_reference_types(self):
+        run(ROOT, [self.lake, "env", "lean", "tests/MeasureStatements.lean"], capture=True)
+
+    def test_measure_registry_retains_every_pinned_module(self):
+        base = ROOT / ".lake/packages/mathlib"
+        areas = {"MeasureTheory/Measure": 94, "MeasureTheory/Integral": 64, "MeasureTheory/MeasurableSpace": 14,
+                 "MeasureTheory/OuterMeasure": 9, "MeasureTheory/Function/ConditionalExpectation": 11}
+        registered = self.policy["libraries"]["mathlib"]["modules"]
+        total = set()
+        for area, count in areas.items():
+            paths = (base / "Mathlib" / area).rglob("*.lean")
+            expected = {".".join(path.relative_to(base).with_suffix("").parts) for path in paths}
+            self.assertEqual(len(expected), count)
+            prefix = "Mathlib." + area.replace("/", ".") + "."
+            self.assertEqual({name for name in registered if name.startswith(prefix)}, expected)
+            total |= expected
+        total.add("Mathlib.MeasureTheory.Function.ConditionalLExpectation")
+        self.assertEqual(len(total), 193)
+        for module in total:
+            with self.subTest(module=module):
+                self.assertIn(module, self.catalog["module_policy"])
+                self.assertIn(module, self.catalog["module_declarations_by_module"])
+                self.assertIn(module, self.catalog["sources"])
+
+    def test_measure_objects_and_results_retain_terms_and_pinned_sources(self):
+        expected = {
+            "MeasurableSpace": "Mathlib.MeasureTheory.MeasurableSpace.Defs",
+            "MeasurableSet": "Mathlib.MeasureTheory.MeasurableSpace.Defs",
+            "Measurable": "Mathlib.MeasureTheory.MeasurableSpace.Defs",
+            "MeasureTheory.Measure": "Mathlib.MeasureTheory.Measure.MeasureSpaceDef",
+            "MeasureTheory.IsFiniteMeasure": "Mathlib.MeasureTheory.Measure.Typeclasses.Finite",
+            "MeasureTheory.SigmaFinite": "Mathlib.MeasureTheory.Measure.Typeclasses.SFinite",
+            "MeasureTheory.IsProbabilityMeasure": "Mathlib.MeasureTheory.Measure.Typeclasses.Probability",
+            "MeasureTheory.Measure.prod": "Mathlib.MeasureTheory.Measure.Prod",
+            "MeasureTheory.Measure.withDensity": "Mathlib.MeasureTheory.Measure.WithDensity",
+            "MeasureTheory.Measure.HaveLebesgueDecomposition": "Mathlib.MeasureTheory.Measure.Decomposition.Lebesgue",
+            "MeasureTheory.Measure.rnDeriv": "Mathlib.MeasureTheory.Measure.Decomposition.Lebesgue",
+            "MeasureTheory.Measure.singularPart": "Mathlib.MeasureTheory.Measure.Decomposition.Lebesgue",
+            "MeasureTheory.Measure.haveLebesgueDecomposition_add": "Mathlib.MeasureTheory.Measure.Decomposition.Lebesgue",
+            "MeasureTheory.Measure.withDensity_rnDeriv_eq": "Mathlib.MeasureTheory.Measure.Decomposition.RadonNikodym",
+            "MeasureTheory.lintegral_rnDeriv_mul": "Mathlib.MeasureTheory.Measure.Decomposition.RadonNikodym",
+            "MeasureTheory.integral_rnDeriv_smul": "Mathlib.MeasureTheory.Measure.Decomposition.RadonNikodym",
+            "MeasureTheory.Measure.rnDeriv_mul_rnDeriv": "Mathlib.MeasureTheory.Measure.Decomposition.RadonNikodym",
+            "MeasureTheory.lintegral_iSup": "Mathlib.MeasureTheory.Integral.Lebesgue.Add",
+            "MeasureTheory.lintegral_liminf_le'": "Mathlib.MeasureTheory.Integral.Lebesgue.Add",
+            "MeasureTheory.tendsto_integral_of_dominated_convergence": "Mathlib.MeasureTheory.Integral.DominatedConvergence",
+            "MeasureTheory.lintegral_prod": "Mathlib.MeasureTheory.Measure.Prod",
+            "MeasureTheory.integral_prod": "Mathlib.MeasureTheory.Integral.Prod",
+            "MeasureTheory.integral_integral_swap": "Mathlib.MeasureTheory.Integral.Prod",
+            "MeasureTheory.condExpL2": "Mathlib.MeasureTheory.Function.ConditionalExpectation.CondexpL2",
+            "MeasureTheory.lpMeas": "Mathlib.MeasureTheory.Function.ConditionalExpectation.AEMeasurable",
+            "MeasureTheory.condExp": "Mathlib.MeasureTheory.Function.ConditionalExpectation.Basic",
+            "MeasureTheory.setIntegral_condExp": "Mathlib.MeasureTheory.Function.ConditionalExpectation.Basic",
+            "MeasureTheory.condExp_condExp_of_le": "Mathlib.MeasureTheory.Function.ConditionalExpectation.Basic",
+            "MeasureTheory.condExp_mul_of_aestronglyMeasurable_left": "Mathlib.MeasureTheory.Function.ConditionalExpectation.PullOut",
+            "MeasureTheory.toReal_condLExp": "Mathlib.MeasureTheory.Function.ConditionalExpectation.LebesgueBochner",
+            "MeasureTheory.condLExp": "Mathlib.MeasureTheory.Function.ConditionalLExpectation",
+            "MeasureTheory.integral_divergence_prod_Icc_of_hasFDerivAt_of_le": "Mathlib.MeasureTheory.Integral.DivergenceTheorem",
+            "MeasureTheory.Measure.haarMeasure": "Mathlib.MeasureTheory.Measure.Haar.Basic",
+            "MeasureTheory.Measure.haarMeasure_unique": "Mathlib.MeasureTheory.Measure.Haar.Basic",
+            "RealRMK.rieszMeasure": "Mathlib.MeasureTheory.Integral.RieszMarkovKakutani.Real",
+            "RealRMK.integral_rieszMeasure": "Mathlib.MeasureTheory.Integral.RieszMarkovKakutani.Real",
+            "intervalIntegral.integral_eq_sub_of_hasDerivAt": "Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus",
+            "intervalIntegral.integral_deriv_mul_eq_sub_of_hasDerivAt": "Mathlib.MeasureTheory.Integral.IntervalIntegral.IntegrationByParts",
+            "Math.Probability.aestronglyMeasurable_l2Predictor": "Math.Probability.ConditionalL2",
+            "Math.Probability.l2Predictor_eq_self_iff": "Math.Probability.ConditionalL2",
+            "Math.Probability.l2Predictor_idempotent": "Math.Probability.ConditionalL2",
+            "Math.Probability.inner_residual_l2Predictor_eq_zero": "Math.Probability.ConditionalL2",
+            "Math.Probability.l2_prediction_error_sq": "Math.Probability.ConditionalL2",
+            "Math.Probability.l2_norm_sq_decomposition": "Math.Probability.ConditionalL2",
+            "Math.Probability.l2_prediction_error_minimal": "Math.Probability.ConditionalL2",
+            "Math.Probability.l2_prediction_error_eq_iff": "Math.Probability.ConditionalL2",
+            "Math.Probability.dist_l2Predictor_le": "Math.Probability.ConditionalL2",
+            "Math.Probability.l2Predictor_larger_fixes_smaller": "Math.Probability.ConditionalL2",
+            "Math.Probability.l2Predictor_tower": "Math.Probability.ConditionalL2",
+            "Math.Probability.l2_prediction_information_gap": "Math.Probability.ConditionalL2",
+            "Math.Probability.l2_prediction_error_antitone": "Math.Probability.ConditionalL2",
+            "Math.Probability.l2Predictor": "Math.Probability.ConditionalL2",
+            "MeasureTheory.integral": "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+            "MeasureTheory.integral_add": "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+            "MeasureTheory.ProbabilityMeasure": "Mathlib.MeasureTheory.Measure.ProbabilityMeasure"
+        }
+        for name, module in expected.items():
+            with self.subTest(name=name):
+                self.assertIn(name, self.catalog["roots"])
+                node = self.nodes[name]
+                self.assertEqual(node["module"], module)
+                if node["kind"] in {"definition", "theorem", "opaque"}:
+                    self.assertIsInstance(node["value"], int)
+                    self.assertTrue(node["proof"])
+                self.assertTrue(set(node["axioms"]) <= self.policy["axioms"].keys())
+                origin = self.catalog["sources"][module]
+                if module.startswith("Mathlib."):
+                    self.assertEqual(origin["revision"], self.policy["libraries"]["mathlib"]["revision"])
+                    self.assertEqual(origin["license"], "Apache-2.0")
+                    self.assertIn(origin["revision"], origin["url"])
+                else:
+                    self.assertEqual(origin["package"], "math")
+
+    def test_measure_hierarchies_retain_models_hypotheses_and_axiom_paths(self):
+        expected = {
+            "Math.Probability.l2_prediction_error_minimal": [
+                "Math.Probability.l2_prediction_error_sq",
+                "Math.Probability.inner_residual_l2Predictor_eq_zero",
+                "MeasureTheory.lpMeas",
+                "MeasureTheory.condExpL2",
+                "Submodule.starProjection_inner_eq_zero"
+            ],
+            "Math.Probability.l2_prediction_error_eq_iff": [
+                "Math.Probability.l2_prediction_error_sq",
+                "MeasureTheory.Lp",
+                "Submodule.starProjection"
+            ],
+            "Math.Probability.l2Predictor_tower": [
+                "Submodule.starProjection_comp_starProjection_of_le",
+                "MeasureTheory.lpMeas",
+                "MeasureTheory.condExpL2"
+            ],
+            "Math.Probability.l2_prediction_information_gap": [
+                "Math.Probability.l2_prediction_error_sq",
+                "MeasureTheory.AEStronglyMeasurable"
+            ],
+            "Math.Probability.dist_l2Predictor_le": [
+                "Submodule.lipschitzWith_starProjection",
+                "Math.Probability.l2Predictor"
+            ],
+            "MeasureTheory.Measure.withDensity_rnDeriv_eq": [
+                "MeasureTheory.Measure.rnDeriv",
+                "MeasureTheory.Measure.withDensity",
+                "MeasureTheory.Measure.HaveLebesgueDecomposition"
+            ],
+            "MeasureTheory.tendsto_integral_of_dominated_convergence": [
+                "MeasureTheory.Integrable",
+                "MeasureTheory.AEStronglyMeasurable",
+                "Filter.Tendsto"
+            ],
+            "MeasureTheory.integral_prod": [
+                "MeasureTheory.Integrable",
+                "MeasureTheory.Measure.prod",
+                "MeasureTheory.integral"
+            ],
+            "MeasureTheory.lintegral_prod": [
+                "MeasureTheory.Measure.prod",
+                "MeasureTheory.lintegral",
+                "AEMeasurable"
+            ],
+            "MeasureTheory.condExp_condExp_of_le": [
+                "MeasureTheory.condExp",
+                "MeasureTheory.Measure.trim",
+                "MeasureTheory.SigmaFinite"
+            ],
+            "RealRMK.integral_rieszMeasure": [
+                "RealRMK.rieszMeasure",
+                "MeasureTheory.integral",
+                "CompactlySupportedContinuousMap"
+            ],
+            "MeasureTheory.Measure.haarMeasure_unique": [
+                "MeasureTheory.Measure.haarMeasure",
+                "MeasureTheory.SigmaFinite"
+            ],
+            "MeasureTheory.integral_divergence_prod_Icc_of_hasFDerivAt_of_le": [
+                "HasFDerivAt",
+                "ContinuousOn",
+                "MeasureTheory.IntegrableOn",
+                "intervalIntegral"
+            ]
+        }
+        graph = KnowledgeGraph(self.catalog)
+        for name, objects in expected.items():
+            with self.subTest(name=name):
+                hierarchy = graph.hierarchy(name)
+                reached = {node["name"] for node in hierarchy["declarations"]}
+                self.assertTrue(set(objects) <= reached, set(objects) - reached)
+                self.assertEqual(set(hierarchy["axiom_paths"]), set(self.nodes[name]["axioms"]))
+                for axiom, path in hierarchy["axiom_paths"].items():
+                    self.assertEqual(path[0], name)
+                    self.assertEqual(path[-1], axiom)
+                    for source, target in zip(path, path[1:]):
+                        self.assertIn(target, self.nodes[source]["dependencies"])
+
+    def test_measure_subjects_retain_results_and_parent_subjects(self):
+        expected = {
+            "integration": [
+                "measure_theory",
+                "MeasureTheory.integral_prod"
+            ],
+            "lebesgue_integration": [
+                "integration",
+                "MeasureTheory.lintegral_iSup"
+            ],
+            "bochner_integration": [
+                "integration",
+                "MeasureTheory.integral_add"
+            ],
+            "interval_integration": [
+                "integration",
+                "intervalIntegral.integral_eq_sub_of_hasDerivAt"
+            ],
+            "measure_decomposition": [
+                "measure_theory",
+                "MeasureTheory.Measure.withDensity_rnDeriv_eq"
+            ],
+            "haar_measure": [
+                "measure_theory",
+                "MeasureTheory.Measure.haarMeasure_unique"
+            ],
+            "conditional_expectation": [
+                "measure_theory",
+                "Math.Probability.l2_prediction_error_minimal"
+            ],
+            "probability_measures": [
+                "probability",
+                "MeasureTheory.ProbabilityMeasure"
+            ],
+            "line_and_surface_integrals": [
+                "integration",
+                "MeasureTheory.integral_divergence_prod_Icc_of_hasFDerivAt_of_le"
+            ]
+        }
+        graph = KnowledgeGraph(self.catalog)
+        for subject, (parent, name) in expected.items():
+            with self.subTest(subject=subject):
+                self.assertEqual(self.catalog["subjects"][subject]["parent"], parent)
+                current = subject
+                while current is not None:
+                    self.assertIn(name, {node["name"] for node in graph.search(name, subject=current)})
+                    current = self.catalog["subjects"][current]["parent"]
+
+    def test_measure_references_retain_pinned_records(self):
+        expected = {
+            "RealRMK.integral_rieszMeasure": ("Rud87", "rudin1987"),
+            "MeasureTheory.Measure.haarMeasure_unique": ("halmos1950measure", "halmos1950measure")
+        }
+        snapshot = open_snapshot(ROOT)
+        for name, (original, canonical) in expected.items():
+            with self.subTest(name=name):
+                citations = snapshot.citations(name)
+                entry = next(item for item in citations["module_citations"] if item["citation_key"] == original)
+                self.assertEqual(entry["key"], canonical)
+                self.assertIn("mathlib:" + original, snapshot.summary()["bibliography_keys"])
+                self.assertEqual(entry["raw"], self.catalog["bibliographies"]["mathlib"]["entries"][canonical]["raw"])
+                if original != canonical:
+                    self.assertEqual(entry["alias"], original)
+                    self.assertEqual(self.policy["libraries"]["mathlib"]["citation_aliases"][original], canonical)
+
     def test_convex_geometry_coverage_retains_every_pinned_module(self):
         base = ROOT / ".lake/packages/mathlib"
         areas = {"Geometry/Euclidean": 44, "Geometry/Convex": 24, "Analysis/Convex": 66, "Geometry/Polygon": 1}

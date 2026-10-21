@@ -14,7 +14,7 @@ from threading import Lock
 from .core import CHILD_FIELDS, canonical, digest, expression_names, require, selected_module_roots
 from .explore import KnowledgeGraph
 from .terms import inspect_term
-from .bibliography import resolve_citations
+from .bibliography import bibliography_keys, resolve_citations
 
 
 ROLES = {"type": 1, "value": 2, "structure": 4}
@@ -284,8 +284,7 @@ class Snapshot:
                 "lean_version": self.metadata["lean_version"], "foundation": self.metadata["foundation"],
                 "axiom_policy": self.metadata["axiom_policy"], "axiom_audit": self.metadata["axiom_audit"],
                 "proof_binding": self.metadata["proof_binding"],
-                "bibliography_keys": sorted({key for package, bibliography in self.metadata.get("bibliographies", {}).items()
-                                             for name in bibliography["entries"] for key in (name, package + ":" + name)}),
+                "bibliography_keys": bibliography_keys(self.metadata.get("bibliographies", {})),
                 "checkers": self.metadata["provenance"]["checkers"], "subjects": self.graph.subject_coverage()}
 
     def statistics(self) -> dict:

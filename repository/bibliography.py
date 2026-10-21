@@ -142,12 +142,33 @@ class BibTeX:
                            "end_line": bisect_right(self.lines, self.position - 1) + 1}
 
 
+def citation_aliases(bibliography: dict) -> dict[str, str]:
+    """validate reviewed aliases without changing canonical bibliography records."""
+    aliases = bibliography.get("citation_aliases", {})
+    entries = bibliography["entries"]
+    require(isinstance(aliases, dict), "bibliography citation aliases must be a mapping")
+    for alias, target in aliases.items():
+        require(isinstance(alias, str) and re.fullmatch(r"[A-Za-z0-9_:-]+", alias) is not None,
+                "invalid bibliography citation alias")
+        require(alias not in entries, "bibliography citation alias shadows a canonical key")
+        require(isinstance(target, str) and target in entries, "bibliography citation alias has no canonical target")
+    return aliases
+
+
+def bibliography_keys(bibliographies: dict) -> list[str]:
+    """include original citation spellings and their package-qualified forms."""
+    return sorted({key for owner, bibliography in bibliographies.items()
+                   for name in set(bibliography["entries"]) | set(citation_aliases(bibliography))
+                   for key in (name, owner + ":" + name)})
+
+
 def archive_bibliographies(packages: dict, policy: dict) -> dict:
     """archive configured, tracked bibliography bytes from the locked dependencies."""
     result = {}
     for name, library in sorted(policy.get("libraries", {}).items()):
         relative = library.get("bibliography")
         if relative is None:
+            require("citation_aliases" not in library, f"{name}: citation aliases require a pinned bibliography")
             continue
         require(isinstance(relative, str) and bool(relative), f"{name}: invalid bibliography path")
         path = PurePosixPath(relative)
@@ -163,6 +184,10 @@ def archive_bibliographies(packages: dict, policy: dict) -> dict:
                         "revision": package.revision, "license": package.license_id,
                         "url": f"{package.repository.removesuffix('.git')}/blob/{package.revision}/{relative}",
                         "entries": BibTeX(text).entries()}
+        if "citation_aliases" in library:
+            require(isinstance(library["citation_aliases"], dict), "bibliography citation aliases must be a mapping")
+            result[name]["citation_aliases"] = dict(library["citation_aliases"])
+            citation_aliases(result[name])
     return result
 
 
@@ -177,12 +202,18 @@ def resolve_citations(bibliographies: dict, text: str, package: str | None = Non
     """prefer the source library's keys and expose ambiguous cross-library matches."""
     available, qualified = {}, {}
     for owner, bibliography in bibliographies.items():
+        canonical_records = {}
         for key, entry in bibliography["entries"].items():
             record = {**entry, "package": owner, "id": owner + ":" + key,
                       "source_url": bibliography["url"] + "#L" + str(entry["line"]),
                       "bibliography_digest": bibliography["sha256"]}
             available.setdefault(key, []).append(record)
             qualified[owner + ":" + key] = record
+            canonical_records[key] = record
+        for alias, target in citation_aliases(bibliography).items():
+            record = {**canonical_records[target], "alias": alias}
+            available.setdefault(alias, []).append(record)
+            qualified[owner + ":" + alias] = record
     result = []
     for key in citation_keys(text, set(available) | set(qualified)):
         candidates = available.get(key, [])

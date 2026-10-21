@@ -6777,7 +6777,1490 @@
             "Quot.sound",
             "Classical.choice"
           ]
+        },
+        "Mathlib.MeasureTheory.Measure.AEDisjoint": {
+          "title": "Almost everywhere disjoint sets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.AEMeasurable": {
+          "title": "Almost everywhere measurable functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.AbsolutelyContinuous": {
+          "title": "Absolute Continuity of Measures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.AddContent": {
+          "title": "Additive Contents",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Basic": {
+          "title": "Measure spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.CharacteristicFunction.Basic": {
+          "title": "Characteristic Function of a Finite Measure",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.CharacteristicFunction.TaylorExpansion": {
+          "title": "Taylor expansion of the characteristic function",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Comap": {
+          "title": "Pullback of a measure",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.CompleteLattice": {
+          "title": "The complete lattice of measures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Complex": {
+          "title": "Complex measure",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Content": {
+          "title": "Contents",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Continuity": {
+          "title": "Continuity of measures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.ContinuousPreimage": {
+          "title": "Continuity of the preimage of a set under a measure-preserving continuous function",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Count": {
+          "title": "Counting measure",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Decomposition.Exhaustion": {
+          "title": "Method of exhaustion",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Decomposition.Hahn": {
+          "title": "Unsigned Hahn decomposition theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Decomposition.IntegralRNDeriv": {
+          "title": "Integrals of functions of Radon-Nikodym derivatives",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Decomposition.Lebesgue": {
+          "title": "Lebesgue decomposition",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Decomposition.RadonNikodym": {
+          "title": "Radon-Nikodym theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Dirac.Basic": {
+          "title": "Basic properties of the Dirac measure",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Dirac.Def": {
+          "title": "Dirac measure",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Dirac": {
+          "title": "MeasureTheory.Measure.Dirac",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.DiracProba": {
+          "title": "Dirac deltas as probability measures and embedding of a space into probability measures on it",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Doubling": {
+          "title": "Uniformly locally doubling measures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.EverywherePos": {
+          "title": "Everywhere positive sets in measure spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Filter": {
+          "title": "Filters related to measures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.FiniteMeasure": {
+          "title": "Finite measures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.FiniteMeasureExt": {
+          "title": "Extensionality of finite measures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.FiniteMeasurePi": {
+          "title": "Products of finite measures and probability measures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.FiniteMeasureProd": {
+          "title": "Products of finite measures and probability measures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.GiryMonad": {
+          "title": "The Giry monad",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Haar.Basic": {
+          "title": "Haar measure",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Haar.Disintegration": {
+          "title": "Pushing a Haar measure by a linear map",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Haar.DistribChar": {
+          "title": "The distributive character of Haar measures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Haar.Extension": {
+          "title": "Haar measures on group extensions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace": {
+          "title": "Volume forms and measures on inner product spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Haar.MulEquivHaarChar": {
+          "title": "Scaling Haar measure by a continuous isomorphism",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Haar.NormedSpace": {
+          "title": "Basic properties of Haar measures on real vector spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Haar.OfBasis": {
+          "title": "Additive Haar measure constructed from a basis",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Haar.Quotient": {
+          "title": "Haar quotient measure",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Haar.Unique": {
+          "title": "Uniqueness of Haar measure in locally compact groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.HasOuterApproxClosed": {
+          "title": "Spaces where indicators of closed sets have decreasing approximations by continuous functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.HasOuterApproxClosedProd": {
+          "title": "Characterization of a finite measure by the integrals of products of bounded functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Hausdorff": {
+          "title": "Hausdorff measure and metric (outer) measures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.IntegralCharFun": {
+          "title": "Integrals of characteristic functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Interval": {
+          "title": "Measures of intervals",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Lebesgue.Basic": {
+          "title": "Lebesgue measure on the real line and on `ℝⁿ`",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Lebesgue.Complex": {
+          "title": "Lebesgue measure on `ℂ`",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar": {
+          "title": "Relationship between the Haar and Lebesgue measures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Lebesgue.Integral": {
+          "title": "MeasureTheory.Measure.Lebesgue.Integral",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls": {
+          "title": "Volume of balls",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.LevyConvergence": {
+          "title": "Lévy's convergence theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.LevyProkhorovMetric": {
+          "title": "The Lévy-Prokhorov distance on spaces of finite measures and probability measures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.LogLikelihoodRatio": {
+          "title": "Log-likelihood Ratio",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Map": {
+          "title": "Pushforward of a measure",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.MeasureSpace": {
+          "title": "MeasureTheory.Measure.MeasureSpace",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.MeasuredSets": {
+          "title": "Measured sets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Module": {
+          "title": "The `ℝ≥0∞`-module of measures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.MutuallySingular": {
+          "title": "MeasureTheory.Measure.MutuallySingular",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.NullMeasurable": {
+          "title": "Null measurable sets and complete measures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.OpenPos": {
+          "title": "Measures positive on nonempty opens",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.OuterMeasure": {
+          "title": "Constructing a measure from an outer measure",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Portmanteau": {
+          "title": "Characterizations of weak convergence of finite measures and probability measures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.PreVariation": {
+          "title": "Pre-variation of a subadditive set function",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.ProbabilityMeasure": {
+          "title": "Probability measures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Prod": {
+          "title": "The product measure",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Prokhorov": {
+          "title": "Prokhorov theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.QuasiMeasurePreserving": {
+          "title": "Quasi-Measure-Preserving Functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Real": {
+          "title": "Measures as real-valued functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Regular": {
+          "title": "Regular measures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.RegularityCompacts": {
+          "title": "Inner regularity of finite measures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.ResolventTransform": {
+          "title": "Resolvent Transform of a Measure",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Restrict": {
+          "title": "Restricting a measure to a subset or a subtype",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.SeparableMeasure": {
+          "title": "Separable measure",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Stieltjes": {
+          "title": "Stieltjes measures on the real line",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Sub": {
+          "title": "Subtraction of measures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.SubFinite": {
+          "title": "Results about subtraction of finite measures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Sum": {
+          "title": "Sums of measures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Support": {
+          "title": "Support of a Measure",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Tight": {
+          "title": "Tight sets of measures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.TightNormed": {
+          "title": "Tight sets of measures in normed spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Tilted": {
+          "title": "Exponentially tilted measures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.TotalVariation.Basic": {
+          "title": "Properties of the total variation distance",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.TotalVariation.Defs": {
+          "title": "Total variation distance",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Trim": {
+          "title": "Restriction of a measure to a sub-σ-algebra",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Typeclasses.Finite": {
+          "title": "Classes for finite measures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Typeclasses.NoAtoms": {
+          "title": "MeasureTheory.Measure.Typeclasses.NoAtoms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Typeclasses.NullSingletonClass": {
+          "title": "Measures having value zero on singletons",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Typeclasses.Probability": {
+          "title": "Classes for probability measures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Typeclasses.SFinite": {
+          "title": "Classes for s-finite measures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.Typeclasses.ZeroOne": {
+          "title": "MeasureTheory.Measure.Typeclasses.ZeroOne",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.WithDensity": {
+          "title": "Measure with a given density with respect to another measure",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Measure.WithDensityFinite": {
+          "title": "s-finite measures can be written as `withDensity` of a finite measure",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.Asymptotics": {
+          "title": "Bounding of integrals by asymptotics",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.Average": {
+          "title": "Integral average of a function",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap": {
+          "title": "Continuous linear maps composed with integration",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.Bochner.FundThmCalculus": {
+          "title": "Fundamental theorem of calculus for set integrals",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.Bochner.L1": {
+          "title": "Bochner integral",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.Bochner.Set": {
+          "title": "Set integral",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.Bochner.SumMeasure": {
+          "title": "Integral with respect to a sum of measures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.Bochner.VitaliCaratheodory": {
+          "title": "Vitali-Carathéodory theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.BoundedContinuousFunction": {
+          "title": "Integration of bounded continuous functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.CircleAverage": {
+          "title": "Circle Averages",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.CircleIntegral": {
+          "title": "Integral over a circle in `ℂ`",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.CircleTransform": {
+          "title": "Circle integral transform",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.CompactlySupported": {
+          "title": "Integrating compactly supported continuous functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.CurveIntegral.Basic": {
+          "title": "Integral of a 1-form along a path",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.CurveIntegral.Poincare": {
+          "title": "Poincaré lemma for 1-forms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.DivergenceTheorem": {
+          "title": "Divergence theorem for Bochner integral",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.DominatedConvergence": {
+          "title": "The dominated convergence theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.ExpDecay": {
+          "title": "Integrals with exponential decay at ∞",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.FinMeasAdditive": {
+          "title": "Additivity on measurable sets with finite measure",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.Gamma": {
+          "title": "Integrals involving the Gamma function",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.Indicator": {
+          "title": "Results about indicator functions, their integrals, and measures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.IntegrableOn": {
+          "title": "MeasureTheory.Integral.IntegrableOn",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.IntegralEqImproper": {
+          "title": "Links between an integral and its \"improper\" version",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.IntervalAverage": {
+          "title": "Integral average over an interval",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.AbsolutelyContinuousFun": {
+          "title": "Fundamental theorem of calculus and integration by parts for absolutely continuous functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic": {
+          "title": "Integral over an interval",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.ContDiff": {
+          "title": "MeasureTheory.Integral.IntervalIntegral.ContDiff",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.DerivIntegrable": {
+          "title": "`f'` is interval integrable for certain classes of functions `f`",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.DistLEIntegral": {
+          "title": "Displacement is at most the integral of the speed",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.IntegrationByParts": {
+          "title": "Integration by parts and by substitution",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.LebesgueDifferentiationThm": {
+          "title": "Lebesgue Differentiation Theorem (Interval Version)",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.MeanValue": {
+          "title": "First and second mean value theorems for interval integrals",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Periodic": {
+          "title": "Integrals of periodic functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Slope": {
+          "title": "Some properties of the interval integral of `fun x ↦ slope f x (x + c)`, given a constant `c : ℝ`",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.TrapezoidalRule": {
+          "title": "The trapezoidal rule",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.Layercake": {
+          "title": "The layer cake formula / Cavalieri's principle / tail probability formula",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Add": {
+          "title": "Monotone convergence theorem and addition of Lebesgue integrals",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Basic": {
+          "title": "Lower Lebesgue integral for `ℝ≥0∞`-valued functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Countable": {
+          "title": "Lebesgue integral over finite and countable types, sets and measures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.Lebesgue.DominatedConvergence": {
+          "title": "Dominated convergence theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Map": {
+          "title": "Behavior of the Lebesgue integral under maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Markov": {
+          "title": "Markov's inequality",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Norm": {
+          "title": "Interactions between the Lebesgue integral and norms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Sub": {
+          "title": "Subtraction of Lebesgue integrals",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.LebesgueNormedSpace": {
+          "title": "MeasureTheory.Integral.LebesgueNormedSpace",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.Marginal": {
+          "title": "Marginals of multivariate functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.MeanInequalities": {
+          "title": "Mean value inequalities for integrals",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.MeanValue": {
+          "title": "First mean value theorem for set integrals",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.PeakFunction": {
+          "title": "Integrals against peak functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.Pi": {
+          "title": "Integration with respect to a finite product of measures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.Prod": {
+          "title": "Integration with respect to the product measure",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.Regular": {
+          "title": "Integrals of continuous functions with respect to regular measures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.RieszMarkovKakutani.Basic": {
+          "title": "Riesz–Markov–Kakutani representation theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.RieszMarkovKakutani.NNReal": {
+          "title": "Riesz–Markov–Kakutani representation theorem for `ℝ≥0`",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.RieszMarkovKakutani.Real": {
+          "title": "Riesz–Markov–Kakutani representation theorem for real-linear functionals",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.SetToL1.ChangeMeasure": {
+          "title": "Change of measure for set-to-function extensions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.SetToL1.DominatedConvergence": {
+          "title": "Convergence and measurability for set-to-function extensions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.SetToL1.Function": {
+          "title": "Extension of set functions to integrable functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.SetToL1.L1": {
+          "title": "Extension of set functions to L¹",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.SetToL1.SimpleFunc": {
+          "title": "Extension from set functions to integrable simple functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.SetToL1": {
+          "title": "MeasureTheory.Integral.SetToL1",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Integral.TorusIntegral": {
+          "title": "Integral over a torus in `ℂⁿ`",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.MeasurableSpace.Basic": {
+          "title": "Measurable spaces and measurable functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.MeasurableSpace.Card": {
+          "title": "Cardinal of sigma-algebras",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.MeasurableSpace.Constructions": {
+          "title": "Constructions for measurable spaces and functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.MeasurableSpace.CountablyGenerated": {
+          "title": "Countably generated measurable spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.MeasurableSpace.Embedding": {
+          "title": "Measurable embeddings and equivalences",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.MeasurableSpace.EventuallyMeasurable": {
+          "title": "Measurability modulo a filter",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.MeasurableSpace.Instances": {
+          "title": "Measurable-space typeclass instances",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.MeasurableSpace.Invariants": {
+          "title": "σ-algebra of sets invariant under a self-map",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.MeasurableSpace.MeasurablyGenerated": {
+          "title": "Measurably generated filters",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.MeasurableSpace.NCard": {
+          "title": "Measurability of `Set.encard` and `Set.ncard`",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.MeasurableSpace.Pi": {
+          "title": "Bases of the indexed product σ-algebra",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.MeasurableSpace.PreorderRestrict": {
+          "title": "Measurability of the restriction function for functions indexed by a preorder",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.MeasurableSpace.Prod": {
+          "title": "The product sigma algebra",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.OuterMeasure.AE": {
+          "title": "The “almost everywhere” filter of co-null sets.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.OuterMeasure.Basic": {
+          "title": "Outer Measures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.OuterMeasure.Caratheodory": {
+          "title": "The Carathéodory σ-algebra of an outer measure",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.OuterMeasure.Defs": {
+          "title": "Definitions of an outer measure and the corresponding `FunLike` class",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.OuterMeasure.Induced": {
+          "title": "Induced Outer Measure",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.OuterMeasure.OfAddContent": {
+          "title": "Carathéodory's extension theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.OuterMeasure.OfFunction": {
+          "title": "Outer measures from functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.OuterMeasure.Operations": {
+          "title": "Operations on outer measures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Function.ConditionalExpectation.AEMeasurable": {
+          "title": "MeasureTheory.Function.ConditionalExpectation.AEMeasurable",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Function.ConditionalExpectation.CondexpL1": {
+          "title": "MeasureTheory.Function.ConditionalExpectation.CondexpL1",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Function.ConditionalExpectation.CondexpL2": {
+          "title": "MeasureTheory.Function.ConditionalExpectation.CondexpL2",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Function.ConditionalExpectation.Indicator": {
+          "title": "Conditional expectation of indicator functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Function.ConditionalExpectation.LebesgueBochner": {
+          "title": "Results about both conditional expectations",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Function.ConditionalExpectation.RadonNikodym": {
+          "title": "Radon-Nikodym derivatives and conditional expectations",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Function.ConditionalExpectation.Real": {
+          "title": "Conditional expectation of real-valued functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Function.ConditionalExpectation.Unique": {
+          "title": "Uniqueness of the conditional expectation",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.MeasureTheory.Function.ConditionalLExpectation": {
+          "title": "Conditional Lebesgue expectation",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
         }
+      },
+      "citation_aliases": {
+        "Rud87": "rudin1987"
       }
     }
   },
@@ -6878,7 +8361,8 @@
         "Mathlib.Probability.IdentDistrib",
         "Mathlib.Probability.Moments.Basic",
         "Mathlib.Probability.Moments.Variance",
-        "Mathlib.Probability.Moments.Covariance"
+        "Mathlib.Probability.Moments.Covariance",
+        "Math.Probability.ConditionalL2"
       ]
     },
     "order": {
@@ -7028,7 +8512,194 @@
         "Mathlib.MeasureTheory.Integral.Bochner.Basic",
         "Mathlib.MeasureTheory.Function.ConditionalExpectation.Basic",
         "Mathlib.MeasureTheory.Function.ConditionalExpectation.CondJensen",
-        "Mathlib.MeasureTheory.Function.ConditionalExpectation.PullOut"
+        "Mathlib.MeasureTheory.Function.ConditionalExpectation.PullOut",
+        "Mathlib.MeasureTheory.Function.ConditionalExpectation.AEMeasurable",
+        "Mathlib.MeasureTheory.Function.ConditionalExpectation.CondexpL1",
+        "Mathlib.MeasureTheory.Function.ConditionalExpectation.CondexpL2",
+        "Mathlib.MeasureTheory.Function.ConditionalExpectation.Indicator",
+        "Mathlib.MeasureTheory.Function.ConditionalExpectation.LebesgueBochner",
+        "Mathlib.MeasureTheory.Function.ConditionalExpectation.RadonNikodym",
+        "Mathlib.MeasureTheory.Function.ConditionalExpectation.Real",
+        "Mathlib.MeasureTheory.Function.ConditionalExpectation.Unique",
+        "Mathlib.MeasureTheory.Function.ConditionalLExpectation",
+        "Mathlib.MeasureTheory.Integral.Asymptotics",
+        "Mathlib.MeasureTheory.Integral.Average",
+        "Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap",
+        "Mathlib.MeasureTheory.Integral.Bochner.FundThmCalculus",
+        "Mathlib.MeasureTheory.Integral.Bochner.L1",
+        "Mathlib.MeasureTheory.Integral.Bochner.Set",
+        "Mathlib.MeasureTheory.Integral.Bochner.SumMeasure",
+        "Mathlib.MeasureTheory.Integral.Bochner.VitaliCaratheodory",
+        "Mathlib.MeasureTheory.Integral.BoundedContinuousFunction",
+        "Mathlib.MeasureTheory.Integral.CircleAverage",
+        "Mathlib.MeasureTheory.Integral.CircleIntegral",
+        "Mathlib.MeasureTheory.Integral.CircleTransform",
+        "Mathlib.MeasureTheory.Integral.CompactlySupported",
+        "Mathlib.MeasureTheory.Integral.CurveIntegral.Basic",
+        "Mathlib.MeasureTheory.Integral.CurveIntegral.Poincare",
+        "Mathlib.MeasureTheory.Integral.DivergenceTheorem",
+        "Mathlib.MeasureTheory.Integral.DominatedConvergence",
+        "Mathlib.MeasureTheory.Integral.ExpDecay",
+        "Mathlib.MeasureTheory.Integral.FinMeasAdditive",
+        "Mathlib.MeasureTheory.Integral.Gamma",
+        "Mathlib.MeasureTheory.Integral.Indicator",
+        "Mathlib.MeasureTheory.Integral.IntegrableOn",
+        "Mathlib.MeasureTheory.Integral.IntegralEqImproper",
+        "Mathlib.MeasureTheory.Integral.IntervalAverage",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.AbsolutelyContinuousFun",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.ContDiff",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.DerivIntegrable",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.DistLEIntegral",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.IntegrationByParts",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.LebesgueDifferentiationThm",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.MeanValue",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Periodic",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Slope",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.TrapezoidalRule",
+        "Mathlib.MeasureTheory.Integral.Layercake",
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Add",
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Basic",
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Countable",
+        "Mathlib.MeasureTheory.Integral.Lebesgue.DominatedConvergence",
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Map",
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Markov",
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Norm",
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Sub",
+        "Mathlib.MeasureTheory.Integral.LebesgueNormedSpace",
+        "Mathlib.MeasureTheory.Integral.Marginal",
+        "Mathlib.MeasureTheory.Integral.MeanInequalities",
+        "Mathlib.MeasureTheory.Integral.MeanValue",
+        "Mathlib.MeasureTheory.Integral.PeakFunction",
+        "Mathlib.MeasureTheory.Integral.Pi",
+        "Mathlib.MeasureTheory.Integral.Prod",
+        "Mathlib.MeasureTheory.Integral.Regular",
+        "Mathlib.MeasureTheory.Integral.RieszMarkovKakutani.Basic",
+        "Mathlib.MeasureTheory.Integral.RieszMarkovKakutani.NNReal",
+        "Mathlib.MeasureTheory.Integral.RieszMarkovKakutani.Real",
+        "Mathlib.MeasureTheory.Integral.SetToL1",
+        "Mathlib.MeasureTheory.Integral.SetToL1.ChangeMeasure",
+        "Mathlib.MeasureTheory.Integral.SetToL1.DominatedConvergence",
+        "Mathlib.MeasureTheory.Integral.SetToL1.Function",
+        "Mathlib.MeasureTheory.Integral.SetToL1.L1",
+        "Mathlib.MeasureTheory.Integral.SetToL1.SimpleFunc",
+        "Mathlib.MeasureTheory.Integral.TorusIntegral",
+        "Mathlib.MeasureTheory.MeasurableSpace.Basic",
+        "Mathlib.MeasureTheory.MeasurableSpace.Card",
+        "Mathlib.MeasureTheory.MeasurableSpace.Constructions",
+        "Mathlib.MeasureTheory.MeasurableSpace.CountablyGenerated",
+        "Mathlib.MeasureTheory.MeasurableSpace.Embedding",
+        "Mathlib.MeasureTheory.MeasurableSpace.EventuallyMeasurable",
+        "Mathlib.MeasureTheory.MeasurableSpace.Instances",
+        "Mathlib.MeasureTheory.MeasurableSpace.Invariants",
+        "Mathlib.MeasureTheory.MeasurableSpace.MeasurablyGenerated",
+        "Mathlib.MeasureTheory.MeasurableSpace.NCard",
+        "Mathlib.MeasureTheory.MeasurableSpace.Pi",
+        "Mathlib.MeasureTheory.MeasurableSpace.PreorderRestrict",
+        "Mathlib.MeasureTheory.MeasurableSpace.Prod",
+        "Mathlib.MeasureTheory.Measure.AEDisjoint",
+        "Mathlib.MeasureTheory.Measure.AEMeasurable",
+        "Mathlib.MeasureTheory.Measure.AbsolutelyContinuous",
+        "Mathlib.MeasureTheory.Measure.AddContent",
+        "Mathlib.MeasureTheory.Measure.Basic",
+        "Mathlib.MeasureTheory.Measure.CharacteristicFunction.Basic",
+        "Mathlib.MeasureTheory.Measure.CharacteristicFunction.TaylorExpansion",
+        "Mathlib.MeasureTheory.Measure.Comap",
+        "Mathlib.MeasureTheory.Measure.CompleteLattice",
+        "Mathlib.MeasureTheory.Measure.Complex",
+        "Mathlib.MeasureTheory.Measure.Content",
+        "Mathlib.MeasureTheory.Measure.Continuity",
+        "Mathlib.MeasureTheory.Measure.ContinuousPreimage",
+        "Mathlib.MeasureTheory.Measure.Count",
+        "Mathlib.MeasureTheory.Measure.Decomposition.Exhaustion",
+        "Mathlib.MeasureTheory.Measure.Decomposition.Hahn",
+        "Mathlib.MeasureTheory.Measure.Decomposition.IntegralRNDeriv",
+        "Mathlib.MeasureTheory.Measure.Decomposition.Lebesgue",
+        "Mathlib.MeasureTheory.Measure.Decomposition.RadonNikodym",
+        "Mathlib.MeasureTheory.Measure.Dirac",
+        "Mathlib.MeasureTheory.Measure.Dirac.Basic",
+        "Mathlib.MeasureTheory.Measure.Dirac.Def",
+        "Mathlib.MeasureTheory.Measure.DiracProba",
+        "Mathlib.MeasureTheory.Measure.Doubling",
+        "Mathlib.MeasureTheory.Measure.EverywherePos",
+        "Mathlib.MeasureTheory.Measure.Filter",
+        "Mathlib.MeasureTheory.Measure.FiniteMeasure",
+        "Mathlib.MeasureTheory.Measure.FiniteMeasureExt",
+        "Mathlib.MeasureTheory.Measure.FiniteMeasurePi",
+        "Mathlib.MeasureTheory.Measure.FiniteMeasureProd",
+        "Mathlib.MeasureTheory.Measure.GiryMonad",
+        "Mathlib.MeasureTheory.Measure.Haar.Basic",
+        "Mathlib.MeasureTheory.Measure.Haar.Disintegration",
+        "Mathlib.MeasureTheory.Measure.Haar.DistribChar",
+        "Mathlib.MeasureTheory.Measure.Haar.Extension",
+        "Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace",
+        "Mathlib.MeasureTheory.Measure.Haar.MulEquivHaarChar",
+        "Mathlib.MeasureTheory.Measure.Haar.NormedSpace",
+        "Mathlib.MeasureTheory.Measure.Haar.OfBasis",
+        "Mathlib.MeasureTheory.Measure.Haar.Quotient",
+        "Mathlib.MeasureTheory.Measure.Haar.Unique",
+        "Mathlib.MeasureTheory.Measure.HasOuterApproxClosed",
+        "Mathlib.MeasureTheory.Measure.HasOuterApproxClosedProd",
+        "Mathlib.MeasureTheory.Measure.Hausdorff",
+        "Mathlib.MeasureTheory.Measure.IntegralCharFun",
+        "Mathlib.MeasureTheory.Measure.Interval",
+        "Mathlib.MeasureTheory.Measure.Lebesgue.Basic",
+        "Mathlib.MeasureTheory.Measure.Lebesgue.Complex",
+        "Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar",
+        "Mathlib.MeasureTheory.Measure.Lebesgue.Integral",
+        "Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls",
+        "Mathlib.MeasureTheory.Measure.LevyConvergence",
+        "Mathlib.MeasureTheory.Measure.LevyProkhorovMetric",
+        "Mathlib.MeasureTheory.Measure.LogLikelihoodRatio",
+        "Mathlib.MeasureTheory.Measure.Map",
+        "Mathlib.MeasureTheory.Measure.MeasureSpace",
+        "Mathlib.MeasureTheory.Measure.MeasuredSets",
+        "Mathlib.MeasureTheory.Measure.Module",
+        "Mathlib.MeasureTheory.Measure.MutuallySingular",
+        "Mathlib.MeasureTheory.Measure.NullMeasurable",
+        "Mathlib.MeasureTheory.Measure.OpenPos",
+        "Mathlib.MeasureTheory.Measure.OuterMeasure",
+        "Mathlib.MeasureTheory.Measure.Portmanteau",
+        "Mathlib.MeasureTheory.Measure.PreVariation",
+        "Mathlib.MeasureTheory.Measure.ProbabilityMeasure",
+        "Mathlib.MeasureTheory.Measure.Prod",
+        "Mathlib.MeasureTheory.Measure.Prokhorov",
+        "Mathlib.MeasureTheory.Measure.QuasiMeasurePreserving",
+        "Mathlib.MeasureTheory.Measure.Real",
+        "Mathlib.MeasureTheory.Measure.Regular",
+        "Mathlib.MeasureTheory.Measure.RegularityCompacts",
+        "Mathlib.MeasureTheory.Measure.ResolventTransform",
+        "Mathlib.MeasureTheory.Measure.Restrict",
+        "Mathlib.MeasureTheory.Measure.SeparableMeasure",
+        "Mathlib.MeasureTheory.Measure.Stieltjes",
+        "Mathlib.MeasureTheory.Measure.Sub",
+        "Mathlib.MeasureTheory.Measure.SubFinite",
+        "Mathlib.MeasureTheory.Measure.Sum",
+        "Mathlib.MeasureTheory.Measure.Support",
+        "Mathlib.MeasureTheory.Measure.Tight",
+        "Mathlib.MeasureTheory.Measure.TightNormed",
+        "Mathlib.MeasureTheory.Measure.Tilted",
+        "Mathlib.MeasureTheory.Measure.TotalVariation.Basic",
+        "Mathlib.MeasureTheory.Measure.TotalVariation.Defs",
+        "Mathlib.MeasureTheory.Measure.Trim",
+        "Mathlib.MeasureTheory.Measure.Typeclasses.Finite",
+        "Mathlib.MeasureTheory.Measure.Typeclasses.NoAtoms",
+        "Mathlib.MeasureTheory.Measure.Typeclasses.NullSingletonClass",
+        "Mathlib.MeasureTheory.Measure.Typeclasses.Probability",
+        "Mathlib.MeasureTheory.Measure.Typeclasses.SFinite",
+        "Mathlib.MeasureTheory.Measure.Typeclasses.ZeroOne",
+        "Mathlib.MeasureTheory.Measure.WithDensity",
+        "Mathlib.MeasureTheory.Measure.WithDensityFinite",
+        "Mathlib.MeasureTheory.OuterMeasure.AE",
+        "Mathlib.MeasureTheory.OuterMeasure.Basic",
+        "Mathlib.MeasureTheory.OuterMeasure.BorelCantelli",
+        "Mathlib.MeasureTheory.OuterMeasure.Caratheodory",
+        "Mathlib.MeasureTheory.OuterMeasure.Defs",
+        "Mathlib.MeasureTheory.OuterMeasure.Induced",
+        "Mathlib.MeasureTheory.OuterMeasure.OfAddContent",
+        "Mathlib.MeasureTheory.OuterMeasure.OfFunction",
+        "Mathlib.MeasureTheory.OuterMeasure.Operations"
       ]
     },
     "category_theory": {
@@ -7711,7 +9382,8 @@
         "Mathlib.Analysis.InnerProductSpace.TwoDim",
         "Mathlib.Analysis.InnerProductSpace.WeakOperatorTopology",
         "Mathlib.Analysis.InnerProductSpace.l2Space",
-        "Math.Analysis.LaxMilgram"
+        "Math.Analysis.LaxMilgram",
+        "Math.Probability.ConditionalL2"
       ]
     },
     "operator_theory": {
@@ -8622,6 +10294,202 @@
         "Mathlib.Geometry.Euclidean.Sphere.SecondInter",
         "Mathlib.Geometry.Euclidean.Sphere.Tangent"
       ]
+    },
+    "integration": {
+      "title": "Integration",
+      "parent": "measure_theory",
+      "modules": [
+        "Mathlib.MeasureTheory.Integral.Asymptotics",
+        "Mathlib.MeasureTheory.Integral.Average",
+        "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+        "Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap",
+        "Mathlib.MeasureTheory.Integral.Bochner.FundThmCalculus",
+        "Mathlib.MeasureTheory.Integral.Bochner.L1",
+        "Mathlib.MeasureTheory.Integral.Bochner.Set",
+        "Mathlib.MeasureTheory.Integral.Bochner.SumMeasure",
+        "Mathlib.MeasureTheory.Integral.Bochner.VitaliCaratheodory",
+        "Mathlib.MeasureTheory.Integral.BoundedContinuousFunction",
+        "Mathlib.MeasureTheory.Integral.CircleAverage",
+        "Mathlib.MeasureTheory.Integral.CircleIntegral",
+        "Mathlib.MeasureTheory.Integral.CircleTransform",
+        "Mathlib.MeasureTheory.Integral.CompactlySupported",
+        "Mathlib.MeasureTheory.Integral.CurveIntegral.Basic",
+        "Mathlib.MeasureTheory.Integral.CurveIntegral.Poincare",
+        "Mathlib.MeasureTheory.Integral.DivergenceTheorem",
+        "Mathlib.MeasureTheory.Integral.DominatedConvergence",
+        "Mathlib.MeasureTheory.Integral.ExpDecay",
+        "Mathlib.MeasureTheory.Integral.FinMeasAdditive",
+        "Mathlib.MeasureTheory.Integral.Gamma",
+        "Mathlib.MeasureTheory.Integral.Indicator",
+        "Mathlib.MeasureTheory.Integral.IntegrableOn",
+        "Mathlib.MeasureTheory.Integral.IntegralEqImproper",
+        "Mathlib.MeasureTheory.Integral.IntervalAverage",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.AbsolutelyContinuousFun",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.ContDiff",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.DerivIntegrable",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.DistLEIntegral",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.IntegrationByParts",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.LebesgueDifferentiationThm",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.MeanValue",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Periodic",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Slope",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.TrapezoidalRule",
+        "Mathlib.MeasureTheory.Integral.Layercake",
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Add",
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Basic",
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Countable",
+        "Mathlib.MeasureTheory.Integral.Lebesgue.DominatedConvergence",
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Map",
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Markov",
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Norm",
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Sub",
+        "Mathlib.MeasureTheory.Integral.LebesgueNormedSpace",
+        "Mathlib.MeasureTheory.Integral.Marginal",
+        "Mathlib.MeasureTheory.Integral.MeanInequalities",
+        "Mathlib.MeasureTheory.Integral.MeanValue",
+        "Mathlib.MeasureTheory.Integral.PeakFunction",
+        "Mathlib.MeasureTheory.Integral.Pi",
+        "Mathlib.MeasureTheory.Integral.Prod",
+        "Mathlib.MeasureTheory.Integral.Regular",
+        "Mathlib.MeasureTheory.Integral.RieszMarkovKakutani.Basic",
+        "Mathlib.MeasureTheory.Integral.RieszMarkovKakutani.NNReal",
+        "Mathlib.MeasureTheory.Integral.RieszMarkovKakutani.Real",
+        "Mathlib.MeasureTheory.Integral.SetToL1.ChangeMeasure",
+        "Mathlib.MeasureTheory.Integral.SetToL1.DominatedConvergence",
+        "Mathlib.MeasureTheory.Integral.SetToL1.Function",
+        "Mathlib.MeasureTheory.Integral.SetToL1.L1",
+        "Mathlib.MeasureTheory.Integral.SetToL1.SimpleFunc",
+        "Mathlib.MeasureTheory.Integral.SetToL1",
+        "Mathlib.MeasureTheory.Integral.TorusIntegral"
+      ]
+    },
+    "lebesgue_integration": {
+      "title": "Lebesgue integration",
+      "parent": "integration",
+      "modules": [
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Add",
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Basic",
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Countable",
+        "Mathlib.MeasureTheory.Integral.Lebesgue.DominatedConvergence",
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Map",
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Markov",
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Norm",
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Sub"
+      ]
+    },
+    "bochner_integration": {
+      "title": "Bochner integration",
+      "parent": "integration",
+      "modules": [
+        "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+        "Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap",
+        "Mathlib.MeasureTheory.Integral.Bochner.FundThmCalculus",
+        "Mathlib.MeasureTheory.Integral.Bochner.L1",
+        "Mathlib.MeasureTheory.Integral.Bochner.Set",
+        "Mathlib.MeasureTheory.Integral.Bochner.SumMeasure",
+        "Mathlib.MeasureTheory.Integral.Bochner.VitaliCaratheodory"
+      ]
+    },
+    "interval_integration": {
+      "title": "Interval integration",
+      "parent": "integration",
+      "modules": [
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.AbsolutelyContinuousFun",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.ContDiff",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.DerivIntegrable",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.DistLEIntegral",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.IntegrationByParts",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.LebesgueDifferentiationThm",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.MeanValue",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Periodic",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Slope",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.TrapezoidalRule"
+      ]
+    },
+    "measure_decomposition": {
+      "title": "Measure decomposition",
+      "parent": "measure_theory",
+      "modules": [
+        "Mathlib.MeasureTheory.Measure.AbsolutelyContinuous",
+        "Mathlib.MeasureTheory.Measure.Decomposition.Exhaustion",
+        "Mathlib.MeasureTheory.Measure.Decomposition.Hahn",
+        "Mathlib.MeasureTheory.Measure.Decomposition.IntegralRNDeriv",
+        "Mathlib.MeasureTheory.Measure.Decomposition.Lebesgue",
+        "Mathlib.MeasureTheory.Measure.Decomposition.RadonNikodym",
+        "Mathlib.MeasureTheory.Measure.MutuallySingular",
+        "Mathlib.MeasureTheory.Measure.WithDensity",
+        "Mathlib.MeasureTheory.Measure.WithDensityFinite"
+      ]
+    },
+    "haar_measure": {
+      "title": "Haar measure",
+      "parent": "measure_theory",
+      "modules": [
+        "Mathlib.MeasureTheory.Measure.Haar.Basic",
+        "Mathlib.MeasureTheory.Measure.Haar.Disintegration",
+        "Mathlib.MeasureTheory.Measure.Haar.DistribChar",
+        "Mathlib.MeasureTheory.Measure.Haar.Extension",
+        "Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace",
+        "Mathlib.MeasureTheory.Measure.Haar.MulEquivHaarChar",
+        "Mathlib.MeasureTheory.Measure.Haar.NormedSpace",
+        "Mathlib.MeasureTheory.Measure.Haar.OfBasis",
+        "Mathlib.MeasureTheory.Measure.Haar.Quotient",
+        "Mathlib.MeasureTheory.Measure.Haar.Unique"
+      ]
+    },
+    "conditional_expectation": {
+      "title": "Conditional expectation",
+      "parent": "measure_theory",
+      "modules": [
+        "Mathlib.MeasureTheory.Function.ConditionalExpectation.AEMeasurable",
+        "Mathlib.MeasureTheory.Function.ConditionalExpectation.Basic",
+        "Mathlib.MeasureTheory.Function.ConditionalExpectation.CondJensen",
+        "Mathlib.MeasureTheory.Function.ConditionalExpectation.CondexpL1",
+        "Mathlib.MeasureTheory.Function.ConditionalExpectation.CondexpL2",
+        "Mathlib.MeasureTheory.Function.ConditionalExpectation.Indicator",
+        "Mathlib.MeasureTheory.Function.ConditionalExpectation.LebesgueBochner",
+        "Mathlib.MeasureTheory.Function.ConditionalExpectation.PullOut",
+        "Mathlib.MeasureTheory.Function.ConditionalExpectation.RadonNikodym",
+        "Mathlib.MeasureTheory.Function.ConditionalExpectation.Real",
+        "Mathlib.MeasureTheory.Function.ConditionalExpectation.Unique",
+        "Mathlib.MeasureTheory.Function.ConditionalLExpectation",
+        "Math.Probability.ConditionalL2"
+      ]
+    },
+    "probability_measures": {
+      "title": "Probability measures",
+      "parent": "probability",
+      "modules": [
+        "Mathlib.MeasureTheory.Measure.CharacteristicFunction.Basic",
+        "Mathlib.MeasureTheory.Measure.CharacteristicFunction.TaylorExpansion",
+        "Mathlib.MeasureTheory.Measure.FiniteMeasure",
+        "Mathlib.MeasureTheory.Measure.FiniteMeasureExt",
+        "Mathlib.MeasureTheory.Measure.FiniteMeasurePi",
+        "Mathlib.MeasureTheory.Measure.FiniteMeasureProd",
+        "Mathlib.MeasureTheory.Measure.LevyConvergence",
+        "Mathlib.MeasureTheory.Measure.LevyProkhorovMetric",
+        "Mathlib.MeasureTheory.Measure.Portmanteau",
+        "Mathlib.MeasureTheory.Measure.ProbabilityMeasure",
+        "Mathlib.MeasureTheory.Measure.Prokhorov",
+        "Mathlib.MeasureTheory.Measure.Tight",
+        "Mathlib.MeasureTheory.Measure.TightNormed",
+        "Mathlib.MeasureTheory.Measure.Typeclasses.Probability"
+      ]
+    },
+    "line_and_surface_integrals": {
+      "title": "Line and surface integrals",
+      "parent": "integration",
+      "modules": [
+        "Mathlib.MeasureTheory.Integral.CircleIntegral",
+        "Mathlib.MeasureTheory.Integral.CurveIntegral.Basic",
+        "Mathlib.MeasureTheory.Integral.CurveIntegral.Poincare",
+        "Mathlib.MeasureTheory.Integral.DivergenceTheorem",
+        "Mathlib.MeasureTheory.Integral.TorusIntegral"
+      ]
     }
   },
   "modules": {
@@ -8743,6 +10611,14 @@
     },
     "Math.Geometry.ConvexFinite": {
       "title": "Finite-dimensional Carathéodory and Radon bounds",
+      "allowed_axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    "Math.Probability.ConditionalL2": {
+      "title": "Conditional L2 prediction, optimality and information gain",
       "allowed_axioms": [
         "propext",
         "Quot.sound",

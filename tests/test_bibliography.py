@@ -6,7 +6,7 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from repository.bibliography import BibTeX, citation_keys, resolve_citations
+from repository.bibliography import BibTeX, bibliography_keys, citation_aliases, citation_keys, resolve_citations
 from repository.core import RepositoryError, canonical, digest
 from repository.store import Snapshot, create_store
 from tests.store_fixture import fixture
@@ -67,6 +67,42 @@ class BibTeXTests(unittest.TestCase):
         self.assertEqual(resolve_citations(records, "[first:Key]", "second")[0]["fields"]["title"], "First")
         self.assertEqual(resolve_citations(records, "[second:first:Key]", "first")[0]["fields"]["title"], "Different local key")
 
+    def test_reviewed_aliases_keep_original_keys_and_canonical_source_records(self):
+        text = '@book{Canonical,title={Original title},year=1987}'
+        bibliography = {"entries": BibTeX(text).entries(), "text": text,
+                        "url": "https://example.invalid/references.bib", "sha256": hashlib.sha256(text.encode()).hexdigest(),
+                        "citation_aliases": {"Old": "Canonical"}}
+        before = deepcopy(bibliography)
+        for key in ["Old", "library:Old"]:
+            with self.subTest(key=key):
+                entry = resolve_citations({"library": bibliography}, '[' + key + ']')[0]
+                self.assertEqual(entry["citation_key"], key)
+                self.assertEqual(entry["key"], "Canonical")
+                self.assertEqual(entry["alias"], "Old")
+                self.assertEqual(entry["raw"], text)
+                self.assertEqual(entry["source_url"], bibliography["url"] + '#L1')
+        self.assertEqual(bibliography, before)
+        self.assertEqual(bibliography_keys({"library": bibliography}),
+                         ["Canonical", "Old", "library:Canonical", "library:Old"])
+
+    def test_aliases_cannot_shadow_entries_chain_or_target_missing_records(self):
+        entries = BibTeX('@book{Canonical,title={Title}}').entries()
+        for aliases in [{"Canonical": "Canonical"}, {"Old": "missing"}, {"Old": "Next", "Next": "Canonical"},
+                        {"invalid key": "Canonical"}, ["Old"]]:
+            with self.subTest(aliases=aliases), self.assertRaises(RepositoryError):
+                citation_aliases({"entries": entries, "citation_aliases": aliases})
+
+    def test_alias_collisions_across_libraries_remain_explicit(self):
+        first = {"entries": BibTeX('@book{Canonical,title={First}}').entries(),
+                 "citation_aliases": {"Old": "Canonical"}, "url": "https://example.invalid/first", "sha256": "1" * 64}
+        second = {"entries": BibTeX('@book{Old,title={Second}}').entries(),
+                  "url": "https://example.invalid/second", "sha256": "2" * 64}
+        libraries = {"first": first, "second": second}
+        self.assertTrue(resolve_citations(libraries, '[Old]')[0]["ambiguous"])
+        self.assertEqual(resolve_citations(libraries, '[Old]', 'first')[0]["key"], 'Canonical')
+        self.assertEqual(resolve_citations(libraries, '[Old]', 'second')[0]["key"], 'Old')
+        self.assertEqual(resolve_citations(libraries, '[first:Old]', 'second')[0]["key"], 'Canonical')
+
 
 class StoredCitationTests(unittest.TestCase):
     def setUp(self):
@@ -79,6 +115,7 @@ class StoredCitationTests(unittest.TestCase):
             "package": "fixture", "path": "references.bib", "sha256": hashlib.sha256(text.encode()).hexdigest(),
             "text": text, "revision": "1" * 40, "license": "fixture-license",
             "url": "https://example.invalid/blob/" + "1" * 40 + "/references.bib", "entries": BibTeX(text).entries()}}
+        self.catalog["bibliographies"]["fixture"]["citation_aliases"] = {"Legacy": "Direct"}
         self.catalog["modules"] = [{"name": "Math.Fixture", "imports": [],
                                     "docs": [{"text": "module reference [Module]", "line": 1, "end_line": 3}]}]
         node = next(item for item in self.catalog["declarations"] if item["name"] == "Math.Fixture.truth")
@@ -109,6 +146,15 @@ class StoredCitationTests(unittest.TestCase):
             self.snapshot.bibliography("missing")
         with self.assertRaisesRegex(RepositoryError, "unknown declaration"):
             self.snapshot.citations("missing")
+
+    def test_stored_aliases_survive_round_trip_and_are_exposed_for_browser_links(self):
+        bibliography = self.snapshot.bibliography("fixture")
+        self.assertEqual(bibliography["citation_aliases"], {"Legacy": "Direct"})
+        entry = resolve_citations({"fixture": bibliography}, '[Legacy]', 'fixture')[0]
+        self.assertEqual((entry["citation_key"], entry["key"]), ('Legacy', 'Direct'))
+        self.assertIn('Legacy', self.snapshot.summary()["bibliography_keys"])
+        self.assertIn('fixture:Legacy', self.snapshot.summary()["bibliography_keys"])
+        self.assertEqual(b''.join(self.snapshot.catalog_chunks()), canonical(self.catalog) + b'\n')
 
 
 if __name__ == "__main__":
