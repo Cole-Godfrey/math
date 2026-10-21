@@ -132,10 +132,13 @@ class RepositoryTests(RepositoryArtifacts, unittest.TestCase):
             validate(raw, self.policy)
 
     def test_recursor_rules_are_audited(self):
-        raw, node = self.mutated("Nat.rec")
-        node["structure"]["rules"][0]["rhs"] = {"tag": "mvar", "name": "unresolved"}
-        with self.assertRaisesRegex(RepositoryError, "invalid expression reference"):
-            validate(raw, self.policy)
+        for reference in (None, True, -1, len(self.catalog["expressions"]), {"tag": "mvar", "name": "unresolved"}):
+            with self.subTest(reference=reference):
+                raw, node = self.mutated("Nat.rec")
+                node["structure"]["rules"][0]["rhs"] = reference
+                with patch("repository.core.ExpressionPool", side_effect=AssertionError("term audit allocated")):
+                    with self.assertRaisesRegex(RepositoryError, "invalid expression reference"):
+                        validate(raw, self.policy)
 
     def test_free_variables_are_rejected(self):
         for expression in ({"tag": "fvar", "name": "x"}, {"tag": "bvar", "index": 0}):
@@ -982,6 +985,284 @@ class RepositoryTests(RepositoryArtifacts, unittest.TestCase):
         snapshot = open_snapshot(ROOT)
         references = snapshot.citations("Ordinal.veblen")
         self.assertIn("Miller_1976", {entry["key"] for entry in references["module_citations"]})
+
+    def test_complex_analysis_statements_match_reference_types(self):
+        run(ROOT, [self.lake, "env", "lean", "tests/ComplexAnalysisStatements.lean"], capture=True)
+
+    def test_complex_analysis_covers_every_module_in_its_pinned_directories(self):
+        base = ROOT / ".lake/packages/mathlib"
+        directories = ("Mathlib/Analysis/Complex", "Mathlib/Analysis/Analytic", "Mathlib/Analysis/Meromorphic")
+        expected = {".".join(path.relative_to(base).with_suffix("").parts)
+                    for directory in directories for path in (base / directory).rglob("*.lean")}
+        prefixes = tuple(directory.replace("/", ".") + "." for directory in directories)
+        registered = self.policy["libraries"]["mathlib"]["modules"]
+        self.assertEqual({name for name in registered if name.startswith(prefixes)}, expected)
+        self.assertEqual(len(expected), 102)
+        for module in expected:
+            with self.subTest(module=module):
+                self.assertIn(module, self.catalog["module_policy"])
+                self.assertIn(module, self.catalog["module_declarations_by_module"])
+                self.assertIn(module, self.catalog["sources"])
+
+    def test_complex_analysis_objects_retain_terms_and_pinned_sources(self):
+        expected = {'AnalyticAt': 'Mathlib.Analysis.Analytic.Basic',
+         'AnalyticOnNhd': 'Mathlib.Analysis.Analytic.Basic',
+         'HasFPowerSeriesAt': 'Mathlib.Analysis.Analytic.Basic',
+         'HasFPowerSeriesOnBall': 'Mathlib.Analysis.Analytic.Basic',
+         'AnalyticAt.eventually_eq_zero_or_eventually_ne_zero': 'Mathlib.Analysis.Analytic.IsolatedZeros',
+         'AnalyticAt.frequently_eq_iff_eventually_eq': 'Mathlib.Analysis.Analytic.IsolatedZeros',
+         'AnalyticOnNhd.eqOn_of_preconnected_of_frequently_eq': 'Mathlib.Analysis.Analytic.IsolatedZeros',
+         'AnalyticOnNhd.eq_of_frequently_eq': 'Mathlib.Analysis.Analytic.IsolatedZeros',
+         'AnalyticAt.analyticOrderAt_deriv_add_one': 'Mathlib.Analysis.Analytic.Order',
+         'FormalMultilinearSeries.radius_eq_liminf': 'Mathlib.Analysis.Analytic.RadiusLiminf',
+         'FormalMultilinearSeries.radius_inv_eq_limsup': 'Mathlib.Analysis.Analytic.RadiusLiminf',
+         'FormalMultilinearSeries.leftInv': 'Mathlib.Analysis.Analytic.Inverse',
+         'FormalMultilinearSeries.leftInv_eq_rightInv': 'Mathlib.Analysis.Analytic.Inverse',
+         'DiffContOnCl.circleIntegral_eq_zero': 'Mathlib.Analysis.Complex.CauchyIntegral',
+         'DiffContOnCl.circleIntegral_sub_inv_smul': 'Mathlib.Analysis.Complex.CauchyIntegral',
+         'DiffContOnCl.two_pi_i_inv_smul_circleIntegral_sub_inv_smul': 'Mathlib.Analysis.Complex.CauchyIntegral',
+         'DifferentiableOn.circleIntegral_sub_inv_smul': 'Mathlib.Analysis.Complex.CauchyIntegral',
+         'DifferentiableOn.analyticOnNhd': 'Mathlib.Analysis.Complex.CauchyIntegral',
+         'Differentiable.deriv': 'Mathlib.Analysis.Complex.CauchyIntegral',
+         'Complex.norm_iteratedDeriv_le_of_forall_mem_sphere_norm_le': 'Mathlib.Analysis.Complex.Liouville',
+         'Complex.norm_deriv_le_of_forall_mem_sphere_norm_le': 'Mathlib.Analysis.Complex.Liouville',
+         'Complex.hasSum_taylorSeries_on_ball': 'Mathlib.Analysis.Complex.TaylorSeries',
+         'Complex.hasSum_taylorSeries_of_entire': 'Mathlib.Analysis.Complex.TaylorSeries',
+         'Complex.taylorSeries_eq_of_entire': 'Mathlib.Analysis.Complex.TaylorSeries',
+         'Complex.norm_le_norm_of_mapsTo_ball': 'Mathlib.Analysis.Complex.Schwarz',
+         'Complex.norm_deriv_le_one_of_mapsTo_ball': 'Mathlib.Analysis.Complex.Schwarz',
+         'Complex.norm_deriv_le_div_of_mapsTo_ball': 'Mathlib.Analysis.Complex.Schwarz',
+         'Complex.norm_le_of_forall_mem_frontier_norm_le': 'Mathlib.Analysis.Complex.AbsMax',
+         'Complex.eqOn_closure_of_eqOn_frontier': 'Mathlib.Analysis.Complex.AbsMax',
+         'AnalyticOnNhd.is_constant_or_isOpenMap': 'Mathlib.Analysis.Complex.OpenMapping',
+         'Complex.analyticAt_of_differentiable_on_punctured_nhds_of_continuousAt': 'Mathlib.Analysis.Complex.RemovableSingularity',
+         'Complex.HadamardThreeLines.verticalStrip': 'Mathlib.Analysis.Complex.Hadamard',
+         "Complex.HadamardThreeLines.norm_le_interp_of_mem_verticalClosedStrip'": 'Mathlib.Analysis.Complex.Hadamard',
+         'herglotzRieszKernel': 'Mathlib.Analysis.Complex.Poisson',
+         'poissonKernel': 'Mathlib.Analysis.Complex.Poisson',
+         'DiffContOnCl.circleAverage_poissonKernel_smul': 'Mathlib.Analysis.Complex.Poisson',
+         'InnerProductSpace.HarmonicOnNhd.circleAverage_eq': 'Mathlib.Analysis.Complex.Harmonic.MeanValue',
+         'InnerProductSpace.HarmonicContOnCl.circleAverage_eq': 'Mathlib.Analysis.Complex.Harmonic.MeanValue',
+         'InnerProductSpace.HarmonicOnNhd.exists_analyticOnNhd_univ_re_eq': 'Mathlib.Analysis.Complex.Harmonic.Analytic',
+         'InnerProductSpace.bounded_harmonic_on_complex_plane_is_constant': 'Mathlib.Analysis.Complex.Harmonic.Liouville',
+         'InnerProductSpace.HarmonicOnNhd.circleAverage_poissonKernel_smul': 'Mathlib.Analysis.Complex.Harmonic.Poisson',
+         'InnerProductSpace.HarmonicContOnCl.circleAverage_poissonKernel_smul': 'Mathlib.Analysis.Complex.Harmonic.Poisson',
+         'MeromorphicAt': 'Mathlib.Analysis.Meromorphic.Basic',
+         'MeromorphicOn': 'Mathlib.Analysis.Meromorphic.Basic',
+         'Meromorphic': 'Mathlib.Analysis.Meromorphic.Basic',
+         'MeromorphicNFAt': 'Mathlib.Analysis.Meromorphic.NormalForm',
+         'MeromorphicNFOn': 'Mathlib.Analysis.Meromorphic.NormalForm',
+         'MeromorphicAt.analyticAt': 'Mathlib.Analysis.Meromorphic.Order',
+         'MeromorphicOn.circleAverage_log_norm': 'Mathlib.Analysis.Complex.JensenFormula',
+         'AnalyticOnNhd.circleAverage_log_norm': 'Mathlib.Analysis.Complex.JensenFormula',
+         'Meromorphic.Gamma': 'Mathlib.Analysis.Meromorphic.Complex',
+         'MeromorphicNFOn.Gamma': 'Mathlib.Analysis.Meromorphic.Complex',
+         'Meromorphic.logDeriv_mul_eventuallyEq': 'Mathlib.Analysis.Meromorphic.LogDeriv',
+         'MeromorphicOn.extract_zeros_poles': 'Mathlib.Analysis.Meromorphic.FactorizedRational',
+         'ValueDistribution.characteristic': 'Mathlib.Analysis.Complex.ValueDistribution.CharacteristicFunction',
+         'ValueDistribution.proximity': 'Mathlib.Analysis.Complex.ValueDistribution.Proximity.Basic',
+         'ValueDistribution.logCounting': 'Mathlib.Analysis.Complex.ValueDistribution.LogCounting.Basic',
+         'ValueDistribution.characteristic_sub_characteristic_inv_of_ne_zero': 'Mathlib.Analysis.Complex.ValueDistribution.FirstMainTheorem',
+         'ValueDistribution.characteristic_sub_characteristic_inv_le': 'Mathlib.Analysis.Complex.ValueDistribution.FirstMainTheorem',
+         'ValueDistribution.isBigO_characteristic_sub_characteristic_inv': 'Mathlib.Analysis.Complex.ValueDistribution.FirstMainTheorem',
+         'ValueDistribution.abs_characteristic_sub_characteristic_shift_le': 'Mathlib.Analysis.Complex.ValueDistribution.FirstMainTheorem',
+         'ValueDistribution.isBigO_characteristic_sub_characteristic_moebius': 'Mathlib.Analysis.Complex.ValueDistribution.FirstMainTheorem',
+         'Real.exists_sum_posLog_inv_norm_sub_le': 'Mathlib.Analysis.Complex.ValueDistribution.SecondMainTheorem',
+         'UpperHalfPlane': 'Mathlib.Analysis.Complex.UpperHalfPlane.Basic',
+         'UpperHalfPlane.dist_log_im_le': 'Mathlib.Analysis.Complex.UpperHalfPlane.Metric',
+         'UpperHalfPlane.isometry_vertical_line': 'Mathlib.Analysis.Complex.UpperHalfPlane.Metric',
+         'UpperHalfPlane.isometry_real_vadd': 'Mathlib.Analysis.Complex.UpperHalfPlane.Metric',
+         'UpperHalfPlane.isometry_pos_mul': 'Mathlib.Analysis.Complex.UpperHalfPlane.Metric',
+         'UpperHalfPlane.volume_def': 'Mathlib.Analysis.Complex.UpperHalfPlane.Measure',
+         'UpperHalfPlane.instSMulInvariantMeasureGeneralLinearGroupFinOfNatNatRealVolume': 'Mathlib.Analysis.Complex.UpperHalfPlane.Measure',
+         'Polynomial.rootSet_derivative_subset_convexHull_rootSet': 'Mathlib.Analysis.Complex.Polynomial.GaussLucas',
+         'Polynomial.eq_centerMass_of_eval_derivative_eq_zero': 'Mathlib.Analysis.Complex.Polynomial.GaussLucas'}
+        for name, module in expected.items():
+            with self.subTest(name=name):
+                self.assertIn(name, self.catalog["roots"])
+                node = self.nodes[name]
+                self.assertEqual(node["module"], module)
+                if node["kind"] in {"definition", "theorem", "opaque"}:
+                    self.assertIsInstance(node["value"], int)
+                self.assertTrue(set(node["axioms"]) <= self.policy["axioms"].keys())
+                origin = self.catalog["sources"][module]
+                self.assertEqual(origin["package"], "mathlib")
+                self.assertEqual(origin["revision"], self.policy["libraries"]["mathlib"]["revision"])
+                self.assertIn(origin["revision"], origin["url"])
+                self.assertEqual(origin["license"], "Apache-2.0")
+
+    def test_complex_analysis_hierarchies_retain_models_and_axiom_paths(self):
+        graph = KnowledgeGraph(self.catalog)
+        expected = {'Math.ComplexAnalysis.harmonic_poisson_formula': ['InnerProductSpace.HarmonicContOnCl.circleAverage_poissonKernel_smul',
+                                                           'SeparatingDual.eq_iff_forall_dual_eq',
+                                                           'ContinuousLinearMap.circleAverage_comp_comm',
+                                                           'InnerProductSpace.HarmonicContOnCl.comp_CLM',
+                                                           'Real.circleAverage'],
+         'Math.ComplexAnalysis.harmonicOnNhd_poisson_formula': ['Math.ComplexAnalysis.harmonic_poisson_formula',
+                                                                'InnerProductSpace.HarmonicOnNhd'],
+         'Math.ComplexAnalysis.harmonic_eqOn_closedBall_of_eqOn_sphere': ['Math.ComplexAnalysis.harmonic_poisson_formula',
+                                                                          'Real.circleAverage_congr_sphere',
+                                                                          'InnerProductSpace.HarmonicContOnCl'],
+         'Math.ComplexAnalysis.deriv_eq_of_bounded_deriv': ['Differentiable.apply_eq_apply_of_bounded',
+                                                            'Differentiable.deriv',
+                                                            'Complex.liouville_theorem_aux',
+                                                            'Complex.norm_deriv_le_of_forall_mem_sphere_norm_le'],
+         'Math.ComplexAnalysis.existsUnique_affine_of_bounded_deriv': ['Math.ComplexAnalysis.eq_smul_deriv_add_of_bounded_deriv',
+                                                                       'is_const_of_deriv_eq_zero',
+                                                                       'deriv'],
+         'Math.ComplexAnalysis.dist_eq_of_bounded_deriv': ['Math.ComplexAnalysis.eq_smul_deriv_add_of_bounded_deriv',
+                                                           'NormedSpace'],
+         'Math.ComplexAnalysis.isBounded_range_iff_deriv_eq_zero': ['Differentiable.apply_eq_apply_of_bounded',
+                                                                    'Bornology.IsBounded',
+                                                                    'deriv'],
+         'Math.ComplexAnalysis.existsUnique_zero_of_bounded_deriv': ['Math.ComplexAnalysis.surjective_of_bounded_deriv',
+                                                                     'Math.ComplexAnalysis.injective_of_bounded_deriv',
+                                                                     'Complex'],
+         'DiffContOnCl.circleIntegral_sub_inv_smul': ['Complex.circleIntegral_sub_inv_smul_of_differentiable_on_off_countable',
+                                                      'DiffContOnCl',
+                                                      'circleIntegral'],
+         'Complex.hasSum_taylorSeries_of_entire': ['Complex.hasSum_taylorSeries_on_eball', 'iteratedDeriv', 'HasSum'],
+         'Complex.norm_deriv_le_one_of_mapsTo_ball': ['_private.Mathlib.Analysis.Complex.Schwarz.0.Complex.schwarz_aux',
+                                                      'Complex.norm_fderiv_le_div_of_mapsTo_ball',
+                                                      'DifferentiableOn'],
+         'Complex.norm_le_of_forall_mem_frontier_norm_le': ['Complex.exists_mem_frontier_isMaxOn_norm',
+                                                            'DiffContOnCl',
+                                                            'Bornology.IsBounded'],
+         "Complex.HadamardThreeLines.norm_le_interp_of_mem_verticalClosedStrip'": ['Complex.HadamardThreeLines.verticalClosedStrip',
+                                                                                   'Complex.HadamardThreeLines.verticalStrip',
+                                                                                   'Real.rpow',
+                                                                                   'Complex.exp'],
+         'AnalyticOnNhd.eq_of_frequently_eq': ['AnalyticAt.frequently_zero_iff_eventually_zero',
+                                               'AnalyticAt',
+                                               'ConnectedSpace'],
+         'FormalMultilinearSeries.radius_eq_liminf': ['FormalMultilinearSeries.radius',
+                                                      'FormalMultilinearSeries',
+                                                      'ENNReal'],
+         'AnalyticAt.analyticOrderAt_deriv_add_one': ['analyticOrderAt', 'AnalyticAt', 'deriv'],
+         'MeromorphicOn.circleAverage_log_norm': ['MeromorphicOn.extract_zeros_poles',
+                                                  'meromorphicTrailingCoeffAt',
+                                                  'MeromorphicOn.divisor',
+                                                  'Real.circleAverage'],
+         'Meromorphic.Gamma': ['MeromorphicNFOn.Gamma', 'Complex.differentiable_one_div_Gamma', 'Meromorphic'],
+         'ValueDistribution.characteristic_sub_characteristic_inv_of_ne_zero': ['MeromorphicOn.circleAverage_log_norm',
+                                                                                'ValueDistribution.characteristic',
+                                                                                'ValueDistribution.logCounting',
+                                                                                'ValueDistribution.proximity'],
+         'ValueDistribution.abs_characteristic_sub_characteristic_shift_le': ['ValueDistribution.proximity',
+                                                                              'ValueDistribution.characteristic',
+                                                                              'Meromorphic'],
+         'InnerProductSpace.bounded_harmonic_on_complex_plane_is_constant': ['InnerProductSpace.HarmonicOnNhd.exists_analyticOnNhd_univ_re_eq',
+                                                                             'Differentiable.apply_eq_apply_of_bounded',
+                                                                             'InnerProductSpace.HarmonicOnNhd'],
+         'InnerProductSpace.HarmonicContOnCl.circleAverage_poissonKernel_smul': ['poissonKernel',
+                                                                                 'Real.circleAverage',
+                                                                                 'InnerProductSpace.HarmonicContOnCl'],
+         'UpperHalfPlane.instSMulInvariantMeasureGeneralLinearGroupFinOfNatNatRealVolume': ['MeasureTheory.SMulInvariantMeasure',
+                                                                                            'MeasureTheory.Measure',
+                                                                                            'UpperHalfPlane'],
+         'Polynomial.rootSet_derivative_subset_convexHull_rootSet': ['Polynomial.eq_centerMass_of_eval_derivative_eq_zero',
+                                                                     'Finset.centerMass',
+                                                                     'convexHull']}
+        for name, objects in expected.items():
+            with self.subTest(name=name):
+                hierarchy = graph.hierarchy(name)
+                reached = {node["name"] for node in hierarchy["declarations"]}
+                self.assertTrue(set(objects) <= reached, set(objects) - reached)
+                self.assertEqual(set(hierarchy["axiom_paths"]), set(self.nodes[name]["axioms"]))
+                for axiom, path in hierarchy["axiom_paths"].items():
+                    self.assertEqual(path[0], name)
+                    self.assertEqual(path[-1], axiom)
+                    for source, target in zip(path, path[1:]):
+                        self.assertIn(target, self.nodes[source]["dependencies"])
+
+    def test_complex_analysis_subjects_retain_results_and_ancestors(self):
+        graph = KnowledgeGraph(self.catalog)
+        expected = {'analytic_functions': ('analysis', 'AnalyticOnNhd.eq_of_frequently_eq'),
+         'complex_integration': ('complex_analysis', 'DiffContOnCl.circleIntegral_sub_inv_smul'),
+         'holomorphic_functions': ('complex_analysis', 'Math.ComplexAnalysis.existsUnique_affine_of_bounded_deriv'),
+         'meromorphic_functions': ('complex_analysis', 'Meromorphic.Gamma'),
+         'value_distribution': ('meromorphic_functions',
+                                'ValueDistribution.characteristic_sub_characteristic_inv_le'),
+         'harmonic_functions': ('complex_analysis',
+                                'InnerProductSpace.bounded_harmonic_on_complex_plane_is_constant'),
+         'hyperbolic_geometry': ('geometry', 'UpperHalfPlane.dist_log_im_le'),
+         'complex_polynomials': ('complex_analysis', 'Polynomial.rootSet_derivative_subset_convexHull_rootSet')}
+        for subject, (parent, name) in expected.items():
+            with self.subTest(subject=subject):
+                self.assertEqual(self.catalog["subjects"][subject]["parent"], parent)
+                current = subject
+                while current is not None:
+                    self.assertIn(name, {node["name"] for node in graph.search(name, subject=current)})
+                    current = self.catalog["subjects"][current]["parent"]
+
+    def test_entire_affine_results_retain_local_proofs_and_source(self):
+        names = ['Math.ComplexAnalysis.bijective_of_bounded_deriv',
+         'Math.ComplexAnalysis.deriv_eq_of_bounded_deriv',
+         'Math.ComplexAnalysis.dist_eq_of_bounded_deriv',
+         'Math.ComplexAnalysis.eq_smul_deriv_add_of_bounded_deriv',
+         'Math.ComplexAnalysis.existsUnique_affine_of_bounded_deriv',
+         'Math.ComplexAnalysis.existsUnique_zero_of_bounded_deriv',
+         'Math.ComplexAnalysis.injective_of_bounded_deriv',
+         'Math.ComplexAnalysis.isBounded_range_iff_deriv_eq_zero',
+         'Math.ComplexAnalysis.lipschitzWith_of_bounded_deriv',
+         'Math.ComplexAnalysis.norm_le_of_bounded_deriv',
+         'Math.ComplexAnalysis.surjective_of_bounded_deriv']
+        module = "Math.Analysis.EntireAffine"
+        path = ROOT / "Math/Analysis/EntireAffine.lean"
+        origin = self.catalog["sources"][module]
+        self.assertEqual(origin["package"], "math")
+        self.assertEqual(origin["path"], path.relative_to(ROOT).as_posix())
+        self.assertEqual(origin["sha256"], hashlib.sha256(path.read_bytes()).hexdigest())
+        for name in names:
+            with self.subTest(name=name):
+                self.assertIn(name, self.catalog["roots"])
+                node = self.nodes[name]
+                self.assertEqual(node["module"], module)
+                self.assertIsInstance(node["value"], int)
+                self.assertGreater(node["source"]["line"], 0)
+                self.assertTrue(set(node["axioms"]) <= set(self.policy["modules"][module]["allowed_axioms"]))
+
+    def test_banach_harmonic_poisson_results_retain_proofs_and_source(self):
+        names = [
+            "Math.ComplexAnalysis.harmonic_poisson_formula",
+            "Math.ComplexAnalysis.harmonicOnNhd_poisson_formula",
+            "Math.ComplexAnalysis.harmonic_eqOn_closedBall_of_eqOn_sphere",
+        ]
+        module = "Math.Analysis.HarmonicPoisson"
+        path = ROOT / "Math/Analysis/HarmonicPoisson.lean"
+        origin = self.catalog["sources"][module]
+        self.assertEqual(origin["package"], "math")
+        self.assertEqual(origin["path"], path.relative_to(ROOT).as_posix())
+        self.assertEqual(origin["sha256"], hashlib.sha256(path.read_bytes()).hexdigest())
+        graph = KnowledgeGraph(self.catalog)
+        for name in names:
+            with self.subTest(name=name):
+                node = self.nodes[name]
+                self.assertIn(name, self.catalog["roots"])
+                self.assertEqual(node["module"], module)
+                self.assertEqual(node["kind"], "theorem")
+                self.assertIsInstance(node["value"], int)
+                self.assertGreater(node["source"]["line"], 0)
+                self.assertTrue(set(node["axioms"]) <= set(self.policy["modules"][module]["allowed_axioms"]))
+                for subject in ("harmonic_functions", "complex_analysis", "partial_differential_equations", "mathematics"):
+                    self.assertIn(name, {item["name"] for item in graph.search(name, subject=subject)})
+
+    def test_value_distribution_references_retain_pinned_bibliography_records(self):
+        snapshot = open_snapshot(ROOT)
+        for name in ("ValueDistribution.characteristic", "ValueDistribution.characteristic_sub_characteristic_inv_le"):
+            with self.subTest(name=name):
+                references = snapshot.citations(name)
+                resolved = {entry["key"] for entry in references["module_citations"]}
+                self.assertTrue({"MR886677", "MR3156076"} <= resolved)
+
+    def test_unfinished_complex_modules_are_identified_as_preparations(self):
+        for module in ("Mathlib.Analysis.Complex.RiemannMapping",
+                       "Mathlib.Analysis.Complex.ValueDistribution.SecondMainTheorem"):
+            with self.subTest(module=module):
+                self.assertIn("preparations", self.catalog["module_policy"][module]["title"])
+                selected = set(self.catalog["module_declarations_by_module"][module]) & set(self.catalog["roots"])
+                self.assertTrue(selected)
+                self.assertTrue(any(self.nodes[name]["kind"] == "theorem" for name in selected))
 
     def test_harmonic_analysis_statements_match_reference_types(self):
         run(ROOT, [self.lake, "env", "lean", "tests/HarmonicAnalysisStatements.lean"], capture=True)
@@ -2207,11 +2488,13 @@ class VerifiedCatalogLoadingTests(RepositoryArtifacts, unittest.TestCase):
             proof = next((root / "build").glob("proofs-*.jsonl"))
             with proof.open("ab") as handle:
                 handle.write(b"tampered\n")
-            with self.assertRaisesRegex(RepositoryError, "proof export digest mismatch"):
-                load_catalog(root)
+            with patch("repository.build.stream_digest", side_effect=AssertionError("catalog digest computed")):
+                with self.assertRaisesRegex(RepositoryError, "proof export digest mismatch"):
+                    load_catalog(root)
             proof.unlink()
-            with self.assertRaisesRegex(RepositoryError, "proof export is missing"):
-                load_catalog(root)
+            with patch("repository.build.stream_digest", side_effect=AssertionError("catalog digest computed")):
+                with self.assertRaisesRegex(RepositoryError, "proof export is missing"):
+                    load_catalog(root)
 
 
 if __name__ == "__main__":

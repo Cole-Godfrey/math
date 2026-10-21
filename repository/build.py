@@ -218,8 +218,8 @@ def load_catalog(root: Path) -> dict:
             "dependency sources differ from verified index; rerun verification")
     require(provenance.get("source_digest") == digest(provenance["inputs"]), "invalid source digest")
     validate_binding_receipt(catalog, len(catalog["declarations"]), len(catalog["expressions"]))
+    proof_export_path(root, catalog)
     expected = catalog.pop("content_digest", None)
     require(expected == stream_digest(catalog), "index content digest mismatch; rerun verification")
     catalog["content_digest"] = expected
-    proof_export_path(root, catalog)
     return catalog

@@ -470,7 +470,15 @@ def validate(raw: dict, policy: dict) -> dict:
             string_list(node.get("universes"), "universe parameters")
             value = node.get("value")
             require((value is not None) == (node["kind"] in VALUE_KINDS), "missing or unexpected body")
-            for reference in (node.get("type"), value) if value is not None else (node.get("type"),):
+            references = [node.get("type")] + ([value] if value is not None else [])
+            if node["kind"] == "recursor":
+                structure = node.get("structure")
+                require(isinstance(structure, dict), "missing structural data")
+                require(isinstance(structure.get("rules"), list), "missing recursor rules")
+                for rule in structure["rules"]:
+                    require(isinstance(rule, dict), "invalid recursor rule")
+                    references.append(rule.get("rhs"))
+            for reference in references:
                 require(type(reference) is int and 0 <= reference < len(records), "invalid expression reference")
             type_deps = string_list(node.get("type_dependencies"), "type_dependencies")
             value_deps = string_list(node.get("value_dependencies"), "value_dependencies")

@@ -4273,6 +4273,806 @@
             "Quot.sound",
             "Classical.choice"
           ]
+        },
+        "Mathlib.Analysis.Analytic.Basic": {
+          "title": "Analytic functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Analytic.Binomial": {
+          "title": "Binomial Series",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Analytic.CPolynomial": {
+          "title": "Properties of continuously polynomial functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Analytic.CPolynomialDef": {
+          "title": "Continuously polynomial functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Analytic.ChangeOrigin": {
+          "title": "Changing origin in a power series",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Analytic.Composition": {
+          "title": "Composition of analytic functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Analytic.Constructions": {
+          "title": "Various ways to combine analytic functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Analytic.ConvergenceRadius": {
+          "title": "Radius of convergence of a power series",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Analytic.Inverse": {
+          "title": "Inverse of analytic functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Analytic.IsolatedZeros": {
+          "title": "Principle of isolated zeros",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Analytic.IteratedFDeriv": {
+          "title": "The iterated derivative of an analytic function",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Analytic.Linear": {
+          "title": "Linear functions are analytic",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Analytic.OfScalars": {
+          "title": "Scalar series",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Analytic.Order": {
+          "title": "Vanishing Order of Analytic Functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Analytic.Polynomial": {
+          "title": "Polynomials are analytic",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Analytic.RadiusLiminf": {
+          "title": "Representation of FormalMultilinearSeries.radius as a liminf",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Analytic.Uniqueness": {
+          "title": "Uniqueness principle for analytic functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Analytic.WithLp": {
+          "title": "Analyticity on WithLp",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Analytic.Within": {
+          "title": "Properties of analyticity restricted to a set",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.AbelLimit": {
+          "title": "Abel's limit theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.AbsMax": {
+          "title": "Maximum modulus principle",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.Angle": {
+          "title": "Angle between complex numbers",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.Arg": {
+          "title": "Rays in the complex numbers",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.Asymptotics": {
+          "title": "Lemmas about asymptotics and the natural embedding ℝ → ℂ",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.Basic": {
+          "title": "Normed space structure on ℂ.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.BorelCaratheodory": {
+          "title": "Borel-Carathéodory theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.BranchLogRoot": {
+          "title": "Branches of logarithm and nth root on simply connected domains",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.CanonicalDecomposition": {
+          "title": "Canonical Decomposition",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.Cardinality": {
+          "title": "The cardinality of the complex numbers",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.CauchyIntegral": {
+          "title": "Cauchy integral formula",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.Circle": {
+          "title": "The circle",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.Conformal": {
+          "title": "Conformal maps between complex vector spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.Convex": {
+          "title": "Theorems about convexity on the complex plane",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.CoveringMap": {
+          "title": "Covering maps involving the complex plane",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.Exponential": {
+          "title": "Exponential Function",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.ExponentialBounds": {
+          "title": "Bounds on specific values of the exponential",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.Hadamard": {
+          "title": "Hadamard three-lines Theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.HalfPlane": {
+          "title": "Half-planes in ℂ are open",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.Harmonic.Analytic": {
+          "title": "Analyticity of Harmonic Functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.Harmonic.Liouville": {
+          "title": "Liouville's Theorem for Harmonic Functions on the Complex Plane",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.Harmonic.MeanValue": {
+          "title": "The Mean Value Property of Vector-Valued Harmonic Functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.Harmonic.Poisson": {
+          "title": "Poisson Integral Formula",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.HasPrimitives": {
+          "title": "Primitives of Holomorphic Functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.IntegerCompl": {
+          "title": "Integer Complement",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.IsIntegral": {
+          "title": "Integral elements of ℂ",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.Isometry": {
+          "title": "Isometries of the Complex Plane",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.JensenFormula": {
+          "title": "Jensen's Formula of Complex Analysis",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.LocallyUniformLimit": {
+          "title": "Locally uniform limits of holomorphic functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.MeanValue": {
+          "title": "The Mean Value Property of Complex Differentiable Functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.Norm": {
+          "title": "Norm on the complex numbers",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.OpenMapping": {
+          "title": "The open mapping theorem for holomorphic functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.OperatorNorm": {
+          "title": "The basic continuous linear maps associated to ℂ",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.Order": {
+          "title": "The partial order on the complex numbers",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.Periodic": {
+          "title": "Periodic holomorphic functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.PhragmenLindelof": {
+          "title": "Phragmen-Lindelöf principle",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.Poisson": {
+          "title": "Poisson Integral Formula",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.Polynomial.GaussLucas": {
+          "title": "Gauss-Lucas Theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.Polynomial.UnitTrinomial": {
+          "title": "Irreducibility of unit trinomials",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.Positivity": {
+          "title": "Nonnegativity of values of holomorphic functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.ReImTopology": {
+          "title": "Closure, interior, and frontier of preimages under re and im",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.RealDeriv": {
+          "title": "Real differentiability of complex-differentiable functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.RemovableSingularity": {
+          "title": "Removable singularity theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.RiemannMapping": {
+          "title": "Riemann mapping preparations",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.Schwarz": {
+          "title": "Schwarz lemma",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.Spectrum": {
+          "title": "Some lemmas on the spectrum and quasispectrum of elements and positivity on ℂ",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.SqrtDeriv": {
+          "title": "Derivatives of Complex.sqrt",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.SummableUniformlyOn": {
+          "title": "Differentiability of uniformly convergent series sums of functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.TaylorSeries": {
+          "title": "Convergence of Taylor series of holomorphic functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.Tietze": {
+          "title": "Finite-dimensional topological vector spaces over ℝ satisfy the Tietze extension property",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.Trigonometric": {
+          "title": "Trigonometric and hyperbolic trigonometric functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.UnitDisc.Basic": {
+          "title": "Poincaré disc",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.UpperHalfPlane.Basic": {
+          "title": "The upper half plane",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.UpperHalfPlane.Exp": {
+          "title": "Exp on the upper half plane",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.UpperHalfPlane.FixedPoints": {
+          "title": "Fixed points of isometries of the upper half-plane",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.UpperHalfPlane.FunctionsBoundedAtInfty": {
+          "title": "Bounded at infinity",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.UpperHalfPlane.Manifold": {
+          "title": "Manifold structure on the upper half plane.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.UpperHalfPlane.Measure": {
+          "title": "Invariant measure on the upper half-plane",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.UpperHalfPlane.Metric": {
+          "title": "Metric on the upper half-plane",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.UpperHalfPlane.MoebiusAction": {
+          "title": "Group action on the upper half-plane",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.UpperHalfPlane.ProperAction": {
+          "title": "Transitivity and properness of actions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.UpperHalfPlane.Topology": {
+          "title": "Topology on the upper half plane",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.ValueDistribution.Cartan": {
+          "title": "Cartan's Formula",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.ValueDistribution.CharacteristicFunction": {
+          "title": "The Characteristic Function of Value Distribution Theory",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.ValueDistribution.FirstMainTheorem": {
+          "title": "The First Main Theorem of Value Distribution Theory",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.ValueDistribution.LogCounting.Asymptotic": {
+          "title": "Asymptotic Behavior of the Logarithmic Counting Function",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.ValueDistribution.LogCounting.Basic": {
+          "title": "The Logarithmic Counting Function of Value Distribution Theory",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.ValueDistribution.LogCounting.Truncated": {
+          "title": "Truncated Divisors and Truncated Counting Functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.ValueDistribution.Proximity.Basic": {
+          "title": "The Proximity Function of Value Distribution Theory",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.ValueDistribution.Proximity.IntegralPresentation": {
+          "title": "Integral Presentation of the Proximity Function",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Complex.ValueDistribution.SecondMainTheorem": {
+          "title": "Second main theorem preparations",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Meromorphic.Basic": {
+          "title": "Meromorphic functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Meromorphic.Complex": {
+          "title": "The Gamma function is meromorphic",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Meromorphic.Divisor": {
+          "title": "The Divisor of a meromorphic function",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Meromorphic.FactorizedRational": {
+          "title": "Factorized Rational Functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Meromorphic.IsolatedZeros": {
+          "title": "Principles of Isolated Zeros and Identity Principles for Meromorphic Functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Meromorphic.LogDeriv": {
+          "title": "Meromorphic API for the Logarithmic Derivative",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Meromorphic.NormalForm": {
+          "title": "Normal form of meromorphic functions and continuous extension",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Meromorphic.Order": {
+          "title": "Orders of Meromorphic Functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Meromorphic.RCLike": {
+          "title": "Meromorphic Functions over the Real and Complex Numbers",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Meromorphic.TrailingCoefficient": {
+          "title": "The Trailing Coefficient of a Meromorphic Function",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
         }
       }
     }
@@ -4435,7 +5235,80 @@
       "parent": "analysis",
       "modules": [
         "Mathlib.Analysis.Complex.Liouville",
-        "Mathlib.Analysis.Complex.Polynomial.Basic"
+        "Mathlib.Analysis.Complex.Polynomial.Basic",
+        "Mathlib.Analysis.Complex.AbelLimit",
+        "Mathlib.Analysis.Complex.AbsMax",
+        "Mathlib.Analysis.Complex.Angle",
+        "Mathlib.Analysis.Complex.Arg",
+        "Mathlib.Analysis.Complex.Asymptotics",
+        "Mathlib.Analysis.Complex.Basic",
+        "Mathlib.Analysis.Complex.BorelCaratheodory",
+        "Mathlib.Analysis.Complex.BranchLogRoot",
+        "Mathlib.Analysis.Complex.CanonicalDecomposition",
+        "Mathlib.Analysis.Complex.Cardinality",
+        "Mathlib.Analysis.Complex.CauchyIntegral",
+        "Mathlib.Analysis.Complex.Circle",
+        "Mathlib.Analysis.Complex.Conformal",
+        "Mathlib.Analysis.Complex.Convex",
+        "Mathlib.Analysis.Complex.CoveringMap",
+        "Mathlib.Analysis.Complex.Exponential",
+        "Mathlib.Analysis.Complex.ExponentialBounds",
+        "Mathlib.Analysis.Complex.Hadamard",
+        "Mathlib.Analysis.Complex.HalfPlane",
+        "Mathlib.Analysis.Complex.Harmonic.Analytic",
+        "Mathlib.Analysis.Complex.Harmonic.Liouville",
+        "Mathlib.Analysis.Complex.Harmonic.MeanValue",
+        "Mathlib.Analysis.Complex.Harmonic.Poisson",
+        "Mathlib.Analysis.Complex.HasPrimitives",
+        "Mathlib.Analysis.Complex.IntegerCompl",
+        "Mathlib.Analysis.Complex.IsIntegral",
+        "Mathlib.Analysis.Complex.Isometry",
+        "Mathlib.Analysis.Complex.JensenFormula",
+        "Mathlib.Analysis.Complex.LocallyUniformLimit",
+        "Mathlib.Analysis.Complex.MeanValue",
+        "Mathlib.Analysis.Complex.Norm",
+        "Mathlib.Analysis.Complex.OpenMapping",
+        "Mathlib.Analysis.Complex.OperatorNorm",
+        "Mathlib.Analysis.Complex.Order",
+        "Mathlib.Analysis.Complex.Periodic",
+        "Mathlib.Analysis.Complex.PhragmenLindelof",
+        "Mathlib.Analysis.Complex.Poisson",
+        "Mathlib.Analysis.Complex.Polynomial.GaussLucas",
+        "Mathlib.Analysis.Complex.Polynomial.UnitTrinomial",
+        "Mathlib.Analysis.Complex.Positivity",
+        "Mathlib.Analysis.Complex.ReImTopology",
+        "Mathlib.Analysis.Complex.RealDeriv",
+        "Mathlib.Analysis.Complex.RemovableSingularity",
+        "Mathlib.Analysis.Complex.RiemannMapping",
+        "Mathlib.Analysis.Complex.Schwarz",
+        "Mathlib.Analysis.Complex.Spectrum",
+        "Mathlib.Analysis.Complex.SqrtDeriv",
+        "Mathlib.Analysis.Complex.SummableUniformlyOn",
+        "Mathlib.Analysis.Complex.TaylorSeries",
+        "Mathlib.Analysis.Complex.Tietze",
+        "Mathlib.Analysis.Complex.Trigonometric",
+        "Mathlib.Analysis.Complex.UnitDisc.Basic",
+        "Mathlib.Analysis.Complex.UpperHalfPlane.Basic",
+        "Mathlib.Analysis.Complex.UpperHalfPlane.Exp",
+        "Mathlib.Analysis.Complex.UpperHalfPlane.FixedPoints",
+        "Mathlib.Analysis.Complex.UpperHalfPlane.FunctionsBoundedAtInfty",
+        "Mathlib.Analysis.Complex.UpperHalfPlane.Manifold",
+        "Mathlib.Analysis.Complex.UpperHalfPlane.Measure",
+        "Mathlib.Analysis.Complex.UpperHalfPlane.Metric",
+        "Mathlib.Analysis.Complex.UpperHalfPlane.MoebiusAction",
+        "Mathlib.Analysis.Complex.UpperHalfPlane.ProperAction",
+        "Mathlib.Analysis.Complex.UpperHalfPlane.Topology",
+        "Mathlib.Analysis.Complex.ValueDistribution.Cartan",
+        "Mathlib.Analysis.Complex.ValueDistribution.CharacteristicFunction",
+        "Mathlib.Analysis.Complex.ValueDistribution.FirstMainTheorem",
+        "Mathlib.Analysis.Complex.ValueDistribution.LogCounting.Asymptotic",
+        "Mathlib.Analysis.Complex.ValueDistribution.LogCounting.Basic",
+        "Mathlib.Analysis.Complex.ValueDistribution.LogCounting.Truncated",
+        "Mathlib.Analysis.Complex.ValueDistribution.Proximity.Basic",
+        "Mathlib.Analysis.Complex.ValueDistribution.Proximity.IntegralPresentation",
+        "Mathlib.Analysis.Complex.ValueDistribution.SecondMainTheorem",
+        "Math.Analysis.EntireAffine",
+        "Math.Analysis.HarmonicPoisson"
       ]
     },
     "measure_theory": {
@@ -5384,7 +6257,137 @@
         "Math.Analysis.LaxMilgram",
         "Mathlib.Analysis.Distribution.FourierMultiplier",
         "Mathlib.Analysis.Distribution.Sobolev",
-        "Math.Analysis.BesselEquation"
+        "Math.Analysis.BesselEquation",
+        "Math.Analysis.HarmonicPoisson"
+      ]
+    },
+    "analytic_functions": {
+      "title": "Analytic functions",
+      "parent": "analysis",
+      "modules": [
+        "Mathlib.Analysis.Analytic.Basic",
+        "Mathlib.Analysis.Analytic.Binomial",
+        "Mathlib.Analysis.Analytic.CPolynomial",
+        "Mathlib.Analysis.Analytic.CPolynomialDef",
+        "Mathlib.Analysis.Analytic.ChangeOrigin",
+        "Mathlib.Analysis.Analytic.Composition",
+        "Mathlib.Analysis.Analytic.Constructions",
+        "Mathlib.Analysis.Analytic.ConvergenceRadius",
+        "Mathlib.Analysis.Analytic.Inverse",
+        "Mathlib.Analysis.Analytic.IsolatedZeros",
+        "Mathlib.Analysis.Analytic.IteratedFDeriv",
+        "Mathlib.Analysis.Analytic.Linear",
+        "Mathlib.Analysis.Analytic.OfScalars",
+        "Mathlib.Analysis.Analytic.Order",
+        "Mathlib.Analysis.Analytic.Polynomial",
+        "Mathlib.Analysis.Analytic.RadiusLiminf",
+        "Mathlib.Analysis.Analytic.Uniqueness",
+        "Mathlib.Analysis.Analytic.WithLp",
+        "Mathlib.Analysis.Analytic.Within"
+      ]
+    },
+    "complex_integration": {
+      "title": "Complex integration",
+      "parent": "complex_analysis",
+      "modules": [
+        "Mathlib.Analysis.Complex.BranchLogRoot",
+        "Mathlib.Analysis.Complex.CauchyIntegral",
+        "Mathlib.Analysis.Complex.Harmonic.MeanValue",
+        "Mathlib.Analysis.Complex.Harmonic.Poisson",
+        "Mathlib.Analysis.Complex.HasPrimitives",
+        "Mathlib.Analysis.Complex.MeanValue",
+        "Mathlib.Analysis.Complex.Poisson"
+      ]
+    },
+    "holomorphic_functions": {
+      "title": "Holomorphic functions",
+      "parent": "complex_analysis",
+      "modules": [
+        "Mathlib.Analysis.Complex.AbelLimit",
+        "Mathlib.Analysis.Complex.AbsMax",
+        "Mathlib.Analysis.Complex.BorelCaratheodory",
+        "Mathlib.Analysis.Complex.Hadamard",
+        "Mathlib.Analysis.Complex.Harmonic.Liouville",
+        "Mathlib.Analysis.Complex.Liouville",
+        "Mathlib.Analysis.Complex.LocallyUniformLimit",
+        "Mathlib.Analysis.Complex.OpenMapping",
+        "Mathlib.Analysis.Complex.Periodic",
+        "Mathlib.Analysis.Complex.PhragmenLindelof",
+        "Mathlib.Analysis.Complex.RemovableSingularity",
+        "Mathlib.Analysis.Complex.RiemannMapping",
+        "Mathlib.Analysis.Complex.Schwarz",
+        "Mathlib.Analysis.Complex.SummableUniformlyOn",
+        "Mathlib.Analysis.Complex.TaylorSeries",
+        "Math.Analysis.EntireAffine"
+      ]
+    },
+    "meromorphic_functions": {
+      "title": "Meromorphic functions",
+      "parent": "complex_analysis",
+      "modules": [
+        "Mathlib.Analysis.Meromorphic.Basic",
+        "Mathlib.Analysis.Meromorphic.Complex",
+        "Mathlib.Analysis.Meromorphic.Divisor",
+        "Mathlib.Analysis.Meromorphic.FactorizedRational",
+        "Mathlib.Analysis.Meromorphic.IsolatedZeros",
+        "Mathlib.Analysis.Meromorphic.LogDeriv",
+        "Mathlib.Analysis.Meromorphic.NormalForm",
+        "Mathlib.Analysis.Meromorphic.Order",
+        "Mathlib.Analysis.Meromorphic.RCLike",
+        "Mathlib.Analysis.Meromorphic.TrailingCoefficient",
+        "Mathlib.Analysis.Complex.JensenFormula"
+      ]
+    },
+    "value_distribution": {
+      "title": "Value distribution",
+      "parent": "meromorphic_functions",
+      "modules": [
+        "Mathlib.Analysis.Complex.ValueDistribution.Cartan",
+        "Mathlib.Analysis.Complex.ValueDistribution.CharacteristicFunction",
+        "Mathlib.Analysis.Complex.ValueDistribution.FirstMainTheorem",
+        "Mathlib.Analysis.Complex.ValueDistribution.LogCounting.Asymptotic",
+        "Mathlib.Analysis.Complex.ValueDistribution.LogCounting.Basic",
+        "Mathlib.Analysis.Complex.ValueDistribution.LogCounting.Truncated",
+        "Mathlib.Analysis.Complex.ValueDistribution.Proximity.Basic",
+        "Mathlib.Analysis.Complex.ValueDistribution.Proximity.IntegralPresentation",
+        "Mathlib.Analysis.Complex.ValueDistribution.SecondMainTheorem"
+      ]
+    },
+    "harmonic_functions": {
+      "title": "Harmonic functions",
+      "parent": "complex_analysis",
+      "modules": [
+        "Mathlib.Analysis.Complex.Harmonic.Analytic",
+        "Mathlib.Analysis.Complex.Harmonic.Liouville",
+        "Mathlib.Analysis.Complex.Harmonic.MeanValue",
+        "Mathlib.Analysis.Complex.Harmonic.Poisson",
+        "Math.Analysis.HarmonicPoisson"
+      ]
+    },
+    "hyperbolic_geometry": {
+      "title": "Hyperbolic geometry",
+      "parent": "geometry",
+      "modules": [
+        "Mathlib.Analysis.Complex.UnitDisc.Basic",
+        "Mathlib.Analysis.Complex.UpperHalfPlane.Basic",
+        "Mathlib.Analysis.Complex.UpperHalfPlane.Exp",
+        "Mathlib.Analysis.Complex.UpperHalfPlane.FixedPoints",
+        "Mathlib.Analysis.Complex.UpperHalfPlane.FunctionsBoundedAtInfty",
+        "Mathlib.Analysis.Complex.UpperHalfPlane.Manifold",
+        "Mathlib.Analysis.Complex.UpperHalfPlane.Measure",
+        "Mathlib.Analysis.Complex.UpperHalfPlane.Metric",
+        "Mathlib.Analysis.Complex.UpperHalfPlane.MoebiusAction",
+        "Mathlib.Analysis.Complex.UpperHalfPlane.ProperAction",
+        "Mathlib.Analysis.Complex.UpperHalfPlane.Topology"
+      ]
+    },
+    "complex_polynomials": {
+      "title": "Complex polynomials",
+      "parent": "complex_analysis",
+      "modules": [
+        "Mathlib.Analysis.Complex.Polynomial.Basic",
+        "Mathlib.Analysis.Complex.Polynomial.GaussLucas",
+        "Mathlib.Analysis.Complex.Polynomial.UnitTrinomial"
       ]
     }
   },
@@ -5451,6 +6454,22 @@
     },
     "Math.Analysis.BesselEquation": {
       "title": "Bessel potentials and elliptic regularity",
+      "allowed_axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    "Math.Analysis.EntireAffine": {
+      "title": "Entire maps with bounded derivative",
+      "allowed_axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    "Math.Analysis.HarmonicPoisson": {
+      "title": "Banach-valued harmonic Poisson formula",
       "allowed_axioms": [
         "propext",
         "Quot.sound",

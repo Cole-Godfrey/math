@@ -8,3 +8,5 @@ import Math.Algebra.Monoid
 import Math.SetTheory.OrdinalNotation
 import Math.Analysis.LaxMilgram
 import Math.Analysis.BesselEquation
+import Math.Analysis.EntireAffine
+import Math.Analysis.HarmonicPoisson
