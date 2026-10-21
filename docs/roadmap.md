@@ -40,6 +40,8 @@ Differential geometry includes all 79 modules in the pinned library’s `Geometr
 
 Expression digests now retain all 256 bits in packed storage during verification and catalog reading. Public values and canonical JSON bytes remain unchanged. Malformed or unfamiliar hash-array values retain their original values for validation.
 
+Convex and Euclidean geometry include all 135 modules in the pinned library’s `Analysis/Convex`, `Geometry/Convex`, `Geometry/Euclidean`, and `Geometry/Polygon` directories. Coverage includes abstract convex spaces, convex hulls and cones, duality, Jensen inequalities, strict convexity, Carathéodory, Radon, Helly, Stone separation, Krein–Milman, Birkhoff decompositions, Euclidean angles and triangle identities, centres and nine-point spheres, sphere powers and inversion, Ptolemy, and simplex volumes. Five local proofs supply explicit dimension-plus-one support and positive-weight bounds and dimension-plus-two Radon partitions. Independent signature checks retain the exact weights, compactness, completeness, radii, and ordering hypotheses; the Krein–Milman closure and the Ptolemy diagonal conditions are not dropped.
+
 Work still required:
 
 - Expand registered mathlib coverage across further fields and research results, and integrate other established formal libraries while preserving upstream declarations, licenses, references, and proof dependencies.

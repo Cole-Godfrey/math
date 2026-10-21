@@ -5705,6 +5705,1078 @@
             "Quot.sound",
             "Classical.choice"
           ]
+        },
+        "Mathlib.Geometry.Euclidean.Altitude": {
+          "title": "Altitudes of a simplex",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Euclidean.Angle.Bisector": {
+          "title": "Angle bisectors.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Euclidean.Angle.Incenter": {
+          "title": "Angles and incenters and excenters.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Euclidean.Angle.Oriented.Affine": {
+          "title": "Oriented angles.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Euclidean.Angle.Oriented.Basic": {
+          "title": "Oriented angles.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Euclidean.Angle.Oriented.Projection": {
+          "title": "Oriented angles and orthogonal projection.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Euclidean.Angle.Oriented.RightAngle": {
+          "title": "Oriented angles in right-angled triangles.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Euclidean.Angle.Oriented.Rotation": {
+          "title": "Rotations by oriented angles.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Euclidean.Angle.Sphere": {
+          "title": "Angles in circles and spheres",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Euclidean.Angle.Unoriented.Affine": {
+          "title": "Angles between points",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Euclidean.Angle.Unoriented.Basic": {
+          "title": "Angles between vectors",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Euclidean.Angle.Unoriented.Conformal": {
+          "title": "Angles and conformal maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Euclidean.Angle.Unoriented.CrossProduct": {
+          "title": "Norm of cross-products",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Euclidean.Angle.Unoriented.Projection": {
+          "title": "Angles and orthogonal projection.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Euclidean.Angle.Unoriented.TriangleInequality": {
+          "title": "The Triangle Inequality for Angles",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Euclidean.Basic": {
+          "title": "Euclidean spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Euclidean.BritishFlag": {
+          "title": "British flag theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Euclidean.Circumcenter": {
+          "title": "Circumcenter and circumradius",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Euclidean.Congruence": {
+          "title": "Triangle congruence",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Euclidean.Incenter.Basic": {
+          "title": "Incenters and excenters of simplices.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Euclidean.Incenter": {
+          "title": "Geometry.Euclidean.Incenter",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Euclidean.Inversion.Basic": {
+          "title": "Inversion in an affine space",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Euclidean.Inversion.Calculus": {
+          "title": "Derivative of the inversion",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Euclidean.Inversion.ImageHyperplane": {
+          "title": "Image of a hyperplane under inversion",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Euclidean.MongePoint": {
+          "title": "Monge point and orthocenter",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Euclidean.NinePointCircle": {
+          "title": "Nine-point circle",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Euclidean.PerpBisector": {
+          "title": "Perpendicular bisector of a segment",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Euclidean.Projection": {
+          "title": "Orthogonal projection in affine spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Euclidean.SignedDist": {
+          "title": "Signed distance to an affine subspace in a Euclidean space.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Euclidean.Similarity": {
+          "title": "Triangle Similarity",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Euclidean.Simplex": {
+          "title": "Simplices in Euclidean spaces.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Euclidean.Sphere.Basic": {
+          "title": "Spheres",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Euclidean.Sphere.OrthRadius": {
+          "title": "Spaces orthogonal to the radius vector in spheres.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Euclidean.Sphere.PolePolar": {
+          "title": "Poles and polars",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Euclidean.Sphere.Power": {
+          "title": "Power of a point (intersecting chords and secants)",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Euclidean.Sphere.Ptolemy": {
+          "title": "Ptolemy's theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Euclidean.Sphere.SecondInter": {
+          "title": "Second intersection of a sphere and a line",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Euclidean.Sphere.Tangent": {
+          "title": "Tangency for spheres.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Euclidean.Triangle": {
+          "title": "Triangles",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Euclidean.Volume.Basic": {
+          "title": "Volume of a simplex",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Euclidean.Volume.Def": {
+          "title": "Volume of a simplex",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Euclidean.Volume.Measure": {
+          "title": "Volume measure for Euclidean geometry",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Euclidean.Volume.MeasureSimplex": {
+          "title": "Connect the algebraic definition and measure theory for the volume of a simplex",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Convex.AffineMap.Defs": {
+          "title": "The convex space of affine maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Convex.AffineMap.Module": {
+          "title": "The module of affine maps from a convex space to a module",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Convex.Cone.Basic": {
+          "title": "Convex cones",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Convex.Cone.Dual": {
+          "title": "The algebraic dual of a cone",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Convex.Cone.DualFinite": {
+          "title": "Duals of finitely generated cones",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Convex.Cone.Face.Basic": {
+          "title": "Faces of pointed cones",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Convex.Cone.Face.Lattice": {
+          "title": "The face lattice of a pointed cone",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Convex.Cone.Pointed": {
+          "title": "Pointed cones",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Convex.Cone.Simplicial": {
+          "title": "Simplicial cones",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Convex.Cone.TensorProduct": {
+          "title": "Tensor products of cones",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Convex.ConvexSpace.AffineMap": {
+          "title": "Bundled affine maps between convex spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Convex.ConvexSpace.AffineMapCone": {
+          "title": "The cone of an affine map from the standard simplex",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Convex.ConvexSpace.AffineSpace": {
+          "title": "Affine spaces are convex spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Convex.ConvexSpace.Barycenter": {
+          "title": "The barycenter of the standard simplex",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Convex.ConvexSpace.CompactSpaceStdSimplex": {
+          "title": "The standard simplex is compact",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Convex.ConvexSpace.Defs": {
+          "title": "Convex spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Convex.ConvexSpace.Module": {
+          "title": "Modules are convex spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Convex.ConvexSpace.ModuleTopology": {
+          "title": "Continuity of affine maps from the standard simplex to modules",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Convex.ConvexSpace.PathConnectedSpaceStdSimplex": {
+          "title": "The standard simplex is path-connected",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Convex.ConvexSpace.Prod": {
+          "title": "Product of convex spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Convex.ConvexSpace.Topology": {
+          "title": "The topology on the standard simplex",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Convex.Hull": {
+          "title": "Convex hull",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Convex.Set": {
+          "title": "Convex sets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Convex.Star": {
+          "title": "Star-convex sets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.AmpleSet": {
+          "title": "Ample subsets of real vector spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.Approximation": {
+          "title": "Approximation to convex functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.Basic": {
+          "title": "Convex sets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.Between": {
+          "title": "Betweenness in affine spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.BetweenList": {
+          "title": "Betweenness for lists of points.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.Birkhoff": {
+          "title": "Birkhoff's theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.Body": {
+          "title": "Convex bodies",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.Caratheodory": {
+          "title": "Carathéodory's convexity theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.Combination": {
+          "title": "Convex combinations",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.Cone.Basic": {
+          "title": "Proper cones",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.Cone.Closure": {
+          "title": "Closure of cones",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.Cone.Dual": {
+          "title": "The topological dual of a cone and Farkas' lemma",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.Cone.Extension": {
+          "title": "Extension theorems",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.Cone.InnerDual": {
+          "title": "Inner dual cone of a set",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.Cone.TensorProduct": {
+          "title": "Tensor Products of Pointed Cones",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.Continuous": {
+          "title": "Convex functions are continuous",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.ContinuousLinearEquiv": {
+          "title": "(Pre)images of strict convex sets under continuous linear equivalences",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.Contractible": {
+          "title": "A convex set is contractible",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.Deriv": {
+          "title": "Convexity of functions and derivatives",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.DoublyStochasticMatrix": {
+          "title": "Doubly stochastic matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.EGauge": {
+          "title": "The Minkowski functional, normed field version",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.Exposed": {
+          "title": "Exposed sets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.Extrema": {
+          "title": "Minima and maxima of convex functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.Extreme": {
+          "title": "Extreme sets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.Function": {
+          "title": "Convex and concave functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.FunctionTopology": {
+          "title": "Topological properties of the set of convex/concave functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.Gauge": {
+          "title": "The Minkowski functional",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.GaugeRescale": {
+          "title": "\"Gauge rescale\" homeomorphism between convex sets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.Hull": {
+          "title": "Convex hull",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.Independent": {
+          "title": "Convex independence",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.Integral": {
+          "title": "Jensen's inequality for integrals",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.Intrinsic": {
+          "title": "Intrinsic frontier and interior",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.Jensen": {
+          "title": "Jensen's inequality and maximum principle for convex functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.Join": {
+          "title": "Convex join",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.KreinMilman": {
+          "title": "The Krein-Milman theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.LinearIsometry": {
+          "title": "(Strict) convexity and linear isometries",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.Measure": {
+          "title": "Convex sets are null-measurable",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.MetricSpace": {
+          "title": "Convex spaces with compatible metric structure",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.Mul": {
+          "title": "Product of convex functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.NNReal": {
+          "title": "Specific lemmas about convexity over `ℝ≥0`",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.PartitionOfUnity": {
+          "title": "Partition of unity and convex sets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.PathConnected": {
+          "title": "Segment between 2 points as a bundled path",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.Piecewise": {
+          "title": "Convex and concave piecewise functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.Quasiconvex": {
+          "title": "Quasiconvex and quasiconcave functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.Radon": {
+          "title": "Radon's theorem on convex sets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.Segment": {
+          "title": "Segments in vector spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.Side": {
+          "title": "Sides of affine subspaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.SimplicialComplex.AffineIndependentUnion": {
+          "title": "Simplicial complexes from affinely independent points",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.SimplicialComplex.Basic": {
+          "title": "Simplicial complexes",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.Slope": {
+          "title": "Slopes of convex functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.SpecificFunctions.Basic": {
+          "title": "Collection of convex functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.SpecificFunctions.Deriv": {
+          "title": "Collection of convex functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.SpecificFunctions.Pow": {
+          "title": "Convexity properties of `rpow`",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.Star": {
+          "title": "Star-convex sets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.StdSimplex": {
+          "title": "The standard simplex",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.StoneSeparation": {
+          "title": "Stone's separation theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.Strict.Extreme": {
+          "title": "Analysis.Convex.Strict.Extreme",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.Strict": {
+          "title": "Strictly convex sets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.StrictCombination": {
+          "title": "Convex combinations in strictly convex sets and spaces.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.StrictConvexBetween": {
+          "title": "Betweenness in affine spaces for strictly convex spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.StrictConvexSpace": {
+          "title": "Strictly convex spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.Strong": {
+          "title": "Uniformly and strongly convex functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.Topology": {
+          "title": "Topological properties of convex sets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.TotallyBounded": {
+          "title": "Totally Bounded sets and Convex Hulls",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.Uniform": {
+          "title": "Uniformly convex spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Analysis.Convex.Visible": {
+          "title": "Points in sight",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Polygon.Basic": {
+          "title": "Polygons",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
         }
       }
     }
@@ -7238,6 +8310,318 @@
         "Mathlib.Geometry.Manifold.IntegralCurve.Transform",
         "Mathlib.Geometry.Manifold.IntegralCurve.UniformTime"
       ]
+    },
+    "euclidean_geometry": {
+      "title": "Euclidean geometry",
+      "parent": "geometry",
+      "modules": [
+        "Mathlib.Geometry.Euclidean.Altitude",
+        "Mathlib.Geometry.Euclidean.Angle.Bisector",
+        "Mathlib.Geometry.Euclidean.Angle.Incenter",
+        "Mathlib.Geometry.Euclidean.Angle.Oriented.Affine",
+        "Mathlib.Geometry.Euclidean.Angle.Oriented.Basic",
+        "Mathlib.Geometry.Euclidean.Angle.Oriented.Projection",
+        "Mathlib.Geometry.Euclidean.Angle.Oriented.RightAngle",
+        "Mathlib.Geometry.Euclidean.Angle.Oriented.Rotation",
+        "Mathlib.Geometry.Euclidean.Angle.Sphere",
+        "Mathlib.Geometry.Euclidean.Angle.Unoriented.Affine",
+        "Mathlib.Geometry.Euclidean.Angle.Unoriented.Basic",
+        "Mathlib.Geometry.Euclidean.Angle.Unoriented.Conformal",
+        "Mathlib.Geometry.Euclidean.Angle.Unoriented.CrossProduct",
+        "Mathlib.Geometry.Euclidean.Angle.Unoriented.Projection",
+        "Mathlib.Geometry.Euclidean.Angle.Unoriented.RightAngle",
+        "Mathlib.Geometry.Euclidean.Angle.Unoriented.TriangleInequality",
+        "Mathlib.Geometry.Euclidean.Basic",
+        "Mathlib.Geometry.Euclidean.BritishFlag",
+        "Mathlib.Geometry.Euclidean.Circumcenter",
+        "Mathlib.Geometry.Euclidean.Congruence",
+        "Mathlib.Geometry.Euclidean.Incenter.Basic",
+        "Mathlib.Geometry.Euclidean.Incenter",
+        "Mathlib.Geometry.Euclidean.Inversion.Basic",
+        "Mathlib.Geometry.Euclidean.Inversion.Calculus",
+        "Mathlib.Geometry.Euclidean.Inversion.ImageHyperplane",
+        "Mathlib.Geometry.Euclidean.MongePoint",
+        "Mathlib.Geometry.Euclidean.NinePointCircle",
+        "Mathlib.Geometry.Euclidean.PerpBisector",
+        "Mathlib.Geometry.Euclidean.Projection",
+        "Mathlib.Geometry.Euclidean.SignedDist",
+        "Mathlib.Geometry.Euclidean.Similarity",
+        "Mathlib.Geometry.Euclidean.Simplex",
+        "Mathlib.Geometry.Euclidean.Sphere.Basic",
+        "Mathlib.Geometry.Euclidean.Sphere.OrthRadius",
+        "Mathlib.Geometry.Euclidean.Sphere.PolePolar",
+        "Mathlib.Geometry.Euclidean.Sphere.Power",
+        "Mathlib.Geometry.Euclidean.Sphere.Ptolemy",
+        "Mathlib.Geometry.Euclidean.Sphere.SecondInter",
+        "Mathlib.Geometry.Euclidean.Sphere.Tangent",
+        "Mathlib.Geometry.Euclidean.Triangle",
+        "Mathlib.Geometry.Euclidean.Volume.Basic",
+        "Mathlib.Geometry.Euclidean.Volume.Def",
+        "Mathlib.Geometry.Euclidean.Volume.Measure",
+        "Mathlib.Geometry.Euclidean.Volume.MeasureSimplex",
+        "Mathlib.Geometry.Polygon.Basic",
+        "Math.Geometry.ConvexFinite"
+      ]
+    },
+    "convex_geometry": {
+      "title": "Convex geometry",
+      "parent": "geometry",
+      "modules": [
+        "Mathlib.Geometry.Convex.AffineMap.Defs",
+        "Mathlib.Geometry.Convex.AffineMap.Module",
+        "Mathlib.Geometry.Convex.Cone.Basic",
+        "Mathlib.Geometry.Convex.Cone.Dual",
+        "Mathlib.Geometry.Convex.Cone.DualFinite",
+        "Mathlib.Geometry.Convex.Cone.Face.Basic",
+        "Mathlib.Geometry.Convex.Cone.Face.Lattice",
+        "Mathlib.Geometry.Convex.Cone.Pointed",
+        "Mathlib.Geometry.Convex.Cone.Simplicial",
+        "Mathlib.Geometry.Convex.Cone.TensorProduct",
+        "Mathlib.Geometry.Convex.ConvexSpace.AffineMap",
+        "Mathlib.Geometry.Convex.ConvexSpace.AffineMapCone",
+        "Mathlib.Geometry.Convex.ConvexSpace.AffineSpace",
+        "Mathlib.Geometry.Convex.ConvexSpace.Barycenter",
+        "Mathlib.Geometry.Convex.ConvexSpace.CompactSpaceStdSimplex",
+        "Mathlib.Geometry.Convex.ConvexSpace.Defs",
+        "Mathlib.Geometry.Convex.ConvexSpace.Module",
+        "Mathlib.Geometry.Convex.ConvexSpace.ModuleTopology",
+        "Mathlib.Geometry.Convex.ConvexSpace.PathConnectedSpaceStdSimplex",
+        "Mathlib.Geometry.Convex.ConvexSpace.Prod",
+        "Mathlib.Geometry.Convex.ConvexSpace.Topology",
+        "Mathlib.Geometry.Convex.Hull",
+        "Mathlib.Geometry.Convex.Set",
+        "Mathlib.Geometry.Convex.Star",
+        "Mathlib.Analysis.Convex.AmpleSet",
+        "Mathlib.Analysis.Convex.Approximation",
+        "Mathlib.Analysis.Convex.Basic",
+        "Mathlib.Analysis.Convex.Between",
+        "Mathlib.Analysis.Convex.BetweenList",
+        "Mathlib.Analysis.Convex.Birkhoff",
+        "Mathlib.Analysis.Convex.Body",
+        "Mathlib.Analysis.Convex.Caratheodory",
+        "Mathlib.Analysis.Convex.Combination",
+        "Mathlib.Analysis.Convex.Cone.Basic",
+        "Mathlib.Analysis.Convex.Cone.Closure",
+        "Mathlib.Analysis.Convex.Cone.Dual",
+        "Mathlib.Analysis.Convex.Cone.Extension",
+        "Mathlib.Analysis.Convex.Cone.InnerDual",
+        "Mathlib.Analysis.Convex.Cone.TensorProduct",
+        "Mathlib.Analysis.Convex.Continuous",
+        "Mathlib.Analysis.Convex.ContinuousLinearEquiv",
+        "Mathlib.Analysis.Convex.Contractible",
+        "Mathlib.Analysis.Convex.Deriv",
+        "Mathlib.Analysis.Convex.DoublyStochasticMatrix",
+        "Mathlib.Analysis.Convex.EGauge",
+        "Mathlib.Analysis.Convex.Exposed",
+        "Mathlib.Analysis.Convex.Extrema",
+        "Mathlib.Analysis.Convex.Extreme",
+        "Mathlib.Analysis.Convex.Function",
+        "Mathlib.Analysis.Convex.FunctionTopology",
+        "Mathlib.Analysis.Convex.Gauge",
+        "Mathlib.Analysis.Convex.GaugeRescale",
+        "Mathlib.Analysis.Convex.Hull",
+        "Mathlib.Analysis.Convex.Independent",
+        "Mathlib.Analysis.Convex.Integral",
+        "Mathlib.Analysis.Convex.Intrinsic",
+        "Mathlib.Analysis.Convex.Jensen",
+        "Mathlib.Analysis.Convex.Join",
+        "Mathlib.Analysis.Convex.KreinMilman",
+        "Mathlib.Analysis.Convex.LinearIsometry",
+        "Mathlib.Analysis.Convex.Measure",
+        "Mathlib.Analysis.Convex.MetricSpace",
+        "Mathlib.Analysis.Convex.Mul",
+        "Mathlib.Analysis.Convex.NNReal",
+        "Mathlib.Analysis.Convex.PartitionOfUnity",
+        "Mathlib.Analysis.Convex.PathConnected",
+        "Mathlib.Analysis.Convex.Piecewise",
+        "Mathlib.Analysis.Convex.Quasiconvex",
+        "Mathlib.Analysis.Convex.Radon",
+        "Mathlib.Analysis.Convex.Segment",
+        "Mathlib.Analysis.Convex.Side",
+        "Mathlib.Analysis.Convex.SimplicialComplex.AffineIndependentUnion",
+        "Mathlib.Analysis.Convex.SimplicialComplex.Basic",
+        "Mathlib.Analysis.Convex.Slope",
+        "Mathlib.Analysis.Convex.SpecificFunctions.Basic",
+        "Mathlib.Analysis.Convex.SpecificFunctions.Deriv",
+        "Mathlib.Analysis.Convex.SpecificFunctions.Pow",
+        "Mathlib.Analysis.Convex.Star",
+        "Mathlib.Analysis.Convex.StdSimplex",
+        "Mathlib.Analysis.Convex.StoneSeparation",
+        "Mathlib.Analysis.Convex.Strict.Extreme",
+        "Mathlib.Analysis.Convex.Strict",
+        "Mathlib.Analysis.Convex.StrictCombination",
+        "Mathlib.Analysis.Convex.StrictConvexBetween",
+        "Mathlib.Analysis.Convex.StrictConvexSpace",
+        "Mathlib.Analysis.Convex.Strong",
+        "Mathlib.Analysis.Convex.Topology",
+        "Mathlib.Analysis.Convex.TotallyBounded",
+        "Mathlib.Analysis.Convex.Uniform",
+        "Mathlib.Analysis.Convex.Visible",
+        "Math.Geometry.ConvexFinite"
+      ]
+    },
+    "convex_analysis": {
+      "title": "Convex analysis",
+      "parent": "analysis",
+      "modules": [
+        "Mathlib.Analysis.Convex.AmpleSet",
+        "Mathlib.Analysis.Convex.Approximation",
+        "Mathlib.Analysis.Convex.Basic",
+        "Mathlib.Analysis.Convex.Between",
+        "Mathlib.Analysis.Convex.BetweenList",
+        "Mathlib.Analysis.Convex.Birkhoff",
+        "Mathlib.Analysis.Convex.Body",
+        "Mathlib.Analysis.Convex.Caratheodory",
+        "Mathlib.Analysis.Convex.Combination",
+        "Mathlib.Analysis.Convex.Cone.Basic",
+        "Mathlib.Analysis.Convex.Cone.Closure",
+        "Mathlib.Analysis.Convex.Cone.Dual",
+        "Mathlib.Analysis.Convex.Cone.Extension",
+        "Mathlib.Analysis.Convex.Cone.InnerDual",
+        "Mathlib.Analysis.Convex.Cone.TensorProduct",
+        "Mathlib.Analysis.Convex.Continuous",
+        "Mathlib.Analysis.Convex.ContinuousLinearEquiv",
+        "Mathlib.Analysis.Convex.Contractible",
+        "Mathlib.Analysis.Convex.Deriv",
+        "Mathlib.Analysis.Convex.DoublyStochasticMatrix",
+        "Mathlib.Analysis.Convex.EGauge",
+        "Mathlib.Analysis.Convex.Exposed",
+        "Mathlib.Analysis.Convex.Extrema",
+        "Mathlib.Analysis.Convex.Extreme",
+        "Mathlib.Analysis.Convex.Function",
+        "Mathlib.Analysis.Convex.FunctionTopology",
+        "Mathlib.Analysis.Convex.Gauge",
+        "Mathlib.Analysis.Convex.GaugeRescale",
+        "Mathlib.Analysis.Convex.Hull",
+        "Mathlib.Analysis.Convex.Independent",
+        "Mathlib.Analysis.Convex.Integral",
+        "Mathlib.Analysis.Convex.Intrinsic",
+        "Mathlib.Analysis.Convex.Jensen",
+        "Mathlib.Analysis.Convex.Join",
+        "Mathlib.Analysis.Convex.KreinMilman",
+        "Mathlib.Analysis.Convex.LinearIsometry",
+        "Mathlib.Analysis.Convex.Measure",
+        "Mathlib.Analysis.Convex.MetricSpace",
+        "Mathlib.Analysis.Convex.Mul",
+        "Mathlib.Analysis.Convex.NNReal",
+        "Mathlib.Analysis.Convex.PartitionOfUnity",
+        "Mathlib.Analysis.Convex.PathConnected",
+        "Mathlib.Analysis.Convex.Piecewise",
+        "Mathlib.Analysis.Convex.Quasiconvex",
+        "Mathlib.Analysis.Convex.Radon",
+        "Mathlib.Analysis.Convex.Segment",
+        "Mathlib.Analysis.Convex.Side",
+        "Mathlib.Analysis.Convex.SimplicialComplex.AffineIndependentUnion",
+        "Mathlib.Analysis.Convex.SimplicialComplex.Basic",
+        "Mathlib.Analysis.Convex.Slope",
+        "Mathlib.Analysis.Convex.SpecificFunctions.Basic",
+        "Mathlib.Analysis.Convex.SpecificFunctions.Deriv",
+        "Mathlib.Analysis.Convex.SpecificFunctions.Pow",
+        "Mathlib.Analysis.Convex.Star",
+        "Mathlib.Analysis.Convex.StdSimplex",
+        "Mathlib.Analysis.Convex.StoneSeparation",
+        "Mathlib.Analysis.Convex.Strict.Extreme",
+        "Mathlib.Analysis.Convex.Strict",
+        "Mathlib.Analysis.Convex.StrictCombination",
+        "Mathlib.Analysis.Convex.StrictConvexBetween",
+        "Mathlib.Analysis.Convex.StrictConvexSpace",
+        "Mathlib.Analysis.Convex.Strong",
+        "Mathlib.Analysis.Convex.Topology",
+        "Mathlib.Analysis.Convex.TotallyBounded",
+        "Mathlib.Analysis.Convex.Uniform",
+        "Mathlib.Analysis.Convex.Visible",
+        "Math.Geometry.ConvexFinite"
+      ]
+    },
+    "convex_cones": {
+      "title": "Convex cones",
+      "parent": "convex_geometry",
+      "modules": [
+        "Mathlib.Geometry.Convex.Cone.Basic",
+        "Mathlib.Geometry.Convex.Cone.Dual",
+        "Mathlib.Geometry.Convex.Cone.DualFinite",
+        "Mathlib.Geometry.Convex.Cone.Face.Basic",
+        "Mathlib.Geometry.Convex.Cone.Face.Lattice",
+        "Mathlib.Geometry.Convex.Cone.Pointed",
+        "Mathlib.Geometry.Convex.Cone.Simplicial",
+        "Mathlib.Geometry.Convex.Cone.TensorProduct",
+        "Mathlib.Analysis.Convex.Cone.Basic",
+        "Mathlib.Analysis.Convex.Cone.Closure",
+        "Mathlib.Analysis.Convex.Cone.Dual",
+        "Mathlib.Analysis.Convex.Cone.Extension",
+        "Mathlib.Analysis.Convex.Cone.InnerDual",
+        "Mathlib.Analysis.Convex.Cone.TensorProduct"
+      ]
+    },
+    "convex_functions": {
+      "title": "Convex functions",
+      "parent": "convex_analysis",
+      "modules": [
+        "Mathlib.Analysis.Convex.Continuous",
+        "Mathlib.Analysis.Convex.ContinuousLinearEquiv",
+        "Mathlib.Analysis.Convex.Deriv",
+        "Mathlib.Analysis.Convex.Function",
+        "Mathlib.Analysis.Convex.FunctionTopology",
+        "Mathlib.Analysis.Convex.Jensen",
+        "Mathlib.Analysis.Convex.Piecewise",
+        "Mathlib.Analysis.Convex.Quasiconvex",
+        "Mathlib.Analysis.Convex.Slope",
+        "Mathlib.Analysis.Convex.SpecificFunctions.Basic",
+        "Mathlib.Analysis.Convex.SpecificFunctions.Deriv",
+        "Mathlib.Analysis.Convex.SpecificFunctions.Pow",
+        "Mathlib.Analysis.Convex.Strong",
+        "Mathlib.Analysis.Convex.Uniform"
+      ]
+    },
+    "triangle_geometry": {
+      "title": "Triangle geometry",
+      "parent": "euclidean_geometry",
+      "modules": [
+        "Mathlib.Geometry.Euclidean.Altitude",
+        "Mathlib.Geometry.Euclidean.Angle.Bisector",
+        "Mathlib.Geometry.Euclidean.Angle.Incenter",
+        "Mathlib.Geometry.Euclidean.Angle.Oriented.Affine",
+        "Mathlib.Geometry.Euclidean.Angle.Oriented.Basic",
+        "Mathlib.Geometry.Euclidean.Angle.Oriented.Projection",
+        "Mathlib.Geometry.Euclidean.Angle.Oriented.RightAngle",
+        "Mathlib.Geometry.Euclidean.Angle.Oriented.Rotation",
+        "Mathlib.Geometry.Euclidean.Angle.Sphere",
+        "Mathlib.Geometry.Euclidean.Angle.Unoriented.Affine",
+        "Mathlib.Geometry.Euclidean.Angle.Unoriented.Basic",
+        "Mathlib.Geometry.Euclidean.Angle.Unoriented.Conformal",
+        "Mathlib.Geometry.Euclidean.Angle.Unoriented.CrossProduct",
+        "Mathlib.Geometry.Euclidean.Angle.Unoriented.Projection",
+        "Mathlib.Geometry.Euclidean.Angle.Unoriented.RightAngle",
+        "Mathlib.Geometry.Euclidean.Angle.Unoriented.TriangleInequality",
+        "Mathlib.Geometry.Euclidean.BritishFlag",
+        "Mathlib.Geometry.Euclidean.Circumcenter",
+        "Mathlib.Geometry.Euclidean.Congruence",
+        "Mathlib.Geometry.Euclidean.Incenter.Basic",
+        "Mathlib.Geometry.Euclidean.Incenter",
+        "Mathlib.Geometry.Euclidean.MongePoint",
+        "Mathlib.Geometry.Euclidean.NinePointCircle",
+        "Mathlib.Geometry.Euclidean.Simplex",
+        "Mathlib.Geometry.Euclidean.Triangle"
+      ]
+    },
+    "circles_and_spheres": {
+      "title": "Circles and spheres",
+      "parent": "euclidean_geometry",
+      "modules": [
+        "Mathlib.Geometry.Euclidean.Angle.Sphere",
+        "Mathlib.Geometry.Euclidean.Circumcenter",
+        "Mathlib.Geometry.Euclidean.Inversion.Basic",
+        "Mathlib.Geometry.Euclidean.Inversion.Calculus",
+        "Mathlib.Geometry.Euclidean.Inversion.ImageHyperplane",
+        "Mathlib.Geometry.Euclidean.NinePointCircle",
+        "Mathlib.Geometry.Euclidean.Sphere.Basic",
+        "Mathlib.Geometry.Euclidean.Sphere.OrthRadius",
+        "Mathlib.Geometry.Euclidean.Sphere.PolePolar",
+        "Mathlib.Geometry.Euclidean.Sphere.Power",
+        "Mathlib.Geometry.Euclidean.Sphere.Ptolemy",
+        "Mathlib.Geometry.Euclidean.Sphere.SecondInter",
+        "Mathlib.Geometry.Euclidean.Sphere.Tangent"
+      ]
     }
   },
   "modules": {
@@ -7351,6 +8735,14 @@
     },
     "Math.Analysis.HarnackSharpness": {
       "title": "Optimal Harnack constants and Poisson extremizers",
+      "allowed_axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    "Math.Geometry.ConvexFinite": {
+      "title": "Finite-dimensional Carathéodory and Radon bounds",
       "allowed_axioms": [
         "propext",
         "Quot.sound",

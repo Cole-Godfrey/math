@@ -986,6 +986,251 @@ class RepositoryTests(RepositoryArtifacts, unittest.TestCase):
         references = snapshot.citations("Ordinal.veblen")
         self.assertIn("Miller_1976", {entry["key"] for entry in references["module_citations"]})
 
+    def test_convex_geometry_coverage_retains_every_pinned_module(self):
+        base = ROOT / ".lake/packages/mathlib"
+        areas = {"Geometry/Euclidean": 44, "Geometry/Convex": 24, "Analysis/Convex": 66, "Geometry/Polygon": 1}
+        registered = self.policy["libraries"]["mathlib"]["modules"]
+        for area, count in areas.items():
+            paths = (base / "Mathlib" / area).rglob("*.lean")
+            expected = {".".join(path.relative_to(base).with_suffix("").parts) for path in paths}
+            self.assertEqual(len(expected), count)
+            prefix = "Mathlib." + area.replace("/", ".") + "."
+            self.assertEqual({name for name in registered if name.startswith(prefix)}, expected)
+            for module in expected:
+                with self.subTest(module=module):
+                    self.assertIn(module, self.catalog["module_policy"])
+                    self.assertIn(module, self.catalog["module_declarations_by_module"])
+                    self.assertIn(module, self.catalog["sources"])
+
+    def test_finite_convex_geometry_retains_local_proofs_and_source(self):
+        names = [
+            "Math.ConvexGeometry.exists_finset_card_le_finrank_succ",
+            "Math.ConvexGeometry.convexHull_eq_union_card_le_finrank_succ",
+            "Math.ConvexGeometry.exists_positive_weights_card_le_finrank_succ",
+            "Math.ConvexGeometry.radon_partition_of_finrank_lt_card",
+            "Math.ConvexGeometry.radon_partition_finrank_add_two"
+        ]
+        module = "Math.Geometry.ConvexFinite"
+        path = ROOT / "Math/Geometry/ConvexFinite.lean"
+        origin = self.catalog["sources"][module]
+        self.assertEqual(origin["package"], "math")
+        self.assertEqual(origin["path"], path.relative_to(ROOT).as_posix())
+        self.assertEqual(origin["sha256"], hashlib.sha256(path.read_bytes()).hexdigest())
+        graph = KnowledgeGraph(self.catalog)
+        for name in names:
+            with self.subTest(name=name):
+                self.assertIn(name, self.catalog["roots"])
+                self.assertIn(name, self.catalog["module_declarations_by_module"][module])
+                node = self.nodes[name]
+                self.assertEqual(node["kind"], "theorem")
+                self.assertEqual(node["module"], module)
+                self.assertIsInstance(node["value"], int)
+                self.assertTrue(node["proof"])
+                self.assertGreater(node["source"]["line"], 0)
+                self.assertTrue(set(node["axioms"]) <= set(self.policy["modules"][module]["allowed_axioms"]))
+                for subject in ("convex_geometry", "convex_analysis", "euclidean_geometry", "geometry", "analysis", "mathematics"):
+                    self.assertIn(name, {node["name"] for node in graph.search(name, subject=subject)})
+
+    def test_convex_geometry_statements_match_reference_types(self):
+        run(ROOT, [self.lake, "env", "lean", "tests/ConvexGeometryStatements.lean"], capture=True)
+
+    def test_euclidean_geometry_statements_match_reference_types(self):
+        run(ROOT, [self.lake, "env", "lean", "tests/EuclideanGeometryStatements.lean"], capture=True)
+
+    def test_convex_geometry_objects_and_results_retain_terms_and_sources(self):
+        expected = {
+            "Convexity.StdSimplex": "Mathlib.Geometry.Convex.ConvexSpace.Defs",
+            "Convexity.ConvexSpace": "Mathlib.Geometry.Convex.ConvexSpace.Defs",
+            "Convexity.IsAffineMap": "Mathlib.Geometry.Convex.ConvexSpace.Defs",
+            "Convexity.IsConvexSet": "Mathlib.Geometry.Convex.Set",
+            "Convexity.convexHull": "Mathlib.Geometry.Convex.Hull",
+            "Convex": "Mathlib.Analysis.Convex.Basic",
+            "convexHull": "Mathlib.Analysis.Convex.Hull",
+            "ConvexOn": "Mathlib.Analysis.Convex.Function",
+            "StrictConvexOn": "Mathlib.Analysis.Convex.Function",
+            "Set.extremePoints": "Mathlib.Analysis.Convex.Extreme",
+            "ConvexCone": "Mathlib.Geometry.Convex.Cone.Basic",
+            "PointedCone": "Mathlib.Geometry.Convex.Cone.Pointed",
+            "ProperCone": "Mathlib.Analysis.Convex.Cone.Basic",
+            "ProperCone.innerDual": "Mathlib.Analysis.Convex.Cone.InnerDual",
+            "ProperCone.innerDual_innerDual": "Mathlib.Analysis.Convex.Cone.InnerDual",
+            "convexHull_eq_union": "Mathlib.Analysis.Convex.Caratheodory",
+            "eq_pos_convex_span_of_mem_convexHull": "Mathlib.Analysis.Convex.Caratheodory",
+            "Convex.radon_partition": "Mathlib.Analysis.Convex.Radon",
+            "Convex.helly_theorem": "Mathlib.Analysis.Convex.Radon",
+            "Convex.helly_theorem_compact": "Mathlib.Analysis.Convex.Radon",
+            "IsCompact.extremePoints_nonempty": "Mathlib.Analysis.Convex.KreinMilman",
+            "closure_convexHull_extremePoints": "Mathlib.Analysis.Convex.KreinMilman",
+            "ConvexOn.map_sum_le": "Mathlib.Analysis.Convex.Jensen",
+            "StrictConvexOn.map_sum_eq_iff_of_pos": "Mathlib.Analysis.Convex.Jensen",
+            "doublyStochastic_eq_convexHull_permMatrix": "Mathlib.Analysis.Convex.Birkhoff",
+            "extremePoints_doublyStochastic": "Mathlib.Analysis.Convex.Birkhoff",
+            "exists_eq_sum_perm_of_mem_doublyStochastic": "Mathlib.Analysis.Convex.Birkhoff",
+            "exists_convex_convex_compl_subset": "Mathlib.Analysis.Convex.StoneSeparation",
+            "Convex.contractibleSpace": "Mathlib.Analysis.Convex.Contractible",
+            "EuclideanGeometry.Sphere": "Mathlib.Geometry.Euclidean.Sphere.Basic",
+            "EuclideanGeometry.Cospherical": "Mathlib.Geometry.Euclidean.Sphere.Basic",
+            "EuclideanGeometry.dist_sq_eq_dist_sq_add_dist_sq_sub_two_mul_dist_mul_dist_mul_cos_angle": "Mathlib.Geometry.Euclidean.Triangle",
+            "EuclideanGeometry.sin_angle_mul_dist_eq_sin_angle_mul_dist": "Mathlib.Geometry.Euclidean.Triangle",
+            "EuclideanGeometry.angle_add_angle_add_angle_eq_pi": "Mathlib.Geometry.Euclidean.Triangle",
+            "EuclideanGeometry.dist_sq_add_dist_sq_eq_two_mul_dist_midpoint_sq_add_half_dist_sq": "Mathlib.Geometry.Euclidean.Triangle",
+            "EuclideanGeometry.dist_sq_add_dist_sq_eq_dist_sq_add_dist_sq_of_angle_eq_pi_div_two": "Mathlib.Geometry.Euclidean.BritishFlag",
+            "EuclideanGeometry.mul_dist_le_mul_dist_add_mul_dist": "Mathlib.Geometry.Euclidean.Inversion.Basic",
+            "EuclideanGeometry.mul_dist_add_mul_dist_eq_mul_dist_of_cospherical": "Mathlib.Geometry.Euclidean.Sphere.Ptolemy",
+            "EuclideanGeometry.inversion": "Mathlib.Geometry.Euclidean.Inversion.Basic",
+            "EuclideanGeometry.inversion_inversion": "Mathlib.Geometry.Euclidean.Inversion.Basic",
+            "EuclideanGeometry.dist_inversion_inversion": "Mathlib.Geometry.Euclidean.Inversion.Basic",
+            "Affine.Simplex.ninePointCircle": "Mathlib.Geometry.Euclidean.NinePointCircle",
+            "Affine.Simplex.eulerPoint": "Mathlib.Geometry.Euclidean.NinePointCircle",
+            "Affine.Simplex.eulerPoint_mem_ninePointCircle": "Mathlib.Geometry.Euclidean.NinePointCircle",
+            "Affine.Triangle.altitudeFoot_mem_ninePointCircle": "Mathlib.Geometry.Euclidean.NinePointCircle",
+            "Affine.Simplex.volume_eq_euclideanHausdorffMeasure_real_closedInterior": "Mathlib.Geometry.Euclidean.Volume.MeasureSimplex",
+            "Math.ConvexGeometry.exists_finset_card_le_finrank_succ": "Math.Geometry.ConvexFinite",
+            "Math.ConvexGeometry.convexHull_eq_union_card_le_finrank_succ": "Math.Geometry.ConvexFinite",
+            "Math.ConvexGeometry.exists_positive_weights_card_le_finrank_succ": "Math.Geometry.ConvexFinite",
+            "Math.ConvexGeometry.radon_partition_of_finrank_lt_card": "Math.Geometry.ConvexFinite",
+            "Math.ConvexGeometry.radon_partition_finrank_add_two": "Math.Geometry.ConvexFinite"
+        }
+        for name, module in expected.items():
+            with self.subTest(name=name):
+                self.assertIn(name, self.catalog["roots"])
+                node = self.nodes[name]
+                self.assertEqual(node["module"], module)
+                if node["kind"] in {"definition", "theorem", "opaque"}:
+                    self.assertIsInstance(node["value"], int)
+                    self.assertTrue(node["proof"])
+                self.assertTrue(set(node["axioms"]) <= self.policy["axioms"].keys())
+                origin = self.catalog["sources"][module]
+                if module.startswith("Mathlib."):
+                    self.assertEqual(origin["revision"], self.policy["libraries"]["mathlib"]["revision"])
+                    self.assertEqual(origin["license"], "Apache-2.0")
+                    self.assertIn(origin["revision"], origin["url"])
+                else:
+                    self.assertEqual(origin["package"], "math")
+
+    def test_convex_geometry_hierarchies_retain_models_hypotheses_and_axiom_paths(self):
+        expected = {
+            "Math.ConvexGeometry.exists_finset_card_le_finrank_succ": [
+                "Caratheodory.affineIndependent_minCardFinsetOfMemConvexHull",
+                "AffineIndependent.card_le_finrank_succ",
+                "convexHull"
+            ],
+            "Math.ConvexGeometry.exists_positive_weights_card_le_finrank_succ": [
+                "eq_pos_convex_span_of_mem_convexHull",
+                "AffineIndependent.card_le_finrank_succ",
+                "convexHull"
+            ],
+            "Math.ConvexGeometry.radon_partition_finrank_add_two": [
+                "Math.ConvexGeometry.radon_partition_of_finrank_lt_card",
+                "Convex.radon_partition",
+                "AffineIndependent.card_le_finrank_succ"
+            ],
+            "closure_convexHull_extremePoints": [
+                "Set.extremePoints",
+                "convexHull",
+                "IsCompact.extremePoints_nonempty",
+                "geometric_hahn_banach_closed_point"
+            ],
+            "convexHull_eq_union": [
+                "AffineIndependent",
+                "convexHull",
+                "Caratheodory.affineIndependent_minCardFinsetOfMemConvexHull"
+            ],
+            "Convex.helly_theorem": [
+                "Convex.radon_partition",
+                "Module.finrank",
+                "Convex",
+                "convexHull"
+            ],
+            "ConvexOn.map_sum_le": [
+                "ConvexOn",
+                "Finset.centerMass",
+                "Convex"
+            ],
+            "doublyStochastic_eq_convexHull_permMatrix": [
+                "doublyStochastic",
+                "convexHull",
+                "exists_eq_sum_perm_of_mem_doublyStochastic"
+            ],
+            "EuclideanGeometry.dist_sq_eq_dist_sq_add_dist_sq_sub_two_mul_dist_mul_dist_mul_cos_angle": [
+                "EuclideanGeometry.angle",
+                "Real.cos",
+                "InnerProductSpace"
+            ],
+            "EuclideanGeometry.mul_dist_add_mul_dist_eq_mul_dist_of_cospherical": [
+                "EuclideanGeometry.Cospherical",
+                "EuclideanGeometry.angle"
+            ],
+            "Affine.Triangle.altitudeFoot_mem_ninePointCircle": [
+                "Affine.Simplex.ninePointCircle",
+                "Affine.Simplex.eulerPoint",
+                "Affine.Simplex.circumcenter"
+            ],
+            "EuclideanGeometry.inversion_inversion": [
+                "EuclideanGeometry.inversion",
+                "EuclideanGeometry.dist_inversion_center"
+            ],
+            "exists_convex_convex_compl_subset": [
+                "Convex",
+                "zorn_subset_nonempty"
+            ]
+        }
+        graph = KnowledgeGraph(self.catalog)
+        for name, objects in expected.items():
+            with self.subTest(name=name):
+                hierarchy = graph.hierarchy(name)
+                reached = {node["name"] for node in hierarchy["declarations"]}
+                self.assertTrue(set(objects) <= reached, set(objects) - reached)
+                self.assertEqual(set(hierarchy["axiom_paths"]), set(self.nodes[name]["axioms"]))
+                for axiom, path in hierarchy["axiom_paths"].items():
+                    self.assertEqual(path[0], name)
+                    self.assertEqual(path[-1], axiom)
+                    for source, target in zip(path, path[1:]):
+                        self.assertIn(target, self.nodes[source]["dependencies"])
+
+    def test_convex_geometry_subjects_retain_results_and_parents(self):
+        expected = {
+            "euclidean_geometry": [
+                "geometry",
+                "EuclideanGeometry.mul_dist_le_mul_dist_add_mul_dist"
+            ],
+            "triangle_geometry": [
+                "euclidean_geometry",
+                "EuclideanGeometry.angle_add_angle_add_angle_eq_pi"
+            ],
+            "circles_and_spheres": [
+                "euclidean_geometry",
+                "Affine.Triangle.altitudeFoot_mem_ninePointCircle"
+            ],
+            "convex_geometry": [
+                "geometry",
+                "convexHull_eq_union"
+            ],
+            "convex_analysis": [
+                "analysis",
+                "closure_convexHull_extremePoints"
+            ],
+            "convex_cones": [
+                "convex_geometry",
+                "ProperCone.innerDual_innerDual"
+            ],
+            "convex_functions": [
+                "convex_analysis",
+                "ConvexOn.map_sum_le"
+            ]
+        }
+        graph = KnowledgeGraph(self.catalog)
+        for subject, (parent, name) in expected.items():
+            with self.subTest(subject=subject):
+                self.assertEqual(self.catalog["subjects"][subject]["parent"], parent)
+                for ancestor in (subject, parent, "mathematics"):
+                    self.assertIn(name, {node["name"] for node in graph.search(name, subject=ancestor)})
+
+    def test_convex_geometry_references_retain_pinned_records(self):
+        snapshot = open_snapshot(ROOT)
+        references = snapshot.citations("closure_convexHull_extremePoints")
+        self.assertIn("simon2011", {entry["key"] for entry in references["module_citations"]})
+
     def test_harnack_sharpness_retains_local_proofs_and_source(self):
         expected = {
             "Math.ComplexAnalysis.harnackExtremal": "definition",
