@@ -5308,7 +5308,9 @@
         "Mathlib.Analysis.Complex.ValueDistribution.Proximity.IntegralPresentation",
         "Mathlib.Analysis.Complex.ValueDistribution.SecondMainTheorem",
         "Math.Analysis.EntireAffine",
-        "Math.Analysis.HarmonicPoisson"
+        "Math.Analysis.HarmonicPoisson",
+        "Math.Analysis.Harnack",
+        "Math.Analysis.HarmonicMaximum"
       ]
     },
     "measure_theory": {
@@ -6258,7 +6260,9 @@
         "Mathlib.Analysis.Distribution.FourierMultiplier",
         "Mathlib.Analysis.Distribution.Sobolev",
         "Math.Analysis.BesselEquation",
-        "Math.Analysis.HarmonicPoisson"
+        "Math.Analysis.HarmonicPoisson",
+        "Math.Analysis.Harnack",
+        "Math.Analysis.HarmonicMaximum"
       ]
     },
     "analytic_functions": {
@@ -6361,7 +6365,9 @@
         "Mathlib.Analysis.Complex.Harmonic.Liouville",
         "Mathlib.Analysis.Complex.Harmonic.MeanValue",
         "Mathlib.Analysis.Complex.Harmonic.Poisson",
-        "Math.Analysis.HarmonicPoisson"
+        "Math.Analysis.HarmonicPoisson",
+        "Math.Analysis.Harnack",
+        "Math.Analysis.HarmonicMaximum"
       ]
     },
     "hyperbolic_geometry": {
@@ -6470,6 +6476,22 @@
     },
     "Math.Analysis.HarmonicPoisson": {
       "title": "Banach-valued harmonic Poisson formula",
+      "allowed_axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    "Math.Analysis.Harnack": {
+      "title": "Harnack inequalities and harmonic maximum principles",
+      "allowed_axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    "Math.Analysis.HarmonicMaximum": {
+      "title": "Banach-valued harmonic boundary bounds and stability",
       "allowed_axioms": [
         "propext",
         "Quot.sound",

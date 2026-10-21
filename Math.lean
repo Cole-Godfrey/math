@@ -10,3 +10,5 @@ import Math.Analysis.LaxMilgram
 import Math.Analysis.BesselEquation
 import Math.Analysis.EntireAffine
 import Math.Analysis.HarmonicPoisson
+import Math.Analysis.Harnack
+import Math.Analysis.HarmonicMaximum

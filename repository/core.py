@@ -185,7 +185,7 @@ class ExpressionPool:
         self.parameters: list[frozenset[str]] = []
         universe_sets: dict[frozenset[str], frozenset[str]] = {}
         self.hashes: list[str] = []
-        self.used: set[int] = set()
+        self.used = bytearray(len(records))
         self.cache: dict[int, set[str]] = {}
         for index, node in enumerate(records):
             require(isinstance(node, dict), "invalid expression")
@@ -243,11 +243,11 @@ class ExpressionPool:
                 if index in seen:
                     continue
                 seen.add(index)
+                self.used[index] = 1
                 node = self.records[index]
                 if node["tag"] in {"const", "proj"}:
                     names.add(node["name"])
                 pending.extend(node[field] for field in CHILD_FIELDS.get(node["tag"], ()))
-            self.used |= seen
             self.cache[reference] = names
         return self.cache[reference].copy()
 
@@ -527,7 +527,7 @@ def validate(raw: dict, policy: dict) -> dict:
                 require(set(node[field]) == expected, f"{field} differs from expressions")
         except RepositoryError as exc:
             raise RepositoryError(f"{name}: {exc}") from exc
-    require(len(expressions.used) == len(expressions.records), "export contains unreachable expressions")
+    require(all(expressions.used), "export contains unreachable expressions")
     return {
         **raw,
         "foundation": policy["foundation"],

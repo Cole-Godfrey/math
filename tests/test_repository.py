@@ -986,6 +986,151 @@ class RepositoryTests(RepositoryArtifacts, unittest.TestCase):
         references = snapshot.citations("Ordinal.veblen")
         self.assertIn("Miller_1976", {entry["key"] for entry in references["module_citations"]})
 
+    def test_harmonic_maximum_statements_match_reference_types(self):
+        run(ROOT, [self.lake, "env", "lean", "tests/HarmonicMaximumStatements.lean"], capture=True)
+
+    def test_harnack_statements_match_reference_types(self):
+        run(ROOT, [self.lake, "env", "lean", "tests/HarnackStatements.lean"], capture=True)
+
+    def test_harmonic_principles_retain_local_proofs_and_source(self):
+        expected = {
+            "Math.Analysis.Harnack": [
+                "Math.ComplexAnalysis.harnack_lower",
+                "Math.ComplexAnalysis.harnack_upper",
+                "Math.ComplexAnalysis.harnack_lower_on_ball",
+                "Math.ComplexAnalysis.harnack_upper_on_ball",
+                "Math.ComplexAnalysis.harnack_on_closedBall",
+                "Math.ComplexAnalysis.eq_zero_on_ball_of_harmonic_nonneg",
+                "Math.ComplexAnalysis.eq_zero_iff_center_of_harmonic_nonneg",
+                "Math.ComplexAnalysis.pos_on_ball_of_harmonic_nonneg",
+                "Math.ComplexAnalysis.eq_zero_on_preconnected_of_harmonic_nonneg",
+                "Math.ComplexAnalysis.eq_on_preconnected_of_harmonic_min",
+                "Math.ComplexAnalysis.eq_on_preconnected_of_harmonic_max",
+                "Math.ComplexAnalysis.eq_of_entire_harmonic_nonneg",
+                "Math.ComplexAnalysis.eq_of_entire_harmonic_bddBelow",
+                "Math.ComplexAnalysis.eq_of_entire_harmonic_bddAbove"
+            ],
+            "Math.Analysis.HarmonicMaximum": [
+                "Math.ComplexAnalysis.poissonKernel_nonneg_on_sphere",
+                "Math.ComplexAnalysis.circleAverage_poissonKernel_eq_one",
+                "Math.ComplexAnalysis.harmonic_norm_le_boundary_bound",
+                "Math.ComplexAnalysis.harmonic_dist_le_boundary_bound"
+            ]
+        }
+        for module, names in expected.items():
+            path = ROOT / (module.replace(".", "/") + ".lean")
+            origin = self.catalog["sources"][module]
+            self.assertEqual(origin["package"], "math")
+            self.assertEqual(origin["path"], path.relative_to(ROOT).as_posix())
+            self.assertEqual(origin["sha256"], hashlib.sha256(path.read_bytes()).hexdigest())
+            for name in names:
+                with self.subTest(name=name):
+                    self.assertIn(name, self.catalog["roots"])
+                    self.assertIn(name, self.catalog["module_declarations_by_module"][module])
+                    node = self.nodes[name]
+                    self.assertEqual(node["module"], module)
+                    self.assertEqual(node["kind"], "theorem")
+                    self.assertIsInstance(node["value"], int)
+                    self.assertTrue(node["proof"])
+                    self.assertGreater(node["source"]["line"], 0)
+                    self.assertTrue(set(node["axioms"]) <= set(self.policy["modules"][module]["allowed_axioms"]))
+
+    def test_harnack_hierarchies_retain_hypotheses_and_axiom_paths(self):
+        graph = KnowledgeGraph(self.catalog)
+        expected = {
+            "Math.ComplexAnalysis.harnack_lower": {
+                "Math.ComplexAnalysis.harmonic_poisson_formula",
+                "InnerProductSpace.HarmonicContOnCl",
+                "poissonKernel",
+                "Real.circleAverage_mono",
+                "le_re_herglotzRieszKernel",
+            },
+            "Math.ComplexAnalysis.harnack_upper": {
+                "Math.ComplexAnalysis.harmonic_poisson_formula",
+                "re_herglotzRieszKernel_le",
+                "Metric.sphere",
+            },
+            "Math.ComplexAnalysis.harnack_lower_on_ball": {
+                "Math.ComplexAnalysis.harnack_lower",
+                "InnerProductSpace.HarmonicOnNhd",
+                "Metric.ball",
+                "le_of_tendsto",
+            },
+            "Math.ComplexAnalysis.harnack_on_closedBall": {
+                "Math.ComplexAnalysis.harnack_lower_on_ball",
+                "Math.ComplexAnalysis.harnack_upper_on_ball",
+                "Metric.closedBall",
+            },
+            "Math.ComplexAnalysis.eq_zero_on_preconnected_of_harmonic_nonneg": {
+                "Math.ComplexAnalysis.harnack_upper_on_ball",
+                "IsPreconnected",
+                "IsOpen",
+                "IsClopen",
+                "ContinuousOn",
+            },
+            "Math.ComplexAnalysis.eq_on_preconnected_of_harmonic_min": {
+                "Math.ComplexAnalysis.eq_zero_on_preconnected_of_harmonic_nonneg",
+                "InnerProductSpace.HarmonicOnNhd",
+                "IsPreconnected",
+            },
+            "Math.ComplexAnalysis.eq_of_entire_harmonic_nonneg": {
+                "Math.ComplexAnalysis.harnack_upper_on_ball",
+                "Filter.Tendsto.const_div_atTop",
+                "InnerProductSpace.HarmonicOnNhd",
+            },
+            "Math.ComplexAnalysis.eq_of_entire_harmonic_bddBelow": {
+                "Math.ComplexAnalysis.eq_of_entire_harmonic_nonneg",
+                "BddBelow",
+                "Set.range",
+            },
+            "Math.ComplexAnalysis.eq_of_entire_harmonic_bddAbove": {
+                "Math.ComplexAnalysis.eq_of_entire_harmonic_nonneg",
+                "BddAbove",
+                "Set.range",
+            },
+            "Math.ComplexAnalysis.circleAverage_poissonKernel_eq_one": {
+                "Math.ComplexAnalysis.harmonic_poisson_formula",
+                "Real.circleAverage",
+                "poissonKernel",
+            },
+            "Math.ComplexAnalysis.harmonic_norm_le_boundary_bound": {
+                "Math.ComplexAnalysis.poissonKernel_nonneg_on_sphere",
+                "Math.ComplexAnalysis.circleAverage_poissonKernel_eq_one",
+                "Real.norm_circleAverage_le_circleAverage_norm",
+                "InnerProductSpace.HarmonicContOnCl",
+                "CompleteSpace",
+                "NormedSpace",
+                "Metric.closedBall",
+            },
+            "Math.ComplexAnalysis.harmonic_dist_le_boundary_bound": {
+                "Math.ComplexAnalysis.harmonic_norm_le_boundary_bound",
+                "InnerProductSpace.HarmonicContOnCl.sub",
+                "dist_eq_norm",
+            },
+        }
+        for name, objects in expected.items():
+            with self.subTest(name=name):
+                hierarchy = graph.hierarchy(name)
+                reached = {node["name"] for node in hierarchy["declarations"]}
+                self.assertTrue(objects <= reached, objects - reached)
+                self.assertEqual(set(hierarchy["axiom_paths"]), set(self.nodes[name]["axioms"]))
+                for axiom, path in hierarchy["axiom_paths"].items():
+                    self.assertEqual(path[0], name)
+                    self.assertEqual(path[-1], axiom)
+                    for source, target in zip(path, path[1:]):
+                        self.assertIn(target, self.nodes[source]["dependencies"])
+
+    def test_harnack_principles_belong_to_harmonic_functions_and_pde(self):
+        graph = KnowledgeGraph(self.catalog)
+        module = "Math.Analysis.Harnack"
+        names = {name for name in self.catalog["roots"]
+                 if self.nodes[name]["module"] in {module, "Math.Analysis.HarmonicMaximum"}}
+        for subject in ("harmonic_functions", "complex_analysis", "partial_differential_equations",
+                        "analysis", "mathematics"):
+            with self.subTest(subject=subject):
+                actual = {node["name"] for node in graph.search("Math.ComplexAnalysis", subject=subject)}
+                self.assertTrue(names <= actual, names - actual)
+
     def test_complex_analysis_statements_match_reference_types(self):
         run(ROOT, [self.lake, "env", "lean", "tests/ComplexAnalysisStatements.lean"], capture=True)
 
