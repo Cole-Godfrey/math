@@ -5,6 +5,7 @@ from __future__ import annotations
 import hashlib
 import json
 from collections import defaultdict, deque
+from collections.abc import Sequence
 from typing import Any
 
 
@@ -20,9 +21,15 @@ VALUE_KINDS = {"definition", "theorem", "opaque"}
 BINDERS = {"explicit", "implicit", "strict_implicit", "instance_implicit"}
 
 
+def _json_default(value):
+    if isinstance(value, PackedHexDigests):
+        return list(value)
+    raise TypeError(f"object of type {type(value).__name__} is not json serializable")
+
+
 def canonical(value: Any) -> bytes:
     """encode stable json for content identifiers."""
-    return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode()
+    return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":"), default=_json_default).encode()
 
 
 def digest(value: Any) -> str:
@@ -40,7 +47,7 @@ def canonical_chunks(value: Any, chunk_size: int = 64 * 1024):
                 yield canonical(key) + b":"
                 yield from parts(item[key], depth - 1)
             yield b"}"
-        elif depth and isinstance(item, (list, tuple)):
+        elif depth and isinstance(item, (list, tuple, PackedHexDigests)):
             yield b"["
             for index, child in enumerate(item):
                 if index:
@@ -175,6 +182,39 @@ CHILD_FIELDS = {
 }
 
 
+class PackedHexDigests(Sequence):
+    """retain sha256 values as bytes while exposing their original hexadecimal strings."""
+
+    def __init__(self):
+        self.data = bytearray()
+
+    def append(self, value):
+        raw = bytes.fromhex(value)
+        require(len(raw) == 32 and raw.hex() == value, "invalid expression digest")
+        self.data.extend(raw)
+
+    def __len__(self):
+        return len(self.data) // 32
+
+    def __getitem__(self, index):
+        if isinstance(index, slice):
+            return [self[i] for i in range(*index.indices(len(self)))]
+        if index < 0:
+            index += len(self)
+        if not 0 <= index < len(self):
+            raise IndexError(index)
+        return self.data[index * 32:(index + 1) * 32].hex()
+
+    def __iter__(self):
+        for offset in range(0, len(self.data), 32):
+            yield self.data[offset:offset + 32].hex()
+
+    def __eq__(self, other):
+        if not isinstance(other, (list, PackedHexDigests)):
+            return NotImplemented
+        return len(self) == len(other) and all(a == b for a, b in zip(self, other))
+
+
 class ExpressionPool:
     """audit a shared term graph, including binder scope at each declaration root."""
 
@@ -184,7 +224,7 @@ class ExpressionPool:
         self.loose: list[int] = []
         self.parameters: list[frozenset[str]] = []
         universe_sets: dict[frozenset[str], frozenset[str]] = {}
-        self.hashes: list[str] = []
+        self.hashes = PackedHexDigests()
         self.used = bytearray(len(records))
         self.cache: dict[int, set[str]] = {}
         for index, node in enumerate(records):

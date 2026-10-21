@@ -3,10 +3,14 @@
 from __future__ import annotations
 
 import json
+import re
 from functools import partial
 from typing import TextIO
 
-from .core import RepositoryError, require
+from .core import PackedHexDigests, RepositoryError, require
+
+
+_SHA256 = re.compile(r"[0-9a-f]{64}\Z")
 
 
 _SYNTAX_TAGS = {tag: tag for tag in (
@@ -95,12 +99,16 @@ class _Reader:
             self.position = end
             return value
 
-    def array(self):
+    def array(self, compact_hashes=False):
         self.expect("[")
-        result = []
+        result = PackedHexDigests() if compact_hashes else []
         if self.peek() != "]":
             while True:
-                result.append(self.value())
+                value = self.value()
+                if isinstance(result, PackedHexDigests) and not (
+                        isinstance(value, str) and _SHA256.fullmatch(value)):
+                    result = list(result)
+                result.append(value)
                 if self.peek() != ",":
                     break
                 self.position += 1
@@ -117,17 +125,17 @@ class _Reader:
                 key = self.keys.setdefault(key, key)
                 require(key not in result, f"duplicate json field: {key}")
                 self.expect(":")
-                result[key] = self.container() if split_values else self.value()
+                result[key] = self.container(key) if split_values else self.value()
                 if self.peek() != ",":
                     break
                 self.position += 1
         self.expect("}")
         return result
 
-    def container(self):
+    def container(self, key=None):
         character = self.peek()
         if character == "[":
-            return self.array()
+            return self.array(compact_hashes=key == "expression_hashes")
         if character == "{":
             return self.object()
         return self.value()

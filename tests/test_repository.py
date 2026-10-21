@@ -986,6 +986,279 @@ class RepositoryTests(RepositoryArtifacts, unittest.TestCase):
         references = snapshot.citations("Ordinal.veblen")
         self.assertIn("Miller_1976", {entry["key"] for entry in references["module_citations"]})
 
+    def test_compact_complex_rigidity_retains_local_proofs_and_source(self):
+        names = [
+            "Math.ComplexGeometry.range_subsingleton",
+            "Math.ComplexGeometry.mfderiv_eq_zero",
+            "Math.ComplexGeometry.injective_iff_subsingleton",
+            "Math.ComplexGeometry.not_injective",
+            "Math.ComplexGeometry.not_surjective",
+            "Math.ComplexGeometry.not_injective_mfderiv",
+            "Math.ComplexGeometry.not_isImmersionAt",
+            "Math.ComplexGeometry.not_isImmersion"
+        ]
+        module = "Math.Geometry.CompactComplex"
+        path = ROOT / "Math/Geometry/CompactComplex.lean"
+        origin = self.catalog["sources"][module]
+        self.assertEqual(origin["package"], "math")
+        self.assertEqual(origin["path"], path.relative_to(ROOT).as_posix())
+        self.assertEqual(origin["sha256"], hashlib.sha256(path.read_bytes()).hexdigest())
+        graph = KnowledgeGraph(self.catalog)
+        for name in names:
+            with self.subTest(name=name):
+                self.assertIn(name, self.catalog["roots"])
+                self.assertIn(name, self.catalog["module_declarations_by_module"][module])
+                node = self.nodes[name]
+                self.assertEqual(node["module"], module)
+                self.assertEqual(node["kind"], "theorem")
+                self.assertIsInstance(node["value"], int)
+                self.assertTrue(node["proof"])
+                self.assertGreater(node["source"]["line"], 0)
+                self.assertTrue(set(node["axioms"]) <= set(self.policy["modules"][module]["allowed_axioms"]))
+                for subject in ("smooth_manifolds", "differential_geometry", "geometry",
+                                "complex_analysis", "holomorphic_functions", "analysis", "mathematics"):
+                    self.assertIn(name, {node["name"] for node in graph.search(name, subject=subject)})
+
+    def test_manifold_statements_match_reference_types(self):
+        run(ROOT, [self.lake, "env", "lean", "tests/ManifoldStatements.lean"], capture=True)
+
+    def test_manifold_coverage_retains_every_pinned_module(self):
+        base = ROOT / ".lake/packages/mathlib"
+        paths = (base / "Mathlib/Geometry/Manifold").rglob("*.lean")
+        expected = {".".join(path.relative_to(base).with_suffix("").parts) for path in paths}
+        registered = self.policy["libraries"]["mathlib"]["modules"]
+        self.assertEqual({name for name in registered if name.startswith("Mathlib.Geometry.Manifold.")}, expected)
+        self.assertEqual(len(expected), 79)
+        for module in expected:
+            with self.subTest(module=module):
+                self.assertIn(module, self.catalog["module_policy"])
+                self.assertIn(module, self.catalog["module_declarations_by_module"])
+                self.assertIn(module, self.catalog["sources"])
+
+    def test_manifold_objects_and_results_retain_terms_and_sources(self):
+        expected = {
+            "ChartedSpace": "Mathlib.Geometry.Manifold.ChartedSpace",
+            "StructureGroupoid": "Mathlib.Geometry.Manifold.StructureGroupoid",
+            "HasGroupoid": "Mathlib.Geometry.Manifold.HasGroupoid",
+            "ModelWithCorners": "Mathlib.Geometry.Manifold.IsManifold.Basic",
+            "IsManifold": "Mathlib.Geometry.Manifold.IsManifold.Basic",
+            "TangentSpace": "Mathlib.Geometry.Manifold.IsManifold.Basic",
+            "TangentBundle": "Mathlib.Geometry.Manifold.IsManifold.Basic",
+            "ContMDiff": "Mathlib.Geometry.Manifold.ContMDiff.Defs",
+            "ContMDiffAt": "Mathlib.Geometry.Manifold.ContMDiff.Defs",
+            "MDifferentiable": "Mathlib.Geometry.Manifold.MFDeriv.Defs",
+            "MDifferentiableAt": "Mathlib.Geometry.Manifold.MFDeriv.Defs",
+            "mfderiv": "Mathlib.Geometry.Manifold.MFDeriv.Defs",
+            "tangentMap": "Mathlib.Geometry.Manifold.MFDeriv.Defs",
+            "mfderiv_comp": "Mathlib.Geometry.Manifold.MFDeriv.Basic",
+            "mfderiv_comp_apply": "Mathlib.Geometry.Manifold.MFDeriv.Basic",
+            "tangentMap_comp": "Mathlib.Geometry.Manifold.MFDeriv.Basic",
+            "Diffeomorph": "Mathlib.Geometry.Manifold.Diffeomorph",
+            "Diffeomorph.isInvertible_mfderiv": "Mathlib.Geometry.Manifold.LocalDiffeomorph",
+            "IsLocalDiffeomorphAt": "Mathlib.Geometry.Manifold.LocalDiffeomorph",
+            "IsLocalDiffeomorphAt.isInvertible_mfderiv": "Mathlib.Geometry.Manifold.LocalDiffeomorph",
+            "Manifold.IsImmersionAt": "Mathlib.Geometry.Manifold.Immersion",
+            "Manifold.IsSubmersionAt": "Mathlib.Geometry.Manifold.Submersion",
+            "SmoothBumpFunction": "Mathlib.Geometry.Manifold.BumpFunction",
+            "SmoothPartitionOfUnity": "Mathlib.Geometry.Manifold.PartitionOfUnity",
+            "SmoothPartitionOfUnity.exists_isSubordinate_chartAt_source": "Mathlib.Geometry.Manifold.PartitionOfUnity",
+            "Continuous.exists_contMDiff_approx": "Mathlib.Geometry.Manifold.SmoothApprox",
+            "Continuous.exists_contMDiff_approx_and_eqOn": "Mathlib.Geometry.Manifold.SmoothApprox",
+            "exists_contMDiff_zero_iff_one_iff_of_isClosed": "Mathlib.Geometry.Manifold.PartitionOfUnity",
+            "exists_embedding_euclidean_of_compact": "Mathlib.Geometry.Manifold.WhitneyEmbedding",
+            "GroupLieAlgebra": "Mathlib.Geometry.Manifold.GroupLieAlgebra",
+            "mulInvariantVectorField": "Mathlib.Geometry.Manifold.GroupLieAlgebra",
+            "instLieAlgebraGroupLieAlgebra": "Mathlib.Geometry.Manifold.GroupLieAlgebra",
+            "IsMIntegralCurve": "Mathlib.Geometry.Manifold.IntegralCurve.Basic",
+            "IsMIntegralCurveAt": "Mathlib.Geometry.Manifold.IntegralCurve.Basic",
+            "exists_isMIntegralCurveAt_of_contMDiffAt": "Mathlib.Geometry.Manifold.IntegralCurve.ExistUnique",
+            "isMIntegralCurve_Ioo_eq_of_contMDiff_boundaryless": "Mathlib.Geometry.Manifold.IntegralCurve.ExistUnique",
+            "IsMIntegralCurve.periodic_of_eq": "Mathlib.Geometry.Manifold.IntegralCurve.ExistUnique",
+            "IsMIntegralCurve.periodic_xor_injective": "Mathlib.Geometry.Manifold.IntegralCurve.ExistUnique",
+            "Bundle.RiemannianBundle": "Mathlib.Topology.VectorBundle.Riemannian",
+            "IsContMDiffRiemannianBundle": "Mathlib.Geometry.Manifold.VectorBundle.Riemannian",
+            "CovariantDerivative": "Mathlib.Geometry.Manifold.VectorBundle.CovariantDerivative.Basic",
+            "CovariantDerivative.IsLeviCivitaConnection": "Mathlib.Geometry.Manifold.VectorBundle.CovariantDerivative.LeviCivita",
+            "CovariantDerivative.IsLeviCivitaConnection.apply_eq": "Mathlib.Geometry.Manifold.VectorBundle.CovariantDerivative.LeviCivita",
+            "CovariantDerivative.IsLeviCivitaConnection.uniqueness": "Mathlib.Geometry.Manifold.VectorBundle.CovariantDerivative.LeviCivita",
+            "CovariantDerivative.leviCivitaConnection": "Mathlib.Geometry.Manifold.VectorBundle.CovariantDerivative.LeviCivita",
+            "CovariantDerivative.isMetricCompatible_leviCivitaConnection": "Mathlib.Geometry.Manifold.VectorBundle.CovariantDerivative.LeviCivita",
+            "CovariantDerivative.torsion_leviCivitaConnection_eq_zero": "Mathlib.Geometry.Manifold.VectorBundle.CovariantDerivative.LeviCivita",
+            "CovariantDerivative.isLeviCivitaConnection_leviCivitaConnection": "Mathlib.Geometry.Manifold.VectorBundle.CovariantDerivative.LeviCivita",
+            "VectorField.mlieBracket": "Mathlib.Geometry.Manifold.VectorField.LieBracket",
+            "Manifold.pathELength": "Mathlib.Geometry.Manifold.Riemannian.PathELength",
+            "Manifold.riemannianEDist": "Mathlib.Geometry.Manifold.Riemannian.PathELength",
+            "Manifold.riemannianEDist_triangle": "Mathlib.Geometry.Manifold.Riemannian.PathELength",
+            "Manifold.riemannianEDist_comm": "Mathlib.Geometry.Manifold.Riemannian.PathELength",
+            "Manifold.riemannianEDist_le_pathELength": "Mathlib.Geometry.Manifold.Riemannian.PathELength",
+            "MDifferentiable.exists_eq_const_of_compactSpace": "Mathlib.Geometry.Manifold.Complex",
+            "ContinuousMap.HomotopyEquiv.NonemptyDiffeomorphSphere": "Mathlib.Geometry.Manifold.PoincareConjecture"
+        }
+        for name, module in expected.items():
+            with self.subTest(name=name):
+                node = self.nodes[name]
+                self.assertEqual(node["module"], module)
+                if module in self.policy["libraries"]["mathlib"]["modules"]:
+                    self.assertIn(name, self.catalog["roots"])
+                if node["kind"] in {"definition", "theorem", "opaque"}:
+                    self.assertIsInstance(node["value"], int)
+                    self.assertTrue(node["proof"])
+                self.assertTrue(set(node["axioms"]) <= self.policy["axioms"].keys())
+                origin = self.catalog["sources"][module]
+                self.assertEqual(origin["revision"], self.policy["libraries"]["mathlib"]["revision"])
+                self.assertEqual(origin["license"], "Apache-2.0")
+                self.assertIn(origin["revision"], origin["url"])
+
+    def test_manifold_hierarchies_retain_models_hypotheses_and_axiom_paths(self):
+        graph = KnowledgeGraph(self.catalog)
+        expected = {
+            "mfderiv_comp": [
+                "mfderiv",
+                "MDifferentiableAt",
+                "ContinuousLinearMap",
+                "ModelWithCorners",
+                "ChartedSpace"
+            ],
+            "Diffeomorph.isInvertible_mfderiv": [
+                "Diffeomorph",
+                "mfderiv",
+                "ContinuousLinearEquiv",
+                "IsLocalDiffeomorphAt"
+            ],
+            "exists_embedding_euclidean_of_compact": [
+                "CompactSpace",
+                "IsManifold",
+                "SmoothBumpCovering",
+                "EuclideanSpace",
+                "Topology.IsClosedEmbedding",
+                "mfderiv"
+            ],
+            "Continuous.exists_contMDiff_approx": [
+                "ContMDiff",
+                "Continuous",
+                "SmoothPartitionOfUnity",
+                "Dist.dist"
+            ],
+            "exists_contMDiff_zero_iff_one_iff_of_isClosed": [
+                "ContMDiff",
+                "IsClosed",
+                "SmoothPartitionOfUnity",
+                "Set.Icc"
+            ],
+            "IsMIntegralCurve.periodic_xor_injective": [
+                "IsMIntegralCurve",
+                "ContMDiff",
+                "BoundarylessManifold",
+                "Function.Periodic",
+                "Function.Injective"
+            ],
+            "exists_isMIntegralCurveAt_of_contMDiffAt": [
+                "IsMIntegralCurveAt",
+                "ModelWithCorners",
+                "CompleteSpace",
+                "IsPicardLindelof"
+            ],
+            "CovariantDerivative.IsLeviCivitaConnection.apply_eq": [
+                "CovariantDerivative",
+                "VectorField.mlieBracket",
+                "Inner.inner",
+                "mfderiv"
+            ],
+            "CovariantDerivative.IsLeviCivitaConnection.uniqueness": [
+                "CovariantDerivative.IsLeviCivitaConnection",
+                "MDifferentiableAt",
+                "TangentSpace"
+            ],
+            "CovariantDerivative.isLeviCivitaConnection_leviCivitaConnection": [
+                "CovariantDerivative.leviCivitaConnection",
+                "CovariantDerivative.IsLeviCivitaConnection",
+                "IsContMDiffRiemannianBundle",
+                "FiniteDimensional"
+            ],
+            "Manifold.riemannianEDist_triangle": [
+                "Manifold.riemannianEDist",
+                "Manifold.pathELength",
+                "ENNReal",
+                "ContMDiff"
+            ],
+            "MDifferentiable.exists_eq_const_of_compactSpace": [
+                "MDifferentiable",
+                "CompactSpace",
+                "PreconnectedSpace",
+                "Complex.norm_eventually_eq_of_mdifferentiableAt_of_isLocalMax"
+            ],
+            "instLieAlgebraGroupLieAlgebra": [
+                "GroupLieAlgebra",
+                "VectorField.mlieBracket",
+                "LieAlgebra",
+                "LieGroup",
+                "CompleteSpace"
+            ],
+            "Math.ComplexGeometry.mfderiv_eq_zero": [
+                "MDifferentiable.exists_eq_const_of_compactSpace",
+                "mfderiv_const",
+                "CompactSpace",
+                "PreconnectedSpace",
+                "ModelWithCorners"
+            ],
+            "Math.ComplexGeometry.not_isImmersionAt": [
+                "Math.ComplexGeometry.mfderiv_eq_zero",
+                "Math.ComplexGeometry.not_injective_mfderiv",
+                "Manifold.IsImmersionAt",
+                "Nontrivial",
+                "MDifferentiable"
+            ],
+            "Math.ComplexGeometry.not_isImmersion": [
+                "Math.ComplexGeometry.not_injective_mfderiv",
+                "Manifold.IsImmersion",
+                "Nonempty",
+                "ModelWithCorners"
+            ]
+        }
+        for name, objects in expected.items():
+            with self.subTest(name=name):
+                hierarchy = graph.hierarchy(name)
+                reached = {node["name"] for node in hierarchy["declarations"]}
+                self.assertTrue(set(objects) <= reached, set(objects) - reached)
+                self.assertEqual(set(hierarchy["axiom_paths"]), set(self.nodes[name]["axioms"]))
+                for axiom, path in hierarchy["axiom_paths"].items():
+                    self.assertEqual(path[0], name)
+                    self.assertEqual(path[-1], axiom)
+                    for source, target in zip(path, path[1:]):
+                        self.assertIn(target, self.nodes[source]["dependencies"])
+
+    def test_manifold_subjects_retain_results_and_parent_subjects(self):
+        graph = KnowledgeGraph(self.catalog)
+        expected = {
+            "differential_geometry": ("geometry", "CovariantDerivative.leviCivitaConnection"),
+            "smooth_manifolds": ("differential_geometry", "exists_embedding_euclidean_of_compact"),
+            "manifold_calculus": ("differential_geometry", "mfderiv_comp"),
+            "vector_bundles": ("differential_geometry", "CovariantDerivative"),
+            "riemannian_geometry": ("differential_geometry", "CovariantDerivative.isLeviCivitaConnection_leviCivitaConnection"),
+            "lie_groups": ("differential_geometry", "instLieAlgebraGroupLieAlgebra"),
+            "manifold_dynamics": ("dynamical_systems", "IsMIntegralCurve.periodic_xor_injective"),
+        }
+        for subject, (parent, name) in expected.items():
+            with self.subTest(subject=subject):
+                self.assertEqual(self.catalog["subjects"][subject]["parent"], parent)
+                for category in (subject, parent, "differential_geometry", "geometry", "mathematics"):
+                    self.assertIn(name, {node["name"] for node in graph.search(name, subject=category)})
+
+    def test_manifold_references_retain_their_pinned_records(self):
+        snapshot = open_snapshot(ROOT)
+        for name in ("exists_isMIntegralCurveAt_of_contMDiffAt", "IsMIntegralCurve.periodic_xor_injective"):
+            with self.subTest(name=name):
+                references = snapshot.citations(name)
+                self.assertIn("lee2012", {entry["key"] for entry in references["module_citations"]})
+
+    def test_poincare_module_records_a_conjecture_formulation(self):
+        module = "Mathlib.Geometry.Manifold.PoincareConjecture"
+        node = self.nodes["ContinuousMap.HomotopyEquiv.NonemptyDiffeomorphSphere"]
+        self.assertEqual(node["module"], module)
+        self.assertEqual(node["kind"], "definition")
+        self.assertIn("Prop", node["statement"])
+        self.assertIn("formulation", self.catalog["module_policy"][module]["title"].lower())
+
     def test_harmonic_maximum_statements_match_reference_types(self):
         run(ROOT, [self.lake, "env", "lean", "tests/HarmonicMaximumStatements.lean"], capture=True)
 

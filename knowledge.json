@@ -5073,6 +5073,638 @@
             "Quot.sound",
             "Classical.choice"
           ]
+        },
+        "Mathlib.Geometry.Manifold.Algebra.LeftInvariantDerivation": {
+          "title": "Left invariant derivations",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.Algebra.LieGroup": {
+          "title": "Lie groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.Algebra.Monoid": {
+          "title": "C^n monoid",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.Algebra.SMul": {
+          "title": "Cⁿ monoid actions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.Algebra.SmoothFunctions": {
+          "title": "Algebraic structures over C^n functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.Algebra.Structures": {
+          "title": "C^n structures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.Bordism": {
+          "title": "(Unoriented) bordism theory",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.BumpFunction": {
+          "title": "Smooth bump functions on a smooth manifold",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.Category.MfldCat.OfModel": {
+          "title": "Category of smooth manifolds",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.ChartedSpace": {
+          "title": "Charted spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.Complex": {
+          "title": "Holomorphic maps on compact complex manifolds",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.ConformalGroupoid": {
+          "title": "Conformal Groupoid",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.ContMDiff.Atlas": {
+          "title": "Smoothness of charts and local structomorphisms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.ContMDiff.Basic": {
+          "title": "Basic properties of C^n functions between manifolds",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.ContMDiff.Constructions": {
+          "title": "Smoothness of standard maps associated to the product of manifolds",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.ContMDiff.Defs": {
+          "title": "C^n functions between manifolds",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.ContMDiff.NormedSpace": {
+          "title": "Smooth maps into normed spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.ContMDiffMFDeriv": {
+          "title": "Interactions between differentiability, smoothness and manifold derivatives",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.ContMDiffMap": {
+          "title": "C^n bundled maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.DerivationBundle": {
+          "title": "Derivation bundle",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.Diffeomorph": {
+          "title": "Diffeomorphisms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.GroupLieAlgebra": {
+          "title": "Lie algebra of a Lie group",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.HasGroupoid": {
+          "title": "Charted spaces with a given structure groupoid",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.Immersion": {
+          "title": "Immersion",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.ImmersionDiff": {
+          "title": "ImmersionDiff",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.Instances.Icc": {
+          "title": "Closed intervals as manifolds",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.Instances.Quotient": {
+          "title": "Quotient manifolds",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.Instances.Real": {
+          "title": "Constructing examples of manifolds over ℝ",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.Instances.Sphere": {
+          "title": "Manifold structure on the sphere",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.Instances.UnitsOfNormedAlgebra": {
+          "title": "Units of a normed algebra",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.IntegralCurve.Basic": {
+          "title": "Integral curves of vector fields on a manifold",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.IntegralCurve.ExistUnique": {
+          "title": "Manifold integral-curve existence and uniqueness",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.IntegralCurve.Transform": {
+          "title": "Translation and scaling of integral curves",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.IntegralCurve.UniformTime": {
+          "title": "Uniform time lemma for the global existence of integral curves",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.IsManifold.Basic": {
+          "title": "C^n manifolds (possibly with boundary or corners)",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.IsManifold.ExtChartAt": {
+          "title": "Extended charts in smooth manifolds",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.IsManifold.InteriorBoundary": {
+          "title": "Manifold interior and boundary",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.LocalDiffeomorph": {
+          "title": "Local diffeomorphisms between manifolds",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.LocalInvariantProperties": {
+          "title": "Local properties invariant under a groupoid",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.LocalSourceTargetProperty": {
+          "title": "Local chart properties",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.MFDeriv.Atlas": {
+          "title": "Differentiability of models with corners and (extended) charts",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.MFDeriv.Basic": {
+          "title": "Basic properties of the manifold Fréchet derivative",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.MFDeriv.Defs": {
+          "title": "The derivative of functions between manifolds",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.MFDeriv.FDeriv": {
+          "title": "Relations between vector space derivative and manifold derivative",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.MFDeriv.NormedSpace": {
+          "title": "MFDeriv NormedSpace",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.MFDeriv.SpecificFunctions": {
+          "title": "Differentiability of specific functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.MFDeriv.Tangent": {
+          "title": "Derivatives of maps in the tangent bundle",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.MFDeriv.UniqueDifferential": {
+          "title": "Unique derivative sets in manifolds",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.Metrizable": {
+          "title": "Metrizability of a σ-compact manifold",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.Notation": {
+          "title": "Elaborators for differential geometry",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.PartitionOfUnity": {
+          "title": "Smooth partition of unity",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.PoincareConjecture": {
+          "title": "Smooth Poincaré conjecture formulation",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.Riemannian.Basic": {
+          "title": "Topology of Riemannian path distance",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.Riemannian.PathELength": {
+          "title": "Riemannian path length and extended distance",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.Sheaf.Basic": {
+          "title": "Sheaves of invariant local properties",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.Sheaf.LocallyRingedSpace": {
+          "title": "Manifolds as locally ringed spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.Sheaf.Smooth": {
+          "title": "Sheaves of smooth functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.SmoothApprox": {
+          "title": "Smooth approximation",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.SmoothEmbedding": {
+          "title": "SmoothEmbedding",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.StructureGroupoid": {
+          "title": "Structure groupoids",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.Submersion": {
+          "title": "Submersion",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.VectorBundle.Basic": {
+          "title": "Smooth vector bundles",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.VectorBundle.ContMDiffSection": {
+          "title": "C^n sections",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.VectorBundle.CovariantDerivative.Basic": {
+          "title": "Covariant derivatives",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.VectorBundle.CovariantDerivative.LeviCivita": {
+          "title": "Levi-Civita connection and Koszul formula",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.VectorBundle.CovariantDerivative.Metric": {
+          "title": "Metric-compatible covariant derivatives",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.VectorBundle.CovariantDerivative.Torsion": {
+          "title": "Torsion of a connection",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.VectorBundle.FiberwiseLinear": {
+          "title": "Smooth fiberwise linear maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.VectorBundle.Hom": {
+          "title": "Bundles of continuous linear maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.VectorBundle.LocalFrame": {
+          "title": "Local frames in a vector bundle",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.VectorBundle.MDifferentiable": {
+          "title": "Differentiable bundle maps and sections",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.VectorBundle.Pullback": {
+          "title": "Pullbacks of smooth vector bundles",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.VectorBundle.Riemannian": {
+          "title": "Riemannian metrics on vector bundles",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.VectorBundle.SmoothSection": {
+          "title": "Smooth bundle sections",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.VectorBundle.Tangent": {
+          "title": "Tangent bundles",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.VectorBundle.Tensoriality": {
+          "title": "The tensoriality criterion",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.VectorField.LieBracket": {
+          "title": "Lie brackets of vector fields on manifolds",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.VectorField.Pullback": {
+          "title": "Vector fields in manifolds",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Geometry.Manifold.WhitneyEmbedding": {
+          "title": "Compact manifold embeddings in Euclidean space",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
         }
       }
     }
@@ -5310,7 +5942,8 @@
         "Math.Analysis.EntireAffine",
         "Math.Analysis.HarmonicPoisson",
         "Math.Analysis.Harnack",
-        "Math.Analysis.HarmonicMaximum"
+        "Math.Analysis.HarmonicMaximum",
+        "Math.Geometry.CompactComplex"
       ]
     },
     "measure_theory": {
@@ -6322,7 +6955,8 @@
         "Mathlib.Analysis.Complex.Schwarz",
         "Mathlib.Analysis.Complex.SummableUniformlyOn",
         "Mathlib.Analysis.Complex.TaylorSeries",
-        "Math.Analysis.EntireAffine"
+        "Math.Analysis.EntireAffine",
+        "Math.Geometry.CompactComplex"
       ]
     },
     "meromorphic_functions": {
@@ -6394,6 +7028,212 @@
         "Mathlib.Analysis.Complex.Polynomial.Basic",
         "Mathlib.Analysis.Complex.Polynomial.GaussLucas",
         "Mathlib.Analysis.Complex.Polynomial.UnitTrinomial"
+      ]
+    },
+    "differential_geometry": {
+      "title": "Differential geometry",
+      "parent": "geometry",
+      "modules": [
+        "Mathlib.Geometry.Manifold.Algebra.LeftInvariantDerivation",
+        "Mathlib.Geometry.Manifold.Algebra.LieGroup",
+        "Mathlib.Geometry.Manifold.Algebra.Monoid",
+        "Mathlib.Geometry.Manifold.Algebra.SMul",
+        "Mathlib.Geometry.Manifold.Algebra.SmoothFunctions",
+        "Mathlib.Geometry.Manifold.Algebra.Structures",
+        "Mathlib.Geometry.Manifold.Bordism",
+        "Mathlib.Geometry.Manifold.BumpFunction",
+        "Mathlib.Geometry.Manifold.Category.MfldCat.OfModel",
+        "Mathlib.Geometry.Manifold.ChartedSpace",
+        "Mathlib.Geometry.Manifold.Complex",
+        "Mathlib.Geometry.Manifold.ConformalGroupoid",
+        "Mathlib.Geometry.Manifold.ContMDiff.Atlas",
+        "Mathlib.Geometry.Manifold.ContMDiff.Basic",
+        "Mathlib.Geometry.Manifold.ContMDiff.Constructions",
+        "Mathlib.Geometry.Manifold.ContMDiff.Defs",
+        "Mathlib.Geometry.Manifold.ContMDiff.NormedSpace",
+        "Mathlib.Geometry.Manifold.ContMDiffMFDeriv",
+        "Mathlib.Geometry.Manifold.ContMDiffMap",
+        "Mathlib.Geometry.Manifold.DerivationBundle",
+        "Mathlib.Geometry.Manifold.Diffeomorph",
+        "Mathlib.Geometry.Manifold.GroupLieAlgebra",
+        "Mathlib.Geometry.Manifold.HasGroupoid",
+        "Mathlib.Geometry.Manifold.Immersion",
+        "Mathlib.Geometry.Manifold.ImmersionDiff",
+        "Mathlib.Geometry.Manifold.Instances.Icc",
+        "Mathlib.Geometry.Manifold.Instances.Quotient",
+        "Mathlib.Geometry.Manifold.Instances.Real",
+        "Mathlib.Geometry.Manifold.Instances.Sphere",
+        "Mathlib.Geometry.Manifold.Instances.UnitsOfNormedAlgebra",
+        "Mathlib.Geometry.Manifold.IntegralCurve.Basic",
+        "Mathlib.Geometry.Manifold.IntegralCurve.ExistUnique",
+        "Mathlib.Geometry.Manifold.IntegralCurve.Transform",
+        "Mathlib.Geometry.Manifold.IntegralCurve.UniformTime",
+        "Mathlib.Geometry.Manifold.IsManifold.Basic",
+        "Mathlib.Geometry.Manifold.IsManifold.ExtChartAt",
+        "Mathlib.Geometry.Manifold.IsManifold.InteriorBoundary",
+        "Mathlib.Geometry.Manifold.LocalDiffeomorph",
+        "Mathlib.Geometry.Manifold.LocalInvariantProperties",
+        "Mathlib.Geometry.Manifold.LocalSourceTargetProperty",
+        "Mathlib.Geometry.Manifold.MFDeriv.Atlas",
+        "Mathlib.Geometry.Manifold.MFDeriv.Basic",
+        "Mathlib.Geometry.Manifold.MFDeriv.Defs",
+        "Mathlib.Geometry.Manifold.MFDeriv.FDeriv",
+        "Mathlib.Geometry.Manifold.MFDeriv.NormedSpace",
+        "Mathlib.Geometry.Manifold.MFDeriv.SpecificFunctions",
+        "Mathlib.Geometry.Manifold.MFDeriv.Tangent",
+        "Mathlib.Geometry.Manifold.MFDeriv.UniqueDifferential",
+        "Mathlib.Geometry.Manifold.Metrizable",
+        "Mathlib.Geometry.Manifold.Notation",
+        "Mathlib.Geometry.Manifold.PartitionOfUnity",
+        "Mathlib.Geometry.Manifold.PoincareConjecture",
+        "Mathlib.Geometry.Manifold.Riemannian.Basic",
+        "Mathlib.Geometry.Manifold.Riemannian.PathELength",
+        "Mathlib.Geometry.Manifold.Sheaf.Basic",
+        "Mathlib.Geometry.Manifold.Sheaf.LocallyRingedSpace",
+        "Mathlib.Geometry.Manifold.Sheaf.Smooth",
+        "Mathlib.Geometry.Manifold.SmoothApprox",
+        "Mathlib.Geometry.Manifold.SmoothEmbedding",
+        "Mathlib.Geometry.Manifold.StructureGroupoid",
+        "Mathlib.Geometry.Manifold.Submersion",
+        "Mathlib.Geometry.Manifold.VectorBundle.Basic",
+        "Mathlib.Geometry.Manifold.VectorBundle.ContMDiffSection",
+        "Mathlib.Geometry.Manifold.VectorBundle.CovariantDerivative.Basic",
+        "Mathlib.Geometry.Manifold.VectorBundle.CovariantDerivative.LeviCivita",
+        "Mathlib.Geometry.Manifold.VectorBundle.CovariantDerivative.Metric",
+        "Mathlib.Geometry.Manifold.VectorBundle.CovariantDerivative.Torsion",
+        "Mathlib.Geometry.Manifold.VectorBundle.FiberwiseLinear",
+        "Mathlib.Geometry.Manifold.VectorBundle.Hom",
+        "Mathlib.Geometry.Manifold.VectorBundle.LocalFrame",
+        "Mathlib.Geometry.Manifold.VectorBundle.MDifferentiable",
+        "Mathlib.Geometry.Manifold.VectorBundle.Pullback",
+        "Mathlib.Geometry.Manifold.VectorBundle.Riemannian",
+        "Mathlib.Geometry.Manifold.VectorBundle.SmoothSection",
+        "Mathlib.Geometry.Manifold.VectorBundle.Tangent",
+        "Mathlib.Geometry.Manifold.VectorBundle.Tensoriality",
+        "Mathlib.Geometry.Manifold.VectorField.LieBracket",
+        "Mathlib.Geometry.Manifold.VectorField.Pullback",
+        "Mathlib.Geometry.Manifold.WhitneyEmbedding",
+        "Math.Geometry.CompactComplex"
+      ]
+    },
+    "smooth_manifolds": {
+      "title": "Smooth manifolds",
+      "parent": "differential_geometry",
+      "modules": [
+        "Mathlib.Geometry.Manifold.Bordism",
+        "Mathlib.Geometry.Manifold.BumpFunction",
+        "Mathlib.Geometry.Manifold.Category.MfldCat.OfModel",
+        "Mathlib.Geometry.Manifold.ChartedSpace",
+        "Mathlib.Geometry.Manifold.Complex",
+        "Mathlib.Geometry.Manifold.Diffeomorph",
+        "Mathlib.Geometry.Manifold.HasGroupoid",
+        "Mathlib.Geometry.Manifold.Immersion",
+        "Mathlib.Geometry.Manifold.ImmersionDiff",
+        "Mathlib.Geometry.Manifold.Instances.Icc",
+        "Mathlib.Geometry.Manifold.Instances.Quotient",
+        "Mathlib.Geometry.Manifold.Instances.Real",
+        "Mathlib.Geometry.Manifold.Instances.Sphere",
+        "Mathlib.Geometry.Manifold.Instances.UnitsOfNormedAlgebra",
+        "Mathlib.Geometry.Manifold.IsManifold.Basic",
+        "Mathlib.Geometry.Manifold.IsManifold.ExtChartAt",
+        "Mathlib.Geometry.Manifold.IsManifold.InteriorBoundary",
+        "Mathlib.Geometry.Manifold.LocalDiffeomorph",
+        "Mathlib.Geometry.Manifold.LocalInvariantProperties",
+        "Mathlib.Geometry.Manifold.LocalSourceTargetProperty",
+        "Mathlib.Geometry.Manifold.Metrizable",
+        "Mathlib.Geometry.Manifold.PartitionOfUnity",
+        "Mathlib.Geometry.Manifold.PoincareConjecture",
+        "Mathlib.Geometry.Manifold.Sheaf.Basic",
+        "Mathlib.Geometry.Manifold.Sheaf.LocallyRingedSpace",
+        "Mathlib.Geometry.Manifold.Sheaf.Smooth",
+        "Mathlib.Geometry.Manifold.SmoothApprox",
+        "Mathlib.Geometry.Manifold.SmoothEmbedding",
+        "Mathlib.Geometry.Manifold.StructureGroupoid",
+        "Mathlib.Geometry.Manifold.Submersion",
+        "Mathlib.Geometry.Manifold.WhitneyEmbedding",
+        "Math.Geometry.CompactComplex"
+      ]
+    },
+    "manifold_calculus": {
+      "title": "Calculus on manifolds",
+      "parent": "differential_geometry",
+      "modules": [
+        "Mathlib.Geometry.Manifold.ContMDiff.Atlas",
+        "Mathlib.Geometry.Manifold.ContMDiff.Basic",
+        "Mathlib.Geometry.Manifold.ContMDiff.Constructions",
+        "Mathlib.Geometry.Manifold.ContMDiff.Defs",
+        "Mathlib.Geometry.Manifold.ContMDiff.NormedSpace",
+        "Mathlib.Geometry.Manifold.ContMDiffMFDeriv",
+        "Mathlib.Geometry.Manifold.ContMDiffMap",
+        "Mathlib.Geometry.Manifold.DerivationBundle",
+        "Mathlib.Geometry.Manifold.MFDeriv.Atlas",
+        "Mathlib.Geometry.Manifold.MFDeriv.Basic",
+        "Mathlib.Geometry.Manifold.MFDeriv.Defs",
+        "Mathlib.Geometry.Manifold.MFDeriv.FDeriv",
+        "Mathlib.Geometry.Manifold.MFDeriv.NormedSpace",
+        "Mathlib.Geometry.Manifold.MFDeriv.SpecificFunctions",
+        "Mathlib.Geometry.Manifold.MFDeriv.Tangent",
+        "Mathlib.Geometry.Manifold.MFDeriv.UniqueDifferential",
+        "Mathlib.Geometry.Manifold.VectorBundle.ContMDiffSection",
+        "Mathlib.Geometry.Manifold.VectorField.LieBracket",
+        "Mathlib.Geometry.Manifold.VectorField.Pullback"
+      ]
+    },
+    "vector_bundles": {
+      "title": "Smooth vector bundles",
+      "parent": "differential_geometry",
+      "modules": [
+        "Mathlib.Geometry.Manifold.VectorBundle.Basic",
+        "Mathlib.Geometry.Manifold.VectorBundle.ContMDiffSection",
+        "Mathlib.Geometry.Manifold.VectorBundle.CovariantDerivative.Basic",
+        "Mathlib.Geometry.Manifold.VectorBundle.CovariantDerivative.LeviCivita",
+        "Mathlib.Geometry.Manifold.VectorBundle.CovariantDerivative.Metric",
+        "Mathlib.Geometry.Manifold.VectorBundle.CovariantDerivative.Torsion",
+        "Mathlib.Geometry.Manifold.VectorBundle.FiberwiseLinear",
+        "Mathlib.Geometry.Manifold.VectorBundle.Hom",
+        "Mathlib.Geometry.Manifold.VectorBundle.LocalFrame",
+        "Mathlib.Geometry.Manifold.VectorBundle.MDifferentiable",
+        "Mathlib.Geometry.Manifold.VectorBundle.Pullback",
+        "Mathlib.Geometry.Manifold.VectorBundle.Riemannian",
+        "Mathlib.Geometry.Manifold.VectorBundle.SmoothSection",
+        "Mathlib.Geometry.Manifold.VectorBundle.Tangent",
+        "Mathlib.Geometry.Manifold.VectorBundle.Tensoriality"
+      ]
+    },
+    "riemannian_geometry": {
+      "title": "Riemannian geometry",
+      "parent": "differential_geometry",
+      "modules": [
+        "Mathlib.Geometry.Manifold.Riemannian.Basic",
+        "Mathlib.Geometry.Manifold.Riemannian.PathELength",
+        "Mathlib.Geometry.Manifold.VectorBundle.CovariantDerivative.Basic",
+        "Mathlib.Geometry.Manifold.VectorBundle.CovariantDerivative.LeviCivita",
+        "Mathlib.Geometry.Manifold.VectorBundle.CovariantDerivative.Metric",
+        "Mathlib.Geometry.Manifold.VectorBundle.CovariantDerivative.Torsion",
+        "Mathlib.Geometry.Manifold.VectorBundle.Riemannian"
+      ]
+    },
+    "lie_groups": {
+      "title": "Lie groups",
+      "parent": "differential_geometry",
+      "modules": [
+        "Mathlib.Geometry.Manifold.Algebra.LeftInvariantDerivation",
+        "Mathlib.Geometry.Manifold.Algebra.LieGroup",
+        "Mathlib.Geometry.Manifold.Algebra.Monoid",
+        "Mathlib.Geometry.Manifold.Algebra.SMul",
+        "Mathlib.Geometry.Manifold.Algebra.SmoothFunctions",
+        "Mathlib.Geometry.Manifold.Algebra.Structures",
+        "Mathlib.Geometry.Manifold.GroupLieAlgebra"
+      ]
+    },
+    "manifold_dynamics": {
+      "title": "Dynamics on manifolds",
+      "parent": "dynamical_systems",
+      "modules": [
+        "Mathlib.Geometry.Manifold.IntegralCurve.Basic",
+        "Mathlib.Geometry.Manifold.IntegralCurve.ExistUnique",
+        "Mathlib.Geometry.Manifold.IntegralCurve.Transform",
+        "Mathlib.Geometry.Manifold.IntegralCurve.UniformTime"
       ]
     }
   },
@@ -6492,6 +7332,14 @@
     },
     "Math.Analysis.HarmonicMaximum": {
       "title": "Banach-valued harmonic boundary bounds and stability",
+      "allowed_axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    "Math.Geometry.CompactComplex": {
+      "title": "Compact complex manifolds and holomorphic immersion obstructions",
       "allowed_axioms": [
         "propext",
         "Quot.sound",

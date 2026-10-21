@@ -1,5 +1,6 @@
 """check complete json decoding, chunk boundaries, and bounded text reads."""
 
+import hashlib
 import io
 import json
 from pathlib import Path
@@ -16,6 +17,21 @@ from repository.json_reader import read_object
 
 
 class JsonReaderTests(unittest.TestCase):
+    def test_expression_hash_arrays_retain_every_value(self):
+        hashes = [hashlib.sha256(str(index).encode()).hexdigest() for index in range(32)]
+        cases = [[], hashes, [*hashes, hashes[0].upper()]]
+        for value in (None, True, False, 37, 0.5, {}, [], "", "f" * 63, "f" * 65,
+                      "α" * 64, "00" * 31 + "  ", {"tag": "nat", "value": 10 ** 100}):
+            cases.append([*hashes[:3], value, hashes[-1]])
+        for values in cases:
+            original = {"expression_hashes": values, "metadata": {"expression_hashes": values}}
+            encoded = canonical(original)
+            for size in (1, 7, 257):
+                with self.subTest(values=values, size=size):
+                    actual = read_object(io.StringIO(encoded.decode()), size)
+                    self.assertEqual(actual, original)
+                    self.assertEqual(canonical(actual), encoded)
+
     def test_large_integer_tokens_preserve_every_digit_across_chunks(self):
         value = 10 ** 5000 + 179
         original = {"expressions": [{"tag": "nat", "value": value}],
