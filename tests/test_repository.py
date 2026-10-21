@@ -986,6 +986,82 @@ class RepositoryTests(RepositoryArtifacts, unittest.TestCase):
         references = snapshot.citations("Ordinal.veblen")
         self.assertIn("Miller_1976", {entry["key"] for entry in references["module_citations"]})
 
+    def test_harnack_sharpness_retains_local_proofs_and_source(self):
+        expected = {
+            "Math.ComplexAnalysis.harnackExtremal": "definition",
+            "Math.ComplexAnalysis.upperHarnackConstants": "definition",
+            "Math.ComplexAnalysis.lowerHarnackConstants": "definition",
+            "Math.ComplexAnalysis.harmonic_harnackExtremal": "theorem",
+            "Math.ComplexAnalysis.nonneg_harnackExtremal": "theorem",
+            "Math.ComplexAnalysis.harnackExtremal_center": "theorem",
+            "Math.ComplexAnalysis.harnackExtremal_add_real": "theorem",
+            "Math.ComplexAnalysis.harnackExtremal_sub_real": "theorem",
+            "Math.ComplexAnalysis.upperHarnackConstants_eq_Ici": "theorem",
+            "Math.ComplexAnalysis.lowerHarnackConstants_eq_Iic": "theorem",
+        }
+        module = "Math.Analysis.HarnackSharpness"
+        path = ROOT / "Math/Analysis/HarnackSharpness.lean"
+        origin = self.catalog["sources"][module]
+        self.assertEqual(origin["package"], "math")
+        self.assertEqual(origin["path"], path.relative_to(ROOT).as_posix())
+        self.assertEqual(origin["sha256"], hashlib.sha256(path.read_bytes()).hexdigest())
+        graph = KnowledgeGraph(self.catalog)
+        for name, kind in expected.items():
+            with self.subTest(name=name):
+                self.assertIn(name, self.catalog["roots"])
+                self.assertIn(name, self.catalog["module_declarations_by_module"][module])
+                node = self.nodes[name]
+                self.assertEqual(node["kind"], kind)
+                self.assertEqual(node["module"], module)
+                self.assertIsInstance(node["value"], int)
+                self.assertTrue(node["proof"])
+                self.assertGreater(node["source"]["line"], 0)
+                self.assertTrue(set(node["axioms"]) <= set(self.policy["modules"][module]["allowed_axioms"]))
+                for subject in ("harmonic_functions", "complex_analysis", "partial_differential_equations",
+                                "analysis", "mathematics"):
+                    self.assertIn(name, {node["name"] for node in graph.search(name, subject=subject)})
+
+    def test_harnack_sharpness_statements_match_reference_types(self):
+        run(ROOT, [self.lake, "env", "lean", "tests/HarnackSharpnessStatements.lean"], capture=True)
+
+    def test_harnack_sharpness_hierarchies_retain_extremizers_and_axiom_paths(self):
+        expected = {
+            "Math.ComplexAnalysis.upperHarnackConstants_eq_Ici": {
+                "Math.ComplexAnalysis.upperHarnackConstants",
+                "Math.ComplexAnalysis.harnackExtremal",
+                "Math.ComplexAnalysis.harmonic_harnackExtremal",
+                "Math.ComplexAnalysis.nonneg_harnackExtremal",
+                "Math.ComplexAnalysis.harnackExtremal_center",
+                "Math.ComplexAnalysis.harnackExtremal_add_real",
+                "Math.ComplexAnalysis.harnack_on_closedBall",
+                "poissonKernel",
+                "InnerProductSpace.HarmonicOnNhd",
+            },
+            "Math.ComplexAnalysis.lowerHarnackConstants_eq_Iic": {
+                "Math.ComplexAnalysis.lowerHarnackConstants",
+                "Math.ComplexAnalysis.harnackExtremal",
+                "Math.ComplexAnalysis.harmonic_harnackExtremal",
+                "Math.ComplexAnalysis.nonneg_harnackExtremal",
+                "Math.ComplexAnalysis.harnackExtremal_center",
+                "Math.ComplexAnalysis.harnackExtremal_sub_real",
+                "Math.ComplexAnalysis.harnack_on_closedBall",
+                "poissonKernel",
+                "InnerProductSpace.HarmonicOnNhd",
+            },
+        }
+        graph = KnowledgeGraph(self.catalog)
+        for name, objects in expected.items():
+            with self.subTest(name=name):
+                hierarchy = graph.hierarchy(name)
+                reached = {node["name"] for node in hierarchy["declarations"]}
+                self.assertTrue(objects <= reached, objects - reached)
+                self.assertEqual(set(hierarchy["axiom_paths"]), set(self.nodes[name]["axioms"]))
+                for axiom, path in hierarchy["axiom_paths"].items():
+                    self.assertEqual(path[0], name)
+                    self.assertEqual(path[-1], axiom)
+                    for source, target in zip(path, path[1:]):
+                        self.assertIn(target, self.nodes[source]["dependencies"])
+
     def test_compact_complex_rigidity_retains_local_proofs_and_source(self):
         names = [
             "Math.ComplexGeometry.range_subsingleton",

@@ -5943,7 +5943,8 @@
         "Math.Analysis.HarmonicPoisson",
         "Math.Analysis.Harnack",
         "Math.Analysis.HarmonicMaximum",
-        "Math.Geometry.CompactComplex"
+        "Math.Geometry.CompactComplex",
+        "Math.Analysis.HarnackSharpness"
       ]
     },
     "measure_theory": {
@@ -6895,7 +6896,8 @@
         "Math.Analysis.BesselEquation",
         "Math.Analysis.HarmonicPoisson",
         "Math.Analysis.Harnack",
-        "Math.Analysis.HarmonicMaximum"
+        "Math.Analysis.HarmonicMaximum",
+        "Math.Analysis.HarnackSharpness"
       ]
     },
     "analytic_functions": {
@@ -7001,7 +7003,8 @@
         "Mathlib.Analysis.Complex.Harmonic.Poisson",
         "Math.Analysis.HarmonicPoisson",
         "Math.Analysis.Harnack",
-        "Math.Analysis.HarmonicMaximum"
+        "Math.Analysis.HarmonicMaximum",
+        "Math.Analysis.HarnackSharpness"
       ]
     },
     "hyperbolic_geometry": {
@@ -7340,6 +7343,14 @@
     },
     "Math.Geometry.CompactComplex": {
       "title": "Compact complex manifolds and holomorphic immersion obstructions",
+      "allowed_axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    "Math.Analysis.HarnackSharpness": {
+      "title": "Optimal Harnack constants and Poisson extremizers",
       "allowed_axioms": [
         "propext",
         "Quot.sound",
