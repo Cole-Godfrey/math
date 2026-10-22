@@ -1,0 +1,59 @@
+{
+  "set.mm": {
+    "repository": "https://github.com/metamath/set.mm.git",
+    "revision": "7d022502daf75a2fcd66b749ba0c1a5a176420da",
+    "license_file": "LICENSE",
+    "license_sha256": "8a5f6a2b110cdecd3543c2b18c4d17fa2f08d16ca61c1fe0a1e41b1343464b5c",
+    "databases": {
+      "set.mm": {
+        "sha256": "168231254a79a8b6188194c56e974b1efecf5f65f186136afe4eaaf3b15bea46",
+        "bytes": 51729554
+      },
+      "iset.mm": {
+        "sha256": "d78cf8ec2a6f97c5721429d466e9179e20a822c2265900568608ab09b9804c62",
+        "bytes": 12064649
+      },
+      "nf.mm": {
+        "sha256": "3298459d03635e5cdb9d8505d13919eff014b65a5bece1825b0c4f754a0554d1",
+        "bytes": 2985101
+      },
+      "hol.mm": {
+        "sha256": "47a1e96538143ff382be54425beceddbd656e1105553f395c9bd9a4c1b6c3cde",
+        "bytes": 96899
+      },
+      "ql.mm": {
+        "sha256": "c9e687eee46cefd01145dc12989dd257b76d2d43a8749a689dc720774eb92864",
+        "bytes": 590727
+      },
+      "peano.mm": {
+        "sha256": "7a43a6804e9b130100ca0d84301ffa1b34da5b169c80ff464e836ea72732e0be",
+        "bytes": 27979
+      },
+      "miu.mm": {
+        "sha256": "2b37347a892060adaa2c361d4b0fec92b49b8c2a40ddcc4a82c996f2f1eb58fa",
+        "bytes": 5553
+      },
+      "demo0.mm": {
+        "sha256": "72ed7400ccf250f41af6eb7696727394e5cd126b8fa94594da8628ed79ac2c44",
+        "bytes": 2285
+      },
+      "big-unifier.mm": {
+        "sha256": "664669725ff42cb35a4b4c10823b5a7664d8f404eab94385de0ace79e6aa501e",
+        "bytes": 23135
+      }
+    }
+  },
+  "metamath-exe": {
+    "repository": "https://github.com/metamath/metamath-exe.git",
+    "revision": "9898f5d1bb27045d764dd01672862a1c2a3b4f5e",
+    "license_file": "LICENSE.TXT",
+    "license_sha256": "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643"
+  },
+  "metamath-knife": {
+    "repository": "https://github.com/metamath/metamath-knife.git",
+    "revision": "76fc9f7f39f46f4c43499a0c2bd1402eb8b1cf9a",
+    "license_file": "LICENSE-MIT",
+    "license_sha256": "afbd66683d60b048c937f9dad8654786cb848a8a68614f05f8e50c1b6a699529",
+    "cargo_lock_sha256": "1e4ef9f4e07b49a99a1066a8172514dcebcf5ae7843d67b4462ecf8098d1b005"
+  }
+}

@@ -59,6 +59,9 @@ def input_hashes(root: Path) -> dict[str, str]:
         require(path.is_file(), f"missing verification input: {path}")
         require(not path.is_symlink(), f"verification input is a symlink: {path}")
         result[path.relative_to(root).as_posix()] = hashlib.sha256(path.read_bytes()).hexdigest()
+    if (root / "metamath-lock.json").is_file():
+        from .metamath_build import native_inputs
+        result.update(native_inputs(root))
     return result
 
 
@@ -104,6 +107,30 @@ def fetch(root: Path) -> None:
         run(root, [lake, "env", "lean", "--version"])
     require(lock == read_json(root / "lake-manifest.json"), "dependency lock changed while fetching")
     snapshot_packages(root, lock, policy)
+    if (root / "metamath-lock.json").is_file():
+        from .metamath_build import fetch as fetch_native
+        fetch_native(root)
+
+
+def check_replay(root: Path, lake: str, path: Path, configuration: Path,
+                 permitted_axioms: list[str]) -> tuple[str, str]:
+    """check immutable proof bytes before loading the mathematical catalog."""
+    from .store import file_digest
+
+    checked_digest = file_digest(path)
+    run(root, [lake, "env", "leanchecker", "--from-export", str(path)], capture=True)
+    configuration.write_bytes(canonical({
+        "export_file_path": str(path),
+        "permitted_axioms": sorted(permitted_axioms),
+        "unpermitted_axiom_hard_error": True,
+        "nat_extension": True,
+        "string_extension": True,
+        "print_success_message": False,
+    }))
+    run(root, [lake, "env", "nanoda_bin", str(configuration)], capture=True)
+    checker_version = run(root, [lake, "env", "nanoda_bin", "--help"], capture=True).splitlines()[0]
+    require(file_digest(path) == checked_digest, "proof export changed during proof replay")
+    return checked_digest, checker_version
 
 
 def verify(root: Path, clean: bool = False) -> dict:
@@ -129,6 +156,11 @@ def verify(root: Path, clean: bool = False) -> dict:
     match = re.search(r"version ([0-9.]+)[, )]", actual)
     require(match is not None and match[1] == expected, "Lean version differs from lean-toolchain")
     before = input_hashes(root)
+    native = None
+    if (root / "metamath-lock.json").is_file():
+        from .metamath_build import verify as verify_native
+        native = verify_native(root)
+        require(before == input_hashes(root), "verification inputs changed during native proof replay")
     if clean:
         run(root, [lake, "clean", lock["name"]])
     run(root, [lake, "build", "Math", *["+" + name for name in sorted(registered_modules(policy))]])
@@ -142,25 +174,18 @@ def verify(root: Path, clean: bool = False) -> dict:
     receipt_path = raw_path.with_suffix(".index.json")
     try:
         run(root, [lake, "env", "lean", "--run", "tools/Export.lean", str(raw_path), str(replay_path)])
+        checked_digest, checker_version = check_replay(root, lake, replay_path, checker_path,
+                                                      sorted(policy["axioms"]))
         raw = read_json(raw_path)
         require(raw.get("lean_version") == expected, "exported Lean version differs from toolchain")
         catalog = validate(raw, policy)
         catalog["proof_binding"] = bind_replay(catalog, replay_path)
+        require(catalog["proof_binding"]["proof_export_digest"] == checked_digest,
+                "indexed proof export differs from checked proof bytes")
         catalog["sources"] = source_origins(root, catalog, packages, policy)
         catalog["bibliographies"] = archive_bibliographies(packages, policy)
         prefix = Path(run(root, [lake, "env", "lean", "--print-prefix"], capture=True).strip())
         license_text = (prefix / "LICENSE").read_text()
-        run(root, [lake, "env", "leanchecker", "--from-export", str(replay_path)], capture=True)
-        checker_path.write_bytes(canonical({
-            "export_file_path": str(replay_path),
-            "permitted_axioms": sorted(policy["axioms"]),
-            "unpermitted_axiom_hard_error": True,
-            "nat_extension": True,
-            "string_extension": True,
-            "print_success_message": False,
-        }))
-        run(root, [lake, "env", "nanoda_bin", str(checker_path)], capture=True)
-        checker_version = run(root, [lake, "env", "nanoda_bin", "--help"], capture=True).splitlines()[0]
         require(file_digest(replay_path) == catalog["proof_binding"]["proof_export_digest"],
                 "proof export changed after index binding")
         require(before == input_hashes(root), "verification inputs changed during the build")
@@ -178,6 +203,8 @@ def verify(root: Path, clean: bool = False) -> dict:
             "proof_export_digest": file_digest(replay_path),
             "checkers": [f"Lean {expected} kernel replay", checker_version],
         }
+        if native is not None:
+            catalog["provenance"]["native_snapshots"] = {"metamath": native}
         catalog["content_digest"] = stream_digest(catalog)
         proof_path = directory / f"proofs-{catalog['provenance']['proof_export_digest']}.jsonl"
         replay_path.replace(proof_path)

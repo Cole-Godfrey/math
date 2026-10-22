@@ -13,7 +13,7 @@ import unittest
 from urllib.parse import urlencode
 from unittest.mock import patch
 
-from repository.build import find_lake, read_json, verify
+from repository.build import check_replay, find_lake, read_json, verify
 from repository.core import CHILD_FIELDS, RepositoryError, canonical, validate
 from repository.replay import Hashes, bind_replay, fingerprint, name_hashes
 from repository.server import ExplorerState, make_handler
@@ -21,6 +21,31 @@ from repository.store import open_snapshot
 
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+class ReplayArtifactTests(unittest.TestCase):
+    """reject changed proof bytes even when a checker reports success."""
+
+    def changed_export(self, checker):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            proof = root / "proof.jsonl"
+            proof.write_bytes(b"original checked bytes\n")
+
+            def checked_command(_root, arguments, capture=False):
+                if checker in arguments and "--help" not in arguments:
+                    proof.write_bytes(b"different proof bytes\n")
+                return "nanoda_bin 0.4.19\n" if "--help" in arguments else ""
+
+            with patch("repository.build.run", side_effect=checked_command):
+                with self.assertRaisesRegex(RepositoryError, "proof export changed during proof replay"):
+                    check_replay(root, "lake", proof, root / "checker.json", ["propext"])
+
+    def test_export_changed_during_kernel_replay_is_rejected(self):
+        self.changed_export("leanchecker")
+
+    def test_export_changed_during_independent_replay_is_rejected(self):
+        self.changed_export("nanoda_bin")
 
 
 class ReplayBindingTests(unittest.TestCase):

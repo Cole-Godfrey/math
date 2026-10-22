@@ -79,6 +79,29 @@ input[type="search"]::-webkit-search-cancel-button{-webkit-appearance:none}
 .status:empty{display:none}
 .status.error{color:var(--negative)}
 
+/* the library selector shares the existing content edges at every width. */
+.library-bar{width:100%;max-width:var(--column);margin:0 auto;padding:12px var(--gutter) 0;display:flex;align-items:center;flex-wrap:wrap;gap:8px 12px;font-size:13px}
+.library-bar label{color:var(--muted)}
+.native-formula{margin:12px 0;white-space:pre-wrap;overflow-wrap:anywhere;font-family:var(--mono);font-size:13px;line-height:1.7}
+.native-documentation{font-family:var(--sans);white-space:pre-wrap;overflow-wrap:anywhere}
+.native-step-navigation{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin:20px 0}
+.native-step-navigation label{display:flex;align-items:center;gap:8px;color:var(--muted)}
+.native-step-navigation input{width:92px;height:34px;border:1px solid var(--control);border-radius:6px;background:var(--surface);padding:0 8px;font-variant-numeric:tabular-nums}
+.native-premises{padding-left:24px}
+.native-premises li{margin:12px 0}
+.native-premises .badge{margin-left:10px}
+.native-frame h3{margin-top:20px;font-size:15px}
+.native-foundations{margin-top:32px}
+.native-source .source-line{min-width:0}
+.native-source .source-text{flex:1;min-width:0;white-space:pre-wrap;overflow-wrap:anywhere}
+/* the two columns divide the content width after the 40px gap. */
+@media(min-width:960px){
+  .native-foundations-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:40px;align-items:start}
+  .native-foundations-layout>.native-foundations{margin-top:0}
+}
+.areas.native-areas{columns:3 220px}
+.axioms.native-foundation-note{display:block;max-width:75ch}
+
 /* home */
 .home{width:100%;max-width:var(--column);margin:0 auto;padding:0 var(--gutter) 88px}
 .home-lead{display:flex;flex-direction:column;align-items:center;padding:clamp(28px,5vh,56px) 0 clamp(48px,8vh,80px)}
@@ -226,6 +249,8 @@ select{height:32px;padding:0 30px 0 10px;border:1px solid var(--control);border-
 .term-context ol{list-style:none;margin:0;padding:0}
 .term-context li{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;padding:10px 12px;border-bottom:1px solid var(--rule)}
 .term-context li>span{flex:1;min-width:120px}
+.term-context .native-premises li>.badge{flex:none;min-width:0}
+.term-context .native-premises .native-formula{flex-basis:100%;margin:0}
 .term-binding-active{background:var(--accent-soft);border-radius:6px}
 details{margin:20px 0}
 summary{cursor:pointer;font-size:14px}

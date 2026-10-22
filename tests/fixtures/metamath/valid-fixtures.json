@@ -1,0 +1,15 @@
+{
+  "compressed_identity": "$c wff |- $. $v ph $. wph $f wff ph $. ax $a |- ph $. id $p |- ph $= ( ax ) AB $.",
+  "saved_subproof": "$c wff pair $. $v x y $. fx $f wff x $. fy $f wff y $. mkpair $a wff pair x y $. th $p wff pair pair x x pair x x $= ( mkpair ) AABZCB $.",
+  "empty_substitution": "$c wff |- $. $v ph $. fph $f wff ph $. empty $a wff $. ax $a |- ph $. th $p |- $= empty ax $.",
+  "constant_disjoint_substitution": "$c wff pair c $. $v x y $. fx $f wff x $. fy $f wff y $. $d x y $. const $a wff c $. mkpair $a wff pair x y $. th $p wff pair c c $= const const mkpair $.",
+  "scoped_essential": "$c wff |- $. $v ph $. fp $f wff ph $. ${ h $e |- ph $. nested $p |- ph $= h $. $}",
+  "essential_only_variable": "$c wff |- $. $v ph ps $. fph $f wff ph $. fps $f wff ps $. ${ h $e |- ph $. ax $a |- ps $. th $p |- ps $= fph fps h ax $. $}",
+  "variable_reuse": "$c wff setvar $. ${ $v x $. fx $f wff x $. first $a wff x $. $} ${ $v x $. sx $f setvar x $. second $a setvar x $. th $p setvar x $= sx second $. $}",
+  "proof_comments": "$c wff |- $. $v ph $. wph $f wff ph $. ax $a |- ph $. id $p |- ph $= ( $( retained text $) ax ) A $( another comment $) B $.",
+  "compressed_unused_hypothesis": "$c wff |- $. $v ph $. wph $f wff ph $. ${ h $e |- ph $. th $p |- ph $= ( ) B $. $}",
+  "compressed_unused_optional_hypothesis": "$c wff |- $. $v ph ps $. wph $f wff ph $. wps $f wff ps $. ${ h $e |- ph $. th $p |- ph $= ( wps ) B $. $}",
+  "distinct_derivations": "$c p $. first $a p $. second $a p $. th $p p $= first $.",
+  "many_assertions": "$c p $. ax0 $a p $. ax1 $a p $. ax2 $a p $. ax3 $a p $. ax4 $a p $. ax5 $a p $. ax6 $a p $. ax7 $a p $. ax8 $a p $. ax9 $a p $. ax10 $a p $. ax11 $a p $. ax12 $a p $. ax13 $a p $. ax14 $a p $. ax15 $a p $. ax16 $a p $. ax17 $a p $. ax18 $a p $. ax19 $a p $. ax20 $a p $. ax21 $a p $. ax22 $a p $. ax23 $a p $. ax24 $a p $. ax25 $a p $. ax26 $a p $. ax27 $a p $. ax28 $a p $. ax29 $a p $. ax30 $a p $. ax31 $a p $. ax32 $a p $. ax33 $a p $. ax34 $a p $. ax35 $a p $. ax36 $a p $. ax37 $a p $. ax38 $a p $. ax39 $a p $. ax40 $a p $. ax41 $a p $. ax42 $a p $. ax43 $a p $. ax44 $a p $. ax45 $a p $. ax46 $a p $. ax47 $a p $. ax48 $a p $. ax49 $a p $. ax50 $a p $. ax51 $a p $. ax52 $a p $. ax53 $a p $. ax54 $a p $. ax55 $a p $. ax56 $a p $. ax57 $a p $. ax58 $a p $. ax59 $a p $. ax60 $a p $. ax61 $a p $. ax62 $a p $. ax63 $a p $. ax64 $a p $. ax65 $a p $. ax66 $a p $. ax67 $a p $. ax68 $a p $. ax69 $a p $. th $p p $= ax0 $.",
+  "disjoint_scopes": "$c wff pair $.\n$v x y $.\nfx $f wff x $.\nfy $f wff y $.\n$d x y $.\nouter $a wff pair x y $.\n${\n  $d x y $.\n  inside $p wff pair x y $= fx fy outer $.\n$}\nafter $p wff pair x y $= fx fy outer $.\n${\n  $v z $.\n  fz $f wff z $.\n  $d x z $.\n  scoped $a wff pair x z $.\n$}\n${\n  $v z $.\n  fz2 $f wff z $.\n  $d y z $.\n  scoped2 $a wff pair y z $.\n$}"
+}

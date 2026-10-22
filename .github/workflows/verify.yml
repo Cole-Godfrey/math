@@ -21,6 +21,8 @@ jobs:
           curl -sSf https://elan.lean-lang.org/elan-init.sh -o /tmp/elan-init.sh
           sh /tmp/elan-init.sh -y --default-toolchain none --no-modify-path
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Install pinned Rust
+        run: rustup toolchain install 1.94.1 --profile minimal --no-self-update
       - name: Verify proofs and contribution checks
         run: |
           set -euo pipefail
@@ -42,5 +44,6 @@ jobs:
             build/proofs-*.jsonl
             build/index.json
             build/index-*.sqlite
+            build/metamath/
           if-no-files-found: error
           retention-days: 14

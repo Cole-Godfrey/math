@@ -1,0 +1,1 @@
+$c wff |- $. $v ph $. wph $f wff ph $. ax $a |- ph $. bad $p |- ph $= ( ax ) C $.

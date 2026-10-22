@@ -190,6 +190,7 @@ class RepositoryTests(RepositoryArtifacts, unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             self.clone_inputs(root)
+            (root / "metamath-lock.json").unlink(missing_ok=True)
             aggregate = root / "Math.lean"
             aggregate.write_text("import Math.Adversarial\n")
             shutil.rmtree(root / "Math")
@@ -222,12 +223,12 @@ class RepositoryTests(RepositoryArtifacts, unittest.TestCase):
         # disable the warning to exercise the dependency audit itself.
         self.assert_bad_contribution(
             "set_option warningAsError false\n"
-            "theorem admitted : False := by sorry\n", "undeclared foundational axiom")
+            "theorem admitted : False := by sorry\n", "unpermitted axiom")
 
     def test_axiom_outside_project_namespace_is_detected(self):
         self.assert_bad_contribution(
             "axiom hidden : False\ntheorem derived : False := hidden\n",
-            "undeclared foundational axiom")
+            "unpermitted axiom")
 
     def test_classical_axiom_budget_is_enforced(self):
         self.assert_bad_contribution(
@@ -237,7 +238,7 @@ class RepositoryTests(RepositoryArtifacts, unittest.TestCase):
     def test_compiler_based_proof_is_rejected(self):
         self.assert_bad_contribution(
             "import Lean\ntheorem native_result : (List.range 10).length = 10 := by native_decide\n",
-            "undeclared foundational axiom")
+            "unpermitted axiom")
 
     def test_unchecked_kernel_insertion_is_rejected(self):
         self.assert_bad_contribution(
@@ -3865,6 +3866,160 @@ class VerifiedCatalogLoadingTests(RepositoryArtifacts, unittest.TestCase):
             with patch("repository.build.stream_digest", side_effect=AssertionError("catalog digest computed")):
                 with self.assertRaisesRegex(RepositoryError, "proof export is missing"):
                     load_catalog(root)
+
+
+    def test_native_snapshot_is_bound_to_the_lean_verification(self):
+        from repository.metamath_store import Snapshot
+        snapshot = Snapshot(ROOT / "build/metamath")
+        try:
+            receipt = self.catalog["provenance"]["native_snapshots"]["metamath"]
+            self.assertEqual(receipt["snapshot_digest"], snapshot.digest)
+            self.assertEqual(snapshot.manifest["counts"]["Provable"], 71837)
+            self.assertEqual(snapshot.manifest["counts"]["Axiom"], 4571)
+            self.assertEqual(len(snapshot.manifest["databases"]), 9)
+            self.assertEqual(snapshot.manifest["provenance"]["inputs"], input_hashes(ROOT))
+            self.assertEqual(len(snapshot.manifest["provenance"]["checkers"]), 3)
+        finally:
+            snapshot.close()
+
+    def test_native_sources_and_proof_steps_are_accessible(self):
+        from repository.metamath_store import Snapshot
+        snapshot = Snapshot(ROOT / "build/metamath")
+        try:
+            for name in ["metamath:set.mm:pm2.43", "metamath:iset.mm:id", "metamath:nf.mm:id",
+                         "metamath:demo0.mm:th1"]:
+                with self.subTest(name=name):
+                    node = snapshot.declaration(name)
+                    self.assertEqual(node["kind"], "Provable")
+                    self.assertTrue(snapshot.source(name))
+                    proof = snapshot.proof(name)
+                    self.assertTrue(proof["tokens"])
+                    self.assertTrue(proof["dag"]["nodes"])
+                    for axiom in snapshot.assumptions(name)["axiom_rules"]:
+                        path = snapshot.path(name, axiom)
+                        self.assertEqual(path[0], name)
+                        self.assertEqual(path[-1], axiom)
+        finally:
+            snapshot.close()
+
+    def test_native_dependency_graph_preserves_every_axiom_closure(self):
+        from collections import defaultdict
+        from repository.metamath_store import Snapshot
+        snapshot = Snapshot(ROOT / "build/metamath")
+        try:
+            for database in snapshot.manifest["databases"]:
+                row = snapshot.connection.execute("select verification from databases where id=?", (database,)).fetchone()
+                labels = json.loads(row[0])["axiom_labels"]
+                indices = {label: index for index, label in enumerate(labels)}
+                edges = defaultdict(list)
+                for source, target in snapshot.connection.execute(
+                    "select d.declaration_id,d.dependency_id from dependencies d "
+                    "join declarations n on n.id=d.declaration_id where n.database_id=?", (database,)):
+                    edges[source].append(target)
+                known = {}
+                for node in snapshot.connection.execute("select * from declarations where database_id=? order by ordinal", (database,)):
+                    bits = 0
+                    for child in edges[node["id"]]:
+                        self.assertIn(child, known)
+                        self.assertTrue(child.startswith("metamath:" + database + ":"))
+                        bits |= known[child]
+                    if node["kind"] == "Axiom":
+                        bits = 1 << indices[node["label"]]
+                    if node["checked"]:
+                        self.assertEqual(int(json.loads(node["checked"])["axiom_bits"], 16), bits)
+                    known[node["id"]] = bits
+        finally:
+            snapshot.close()
+
+    def test_native_source_primitives_retain_every_symbol_scope_and_frame_condition(self):
+        from repository.metamath_store import Snapshot
+        snapshot = Snapshot(ROOT / 'build/metamath')
+        try:
+            symbols, clauses, scopes = {}, {}, {}
+            for row in snapshot.connection.execute("select identifier,kind,record from primitive_objects"):
+                record = json.loads(row['record'])
+                if row['kind'] in ['constant', 'variable']:
+                    symbols[row['identifier']] = record
+                elif row['kind'] == 'disjoint':
+                    clauses[row['identifier']] = record
+                elif row['kind'] == 'scope':
+                    scopes[row['identifier']] = record
+            self.assertEqual((len(symbols), len(clauses), len(scopes)), (2812, 106779, 38444))
+            named = occurrences = 0
+            for row in snapshot.connection.execute('''select d.*,p.record from declarations d
+                    left join primitive_objects p on p.declaration_id=d.id'''):
+                self.assertIsNotNone(row['record'], row['id'])
+                record = json.loads(row['record'])
+                self.assertEqual(record['id'], row['id'])
+                self.assertEqual(record['ordinal'], row['ordinal'])
+                self.assertEqual(record['native_kind'], row['kind'])
+                self.assertEqual(record['source'], {'start': row['source_start'], 'end': row['source_end'],
+                                                   'line': row['source_line'], 'end_line': row['source_end_line']})
+                self.assertEqual([symbols[name]['token'] for name in record['tokens']], json.loads(row['expression']))
+                frame = json.loads(row['frame']) if row['frame'] else None
+                for field, native in [('frame_variables', 'variables'), ('mandatory_variables', 'mandatory_variables')]:
+                    self.assertEqual([symbols[name]['token'] for name in record[field]], frame[native] if frame else [])
+                self.assertEqual(record['hypotheses'],
+                                 ['metamath:' + row['database_id'] + ':' + label for label in frame['hypotheses']]
+                                 if frame else [])
+                ancestors, scope = set(), record['scope']
+                while scope is not None:
+                    self.assertNotIn(scope, ancestors)
+                    ancestors.add(scope)
+                    context = scopes[scope]
+                    if context['ordinal'] is not None:
+                        self.assertLess(context['ordinal'], row['ordinal'])
+                        self.assertLess(row['ordinal'], context['close_ordinal'])
+                    scope = context['parent']
+                for symbol in set(record['tokens'] + record['frame_variables']):
+                    self.assertIn(symbols[symbol]['scope'], ancestors)
+                    self.assertLess(symbols[symbol]['ordinal'], row['ordinal'])
+                for field in ['mandatory_disjoint', 'proof_disjoint']:
+                    self.assertEqual([[symbols[name]['token'] for name in item['variables']] for item in record[field]],
+                                     frame[field] if frame else [])
+                    for item in record[field]:
+                        clause = clauses[item['clause']]
+                        self.assertTrue(set(item['variables']) <= set(clause['variables']))
+                        self.assertIn(clause['scope'], ancestors)
+                        self.assertLess(clause['ordinal'], row['ordinal'])
+                named += 1
+                occurrences += len(record['tokens'])
+            self.assertEqual((named, occurrences), (164960, 2969703))
+            mismatch = snapshot.connection.execute('''select count(*) from primitive_objects p,
+                json_each(p.record,'$.tokens') token left join primitive_edges e
+                on e.source_id=p.id and e.relation='expression_symbol' and e.position=token.key
+                left join primitive_objects symbol on symbol.id=e.target_id
+                where p.kind='assertion_symbols' and (symbol.id is null or symbol.identifier!=token.value)''').fetchone()[0]
+            self.assertEqual(mismatch, 0)
+            self.assertEqual(snapshot.connection.execute(
+                "select count(*) from primitive_edges where relation='expression_symbol'").fetchone()[0], occurrences)
+        finally:
+            snapshot.close()
+
+    def test_native_inputs_include_exporter_lock_and_source_fixtures(self):
+        inputs = input_hashes(ROOT)
+        for relative in ["metamath-lock.json", "tools/metamath-export/Cargo.toml",
+                         "tools/metamath-export/Cargo.lock", "tools/metamath-export/src/main.rs",
+                         "tests/fixtures/metamath/valid-saved_subproof.mm",
+                         "tests/fixtures/metamath/valid-saved_subproof.jsonl"]:
+            self.assertEqual(inputs[relative], hashlib.sha256((ROOT / relative).read_bytes()).hexdigest())
+
+    def test_native_verifiers_reject_incomplete_and_invalid_proofs(self):
+        import re
+        import subprocess
+        c = ROOT / ".tools/metamath/metamath"
+        rust = ROOT / ".tools/metamath/knife-target/release/metamath-knife"
+        for source in sorted((ROOT / "tests/fixtures/metamath").glob("negative-*.mm")):
+            with self.subTest(source=source.name):
+                checked = subprocess.run([str(c), f'read "{source}"', "verify proof *", "exit"],
+                                         capture_output=True, text=True, stdin=subprocess.DEVNULL)
+                output = checked.stdout + checked.stderr
+                self.assertFalse(checked.returncode == 0 and "All proofs in the database were verified in " in output
+                                 and not any(line.lstrip().startswith("?") for line in output.splitlines()))
+                checked = subprocess.run([str(rust), "--time", "--jobs", "2", "--split", "--verify", str(source)],
+                                         capture_output=True, text=True, stdin=subprocess.DEVNULL)
+                output = re.sub(r"\x1b\[[0-9;]*m", "", checked.stdout + checked.stderr)
+                self.assertFalse(checked.returncode == 0 and "0 diagnostics issued." in output)
 
 
 if __name__ == "__main__":

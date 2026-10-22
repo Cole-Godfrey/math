@@ -5,7 +5,8 @@ const tabs = ["Statement", "Proof", "Dependencies", "Foundations", "Hierarchy", 
 const views = ["home", "search", "detail", "graph", "guide"];
 const graphKinds = new Set(["theorem", "definition", "inductive", "opaque", "axiom", "quotient_primitive"]);
 const kindLabels = {theorem: "Theorem", definition: "Definition", inductive: "Structure", axiom: "Axiom",
-  constructor: "Constructor", recursor: "Recursor", opaque: "Opaque", quotient_primitive: "Quotient primitive"};
+  constructor: "Constructor", recursor: "Recursor", opaque: "Opaque", quotient_primitive: "Quotient primitive",
+  parameter: "Parameter", hypothesis: "Local hypothesis"};
 let summary = null;
 let bibliographyKeys = new Set();
 let activeRequest = 0;
@@ -53,6 +54,9 @@ function route(patch) {
 
 /** build a fresh location from only these parameters. */
 function href(values) {
+  const system = values.name ? (values.name.startsWith("metamath:") ? "metamath" : "lean")
+    : (values.system || summary?.proof_system || "lean");
+  values = {...values, system: system === "lean" ? null : system};
   const parameters = new URLSearchParams();
   for (const [key, value] of Object.entries(values)) {
     if (value !== null && value !== "" && value !== undefined) parameters.set(key, String(value));
@@ -98,7 +102,12 @@ function count(value) {
   return Number(value || 0).toLocaleString();
 }
 
+function kindLabel(node) {
+  return node.proof_system === "metamath" && node.kind === "axiom" ? "Declared rule" : kindLabels[node.kind] || node.kind;
+}
+
 async function api(path, parameters = {}, options = {}) {
+  if (path !== "/api/reload") parameters = {system: summary?.proof_system || "lean", ...parameters};
   if (summary && path !== "/api/summary" && path !== "/api/reload") {
     parameters = {...parameters, snapshot: summary.catalog_digest};
   }
@@ -129,6 +138,7 @@ function showView(name) {
   const section = $(name + "-view");
   if ($("main").children[1] !== section) $("status").after(section);
   document.body.dataset.view = name;
+  $("library-bar").hidden = !summary?.libraries || name === "graph";
   const area = name === "search" || name === "detail" ? "browse" : name;
   for (const link of document.querySelectorAll("[data-nav]")) {
     const current = link.dataset.nav === area;
@@ -196,10 +206,13 @@ function renderHome() {
   renderRing();
   const checker = (summary.checkers[1] || "").replace("nanoda_bin", "nanoda");
   const facts = $("home-facts");
-  facts.replaceChildren(
-    element("span", `${count(summary.declarations)} declarations checked by Lean ${summary.lean_version}${checker ? " and " + checker : ""}`));
+  const native = summary.proof_system === "metamath";
+  facts.replaceChildren(element("span", native
+    ? `${count(summary.theorems)} proofs · ${count(summary.selected - summary.theorems)} declared rules · ${summary.native_databases.length} databases`
+    : `${count(summary.declarations)} declarations checked by Lean ${summary.lean_version}${checker ? " and " + checker : ""}`));
   const graph = element("a", "Dependency graph", "facts-link");
-  graph.href = href({view: "graph"});
+  graph.href = href({view: "graph", system: "lean"});
+  if (native) graph.textContent = "Lean dependency graph";
   facts.append(graph);
   const children = new Map();
   for (const subject of summary.subjects) {
@@ -209,12 +222,24 @@ function renderHome() {
   const byTitle = (a, b) => a.title.localeCompare(b.title);
   const areas = $("areas");
   areas.replaceChildren();
-  for (const area of (children.get("mathematics") || []).sort(byTitle)) {
+  areas.classList.toggle("native-areas", native);
+  $("subjects-heading").textContent = native ? "Databases" : "Subjects";
+  for (const area of (children.get(native ? "metamath" : "mathematics") || []).sort(byTitle)) {
     const block = element("section", null, "area");
     const heading = element("h3");
     heading.append(subjectLink(area, "area-title"));
     block.append(heading);
     const list = element("ul");
+    if (native) {
+      heading.querySelector(".num").append(document.createTextNode(" assertions"));
+      for (const [kind, title, total] of [["theorem", "Proofs", area.theorems],
+        ["axiom", "Declared rules", area.selected_declarations - area.theorems]]) {
+        const item = element("li");
+        const link = subjectLink({...area, title, selected_declarations: total}, "area-link");
+        link.href = href({view: "browse", subject: area.id, kind});
+        item.append(link); list.append(item);
+      }
+    }
     for (const child of (children.get(area.id) || []).sort(byTitle)) {
       const item = element("li");
       item.append(subjectLink(child, "area-link"));
@@ -225,6 +250,15 @@ function renderHome() {
   }
   const axioms = $("axioms");
   axioms.replaceChildren();
+  $("axioms-heading").textContent = native ? "Foundations" : "Axioms";
+  axioms.classList.toggle("native-foundation-note", native);
+  if (native) {
+    const item = element("li");
+    item.append(element("p", "Each assertion keeps its ordered hypotheses, disjoint-variable restrictions, and complete declared-rule dependencies. Declared rules include syntax and definitions.", "axiom-text"),
+      externalLink("Substitution calculus ↗", summary.foundation.reference));
+    axioms.append(item);
+    return;
+  }
   for (const [name, info] of Object.entries(summary.axiom_policy).sort()) {
     const item = element("li");
     item.append(nameLink(name, "axiom-name"), element("span", info.description, "axiom-text"));
@@ -277,12 +311,14 @@ async function showSearch(parameters, request) {
   for (const item of data.items) {
     const card = element("article", null, "result-card");
     const top = element("div", null, "result-top");
-    top.append(nameLink(item.name, "result-name"), element("span", kindLabels[item.kind] || item.kind, "badge"));
+    top.append(nameLink(item.name, "result-name"), element("span", kindLabel(item), "badge"));
     card.append(top);
     if (item.doc) card.append(formatted(element("p", null, "result-doc"), item.doc.trim().split("\n").slice(0, 2).join(" "), item.name));
     card.append(element("pre", item.statement, "result-type"));
     const metadata = element("div", null, "result-meta");
-    metadata.append(element("span", item.module), element("span", item.axioms.length ? item.axioms.join(", ") : "No axioms"));
+    metadata.append(element("span", item.module), element("span", item.proof_system === "metamath"
+      ? `${count(item.axioms.length)} declared rules${item.bound_assumption ? " · local premise" : ""}`
+      : item.axioms.length ? item.axioms.join(", ") : "No axioms"));
     if (!item.selected) metadata.append(element("span", "Prerequisite"));
     card.append(metadata);
     results.append(card);
@@ -307,9 +343,9 @@ function renderHeading(node, tab) {
   crumbs.append(browse, element("span", node.module));
   const title = element("h1", node.name, "declaration-name");
   const origin = element("div", null, "declaration-origin");
-  origin.append(element("span", kindLabels[node.kind] || node.kind, "badge"), sourceLink(node));
+  origin.append(element("span", kindLabel(node), "badge"), sourceLink(node));
   if (node.origin.license) origin.append(element("span", node.origin.license));
-  if (graphKinds.has(node.kind) && (node.selected || ["axiom", "quotient_primitive"].includes(node.kind))) {
+  if (node.proof_system !== "metamath" && graphKinds.has(node.kind) && (node.selected || ["axiom", "quotient_primitive"].includes(node.kind))) {
     const graph = element("a", "View in graph");
     graph.href = href({view: "graph", at: "d:" + node.name});
     origin.append(graph);
@@ -319,7 +355,7 @@ function renderHeading(node, tab) {
   navigation.replaceChildren();
   for (const label of tabs) {
     const name = label.toLowerCase();
-    const control = button(label, () => route({tab: name, group: null, level: null, term_root: null, term_rule: null, term_path: null}),
+    const control = button(label, () => route({tab: name, group: null, level: null, term_root: null, term_rule: null, term_path: null, step: null}),
       "tab" + (tab === name ? " active" : ""));
     if (tab === name) control.setAttribute("aria-current", "page");
     navigation.append(control);
@@ -333,7 +369,8 @@ function renderHeading(node, tab) {
 
 function downloadLink(text, path, name) {
   const link = element("a", text, "small-button");
-  link.href = path + "?" + new URLSearchParams({name, format: "json", snapshot: summary.catalog_digest});
+  link.href = path + "?" + new URLSearchParams({name, format: "json", snapshot: summary.catalog_digest,
+    system: name.startsWith("metamath:") ? "metamath" : "lean"});
   link.download = name.replace(/[^a-z0-9_.-]/gi, "_") + ".json";
   return link;
 }
@@ -491,7 +528,10 @@ async function dependenciesView(body, node, request) {
   }
   const role = element("select");
   role.setAttribute("aria-label", "Dependency role");
-  for (const [value, label] of [["", "All roles"], ["type", "Type"], ["value", "Proof or definition"], ["structure", "Inductive structure"]]) {
+  const roles = node.proof_system === "metamath"
+    ? [["", "All roles"], ["type", "Assertion hypotheses"], ["value", "Proof steps"]]
+    : [["", "All roles"], ["type", "Type"], ["value", "Proof or definition"], ["structure", "Inductive structure"]];
+  for (const [value, label] of roles) {
     const option = element("option", label); option.value = value; role.append(option);
   }
   const checkbox = element("input"); checkbox.type = "checkbox";
@@ -510,8 +550,10 @@ async function dependenciesView(body, node, request) {
     for (const item of data.items) {
       const card = element("article", null, "result-card");
       const top = element("div", null, "result-top");
-      top.append(nameLink(item.name, "result-name"), element("span", kindLabels[item.kind] || item.kind, "badge"));
-      card.append(top, element("pre", item.statement, "result-type"), element("div", item.roles.join(" · "), "result-meta"));
+      top.append(nameLink(item.name, "result-name"), element("span", kindLabel(item), "badge"));
+      const labels = item.roles.map(role => node.proof_system === "metamath"
+        ? ({type: "Assertion hypothesis", value: "Proof step"}[role] || role) : role);
+      card.append(top, element("pre", item.statement, "result-type"), element("div", labels.join(" · "), "result-meta"));
       results.append(card);
     }
     pageButtons(pages, data.total, data.offset, data.limit, offset => load(offset).catch(error => status(error.message, true)));
@@ -561,7 +603,9 @@ async function hierarchyView(body, node, request, parameters) {
   select.value = parameters.get("level") || data.levels[data.levels.length - 1].level;
   const results = element("div");
   const pages = element("div", null, "pagination");
-  body.append(tools, element("p", "Prerequisites occupy earlier levels. Mutually dependent inductive declarations share one group.", "notice"), select, results, pages);
+  body.append(tools, element("p", node.proof_system === "metamath"
+    ? "Prerequisites occupy earlier levels. Local hypotheses and declared rules remain separate declarations."
+    : "Prerequisites occupy earlier levels. Mutually dependent inductive declarations share one group.", "notice"), select, results, pages);
   function groupCard(group, expandable = true) {
     const card = element("section", null, "group-card");
     const title = element("div", null, "group-title");
@@ -586,7 +630,9 @@ async function hierarchyView(body, node, request, parameters) {
     select.value = group.level;
     results.append(groupCard(group, false), element("h3", "Prerequisite groups"));
     for (const prerequisite of group.prerequisites) results.append(groupCard(prerequisite));
-    if (!group.prerequisites.length) results.append(element("p", "This group rests directly on the kernel rules.", "muted"));
+    if (!group.prerequisites.length) results.append(element("p", node.proof_system === "metamath"
+      ? "This declaration is a local premise or a declared rule with no earlier prerequisites."
+      : "This group rests directly on the kernel rules.", "muted"));
   } else await load();
 }
 
@@ -702,6 +748,10 @@ async function showDeclaration(parameters, request) {
   const tab = parameters.get("tab") || "statement";
   renderHeading(node, tab);
   const body = $("detail-body");
+  if (node.proof_system === "metamath" && window.MathNative[tab]) {
+    await window.MathNative[tab](body, node, request, parameters);
+    return;
+  }
   if (tab === "statement") {
     body.append(element("pre", node.statement, "statement"), facts(node));
     if (node.doc) body.append(formatted(element("div", null, "documentation"), node.doc.trim(), node.name));
@@ -736,6 +786,12 @@ function browsing(parameters) {
   return parameters.get("view") === "browse" || ["q", "subject", "kind", "all", "axiom_free", "offset"].some(key => parameters.has(key));
 }
 
+function proofSystem(parameters) {
+  if (parameters.get("view") === "graph") return "lean";
+  if (parameters.has("name")) return parameters.get("name").startsWith("metamath:") ? "metamath" : "lean";
+  return parameters.get("system") || "lean";
+}
+
 async function render() {
   if (!summary) return;
   const request = ++activeRequest;
@@ -743,6 +799,13 @@ async function render() {
   const view = parameters.get("view");
   let slow = setTimeout(() => status("Loading…"), 300);
   try {
+    const system = proofSystem(parameters);
+    if (system !== (summary.proof_system || "lean")) {
+      const selected = await api("/api/summary", {system});
+      if (request !== activeRequest) { clearTimeout(slow); return; }
+      summary = selected;
+      snapshotLabels();
+    }
     if (view === "guide") {
       showView("guide");
       title("Contribute");
@@ -771,7 +834,7 @@ async function render() {
 
 function search(query, extra = {}) {
   const parameters = new URLSearchParams(location.hash.slice(1));
-  const values = {view: "browse", q: query};
+  const values = {view: "browse", q: query, system: summary.proof_system || "lean"};
   if (browsing(parameters)) {
     for (const key of ["subject", "kind", "all", "axiom_free"]) values[key] = parameters.get(key);
   }
@@ -781,8 +844,34 @@ function search(query, extra = {}) {
 function snapshotLabels() {
   bibliographyKeys = new Set(summary.bibliography_keys || []);
   $("snapshot-label").textContent = `Snapshot ${summary.catalog_digest.slice(0, 12)} · ${summary.checkers.join(" · ").replace("nanoda_bin", "nanoda")}`;
-  $("catalog-download").href = "/api/catalog?" + new URLSearchParams({snapshot: summary.catalog_digest});
-  $("proof-download").href = "/api/proof-export?" + new URLSearchParams({snapshot: summary.catalog_digest});
+  const system = summary.proof_system || "lean";
+  const scope = {snapshot: summary.catalog_digest, system};
+  $("catalog-download").href = "/api/catalog?" + new URLSearchParams(scope);
+  $("catalog-download").download = system === "metamath" ? "metamath-manifest.json" : "knowledge.json";
+  $("proof-download").href = "/api/proof-export?" + new URLSearchParams(scope);
+  $("proof-download").removeAttribute("download");
+  $("proof-download").textContent = system === "metamath" ? "Complete native archive" : "Proofs";
+  $("library").replaceChildren();
+  for (const library of summary.libraries || []) {
+    const option = element("option", library.title); option.value = library.id; $("library").append(option);
+  }
+  $("library").value = system;
+  $("library-description").textContent = system === "metamath" ? "Substitution calculus" : "Dependent type theory";
+  const nativeKinds = [["", "All kinds"], ["theorem", "Theorems"], ["axiom", "Declared rules"],
+    ["parameter", "Parameters"], ["hypothesis", "Local hypotheses"]];
+  const leanKinds = [["", "All kinds"], ["theorem", "Theorems"], ["definition", "Definitions"], ["inductive", "Structures"],
+    ["axiom", "Axioms"], ["constructor", "Constructors"], ["recursor", "Recursors"], ["opaque", "Opaque definitions"],
+    ["quotient_primitive", "Quotient primitives"]];
+  $("kind").replaceChildren();
+  for (const [value, text] of system === "metamath" ? nativeKinds : leanKinds) {
+    const option = element("option", text); option.value = value; $("kind").append(option);
+  }
+  $("axiom-free").parentElement.lastChild.textContent = system === "metamath" ? " No declared rules" : " No axioms";
+  for (const link of document.querySelectorAll("[data-nav]")) {
+    link.href = href({view: link.dataset.nav, system: link.dataset.nav === "graph" ? "lean" : system});
+    if (link.dataset.nav === "graph") link.textContent = system === "metamath" ? "Lean graph" : "Graph";
+  }
+  document.querySelector(".brand").href = href({system});
 }
 
 async function initialize() {
@@ -790,7 +879,7 @@ async function initialize() {
   if (!location.hash.slice(1)) { showView("home"); renderRing(); }
   const slow = setTimeout(() => status("Opening the verified snapshot…"), 300);
   try {
-    summary = await api("/api/summary");
+    summary = await api("/api/summary", {system: proofSystem(new URLSearchParams(location.hash.slice(1)))});
     clearTimeout(slow);
     status();
     snapshotLabels();
@@ -805,6 +894,7 @@ $("query").addEventListener("input", () => { clearTimeout(searchTimer); searchTi
 for (const id of ["kind", "all", "axiom-free"]) $(id).addEventListener("change", filter);
 
 function filter() {
+  if (["parameter", "hypothesis"].includes($("kind").value)) $("all").checked = true;
   route({view: "browse", q: $("query").value, kind: $("kind").value, all: $("all").checked ? 1 : null,
     axiom_free: $("axiom-free").checked ? 1 : null, offset: null});
 }
@@ -812,13 +902,22 @@ function filter() {
 $("reload").addEventListener("click", async () => {
   $("reload").disabled = true; status("Checking the latest verified snapshot…");
   try {
-    summary = await api("/api/reload", {}, {method: "POST"});
+    const system = summary.proof_system || "lean";
+    await api("/api/reload", {}, {method: "POST"});
+    summary = await api("/api/summary", {system});
     ringStarted = false;
     snapshotLabels();
     status();
     await render();
   } catch (error) { status(error.message, true); }
   finally { $("reload").disabled = false; }
+});
+$("library").addEventListener("change", () => {
+  const parameters = new URLSearchParams(location.hash.slice(1));
+  const values = {system: $("library").value};
+  if (parameters.has("name") || browsing(parameters)) values.view = "browse";
+  if (parameters.has("q")) values.q = parameters.get("q");
+  location.hash = href(values);
 });
 window.addEventListener("hashchange", () => { clearTimeout(searchTimer); render(); });
 document.addEventListener("keydown", event => {

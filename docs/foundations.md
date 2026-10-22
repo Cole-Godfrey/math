@@ -1,6 +1,6 @@
 # Foundations
 
-The foundation is Lean 4.35.0's dependent type theory. Its kernel checks universe-polymorphic dependent functions, inductive families and their elimination rules, definitional equality, proof irrelevance, and impredicative propositions. Quotient types have primitive formation and reduction rules. These rules are part of the declared foundation even when a theorem has no additional axioms. See the [Lean language reference](https://lean-lang.org/doc/reference/4.35.0/).
+The Lean declarations use Lean 4.35.0's dependent type theory. Its kernel checks universe-polymorphic dependent functions, inductive families and their elimination rules, definitional equality, proof irrelevance, and impredicative propositions. Quotient types have primitive formation and reduction rules. These rules are part of the declared foundation even when a theorem has no additional axioms. See the [Lean language reference](https://lean-lang.org/doc/reference/4.35.0/).
 
 Three additional axioms are declared in `knowledge.json`:
 
@@ -57,3 +57,7 @@ The mathlib registry and Lake lockfile must identify the same exact repository c
 Readable statements and proof terms may use notation. Structured index expressions retain constants, universe arguments, binders, literals, projections, and recursor data; nonlogical expression metadata is omitted. The separate lean4export artifact is used for kernel replay. See [Lean's proof validation guidance](https://lean-lang.org/doc/reference/4.35.0/ValidatingProofs/) for the distinction between proof checking and reviewing the meaning of a formal statement.
 
 Types record local assumptions. A theorem with a hypothesis `False` is a conditional statement with that hypothesis. An empty axiom set means the proof uses only the kernel foundation and its bound assumptions. The current library does not claim to formalize all mathematics or establish the consistency of its foundation.
+
+## Native Metamath foundations
+
+The native Metamath databases retain their own substitution calculus, assertion frames, local hypotheses, disjoint-variable restrictions, and exact `$a` rule closures. Every identity is qualified by its source database. Both pinned native verifiers and an independent source/proof-DAG replay check every `$p` proof before publication. These foundations and their assumptions remain separate from Lean. See [native proof verification and queries](metamath.md).

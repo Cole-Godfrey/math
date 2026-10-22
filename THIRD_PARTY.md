@@ -4,6 +4,9 @@ The mathematical index retains original declaration names, source links, module 
 
 | Source | License |
 | --- | --- |
+| [Metamath databases](https://github.com/metamath/set.mm) | CC0-1.0 |
+| [Metamath C verifier](https://github.com/metamath/metamath-exe) | GPL-2.0 |
+| [metamath-knife and metamath-rs](https://github.com/metamath/metamath-knife) | MIT OR Apache-2.0 |
 | [Lean](https://github.com/leanprover/lean4) | Apache-2.0 |
 | [mathlib](https://github.com/leanprover-community/mathlib4) | Apache-2.0 |
 | [Batteries](https://github.com/leanprover-community/batteries) | Apache-2.0 |
@@ -22,3 +25,5 @@ These dependencies include both mathematical libraries and supporting tools. The
 Registered bibliographies retain their complete source text, exact source revision, file digest, and library license attribution. Individual entries preserve their original BibTeX and source line ranges. References cited only in module documentation are identified at that scope.
 
 The explorer fonts and their license texts are in `repository/web/fonts`.
+
+`metamath-lock.json` pins the native mathematical sources and verifier implementations. Native snapshots retain their source provenance and complete license notices.
