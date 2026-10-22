@@ -16,3 +16,5 @@ import Math.Geometry.CompactComplex
 import Math.Analysis.HarnackSharpness
 import Math.Geometry.ConvexFinite
 import Math.Probability.ConditionalL2
+import Math.NumberTheory.PrimeProgressions
+import Math.NumberTheory.SturmFinite

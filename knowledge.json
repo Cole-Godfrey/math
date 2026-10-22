@@ -8257,6 +8257,638 @@
             "Quot.sound",
             "Classical.choice"
           ]
+        },
+        "Mathlib.NumberTheory.LSeries.AbstractFuncEq": {
+          "title": "Abstract functional equations for Mellin transforms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.LSeries.Basic": {
+          "title": "L-series",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.LSeries.Convergence": {
+          "title": "Convergence of L-series",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.LSeries.Convolution": {
+          "title": "Dirichlet convolution of sequences and products of L-series",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.LSeries.Deriv": {
+          "title": "Differentiability and derivatives of L-series",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.LSeries.Dirichlet": {
+          "title": "L-series of Dirichlet characters and arithmetic functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.LSeries.DirichletContinuation": {
+          "title": "Analytic continuation of Dirichlet L-functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.LSeries.HardyZ": {
+          "title": "Hardy's Z function",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.LSeries.HurwitzZeta": {
+          "title": "The Hurwitz zeta function",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.LSeries.HurwitzZetaEven": {
+          "title": "Even Hurwitz zeta functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.LSeries.HurwitzZetaOdd": {
+          "title": "Odd Hurwitz zeta functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.LSeries.HurwitzZetaValues": {
+          "title": "Special values of Hurwitz and Riemann zeta functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.LSeries.Injectivity": {
+          "title": "A converging L-series determines its coefficients",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.LSeries.Linearity": {
+          "title": "Linearity of the L-series of `f` as a function of `f`",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.LSeries.MellinEqDirichlet": {
+          "title": "Dirichlet series as Mellin transforms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.LSeries.Nonvanishing": {
+          "title": "The L-function of a Dirichlet character does not vanish on Re(s) ≥ 1",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.LSeries.Positivity": {
+          "title": "Positivity of values of L-series",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.LSeries.PrimesInAP": {
+          "title": "Dirichlet's Theorem on primes in arithmetic progression",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.LSeries.RiemannZeta": {
+          "title": "Definition of the Riemann zeta function",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.LSeries.RiemannZetaLogDeriv": {
+          "title": "The functional equation for the logarithmic derivative of the Riemann zeta function",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.LSeries.SumCoeff": {
+          "title": "Partial sums of coefficients of L-series",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.LSeries.ZMod": {
+          "title": "L-series of functions on `ZMod N`",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.LSeries.ZetaZeros": {
+          "title": "Discreteness of the zeros of the Riemann zeta function",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ArithmeticFunction.Carmichael": {
+          "title": "The Carmichael function",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ArithmeticFunction.Defs": {
+          "title": "Arithmetic Functions and Dirichlet Convolution",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ArithmeticFunction.LFunction": {
+          "title": "Construction of L-functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ArithmeticFunction.Liouville": {
+          "title": "The Liouville Function",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ArithmeticFunction.Misc": {
+          "title": "Miscellaneous arithmetic Functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ArithmeticFunction.Moebius": {
+          "title": "The Möbius function and Möbius inversion",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ArithmeticFunction.VonMangoldt": {
+          "title": "The von Mangoldt Function",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ArithmeticFunction.Zeta": {
+          "title": "The arithmetic function `ζ`",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.DirichletCharacter.Basic": {
+          "title": "Dirichlet Characters",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.DirichletCharacter.Bounds": {
+          "title": "Bounds for values of Dirichlet characters",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.DirichletCharacter.GaussSum": {
+          "title": "Gauss sums for Dirichlet characters",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.DirichletCharacter.Orthogonality": {
+          "title": "Orthogonality relations for Dirichlet characters",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.EulerProduct.Basic": {
+          "title": "Euler Products",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.EulerProduct.DirichletLSeries": {
+          "title": "The Euler Product for the Riemann Zeta Function and Dirichlet L-Series",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.EulerProduct.ExpLog": {
+          "title": "Logarithms of Euler Products",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ModularForms.ArithmeticSubgroups": {
+          "title": "Arithmetic subgroups of `GL(2, ℝ)`",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ModularForms.Basic": {
+          "title": "Modular forms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ModularForms.BoundedAtCusp": {
+          "title": "Boundedness and vanishing at cusps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ModularForms.Bounds": {
+          "title": "Bounds for the norm of a modular form",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ModularForms.CongruenceSubgroups": {
+          "title": "Congruence subgroups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ModularForms.CuspFormSubmodule": {
+          "title": "Cusp form submodule and IsCuspForm predicate",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ModularForms.Cusps": {
+          "title": "Cusps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ModularForms.DedekindEta": {
+          "title": "Dedekind eta function",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ModularForms.Derivative": {
+          "title": "Derivatives of modular forms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ModularForms.DimensionFormulas.LevelOne": {
+          "title": "NumberTheory.ModularForms.DimensionFormulas.LevelOne",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ModularForms.Discriminant": {
+          "title": "The modular discriminant Δ",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.Basic": {
+          "title": "Eisenstein series are Modular Forms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.Defs": {
+          "title": "Eisenstein Series",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.E2.Defs": {
+          "title": "Eisenstein Series E2",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.E2.MDifferentiable": {
+          "title": "MDifferentiability of the weight 2 Eisenstein series",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.E2.Summable": {
+          "title": "Summability of E2",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.E2.Transform": {
+          "title": "Slash action on E2",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.IsBoundedAtImInfty": {
+          "title": "Boundedness of Eisenstein series",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.MDifferentiable": {
+          "title": "Holomorphicity of Eisenstein series",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.QExpansion": {
+          "title": "Eisenstein series q-expansions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.Summable": {
+          "title": "Summability of Eisenstein series",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.UniformConvergence": {
+          "title": "Uniform convergence of Eisenstein series",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ModularForms.Identities": {
+          "title": "Identities of ModularForms and SlashInvariantForms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ModularForms.JacobiTheta.Bounds": {
+          "title": "Asymptotic bounds for Jacobi theta functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ModularForms.JacobiTheta.Manifold": {
+          "title": "Manifold differentiability of the Jacobi theta function",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ModularForms.JacobiTheta.OneVariable": {
+          "title": "NumberTheory.ModularForms.JacobiTheta.OneVariable",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ModularForms.JacobiTheta.TwoVariable": {
+          "title": "The two-variable Jacobi theta function",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ModularForms.LFunction": {
+          "title": "The `L`-function of a modular form",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ModularForms.LevelOne.Basic": {
+          "title": "Level one modular forms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ModularForms.LevelOne.DimensionFormula": {
+          "title": "Dimension formula and Sturm bound for level 1 modular forms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ModularForms.LevelOne.GradedRing": {
+          "title": "The graded ring of level-1 modular forms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ModularForms.LevelOne": {
+          "title": "NumberTheory.ModularForms.LevelOne",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ModularForms.NormTrace": {
+          "title": "Restriction, translation, norm and trace",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ModularForms.Petersson": {
+          "title": "The Petersson scalar product",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ModularForms.ProperlyDiscontinuous": {
+          "title": "Arithmetic subgroups act properly discontinuously",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ModularForms.QExpansion": {
+          "title": "q-expansions of functions on the upper half plane",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ModularForms.RamanujanFormula": {
+          "title": "Ramanujan's formulas for derivatives of Eisenstein series",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ModularForms.SlashActions": {
+          "title": "Slash actions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ModularForms.SlashInvariantForms": {
+          "title": "Slash invariant forms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.ZetaValues": {
+          "title": "Critical values of the Riemann zeta function",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.NumberTheory.Harmonic.ZetaAsymp": {
+          "title": "Asymptotics of `ζ s` as `s → 1` or `s → 0`",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
         }
       },
       "citation_aliases": {
@@ -8318,7 +8950,8 @@
       "parent": "mathematics",
       "modules": [
         "Mathlib.Data.Nat.Prime.Defs",
-        "Mathlib.Data.Nat.Prime.Infinite"
+        "Mathlib.Data.Nat.Prime.Infinite",
+        "Math.NumberTheory.PrimeProgressions"
       ]
     },
     "algebra": {
@@ -10490,6 +11123,268 @@
         "Mathlib.MeasureTheory.Integral.DivergenceTheorem",
         "Mathlib.MeasureTheory.Integral.TorusIntegral"
       ]
+    },
+    "analytic_number_theory": {
+      "title": "Analytic number theory",
+      "parent": "number_theory",
+      "modules": [
+        "Mathlib.NumberTheory.LSeries.AbstractFuncEq",
+        "Mathlib.NumberTheory.LSeries.Basic",
+        "Mathlib.NumberTheory.LSeries.Convergence",
+        "Mathlib.NumberTheory.LSeries.Convolution",
+        "Mathlib.NumberTheory.LSeries.Deriv",
+        "Mathlib.NumberTheory.LSeries.Dirichlet",
+        "Mathlib.NumberTheory.LSeries.DirichletContinuation",
+        "Mathlib.NumberTheory.LSeries.HardyZ",
+        "Mathlib.NumberTheory.LSeries.HurwitzZeta",
+        "Mathlib.NumberTheory.LSeries.HurwitzZetaEven",
+        "Mathlib.NumberTheory.LSeries.HurwitzZetaOdd",
+        "Mathlib.NumberTheory.LSeries.HurwitzZetaValues",
+        "Mathlib.NumberTheory.LSeries.Injectivity",
+        "Mathlib.NumberTheory.LSeries.Linearity",
+        "Mathlib.NumberTheory.LSeries.MellinEqDirichlet",
+        "Mathlib.NumberTheory.LSeries.Nonvanishing",
+        "Mathlib.NumberTheory.LSeries.Positivity",
+        "Mathlib.NumberTheory.LSeries.PrimesInAP",
+        "Mathlib.NumberTheory.LSeries.RiemannZeta",
+        "Mathlib.NumberTheory.LSeries.RiemannZetaLogDeriv",
+        "Mathlib.NumberTheory.LSeries.SumCoeff",
+        "Mathlib.NumberTheory.LSeries.ZMod",
+        "Mathlib.NumberTheory.LSeries.ZetaZeros",
+        "Mathlib.NumberTheory.ArithmeticFunction.Carmichael",
+        "Mathlib.NumberTheory.ArithmeticFunction.Defs",
+        "Mathlib.NumberTheory.ArithmeticFunction.LFunction",
+        "Mathlib.NumberTheory.ArithmeticFunction.Liouville",
+        "Mathlib.NumberTheory.ArithmeticFunction.Misc",
+        "Mathlib.NumberTheory.ArithmeticFunction.Moebius",
+        "Mathlib.NumberTheory.ArithmeticFunction.VonMangoldt",
+        "Mathlib.NumberTheory.ArithmeticFunction.Zeta",
+        "Mathlib.NumberTheory.DirichletCharacter.Basic",
+        "Mathlib.NumberTheory.DirichletCharacter.Bounds",
+        "Mathlib.NumberTheory.DirichletCharacter.GaussSum",
+        "Mathlib.NumberTheory.DirichletCharacter.Orthogonality",
+        "Mathlib.NumberTheory.EulerProduct.Basic",
+        "Mathlib.NumberTheory.EulerProduct.DirichletLSeries",
+        "Mathlib.NumberTheory.EulerProduct.ExpLog",
+        "Mathlib.NumberTheory.ModularForms.ArithmeticSubgroups",
+        "Mathlib.NumberTheory.ModularForms.Basic",
+        "Mathlib.NumberTheory.ModularForms.BoundedAtCusp",
+        "Mathlib.NumberTheory.ModularForms.Bounds",
+        "Mathlib.NumberTheory.ModularForms.CongruenceSubgroups",
+        "Mathlib.NumberTheory.ModularForms.CuspFormSubmodule",
+        "Mathlib.NumberTheory.ModularForms.Cusps",
+        "Mathlib.NumberTheory.ModularForms.DedekindEta",
+        "Mathlib.NumberTheory.ModularForms.Derivative",
+        "Mathlib.NumberTheory.ModularForms.DimensionFormulas.LevelOne",
+        "Mathlib.NumberTheory.ModularForms.Discriminant",
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.Basic",
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.Defs",
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.E2.Defs",
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.E2.MDifferentiable",
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.E2.Summable",
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.E2.Transform",
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.IsBoundedAtImInfty",
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.MDifferentiable",
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.QExpansion",
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.Summable",
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.UniformConvergence",
+        "Mathlib.NumberTheory.ModularForms.Identities",
+        "Mathlib.NumberTheory.ModularForms.JacobiTheta.Bounds",
+        "Mathlib.NumberTheory.ModularForms.JacobiTheta.Manifold",
+        "Mathlib.NumberTheory.ModularForms.JacobiTheta.OneVariable",
+        "Mathlib.NumberTheory.ModularForms.JacobiTheta.TwoVariable",
+        "Mathlib.NumberTheory.ModularForms.LFunction",
+        "Mathlib.NumberTheory.ModularForms.LevelOne.Basic",
+        "Mathlib.NumberTheory.ModularForms.LevelOne.DimensionFormula",
+        "Mathlib.NumberTheory.ModularForms.LevelOne.GradedRing",
+        "Mathlib.NumberTheory.ModularForms.LevelOne",
+        "Mathlib.NumberTheory.ModularForms.NormTrace",
+        "Mathlib.NumberTheory.ModularForms.Petersson",
+        "Mathlib.NumberTheory.ModularForms.ProperlyDiscontinuous",
+        "Mathlib.NumberTheory.ModularForms.QExpansion",
+        "Mathlib.NumberTheory.ModularForms.RamanujanFormula",
+        "Mathlib.NumberTheory.ModularForms.SlashActions",
+        "Mathlib.NumberTheory.ModularForms.SlashInvariantForms",
+        "Mathlib.NumberTheory.ZetaValues",
+        "Mathlib.NumberTheory.Harmonic.ZetaAsymp",
+        "Math.NumberTheory.PrimeProgressions",
+        "Math.NumberTheory.SturmFinite"
+      ]
+    },
+    "dirichlet_series": {
+      "title": "Dirichlet series and L-functions",
+      "parent": "analytic_number_theory",
+      "modules": [
+        "Mathlib.NumberTheory.LSeries.AbstractFuncEq",
+        "Mathlib.NumberTheory.LSeries.Basic",
+        "Mathlib.NumberTheory.LSeries.Convergence",
+        "Mathlib.NumberTheory.LSeries.Convolution",
+        "Mathlib.NumberTheory.LSeries.Deriv",
+        "Mathlib.NumberTheory.LSeries.Dirichlet",
+        "Mathlib.NumberTheory.LSeries.DirichletContinuation",
+        "Mathlib.NumberTheory.LSeries.HardyZ",
+        "Mathlib.NumberTheory.LSeries.HurwitzZeta",
+        "Mathlib.NumberTheory.LSeries.HurwitzZetaEven",
+        "Mathlib.NumberTheory.LSeries.HurwitzZetaOdd",
+        "Mathlib.NumberTheory.LSeries.HurwitzZetaValues",
+        "Mathlib.NumberTheory.LSeries.Injectivity",
+        "Mathlib.NumberTheory.LSeries.Linearity",
+        "Mathlib.NumberTheory.LSeries.MellinEqDirichlet",
+        "Mathlib.NumberTheory.LSeries.Nonvanishing",
+        "Mathlib.NumberTheory.LSeries.Positivity",
+        "Mathlib.NumberTheory.LSeries.PrimesInAP",
+        "Mathlib.NumberTheory.LSeries.RiemannZeta",
+        "Mathlib.NumberTheory.LSeries.RiemannZetaLogDeriv",
+        "Mathlib.NumberTheory.LSeries.SumCoeff",
+        "Mathlib.NumberTheory.LSeries.ZMod",
+        "Mathlib.NumberTheory.LSeries.ZetaZeros",
+        "Mathlib.NumberTheory.EulerProduct.Basic",
+        "Mathlib.NumberTheory.EulerProduct.DirichletLSeries",
+        "Mathlib.NumberTheory.EulerProduct.ExpLog",
+        "Mathlib.NumberTheory.ArithmeticFunction.LFunction",
+        "Mathlib.NumberTheory.ModularForms.LFunction"
+      ]
+    },
+    "zeta_functions": {
+      "title": "Zeta functions and special values",
+      "parent": "dirichlet_series",
+      "modules": [
+        "Mathlib.NumberTheory.LSeries.HardyZ",
+        "Mathlib.NumberTheory.LSeries.HurwitzZeta",
+        "Mathlib.NumberTheory.LSeries.HurwitzZetaEven",
+        "Mathlib.NumberTheory.LSeries.HurwitzZetaOdd",
+        "Mathlib.NumberTheory.LSeries.HurwitzZetaValues",
+        "Mathlib.NumberTheory.LSeries.RiemannZeta",
+        "Mathlib.NumberTheory.LSeries.RiemannZetaLogDeriv",
+        "Mathlib.NumberTheory.LSeries.ZetaZeros",
+        "Mathlib.NumberTheory.ArithmeticFunction.Zeta",
+        "Mathlib.NumberTheory.ZetaValues",
+        "Mathlib.NumberTheory.Harmonic.ZetaAsymp"
+      ]
+    },
+    "arithmetic_functions": {
+      "title": "Arithmetic functions",
+      "parent": "number_theory",
+      "modules": [
+        "Mathlib.NumberTheory.ArithmeticFunction.Carmichael",
+        "Mathlib.NumberTheory.ArithmeticFunction.Defs",
+        "Mathlib.NumberTheory.ArithmeticFunction.LFunction",
+        "Mathlib.NumberTheory.ArithmeticFunction.Liouville",
+        "Mathlib.NumberTheory.ArithmeticFunction.Misc",
+        "Mathlib.NumberTheory.ArithmeticFunction.Moebius",
+        "Mathlib.NumberTheory.ArithmeticFunction.VonMangoldt",
+        "Mathlib.NumberTheory.ArithmeticFunction.Zeta"
+      ]
+    },
+    "dirichlet_characters": {
+      "title": "Dirichlet characters",
+      "parent": "analytic_number_theory",
+      "modules": [
+        "Mathlib.NumberTheory.DirichletCharacter.Basic",
+        "Mathlib.NumberTheory.DirichletCharacter.Bounds",
+        "Mathlib.NumberTheory.DirichletCharacter.GaussSum",
+        "Mathlib.NumberTheory.DirichletCharacter.Orthogonality",
+        "Mathlib.NumberTheory.LSeries.Dirichlet",
+        "Mathlib.NumberTheory.LSeries.DirichletContinuation",
+        "Mathlib.NumberTheory.LSeries.Nonvanishing",
+        "Mathlib.NumberTheory.EulerProduct.DirichletLSeries"
+      ]
+    },
+    "primes_in_progressions": {
+      "title": "Primes in arithmetic progressions",
+      "parent": "analytic_number_theory",
+      "modules": [
+        "Mathlib.NumberTheory.LSeries.PrimesInAP",
+        "Math.NumberTheory.PrimeProgressions"
+      ]
+    },
+    "modular_forms": {
+      "title": "Modular forms",
+      "parent": "number_theory",
+      "modules": [
+        "Mathlib.NumberTheory.ModularForms.ArithmeticSubgroups",
+        "Mathlib.NumberTheory.ModularForms.Basic",
+        "Mathlib.NumberTheory.ModularForms.BoundedAtCusp",
+        "Mathlib.NumberTheory.ModularForms.Bounds",
+        "Mathlib.NumberTheory.ModularForms.CongruenceSubgroups",
+        "Mathlib.NumberTheory.ModularForms.CuspFormSubmodule",
+        "Mathlib.NumberTheory.ModularForms.Cusps",
+        "Mathlib.NumberTheory.ModularForms.DedekindEta",
+        "Mathlib.NumberTheory.ModularForms.Derivative",
+        "Mathlib.NumberTheory.ModularForms.DimensionFormulas.LevelOne",
+        "Mathlib.NumberTheory.ModularForms.Discriminant",
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.Basic",
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.Defs",
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.E2.Defs",
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.E2.MDifferentiable",
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.E2.Summable",
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.E2.Transform",
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.IsBoundedAtImInfty",
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.MDifferentiable",
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.QExpansion",
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.Summable",
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.UniformConvergence",
+        "Mathlib.NumberTheory.ModularForms.Identities",
+        "Mathlib.NumberTheory.ModularForms.JacobiTheta.Bounds",
+        "Mathlib.NumberTheory.ModularForms.JacobiTheta.Manifold",
+        "Mathlib.NumberTheory.ModularForms.JacobiTheta.OneVariable",
+        "Mathlib.NumberTheory.ModularForms.JacobiTheta.TwoVariable",
+        "Mathlib.NumberTheory.ModularForms.LFunction",
+        "Mathlib.NumberTheory.ModularForms.LevelOne.Basic",
+        "Mathlib.NumberTheory.ModularForms.LevelOne.DimensionFormula",
+        "Mathlib.NumberTheory.ModularForms.LevelOne.GradedRing",
+        "Mathlib.NumberTheory.ModularForms.LevelOne",
+        "Mathlib.NumberTheory.ModularForms.NormTrace",
+        "Mathlib.NumberTheory.ModularForms.Petersson",
+        "Mathlib.NumberTheory.ModularForms.ProperlyDiscontinuous",
+        "Mathlib.NumberTheory.ModularForms.QExpansion",
+        "Mathlib.NumberTheory.ModularForms.RamanujanFormula",
+        "Mathlib.NumberTheory.ModularForms.SlashActions",
+        "Mathlib.NumberTheory.ModularForms.SlashInvariantForms",
+        "Math.NumberTheory.SturmFinite"
+      ]
+    },
+    "eisenstein_series": {
+      "title": "Eisenstein series",
+      "parent": "modular_forms",
+      "modules": [
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.Basic",
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.Defs",
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.E2.Defs",
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.E2.MDifferentiable",
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.E2.Summable",
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.E2.Transform",
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.IsBoundedAtImInfty",
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.MDifferentiable",
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.QExpansion",
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.Summable",
+        "Mathlib.NumberTheory.ModularForms.EisensteinSeries.UniformConvergence"
+      ]
+    },
+    "theta_functions": {
+      "title": "Theta functions",
+      "parent": "modular_forms",
+      "modules": [
+        "Mathlib.NumberTheory.ModularForms.JacobiTheta.Bounds",
+        "Mathlib.NumberTheory.ModularForms.JacobiTheta.Manifold",
+        "Mathlib.NumberTheory.ModularForms.JacobiTheta.OneVariable",
+        "Mathlib.NumberTheory.ModularForms.JacobiTheta.TwoVariable"
+      ]
+    },
+    "modular_l_functions": {
+      "title": "Modular L-functions",
+      "parent": "modular_forms",
+      "modules": [
+        "Mathlib.NumberTheory.ModularForms.LFunction"
+      ]
+    },
+    "modular_identity_certificates": {
+      "title": "Modular identity certificates",
+      "parent": "modular_forms",
+      "modules": [
+        "Mathlib.NumberTheory.ModularForms.LevelOne.DimensionFormula",
+        "Math.NumberTheory.SturmFinite"
+      ]
     }
   },
   "modules": {
@@ -10619,6 +11514,22 @@
     },
     "Math.Probability.ConditionalL2": {
       "title": "Conditional L2 prediction, optimality and information gain",
+      "allowed_axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    "Math.NumberTheory.PrimeProgressions": {
+      "title": "Prime residue classes, exact infinitude and finite exclusions",
+      "allowed_axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    "Math.NumberTheory.SturmFinite": {
+      "title": "Finite Fourier coefficient certificates for level-one modular identities",
       "allowed_axioms": [
         "propext",
         "Quot.sound",

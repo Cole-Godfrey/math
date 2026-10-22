@@ -986,6 +986,351 @@ class RepositoryTests(RepositoryArtifacts, unittest.TestCase):
         references = snapshot.citations("Ordinal.veblen")
         self.assertIn("Miller_1976", {entry["key"] for entry in references["module_citations"]})
 
+    def test_prime_progression_results_retain_local_proofs_and_source(self):
+        expected = {
+            "Math.NumberTheory.prime_eq_gcd_of_not_coprime": "theorem",
+            "Math.NumberTheory.finite_primes_modEq_of_not_coprime": "theorem",
+            "Math.NumberTheory.infinite_primes_modEq_iff": "theorem",
+            "Math.NumberTheory.infinite_primes_modEq_above_avoiding_iff": "theorem",
+            "Math.NumberTheory.exists_prime_modEq_above_avoiding": "theorem",
+            "Math.NumberTheory.exists_finset_primes_modEq_card": "theorem",
+            "Math.NumberTheory.forall_finset_exists_prime_modEq_iff": "theorem"
+        }
+        module = "Math.NumberTheory.PrimeProgressions"
+        path = ROOT / "Math/NumberTheory/PrimeProgressions.lean"
+        origin = self.catalog["sources"][module]
+        self.assertEqual(origin["package"], "math")
+        self.assertEqual(origin["path"], path.relative_to(ROOT).as_posix())
+        self.assertEqual(origin["sha256"], hashlib.sha256(path.read_bytes()).hexdigest())
+        graph = KnowledgeGraph(self.catalog)
+        for name, kind in expected.items():
+            with self.subTest(name=name):
+                self.assertIn(name, self.catalog["roots"])
+                self.assertIn(name, self.catalog["module_declarations_by_module"][module])
+                node = self.nodes[name]
+                self.assertEqual(node["kind"], kind)
+                self.assertEqual(node["module"], module)
+                self.assertIsInstance(node["value"], int)
+                self.assertTrue(node["proof"])
+                self.assertGreater(node["source"]["line"], 0)
+                self.assertTrue(set(node["axioms"]) <= set(self.policy["modules"][module]["allowed_axioms"]))
+                for subject in ('primes_in_progressions', 'analytic_number_theory', 'number_theory', 'mathematics'):
+                    self.assertIn(name, {node["name"] for node in graph.search(name, subject=subject)})
+
+    def test_sturm_finite_results_retain_local_proofs_and_source(self):
+        expected = {
+            "Math.NumberTheory.modularForm_eq_zero_iff_coeffs": "theorem",
+            "Math.NumberTheory.modularForm_eq_iff_coeffs": "theorem",
+            "Math.NumberTheory.sturmCoefficients_injective": "theorem",
+            "Math.NumberTheory.sturmCoefficients": "definition"
+        }
+        module = "Math.NumberTheory.SturmFinite"
+        path = ROOT / "Math/NumberTheory/SturmFinite.lean"
+        origin = self.catalog["sources"][module]
+        self.assertEqual(origin["package"], "math")
+        self.assertEqual(origin["path"], path.relative_to(ROOT).as_posix())
+        self.assertEqual(origin["sha256"], hashlib.sha256(path.read_bytes()).hexdigest())
+        graph = KnowledgeGraph(self.catalog)
+        for name, kind in expected.items():
+            with self.subTest(name=name):
+                self.assertIn(name, self.catalog["roots"])
+                self.assertIn(name, self.catalog["module_declarations_by_module"][module])
+                node = self.nodes[name]
+                self.assertEqual(node["kind"], kind)
+                self.assertEqual(node["module"], module)
+                self.assertIsInstance(node["value"], int)
+                self.assertTrue(node["proof"])
+                self.assertGreater(node["source"]["line"], 0)
+                self.assertTrue(set(node["axioms"]) <= set(self.policy["modules"][module]["allowed_axioms"]))
+                for subject in ('modular_identity_certificates', 'modular_forms', 'analytic_number_theory', 'number_theory', 'mathematics'):
+                    self.assertIn(name, {node["name"] for node in graph.search(name, subject=subject)})
+
+    def test_prime_progression_statements_match_reference_types(self):
+        run(ROOT, [self.lake, "env", "lean", "tests/PrimeProgressionStatements.lean"], capture=True)
+
+    def test_analytic_number_theory_statements_match_reference_types(self):
+        run(ROOT, [self.lake, "env", "lean", "tests/AnalyticNumberTheoryStatements.lean"], capture=True)
+
+    def test_modular_form_statements_match_reference_types(self):
+        run(ROOT, [self.lake, "env", "lean", "tests/ModularFormStatements.lean"], capture=True)
+
+    def test_analytic_number_theory_registry_retains_every_pinned_module(self):
+        base = ROOT / ".lake/packages/mathlib"
+        areas = {'NumberTheory/LSeries': 23, 'NumberTheory/ArithmeticFunction': 8, 'NumberTheory/DirichletCharacter': 4, 'NumberTheory/EulerProduct': 3, 'NumberTheory/ModularForms': 39}
+        registered = self.policy["libraries"]["mathlib"]["modules"]
+        total = set()
+        for area, count in areas.items():
+            paths = (base / "Mathlib" / area).rglob("*.lean")
+            expected = {".".join(path.relative_to(base).with_suffix("").parts) for path in paths}
+            self.assertEqual(len(expected), count)
+            prefix = "Mathlib." + area.replace("/", ".") + "."
+            self.assertEqual({name for name in registered if name.startswith(prefix)}, expected)
+            total |= expected
+        total.update({"Mathlib.NumberTheory.ZetaValues", "Mathlib.NumberTheory.Harmonic.ZetaAsymp"})
+        self.assertEqual(len(total), 79)
+        for module in total:
+            with self.subTest(module=module):
+                self.assertIn(module, self.catalog["module_policy"])
+                self.assertIn(module, self.catalog["module_declarations_by_module"])
+                self.assertIn(module, self.catalog["sources"])
+
+    def test_analytic_number_theory_objects_and_results_retain_terms_and_pinned_sources(self):
+        expected = {
+            "ModularForm": "Mathlib.NumberTheory.ModularForms.Basic",
+            "CuspForm": "Mathlib.NumberTheory.ModularForms.Basic",
+            "ArithmeticFunction.vonMangoldt": "Mathlib.NumberTheory.ArithmeticFunction.VonMangoldt",
+            "ArithmeticFunction": "Mathlib.NumberTheory.ArithmeticFunction.Defs",
+            "LSeries": "Mathlib.NumberTheory.LSeries.Basic",
+            "DirichletCharacter.LFunction": "Mathlib.NumberTheory.LSeries.DirichletContinuation",
+            "DirichletCharacter": "Mathlib.NumberTheory.DirichletCharacter.Basic",
+            "riemannZeta": "Mathlib.NumberTheory.LSeries.RiemannZeta",
+            "ModularForm.discriminant_eq_E₄_cube_sub_E₆_sq": "Mathlib.NumberTheory.ModularForms.LevelOne.GradedRing",
+            "UpperHalfPlane.qExpansion": "Mathlib.NumberTheory.ModularForms.QExpansion",
+            "zeta_eq_tsum_one_div_nat_add_one_cpow": "Mathlib.NumberTheory.LSeries.RiemannZeta",
+            "completedRiemannZeta": "Mathlib.NumberTheory.LSeries.RiemannZeta",
+            "ArithmeticFunction.zeta": "Mathlib.NumberTheory.ArithmeticFunction.Zeta",
+            "ArithmeticFunction.moebius": "Mathlib.NumberTheory.ArithmeticFunction.Moebius",
+            "ArithmeticFunction.moebius_mul_coe_zeta": "Mathlib.NumberTheory.ArithmeticFunction.Moebius",
+            "ArithmeticFunction.IsMultiplicative": "Mathlib.NumberTheory.ArithmeticFunction.Defs",
+            "ModularForm.discriminant": "Mathlib.NumberTheory.ModularForms.Discriminant",
+            "ModularForm.eta": "Mathlib.NumberTheory.ModularForms.DedekindEta",
+            "ModularForm.discriminant_ne_zero": "Mathlib.NumberTheory.ModularForms.Discriminant",
+            "ModularForm.eta_ne_zero": "Mathlib.NumberTheory.ModularForms.DedekindEta",
+            "CuspForm.rank_eq_one_of_weight_eq_twelve": "Mathlib.NumberTheory.ModularForms.LevelOne.DimensionFormula",
+            "CuspForm.discriminantEquiv": "Mathlib.NumberTheory.ModularForms.LevelOne.DimensionFormula",
+            "CuspForm.discriminant": "Mathlib.NumberTheory.ModularForms.Discriminant",
+            "hasSum_zeta_two": "Mathlib.NumberTheory.ZetaValues",
+            "ModularForm.Λ": "Mathlib.NumberTheory.ModularForms.LFunction",
+            "ModularForm.L": "Mathlib.NumberTheory.ModularForms.LFunction",
+            "UpperHalfPlane.petersson": "Mathlib.NumberTheory.ModularForms.Petersson",
+            "riemannZeta_neg_two_mul_nat_add_one": "Mathlib.NumberTheory.LSeries.RiemannZeta",
+            "DirichletCharacter.LFunction_eq_LSeries": "Mathlib.NumberTheory.LSeries.DirichletContinuation",
+            "riemannZeta_residue_one": "Mathlib.NumberTheory.LSeries.RiemannZeta",
+            "Nat.infinite_setOfPred_prime_and_modEq": "Mathlib.NumberTheory.LSeries.PrimesInAP",
+            "ArithmeticFunction.vonMangoldt.residueClass": "Mathlib.NumberTheory.LSeries.PrimesInAP",
+            "ArithmeticFunction.vonMangoldt.not_summable_residueClass_prime_div": "Mathlib.NumberTheory.LSeries.PrimesInAP",
+            "LSeries.abscissaOfAbsConv": "Mathlib.NumberTheory.LSeries.Convergence",
+            "DirichletCharacter.LFunction_ne_zero_of_one_le_re": "Mathlib.NumberTheory.LSeries.Nonvanishing",
+            "DirichletCharacter.LSeries_eulerProduct_hasProd": "Mathlib.NumberTheory.EulerProduct.DirichletLSeries",
+            "DirichletCharacter.differentiable_LFunction": "Mathlib.NumberTheory.LSeries.DirichletContinuation",
+            "DirichletCharacter.completedLFunction": "Mathlib.NumberTheory.LSeries.DirichletContinuation",
+            "DirichletCharacter.IsPrimitive.completedLFunction_one_sub": "Mathlib.NumberTheory.LSeries.DirichletContinuation",
+            "jacobiTheta": "Mathlib.NumberTheory.ModularForms.JacobiTheta.OneVariable",
+            "riemannZetaZeros": "Mathlib.NumberTheory.LSeries.ZetaZeros",
+            "completedRiemannZeta₀": "Mathlib.NumberTheory.LSeries.RiemannZeta",
+            "ModularForm.sturm_bound_levelOne": "Mathlib.NumberTheory.ModularForms.LevelOne.DimensionFormula",
+            "ModularForm.dimension_level_one": "Mathlib.NumberTheory.ModularForms.LevelOne.DimensionFormula",
+            "LSeries.eq_of_LSeries_eventually_eq": "Mathlib.NumberTheory.LSeries.Injectivity",
+            "IsCompact.inter_riemannZetaZeros_finite": "Mathlib.NumberTheory.LSeries.ZetaZeros",
+            "isDiscrete_riemannZetaZeros": "Mathlib.NumberTheory.LSeries.ZetaZeros",
+            "riemannZeta_ne_zero_of_one_le_re": "Mathlib.NumberTheory.LSeries.Nonvanishing",
+            "DirichletCharacter.LFunction_apply_one_ne_zero": "Mathlib.NumberTheory.LSeries.Nonvanishing",
+            "CuspForm.differentiable_Λ": "Mathlib.NumberTheory.ModularForms.LFunction",
+            "CuspForm.differentiable_L": "Mathlib.NumberTheory.ModularForms.LFunction",
+            "ArithmeticFunction.sum_eq_iff_sum_smul_moebius_eq": "Mathlib.NumberTheory.ArithmeticFunction.Moebius",
+            "riemannZeta_zero": "Mathlib.NumberTheory.LSeries.RiemannZeta",
+            "riemannZeta_one_sub": "Mathlib.NumberTheory.LSeries.RiemannZeta",
+            "hasSum_zeta_four": "Mathlib.NumberTheory.ZetaValues",
+            "riemannZeta_eulerProduct_hasProd": "Mathlib.NumberTheory.EulerProduct.DirichletLSeries",
+            "logDeriv_riemannZeta_one_sub": "Mathlib.NumberTheory.LSeries.RiemannZetaLogDeriv",
+            "jacobiTheta_S_smul": "Mathlib.NumberTheory.ModularForms.JacobiTheta.OneVariable",
+            "differentiable_completedZeta₀": "Mathlib.NumberTheory.LSeries.RiemannZeta",
+            "RiemannHypothesis": "Mathlib.NumberTheory.LSeries.RiemannZeta",
+            "ModularForm.E₆": "Mathlib.NumberTheory.ModularForms.EisensteinSeries.Basic",
+            "ModularForm.E₄": "Mathlib.NumberTheory.ModularForms.EisensteinSeries.Basic",
+            "Math.NumberTheory.prime_eq_gcd_of_not_coprime": "Math.NumberTheory.PrimeProgressions",
+            "Math.NumberTheory.finite_primes_modEq_of_not_coprime": "Math.NumberTheory.PrimeProgressions",
+            "Math.NumberTheory.infinite_primes_modEq_iff": "Math.NumberTheory.PrimeProgressions",
+            "Math.NumberTheory.infinite_primes_modEq_above_avoiding_iff": "Math.NumberTheory.PrimeProgressions",
+            "Math.NumberTheory.exists_prime_modEq_above_avoiding": "Math.NumberTheory.PrimeProgressions",
+            "Math.NumberTheory.exists_finset_primes_modEq_card": "Math.NumberTheory.PrimeProgressions",
+            "Math.NumberTheory.forall_finset_exists_prime_modEq_iff": "Math.NumberTheory.PrimeProgressions",
+            "Math.NumberTheory.modularForm_eq_zero_iff_coeffs": "Math.NumberTheory.SturmFinite",
+            "Math.NumberTheory.modularForm_eq_iff_coeffs": "Math.NumberTheory.SturmFinite",
+            "Math.NumberTheory.sturmCoefficients_injective": "Math.NumberTheory.SturmFinite",
+            "Math.NumberTheory.sturmCoefficients": "Math.NumberTheory.SturmFinite"
+        }
+        for name, module in expected.items():
+            with self.subTest(name=name):
+                self.assertIn(name, self.catalog["roots"])
+                node = self.nodes[name]
+                self.assertEqual(node["module"], module)
+                if node["kind"] in {"definition", "theorem", "opaque"}:
+                    self.assertIsInstance(node["value"], int)
+                    self.assertTrue(node["proof"])
+                self.assertTrue(set(node["axioms"]) <= self.policy["axioms"].keys())
+                origin = self.catalog["sources"][module]
+                if module.startswith("Mathlib."):
+                    self.assertEqual(origin["revision"], self.policy["libraries"]["mathlib"]["revision"])
+                    self.assertEqual(origin["license"], "Apache-2.0")
+                    self.assertIn(origin["revision"], origin["url"])
+                else:
+                    self.assertEqual(origin["package"], "math")
+
+    def test_analytic_number_theory_hierarchies_retain_models_hypotheses_and_axiom_paths(self):
+        expected = {
+            "Math.NumberTheory.prime_eq_gcd_of_not_coprime": [
+                "Nat.gcd",
+                "Nat.Prime",
+                "Nat.ModEq",
+                "Nat.ModEq.dvd_iff",
+                "Nat.Prime.eq_one_or_self_of_dvd"
+            ],
+            "Math.NumberTheory.infinite_primes_modEq_iff": [
+                "Nat.infinite_setOfPred_prime_and_modEq",
+                "Math.NumberTheory.finite_primes_modEq_of_not_coprime",
+                "Nat.Coprime"
+            ],
+            "Math.NumberTheory.exists_finset_primes_modEq_card": [
+                "Set.Infinite.exists_subset_card_eq",
+                "Math.NumberTheory.infinite_primes_modEq_above_avoiding_iff"
+            ],
+            "Math.NumberTheory.modularForm_eq_iff_coeffs": [
+                "Math.NumberTheory.modularForm_eq_zero_iff_coeffs",
+                "ModularForm.sturm_bound_levelOne",
+                "UpperHalfPlane.qExpansion",
+                "PowerSeries.nat_le_order",
+                "CuspForm.discriminantEquiv"
+            ],
+            "Math.NumberTheory.sturmCoefficients_injective": [
+                "Math.NumberTheory.modularForm_eq_iff_coeffs",
+                "Math.NumberTheory.sturmCoefficients"
+            ],
+            "Nat.infinite_setOfPred_prime_and_modEq": [
+                "ArithmeticFunction.vonMangoldt.not_summable_residueClass_prime_div",
+                "DirichletCharacter.LFunction_ne_zero_of_one_le_re",
+                "DirichletCharacter.LFunction_eq_LSeries"
+            ],
+            "riemannZeta_eulerProduct_hasProd": [
+                "riemannZeta",
+                "HasProd"
+            ],
+            "DirichletCharacter.LFunction_ne_zero_of_one_le_re": [
+                "DirichletCharacter.LFunction",
+                "DirichletCharacter.LFunction_eq_LSeries",
+                "DirichletCharacter.LSeries_ne_zero_of_one_lt_re"
+            ],
+            "riemannZeta_one_sub": [
+                "HurwitzZeta.hurwitzZetaEven",
+                "Complex.Gamma",
+                "Complex.cos"
+            ],
+            "ModularForm.dimension_level_one": [
+                "CuspForm.discriminantEquiv",
+                "ModularForm.levelOne_weight_two_rank_zero"
+            ],
+            "ModularForm.discriminant_eq_E₄_cube_sub_E₆_sq": [
+                "CuspForm.exists_smul_discriminant_of_weight_eq_twelve",
+                "ModularForm.E₄",
+                "ModularForm.E₆",
+                "ModularForm.discriminant_qExpansion_coeff_one"
+            ],
+            "CuspForm.differentiable_L": [
+                "ModularForm.L",
+                "CuspForm.differentiable_Λ"
+            ],
+            "jacobiTheta_S_smul": [
+                "jacobiTheta₂_functional_equation",
+                "jacobiTheta",
+                "Complex.cpow"
+            ],
+            "ArithmeticFunction.sum_eq_iff_sum_smul_moebius_eq": [
+                "ArithmeticFunction.moebius_mul_coe_zeta",
+                "ArithmeticFunction.coe_zeta_mul_moebius",
+                "Nat.divisors"
+            ],
+            "riemannZeta_residue_one": [
+                "Filter.Tendsto",
+                "riemannZeta"
+            ]
+        }
+        graph = KnowledgeGraph(self.catalog)
+        for name, objects in expected.items():
+            with self.subTest(name=name):
+                hierarchy = graph.hierarchy(name)
+                reached = {node["name"] for node in hierarchy["declarations"]}
+                self.assertTrue(set(objects) <= reached, set(objects) - reached)
+                self.assertEqual(set(hierarchy["axiom_paths"]), set(self.nodes[name]["axioms"]))
+                for axiom, path in hierarchy["axiom_paths"].items():
+                    self.assertEqual(path[0], name)
+                    self.assertEqual(path[-1], axiom)
+                    for source, target in zip(path, path[1:]):
+                        self.assertIn(target, self.nodes[source]["dependencies"])
+
+    def test_analytic_number_theory_subjects_retain_results_and_parent_subjects(self):
+        expected = {
+            "analytic_number_theory": [
+                "number_theory",
+                "Math.NumberTheory.infinite_primes_modEq_iff"
+            ],
+            "dirichlet_series": [
+                "analytic_number_theory",
+                "LSeries.eq_of_LSeries_eventually_eq"
+            ],
+            "zeta_functions": [
+                "dirichlet_series",
+                "riemannZeta_residue_one"
+            ],
+            "arithmetic_functions": [
+                "number_theory",
+                "ArithmeticFunction.moebius_mul_coe_zeta"
+            ],
+            "dirichlet_characters": [
+                "analytic_number_theory",
+                "DirichletCharacter.LFunction_ne_zero_of_one_le_re"
+            ],
+            "primes_in_progressions": [
+                "analytic_number_theory",
+                "Math.NumberTheory.exists_finset_primes_modEq_card"
+            ],
+            "modular_forms": [
+                "number_theory",
+                "ModularForm.discriminant_eq_E₄_cube_sub_E₆_sq"
+            ],
+            "eisenstein_series": [
+                "modular_forms",
+                "ModularForm.E₄"
+            ],
+            "theta_functions": [
+                "modular_forms",
+                "jacobiTheta_S_smul"
+            ],
+            "modular_l_functions": [
+                "modular_forms",
+                "CuspForm.differentiable_L"
+            ],
+            "modular_identity_certificates": [
+                "modular_forms",
+                "Math.NumberTheory.sturmCoefficients_injective"
+            ]
+        }
+        graph = KnowledgeGraph(self.catalog)
+        for subject, (parent, name) in expected.items():
+            with self.subTest(subject=subject):
+                self.assertEqual(self.catalog["subjects"][subject]["parent"], parent)
+                current = subject
+                while current is not None:
+                    self.assertIn(name, {node["name"] for node in graph.search(name, subject=current)})
+                    current = self.catalog["subjects"][current]["parent"]
+
+    def test_analytic_number_theory_references_retain_pinned_records(self):
+        expected = {
+            "ModularForm.discriminant_ne_zero": "diamondshurman2005"
+        }
+        snapshot = open_snapshot(ROOT)
+        for name, key in expected.items():
+            with self.subTest(name=name):
+                citations = snapshot.citations(name)
+                self.assertIn(key, {entry["key"] for entry in citations["module_citations"]})
+
+    def test_riemann_hypothesis_is_an_unproved_formulation(self):
+        node = self.nodes["RiemannHypothesis"]
+        self.assertEqual(node["kind"], "definition")
+        self.assertEqual(node["statement"], "Prop")
+        self.assertIsInstance(node["value"], int)
+        self.assertIn("RiemannHypothesis", self.catalog["roots"])
+        self.assertNotIn("RiemannHypothesis", self.policy["axioms"])
+
     def test_conditional_l2_results_retain_local_proofs_and_source(self):
         expected = {
             "Math.Probability.aestronglyMeasurable_l2Predictor": "theorem",
