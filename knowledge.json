@@ -10009,6 +10009,1710 @@
             "Quot.sound",
             "Classical.choice"
           ]
+        },
+        "Mathlib.GroupTheory.Abelianization.Defs": {
+          "title": "The abelianization of a group",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Abelianization.Finite": {
+          "title": "The abelianization of a finite group is finite",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Archimedean": {
+          "title": "Archimedean groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.ArchimedeanDensely": {
+          "title": "Archimedean groups are either discrete or densely ordered",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.ClassEquation": {
+          "title": "Class Equation",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Commensurable": {
+          "title": "Commensurability for subgroups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Commutator.Basic": {
+          "title": "Commutators of Subgroups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Commutator.Finite": {
+          "title": "Commutators of finite direct products",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.CommutingProbability": {
+          "title": "Commuting Probability",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Complement": {
+          "title": "Complements",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Congruence.Basic": {
+          "title": "Congruence relations",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Congruence.BigOperators": {
+          "title": "Interactions between ∑, ∏ and (Add)Con",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Congruence.Defs": {
+          "title": "Congruence relations",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Congruence.Hom": {
+          "title": "Congruence relations and homomorphisms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Congruence.Opposite": {
+          "title": "Congruences on the opposite of a group",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Congruence.Star": {
+          "title": "Helpers for working with star operators on quotients.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Coprod.Basic": {
+          "title": "Coproduct (free product) of two monoids or groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.CoprodI": {
+          "title": "The coproduct (a.k.a. the free product) of groups or monoids",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Coset.Basic": {
+          "title": "Cosets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Coset.Card": {
+          "title": "Lagrange's theorem: the order of a subgroup divides the order of the group.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Coset.Defs": {
+          "title": "Cosets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.CosetCover": {
+          "title": "Finite covers by cosets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Coxeter.Basic": {
+          "title": "Coxeter groups and Coxeter systems",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Coxeter.Inversion": {
+          "title": "Reflections, inversions, and inversion sequences",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Coxeter.Length": {
+          "title": "The length function, reduced words, and descents",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Coxeter.Matrix": {
+          "title": "Coxeter matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.DedekindFinite": {
+          "title": "Finite monoids are Dedekind-finite",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Descent": {
+          "title": "Finite generation by descent",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Divisible": {
+          "title": "Divisible Group and rootable group",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.DivisibleHull": {
+          "title": "Divisible Hull of an abelian group",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.DoubleCoset": {
+          "title": "Double cosets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Exponent": {
+          "title": "Exponent of a group",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.FiniteAbelian.Basic": {
+          "title": "Structure of finite(ly generated) abelian groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.FiniteAbelian.Duality": {
+          "title": "Duality for finite abelian groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.FiniteIndexNormalSubgroup": {
+          "title": "Finite-index normal subgroups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.FinitelyPresentedGroup": {
+          "title": "Finitely Presented Groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Finiteness": {
+          "title": "Finitely generated monoids and groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.FixedPointFree": {
+          "title": "Fixed-point-free automorphisms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Focal": {
+          "title": "Focal Subgroup Theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Frattini": {
+          "title": "The Frattini subgroup",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.FreeAbelianGroup": {
+          "title": "Free abelian groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.FreeGroup.Basic": {
+          "title": "Free groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.FreeGroup.CyclicallyReduced": {
+          "title": "Cyclically reduced words in free groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.FreeGroup.GeneratorEquiv": {
+          "title": "Isomorphisms between free groups imply equivalences of their generators",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.FreeGroup.IsFreeGroup": {
+          "title": "Free groups structures on arbitrary types",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.FreeGroup.NielsenSchreier": {
+          "title": "The Nielsen-Schreier theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.FreeGroup.Orbit": {
+          "title": "Orbits of FreeGroup.startsWith",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.FreeGroup.Reduce": {
+          "title": "The maximal reduction of a word in a free group",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Generators": {
+          "title": "Group generators as data",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Goursat": {
+          "title": "Goursat's lemma for subgroups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.GroupAction.Basic": {
+          "title": "Basic properties of group actions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.GroupAction.Blocks": {
+          "title": "Blocks",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.GroupAction.CardCommute": {
+          "title": "Properties of group actions involving quotient groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.GroupAction.ConjAct": {
+          "title": "Conjugation action of a group on itself",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.GroupAction.Defs": {
+          "title": "Definition of orbit, fixedPoints and stabilizer",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.GroupAction.DomAct.ActionHom": {
+          "title": "Action of Mᵈᵐᵃ on α →[N] β and A →+[N] B",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.GroupAction.DomAct.Basic": {
+          "title": "Type tags for right action on the domain of a function",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.GroupAction.Embedding": {
+          "title": "Group actions on embeddings",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.GroupAction.FixedPoints": {
+          "title": "Properties of fixedPoints and fixedBy",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.GroupAction.FixingSubgroup": {
+          "title": "Fixing submonoid, fixing subgroup of an action",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.GroupAction.Hom": {
+          "title": "Equivariant homomorphisms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.GroupAction.IterateAct": {
+          "title": "Monoid action by iterates of a map",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.GroupAction.Iwasawa": {
+          "title": "Iwasawa simplicity criterion",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.GroupAction.Jordan": {
+          "title": "Jordan theorems for primitive permutation groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.GroupAction.MultiplePrimitivity": {
+          "title": "Multiple primitivity of group actions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.GroupAction.MultipleTransitivity": {
+          "title": "Multiple transitivity of group actions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.GroupAction.OfQuotient": {
+          "title": "MulAction and MulDistribMulAction of quotient group on fixed points",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.GroupAction.Period": {
+          "title": "Period of a group action",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.GroupAction.Pointwise": {
+          "title": "Pointwise actions of equivariant maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.GroupAction.Primitive": {
+          "title": "Primitive actions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.GroupAction.Quotient": {
+          "title": "Properties of group actions involving quotient groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.GroupAction.Ring": {
+          "title": "Commutativity and associativity of action of integers on rings",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.GroupAction.SubMulAction.Closure": {
+          "title": "Closure and finiteness of SubMulAction and SubAddAction",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.GroupAction.SubMulAction.Combination": {
+          "title": "Combining invariant subsets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.GroupAction.SubMulAction.OfFixingSubgroup": {
+          "title": "SubMulActions on complements of invariant subsets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.GroupAction.SubMulAction.OfStabilizer": {
+          "title": "Actions of point stabilizers",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.GroupAction.SubMulAction.Pointwise": {
+          "title": "Pointwise monoid structures on SubMulAction",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.GroupAction.SubMulAction": {
+          "title": "Sets invariant to a MulAction",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.GroupAction.Support": {
+          "title": "Support of an element under an action",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.GroupAction.Transitive": {
+          "title": "Transitive group actions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.GroupExtension.Basic": {
+          "title": "Basic lemmas about group extensions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.GroupExtension.Defs": {
+          "title": "Group Extensions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.HNNExtension": {
+          "title": "HNN Extensions of Groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Index": {
+          "title": "Index of a Subgroup",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.IndexNSmul": {
+          "title": "Lemmas about index and multiplication-by-n",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.IndexNormal": {
+          "title": "Normal subgroups of prescribed index",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.IsPerfect": {
+          "title": "Perfect groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.IsSubnormal": {
+          "title": "Subnormal subgroups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.MonoidLocalization.Away": {
+          "title": "Localizing commutative monoids away from an element",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.MonoidLocalization.Basic": {
+          "title": "Localizations of commutative monoids",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.MonoidLocalization.Cardinality": {
+          "title": "Cardinality of localizations of commutative monoids",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.MonoidLocalization.DivPairs": {
+          "title": "Submonoid of pairs with quotient in a submonoid",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.MonoidLocalization.Divisibility": {
+          "title": "Divisibility in localizations of commutative monoids",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.MonoidLocalization.Finite": {
+          "title": "Localization of a finitely generated submonoid",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.MonoidLocalization.GrothendieckGroup": {
+          "title": "Grothendieck group",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.MonoidLocalization.Lemmas": {
+          "title": "Lemmas about localizations of commutative monoids",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.MonoidLocalization.Maps": {
+          "title": "Mapping properties of monoid localizations",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.MonoidLocalization.MonoidWithZero": {
+          "title": "Localizations of commutative monoids with zeroes",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.MonoidLocalization.Order": {
+          "title": "Ordered structures on localizations of commutative monoids",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.MonoidLocalization.UniqueFactorization": {
+          "title": "Unique factorization in monoid localizations",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Nilpotent": {
+          "title": "Nilpotent groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.NoncommCoprod": {
+          "title": "Canonical homomorphism from a pair of monoids",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.NoncommPiCoprod": {
+          "title": "Canonical homomorphism from a finite family of monoids",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Order.Min": {
+          "title": "Minimum order of an element",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.OrderOfElement": {
+          "title": "Order of an element",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.OreLocalization.Basic": {
+          "title": "Localization over left Ore sets.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.OreLocalization.Cardinality": {
+          "title": "Cardinality of Ore localizations",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.OreLocalization.OreSet": {
+          "title": "(Left) Ore sets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.PGroup": {
+          "title": "p-groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Perm.Basic": {
+          "title": "Extra lemmas about permutations",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Perm.Centralizer": {
+          "title": "Centralizer of a permutation and cardinality of conjugacy classes in the symmetric groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Perm.Closure": {
+          "title": "Closure results for permutation groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Perm.ClosureSwap": {
+          "title": "Subgroups generated by transpositions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Perm.ConjAct": {
+          "title": "Some lemmas pertaining to the action of ConjAct (Perm α) on Perm α",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Perm.Cycle.Basic": {
+          "title": "Cycles of a permutation",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Perm.Cycle.Concrete": {
+          "title": "Properties of cyclic permutations constructed from lists/cycles",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Perm.Cycle.Factors": {
+          "title": "Cycle factors of a permutation",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Perm.Cycle.PossibleTypes": {
+          "title": "Possible permutation cycle types",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Perm.Cycle.Type": {
+          "title": "Cycle Types",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Perm.DomMulAct": {
+          "title": "Subgroup of Equiv.Perm α preserving a function",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Perm.Fin": {
+          "title": "Permutations of Fin n",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Perm.Finite": {
+          "title": "Permutations on Fintypes",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Perm.List": {
+          "title": "Permutations from a list",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Perm.MaximalSubgroups": {
+          "title": "Maximal permutation subgroups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Perm.Option": {
+          "title": "Permutations of Option α",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Perm.Sign": {
+          "title": "Sign of a permutation",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Perm.Subgroup": {
+          "title": "Lemmas about subgroups within the permutations (self-equivalences) of a type α",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Perm.Support": {
+          "title": "support of a permutation",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Perm.ViaEmbedding": {
+          "title": "Equiv.Perm.viaEmbedding, a noncomputable analogue of Equiv.Perm.viaFintypeEmbedding.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Presentation": {
+          "title": "Group presentations as data",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.PresentedGroup": {
+          "title": "Defining a group given by generators and relations",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.PushoutI": {
+          "title": "Pushouts of Monoids and Groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.QuotientGroup.Basic": {
+          "title": "Quotients of groups by normal subgroups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.QuotientGroup.Defs": {
+          "title": "Quotients of groups by normal subgroups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.QuotientGroup.Finite": {
+          "title": "Deducing finiteness of a group.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.QuotientGroup.ModEq": {
+          "title": "Congruence modulo multiples and congruence modulo AddSubgroup.zmultiples _",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.QuotientGroup.Simple": {
+          "title": "Simplicity of quotient groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Rank": {
+          "title": "Rank of a group",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.RegularWreathProduct": {
+          "title": "Regular wreath product",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.ResiduallyFinite": {
+          "title": "Residually Finite Groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Schreier": {
+          "title": "Schreier's Lemma",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.SchurZassenhaus": {
+          "title": "The Schur-Zassenhaus Theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.SemidirectProduct": {
+          "title": "Semidirect product",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.SpecificGroups.Alternating.Centralizer": {
+          "title": "Centralizers in alternating groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.SpecificGroups.Alternating.KleinFour": {
+          "title": "Klein four subgroups of alternating groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.SpecificGroups.Alternating.MaximalSubgroups": {
+          "title": "Maximal subgroups of alternating groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.SpecificGroups.Alternating.Simple": {
+          "title": "Simplicity of alternating groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.SpecificGroups.Alternating": {
+          "title": "Alternating Groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.SpecificGroups.Cyclic.Basic": {
+          "title": "Cyclic groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.SpecificGroups.Cyclic.Subgroup": {
+          "title": "Subgroups of cyclic groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.SpecificGroups.Cyclic": {
+          "title": "Further properties of cyclic groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.SpecificGroups.Dihedral": {
+          "title": "Dihedral Groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.SpecificGroups.KleinFour": {
+          "title": "Klein Four Group",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.SpecificGroups.Quaternion": {
+          "title": "Quaternion Groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.SpecificGroups.VirtuallyCyclic": {
+          "title": "Virtually cyclic groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.SpecificGroups.ZGroup": {
+          "title": "Z-Groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Subgroup.Center": {
+          "title": "Centers of subgroups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Subgroup.Centralizer": {
+          "title": "Centralizers of subgroups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Subgroup.Saturated": {
+          "title": "Saturated subgroups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Subgroup.Simple": {
+          "title": "Simple groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Submonoid.Center": {
+          "title": "Centers of monoids",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Submonoid.Centralizer": {
+          "title": "Centralizers of magmas and monoids",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Submonoid.Inverses": {
+          "title": "Submonoid of inverses",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Subsemigroup.Center": {
+          "title": "Centers of semigroups, as subsemigroups.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Subsemigroup.Centralizer": {
+          "title": "Centralizers in semigroups, as subsemigroups.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Subsemigroup.Lemmas": {
+          "title": "Lemmas about subsemigroups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Torsion": {
+          "title": "Torsion groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.GroupTheory.Transfer": {
+          "title": "The Transfer Homomorphism",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.Action": {
+          "title": "Group actions on linear maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.AlgebraRepresentation.Basic": {
+          "title": "Basic facts about algebra representations",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.Basic": {
+          "title": "Monoid representations",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.Character": {
+          "title": "Characters of representations",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.Coinduced": {
+          "title": "Coinduced representations",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.Coinvariants": {
+          "title": "Coinvariants of a group representation",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.Continuous.Basic": {
+          "title": "Continuous representations",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.Continuous.TopRep": {
+          "title": "Topological representations",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.Equiv": {
+          "title": "Isomorphisms of representations",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.FDRep": {
+          "title": "Representations on finite modules",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.FinGroupCharZero": {
+          "title": "Applications of Maschke's theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.FiniteIndex": {
+          "title": "(Co)induced representations of a finite index subgroup",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.Homological.ContCohomology.Basic": {
+          "title": "Continuous cohomology",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.Homological.ContCohomology.Functoriality": {
+          "title": "Functoriality of continuous cohomology",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.Homological.ContCohomology.LowDegree": {
+          "title": "Low degree continuous cohomology",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.Homological.ContCohomology.Sha": {
+          "title": "The Tate–Shafarevich group of a Galois module",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.Homological.FiniteCyclic": {
+          "title": "Projective resolution of k as a trivial k-linear representation of a finite cyclic group",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.Homological.GroupCohomology.Basic": {
+          "title": "The group cohomology of a k-linear G-representation",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.Homological.GroupCohomology.FiniteCyclic": {
+          "title": "Group cohomology of a finite cyclic group",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.Homological.GroupCohomology.Functoriality": {
+          "title": "Functoriality of group cohomology",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.Homological.GroupCohomology.Hilbert90": {
+          "title": "Hilbert's Theorem 90",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.Homological.GroupCohomology.LongExactSequence": {
+          "title": "Long exact sequence in group cohomology",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.Homological.GroupCohomology.LowDegree": {
+          "title": "The low-degree cohomology of a k-linear G-representation",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.Homological.GroupCohomology.Shapiro": {
+          "title": "Shapiro's lemma for group cohomology",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.Homological.GroupHomology.Basic": {
+          "title": "The group homology of a k-linear G-representation",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.Homological.GroupHomology.FiniteCyclic": {
+          "title": "Group homology of a finite cyclic group",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.Homological.GroupHomology.Functoriality": {
+          "title": "Functoriality of group homology",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.Homological.GroupHomology.LongExactSequence": {
+          "title": "Long exact sequence in group homology",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.Homological.GroupHomology.LowDegree": {
+          "title": "The low-degree homology of a k-linear G-representation",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.Homological.GroupHomology.Shapiro": {
+          "title": "Shapiro's lemma for group homology",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.Homological.Resolution": {
+          "title": "The standard and bar resolutions of k as a trivial k-linear G-representation",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.Homological.TateCohomology.Basic": {
+          "title": "Tate cohomology",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.Induced": {
+          "title": "Induced representations",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.Intertwining": {
+          "title": "Intertwining maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.Invariants": {
+          "title": "Subspace of invariants a group representation",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.Irreducible": {
+          "title": "Irreducible representations",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.Maschke": {
+          "title": "Maschke's theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.Rep.Basic": {
+          "title": "The category of linear representations",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.Rep.Iso": {
+          "title": "Representations and group algebra modules",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.Rep.Res": {
+          "title": "Restriction of representations",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.Semisimple": {
+          "title": "Semisimple representations",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.Stabilizer": {
+          "title": "Stabilizers in representations",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.Submodule": {
+          "title": "Invariant submodules of a group representation",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.Subrepresentation": {
+          "title": "Subrepresentations",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.RepresentationTheory.Tannaka": {
+          "title": "Tannaka duality for finite groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
         }
       },
       "citation_aliases": {
@@ -10089,7 +11793,8 @@
         "Mathlib.LinearAlgebra.Basis.Basic",
         "Mathlib.LinearAlgebra.Dimension.RankNullity",
         "Mathlib.LinearAlgebra.Dimension.DivisionRing",
-        "Mathlib.Algebra.Module.NatInt"
+        "Mathlib.Algebra.Module.NatInt",
+        "Math.Algebra.FiniteAveraging"
       ]
     },
     "topology": {
@@ -10138,7 +11843,176 @@
       "parent": "algebra",
       "modules": [
         "Mathlib.GroupTheory.Sylow",
-        "Mathlib.GroupTheory.Solvable"
+        "Mathlib.GroupTheory.Solvable",
+        "Mathlib.GroupTheory.Abelianization.Defs",
+        "Mathlib.GroupTheory.Abelianization.Finite",
+        "Mathlib.GroupTheory.Archimedean",
+        "Mathlib.GroupTheory.ArchimedeanDensely",
+        "Mathlib.GroupTheory.ClassEquation",
+        "Mathlib.GroupTheory.Commensurable",
+        "Mathlib.GroupTheory.Commutator.Basic",
+        "Mathlib.GroupTheory.Commutator.Finite",
+        "Mathlib.GroupTheory.CommutingProbability",
+        "Mathlib.GroupTheory.Complement",
+        "Mathlib.GroupTheory.Congruence.Basic",
+        "Mathlib.GroupTheory.Congruence.BigOperators",
+        "Mathlib.GroupTheory.Congruence.Defs",
+        "Mathlib.GroupTheory.Congruence.Hom",
+        "Mathlib.GroupTheory.Congruence.Opposite",
+        "Mathlib.GroupTheory.Congruence.Star",
+        "Mathlib.GroupTheory.Coprod.Basic",
+        "Mathlib.GroupTheory.CoprodI",
+        "Mathlib.GroupTheory.Coset.Basic",
+        "Mathlib.GroupTheory.Coset.Card",
+        "Mathlib.GroupTheory.Coset.Defs",
+        "Mathlib.GroupTheory.CosetCover",
+        "Mathlib.GroupTheory.Coxeter.Basic",
+        "Mathlib.GroupTheory.Coxeter.Inversion",
+        "Mathlib.GroupTheory.Coxeter.Length",
+        "Mathlib.GroupTheory.Coxeter.Matrix",
+        "Mathlib.GroupTheory.DedekindFinite",
+        "Mathlib.GroupTheory.Descent",
+        "Mathlib.GroupTheory.Divisible",
+        "Mathlib.GroupTheory.DivisibleHull",
+        "Mathlib.GroupTheory.DoubleCoset",
+        "Mathlib.GroupTheory.EckmannHilton",
+        "Mathlib.GroupTheory.Exponent",
+        "Mathlib.GroupTheory.FiniteAbelian.Basic",
+        "Mathlib.GroupTheory.FiniteAbelian.Duality",
+        "Mathlib.GroupTheory.FiniteIndexNormalSubgroup",
+        "Mathlib.GroupTheory.FinitelyPresentedGroup",
+        "Mathlib.GroupTheory.Finiteness",
+        "Mathlib.GroupTheory.FixedPointFree",
+        "Mathlib.GroupTheory.Focal",
+        "Mathlib.GroupTheory.Frattini",
+        "Mathlib.GroupTheory.FreeAbelianGroup",
+        "Mathlib.GroupTheory.FreeGroup.Basic",
+        "Mathlib.GroupTheory.FreeGroup.CyclicallyReduced",
+        "Mathlib.GroupTheory.FreeGroup.GeneratorEquiv",
+        "Mathlib.GroupTheory.FreeGroup.IsFreeGroup",
+        "Mathlib.GroupTheory.FreeGroup.NielsenSchreier",
+        "Mathlib.GroupTheory.FreeGroup.Orbit",
+        "Mathlib.GroupTheory.FreeGroup.Reduce",
+        "Mathlib.GroupTheory.Generators",
+        "Mathlib.GroupTheory.Goursat",
+        "Mathlib.GroupTheory.GroupAction.Basic",
+        "Mathlib.GroupTheory.GroupAction.Blocks",
+        "Mathlib.GroupTheory.GroupAction.CardCommute",
+        "Mathlib.GroupTheory.GroupAction.ConjAct",
+        "Mathlib.GroupTheory.GroupAction.Defs",
+        "Mathlib.GroupTheory.GroupAction.DomAct.ActionHom",
+        "Mathlib.GroupTheory.GroupAction.DomAct.Basic",
+        "Mathlib.GroupTheory.GroupAction.Embedding",
+        "Mathlib.GroupTheory.GroupAction.FixedPoints",
+        "Mathlib.GroupTheory.GroupAction.FixingSubgroup",
+        "Mathlib.GroupTheory.GroupAction.Hom",
+        "Mathlib.GroupTheory.GroupAction.IterateAct",
+        "Mathlib.GroupTheory.GroupAction.Iwasawa",
+        "Mathlib.GroupTheory.GroupAction.Jordan",
+        "Mathlib.GroupTheory.GroupAction.MultiplePrimitivity",
+        "Mathlib.GroupTheory.GroupAction.MultipleTransitivity",
+        "Mathlib.GroupTheory.GroupAction.OfQuotient",
+        "Mathlib.GroupTheory.GroupAction.Period",
+        "Mathlib.GroupTheory.GroupAction.Pointwise",
+        "Mathlib.GroupTheory.GroupAction.Primitive",
+        "Mathlib.GroupTheory.GroupAction.Quotient",
+        "Mathlib.GroupTheory.GroupAction.Ring",
+        "Mathlib.GroupTheory.GroupAction.SubMulAction.Closure",
+        "Mathlib.GroupTheory.GroupAction.SubMulAction.Combination",
+        "Mathlib.GroupTheory.GroupAction.SubMulAction.OfFixingSubgroup",
+        "Mathlib.GroupTheory.GroupAction.SubMulAction.OfStabilizer",
+        "Mathlib.GroupTheory.GroupAction.SubMulAction.Pointwise",
+        "Mathlib.GroupTheory.GroupAction.SubMulAction",
+        "Mathlib.GroupTheory.GroupAction.Support",
+        "Mathlib.GroupTheory.GroupAction.Transitive",
+        "Mathlib.GroupTheory.GroupExtension.Basic",
+        "Mathlib.GroupTheory.GroupExtension.Defs",
+        "Mathlib.GroupTheory.HNNExtension",
+        "Mathlib.GroupTheory.Index",
+        "Mathlib.GroupTheory.IndexNSmul",
+        "Mathlib.GroupTheory.IndexNormal",
+        "Mathlib.GroupTheory.IsPerfect",
+        "Mathlib.GroupTheory.IsSubnormal",
+        "Mathlib.GroupTheory.MonoidLocalization.Away",
+        "Mathlib.GroupTheory.MonoidLocalization.Basic",
+        "Mathlib.GroupTheory.MonoidLocalization.Cardinality",
+        "Mathlib.GroupTheory.MonoidLocalization.DivPairs",
+        "Mathlib.GroupTheory.MonoidLocalization.Divisibility",
+        "Mathlib.GroupTheory.MonoidLocalization.Finite",
+        "Mathlib.GroupTheory.MonoidLocalization.GrothendieckGroup",
+        "Mathlib.GroupTheory.MonoidLocalization.Lemmas",
+        "Mathlib.GroupTheory.MonoidLocalization.Maps",
+        "Mathlib.GroupTheory.MonoidLocalization.MonoidWithZero",
+        "Mathlib.GroupTheory.MonoidLocalization.Order",
+        "Mathlib.GroupTheory.MonoidLocalization.UniqueFactorization",
+        "Mathlib.GroupTheory.Nilpotent",
+        "Mathlib.GroupTheory.NoncommCoprod",
+        "Mathlib.GroupTheory.NoncommPiCoprod",
+        "Mathlib.GroupTheory.Order.Min",
+        "Mathlib.GroupTheory.OrderOfElement",
+        "Mathlib.GroupTheory.OreLocalization.Basic",
+        "Mathlib.GroupTheory.OreLocalization.Cardinality",
+        "Mathlib.GroupTheory.OreLocalization.OreSet",
+        "Mathlib.GroupTheory.PGroup",
+        "Mathlib.GroupTheory.Perm.Basic",
+        "Mathlib.GroupTheory.Perm.Centralizer",
+        "Mathlib.GroupTheory.Perm.Closure",
+        "Mathlib.GroupTheory.Perm.ClosureSwap",
+        "Mathlib.GroupTheory.Perm.ConjAct",
+        "Mathlib.GroupTheory.Perm.Cycle.Basic",
+        "Mathlib.GroupTheory.Perm.Cycle.Concrete",
+        "Mathlib.GroupTheory.Perm.Cycle.Factors",
+        "Mathlib.GroupTheory.Perm.Cycle.PossibleTypes",
+        "Mathlib.GroupTheory.Perm.Cycle.Type",
+        "Mathlib.GroupTheory.Perm.DomMulAct",
+        "Mathlib.GroupTheory.Perm.Fin",
+        "Mathlib.GroupTheory.Perm.Finite",
+        "Mathlib.GroupTheory.Perm.List",
+        "Mathlib.GroupTheory.Perm.MaximalSubgroups",
+        "Mathlib.GroupTheory.Perm.Option",
+        "Mathlib.GroupTheory.Perm.Sign",
+        "Mathlib.GroupTheory.Perm.Subgroup",
+        "Mathlib.GroupTheory.Perm.Support",
+        "Mathlib.GroupTheory.Perm.ViaEmbedding",
+        "Mathlib.GroupTheory.Presentation",
+        "Mathlib.GroupTheory.PresentedGroup",
+        "Mathlib.GroupTheory.PushoutI",
+        "Mathlib.GroupTheory.QuotientGroup.Basic",
+        "Mathlib.GroupTheory.QuotientGroup.Defs",
+        "Mathlib.GroupTheory.QuotientGroup.Finite",
+        "Mathlib.GroupTheory.QuotientGroup.ModEq",
+        "Mathlib.GroupTheory.QuotientGroup.Simple",
+        "Mathlib.GroupTheory.Rank",
+        "Mathlib.GroupTheory.RegularWreathProduct",
+        "Mathlib.GroupTheory.ResiduallyFinite",
+        "Mathlib.GroupTheory.Schreier",
+        "Mathlib.GroupTheory.SchurZassenhaus",
+        "Mathlib.GroupTheory.SemidirectProduct",
+        "Mathlib.GroupTheory.SpecificGroups.Alternating.Centralizer",
+        "Mathlib.GroupTheory.SpecificGroups.Alternating.KleinFour",
+        "Mathlib.GroupTheory.SpecificGroups.Alternating.MaximalSubgroups",
+        "Mathlib.GroupTheory.SpecificGroups.Alternating.Simple",
+        "Mathlib.GroupTheory.SpecificGroups.Alternating",
+        "Mathlib.GroupTheory.SpecificGroups.Cyclic.Basic",
+        "Mathlib.GroupTheory.SpecificGroups.Cyclic.Subgroup",
+        "Mathlib.GroupTheory.SpecificGroups.Cyclic",
+        "Mathlib.GroupTheory.SpecificGroups.Dihedral",
+        "Mathlib.GroupTheory.SpecificGroups.KleinFour",
+        "Mathlib.GroupTheory.SpecificGroups.Quaternion",
+        "Mathlib.GroupTheory.SpecificGroups.VirtuallyCyclic",
+        "Mathlib.GroupTheory.SpecificGroups.ZGroup",
+        "Mathlib.GroupTheory.Subgroup.Center",
+        "Mathlib.GroupTheory.Subgroup.Centralizer",
+        "Mathlib.GroupTheory.Subgroup.Saturated",
+        "Mathlib.GroupTheory.Subgroup.Simple",
+        "Mathlib.GroupTheory.Submonoid.Center",
+        "Mathlib.GroupTheory.Submonoid.Centralizer",
+        "Mathlib.GroupTheory.Submonoid.Inverses",
+        "Mathlib.GroupTheory.Subsemigroup.Center",
+        "Mathlib.GroupTheory.Subsemigroup.Centralizer",
+        "Mathlib.GroupTheory.Subsemigroup.Lemmas",
+        "Mathlib.GroupTheory.Torsion",
+        "Mathlib.GroupTheory.Transfer"
       ]
     },
     "geometry": {
@@ -13001,6 +14875,359 @@
         "Mathlib.AlgebraicGeometry.IdealSheaf.IrreducibleComponent",
         "Mathlib.AlgebraicGeometry.IdealSheaf.Subscheme"
       ]
+    },
+    "group_actions": {
+      "title": "Group actions",
+      "parent": "group_theory",
+      "modules": [
+        "Mathlib.GroupTheory.GroupAction.Basic",
+        "Mathlib.GroupTheory.GroupAction.Blocks",
+        "Mathlib.GroupTheory.GroupAction.CardCommute",
+        "Mathlib.GroupTheory.GroupAction.ConjAct",
+        "Mathlib.GroupTheory.GroupAction.Defs",
+        "Mathlib.GroupTheory.GroupAction.DomAct.ActionHom",
+        "Mathlib.GroupTheory.GroupAction.DomAct.Basic",
+        "Mathlib.GroupTheory.GroupAction.Embedding",
+        "Mathlib.GroupTheory.GroupAction.FixedPoints",
+        "Mathlib.GroupTheory.GroupAction.FixingSubgroup",
+        "Mathlib.GroupTheory.GroupAction.Hom",
+        "Mathlib.GroupTheory.GroupAction.IterateAct",
+        "Mathlib.GroupTheory.GroupAction.Iwasawa",
+        "Mathlib.GroupTheory.GroupAction.Jordan",
+        "Mathlib.GroupTheory.GroupAction.MultiplePrimitivity",
+        "Mathlib.GroupTheory.GroupAction.MultipleTransitivity",
+        "Mathlib.GroupTheory.GroupAction.OfQuotient",
+        "Mathlib.GroupTheory.GroupAction.Period",
+        "Mathlib.GroupTheory.GroupAction.Pointwise",
+        "Mathlib.GroupTheory.GroupAction.Primitive",
+        "Mathlib.GroupTheory.GroupAction.Quotient",
+        "Mathlib.GroupTheory.GroupAction.Ring",
+        "Mathlib.GroupTheory.GroupAction.SubMulAction",
+        "Mathlib.GroupTheory.GroupAction.SubMulAction.Closure",
+        "Mathlib.GroupTheory.GroupAction.SubMulAction.Combination",
+        "Mathlib.GroupTheory.GroupAction.SubMulAction.OfFixingSubgroup",
+        "Mathlib.GroupTheory.GroupAction.SubMulAction.OfStabilizer",
+        "Mathlib.GroupTheory.GroupAction.SubMulAction.Pointwise",
+        "Mathlib.GroupTheory.GroupAction.Support",
+        "Mathlib.GroupTheory.GroupAction.Transitive"
+      ]
+    },
+    "permutation_groups": {
+      "title": "Permutation groups",
+      "parent": "group_theory",
+      "modules": [
+        "Mathlib.GroupTheory.Perm.Basic",
+        "Mathlib.GroupTheory.Perm.Centralizer",
+        "Mathlib.GroupTheory.Perm.Closure",
+        "Mathlib.GroupTheory.Perm.ClosureSwap",
+        "Mathlib.GroupTheory.Perm.ConjAct",
+        "Mathlib.GroupTheory.Perm.Cycle.Basic",
+        "Mathlib.GroupTheory.Perm.Cycle.Concrete",
+        "Mathlib.GroupTheory.Perm.Cycle.Factors",
+        "Mathlib.GroupTheory.Perm.Cycle.PossibleTypes",
+        "Mathlib.GroupTheory.Perm.Cycle.Type",
+        "Mathlib.GroupTheory.Perm.DomMulAct",
+        "Mathlib.GroupTheory.Perm.Fin",
+        "Mathlib.GroupTheory.Perm.Finite",
+        "Mathlib.GroupTheory.Perm.List",
+        "Mathlib.GroupTheory.Perm.MaximalSubgroups",
+        "Mathlib.GroupTheory.Perm.Option",
+        "Mathlib.GroupTheory.Perm.Sign",
+        "Mathlib.GroupTheory.Perm.Subgroup",
+        "Mathlib.GroupTheory.Perm.Support",
+        "Mathlib.GroupTheory.Perm.ViaEmbedding",
+        "Mathlib.GroupTheory.SpecificGroups.Alternating",
+        "Mathlib.GroupTheory.SpecificGroups.Alternating.Centralizer",
+        "Mathlib.GroupTheory.SpecificGroups.Alternating.KleinFour",
+        "Mathlib.GroupTheory.SpecificGroups.Alternating.MaximalSubgroups",
+        "Mathlib.GroupTheory.SpecificGroups.Alternating.Simple"
+      ]
+    },
+    "finite_groups": {
+      "title": "Finite groups",
+      "parent": "group_theory",
+      "modules": [
+        "Mathlib.GroupTheory.ClassEquation",
+        "Mathlib.GroupTheory.CommutingProbability",
+        "Mathlib.GroupTheory.FiniteAbelian.Basic",
+        "Mathlib.GroupTheory.FiniteAbelian.Duality",
+        "Mathlib.GroupTheory.FiniteIndexNormalSubgroup",
+        "Mathlib.GroupTheory.FixedPointFree",
+        "Mathlib.GroupTheory.Focal",
+        "Mathlib.GroupTheory.Frattini",
+        "Mathlib.GroupTheory.PGroup",
+        "Mathlib.GroupTheory.SchurZassenhaus",
+        "Mathlib.GroupTheory.SpecificGroups.Alternating",
+        "Mathlib.GroupTheory.SpecificGroups.Alternating.Centralizer",
+        "Mathlib.GroupTheory.SpecificGroups.Alternating.KleinFour",
+        "Mathlib.GroupTheory.SpecificGroups.Alternating.MaximalSubgroups",
+        "Mathlib.GroupTheory.SpecificGroups.Alternating.Simple",
+        "Mathlib.GroupTheory.SpecificGroups.Cyclic",
+        "Mathlib.GroupTheory.SpecificGroups.Cyclic.Basic",
+        "Mathlib.GroupTheory.SpecificGroups.Cyclic.Subgroup",
+        "Mathlib.GroupTheory.SpecificGroups.Dihedral",
+        "Mathlib.GroupTheory.SpecificGroups.KleinFour",
+        "Mathlib.GroupTheory.SpecificGroups.Quaternion",
+        "Mathlib.GroupTheory.SpecificGroups.VirtuallyCyclic",
+        "Mathlib.GroupTheory.SpecificGroups.ZGroup",
+        "Mathlib.GroupTheory.Sylow",
+        "Mathlib.GroupTheory.Transfer"
+      ]
+    },
+    "abelian_groups": {
+      "title": "Abelian groups",
+      "parent": "group_theory",
+      "modules": [
+        "Mathlib.GroupTheory.Abelianization.Defs",
+        "Mathlib.GroupTheory.Abelianization.Finite",
+        "Mathlib.GroupTheory.Divisible",
+        "Mathlib.GroupTheory.DivisibleHull",
+        "Mathlib.GroupTheory.FiniteAbelian.Basic",
+        "Mathlib.GroupTheory.FiniteAbelian.Duality",
+        "Mathlib.GroupTheory.FreeAbelianGroup",
+        "Mathlib.GroupTheory.Torsion"
+      ]
+    },
+    "nilpotent_groups": {
+      "title": "Nilpotent groups",
+      "parent": "group_theory",
+      "modules": [
+        "Mathlib.GroupTheory.Nilpotent"
+      ]
+    },
+    "solvable_groups": {
+      "title": "Solvable groups",
+      "parent": "group_theory",
+      "modules": [
+        "Mathlib.GroupTheory.Solvable"
+      ]
+    },
+    "free_groups": {
+      "title": "Free groups",
+      "parent": "group_theory",
+      "modules": [
+        "Mathlib.GroupTheory.Coprod.Basic",
+        "Mathlib.GroupTheory.CoprodI",
+        "Mathlib.GroupTheory.FreeGroup.Basic",
+        "Mathlib.GroupTheory.FreeGroup.CyclicallyReduced",
+        "Mathlib.GroupTheory.FreeGroup.GeneratorEquiv",
+        "Mathlib.GroupTheory.FreeGroup.IsFreeGroup",
+        "Mathlib.GroupTheory.FreeGroup.NielsenSchreier",
+        "Mathlib.GroupTheory.FreeGroup.Orbit",
+        "Mathlib.GroupTheory.FreeGroup.Reduce",
+        "Mathlib.GroupTheory.HNNExtension",
+        "Mathlib.GroupTheory.Schreier"
+      ]
+    },
+    "group_presentations": {
+      "title": "Group presentations",
+      "parent": "group_theory",
+      "modules": [
+        "Mathlib.GroupTheory.FinitelyPresentedGroup",
+        "Mathlib.GroupTheory.Generators",
+        "Mathlib.GroupTheory.Presentation",
+        "Mathlib.GroupTheory.PresentedGroup"
+      ]
+    },
+    "coxeter_groups": {
+      "title": "Coxeter groups",
+      "parent": "group_theory",
+      "modules": [
+        "Mathlib.GroupTheory.Coxeter.Basic",
+        "Mathlib.GroupTheory.Coxeter.Inversion",
+        "Mathlib.GroupTheory.Coxeter.Length",
+        "Mathlib.GroupTheory.Coxeter.Matrix"
+      ]
+    },
+    "group_extensions": {
+      "title": "Group extensions",
+      "parent": "group_theory",
+      "modules": [
+        "Mathlib.GroupTheory.Complement",
+        "Mathlib.GroupTheory.GroupExtension.Basic",
+        "Mathlib.GroupTheory.GroupExtension.Defs",
+        "Mathlib.GroupTheory.RegularWreathProduct",
+        "Mathlib.GroupTheory.SchurZassenhaus",
+        "Mathlib.GroupTheory.SemidirectProduct"
+      ]
+    },
+    "monoid_localizations": {
+      "title": "Monoid localizations",
+      "parent": "algebra",
+      "modules": [
+        "Mathlib.GroupTheory.MonoidLocalization.Away",
+        "Mathlib.GroupTheory.MonoidLocalization.Basic",
+        "Mathlib.GroupTheory.MonoidLocalization.Cardinality",
+        "Mathlib.GroupTheory.MonoidLocalization.DivPairs",
+        "Mathlib.GroupTheory.MonoidLocalization.Divisibility",
+        "Mathlib.GroupTheory.MonoidLocalization.Finite",
+        "Mathlib.GroupTheory.MonoidLocalization.GrothendieckGroup",
+        "Mathlib.GroupTheory.MonoidLocalization.Lemmas",
+        "Mathlib.GroupTheory.MonoidLocalization.Maps",
+        "Mathlib.GroupTheory.MonoidLocalization.MonoidWithZero",
+        "Mathlib.GroupTheory.MonoidLocalization.Order",
+        "Mathlib.GroupTheory.MonoidLocalization.UniqueFactorization",
+        "Mathlib.GroupTheory.OreLocalization.Basic",
+        "Mathlib.GroupTheory.OreLocalization.Cardinality",
+        "Mathlib.GroupTheory.OreLocalization.OreSet"
+      ]
+    },
+    "representation_theory": {
+      "title": "Representation theory",
+      "parent": "algebra",
+      "modules": [
+        "Math.Algebra.FiniteAveraging",
+        "Mathlib.RepresentationTheory.Action",
+        "Mathlib.RepresentationTheory.AlgebraRepresentation.Basic",
+        "Mathlib.RepresentationTheory.Basic",
+        "Mathlib.RepresentationTheory.Character",
+        "Mathlib.RepresentationTheory.Coinduced",
+        "Mathlib.RepresentationTheory.Coinvariants",
+        "Mathlib.RepresentationTheory.Continuous.Basic",
+        "Mathlib.RepresentationTheory.Continuous.TopRep",
+        "Mathlib.RepresentationTheory.Equiv",
+        "Mathlib.RepresentationTheory.FDRep",
+        "Mathlib.RepresentationTheory.FinGroupCharZero",
+        "Mathlib.RepresentationTheory.FiniteIndex",
+        "Mathlib.RepresentationTheory.Homological.ContCohomology.Basic",
+        "Mathlib.RepresentationTheory.Homological.ContCohomology.Functoriality",
+        "Mathlib.RepresentationTheory.Homological.ContCohomology.LowDegree",
+        "Mathlib.RepresentationTheory.Homological.ContCohomology.Sha",
+        "Mathlib.RepresentationTheory.Homological.FiniteCyclic",
+        "Mathlib.RepresentationTheory.Homological.GroupCohomology.Basic",
+        "Mathlib.RepresentationTheory.Homological.GroupCohomology.FiniteCyclic",
+        "Mathlib.RepresentationTheory.Homological.GroupCohomology.Functoriality",
+        "Mathlib.RepresentationTheory.Homological.GroupCohomology.Hilbert90",
+        "Mathlib.RepresentationTheory.Homological.GroupCohomology.LongExactSequence",
+        "Mathlib.RepresentationTheory.Homological.GroupCohomology.LowDegree",
+        "Mathlib.RepresentationTheory.Homological.GroupCohomology.Shapiro",
+        "Mathlib.RepresentationTheory.Homological.GroupHomology.Basic",
+        "Mathlib.RepresentationTheory.Homological.GroupHomology.FiniteCyclic",
+        "Mathlib.RepresentationTheory.Homological.GroupHomology.Functoriality",
+        "Mathlib.RepresentationTheory.Homological.GroupHomology.LongExactSequence",
+        "Mathlib.RepresentationTheory.Homological.GroupHomology.LowDegree",
+        "Mathlib.RepresentationTheory.Homological.GroupHomology.Shapiro",
+        "Mathlib.RepresentationTheory.Homological.Resolution",
+        "Mathlib.RepresentationTheory.Homological.TateCohomology.Basic",
+        "Mathlib.RepresentationTheory.Induced",
+        "Mathlib.RepresentationTheory.Intertwining",
+        "Mathlib.RepresentationTheory.Invariants",
+        "Mathlib.RepresentationTheory.Irreducible",
+        "Mathlib.RepresentationTheory.Maschke",
+        "Mathlib.RepresentationTheory.Rep.Basic",
+        "Mathlib.RepresentationTheory.Rep.Iso",
+        "Mathlib.RepresentationTheory.Rep.Res",
+        "Mathlib.RepresentationTheory.Semisimple",
+        "Mathlib.RepresentationTheory.Stabilizer",
+        "Mathlib.RepresentationTheory.Submodule",
+        "Mathlib.RepresentationTheory.Subrepresentation",
+        "Mathlib.RepresentationTheory.Tannaka"
+      ]
+    },
+    "representation_invariants": {
+      "title": "Invariants and coinvariants",
+      "parent": "representation_theory",
+      "modules": [
+        "Math.Algebra.FiniteAveraging",
+        "Mathlib.RepresentationTheory.Coinvariants",
+        "Mathlib.RepresentationTheory.Invariants",
+        "Mathlib.RepresentationTheory.Maschke",
+        "Mathlib.RepresentationTheory.Semisimple",
+        "Mathlib.RepresentationTheory.Submodule",
+        "Mathlib.RepresentationTheory.Subrepresentation"
+      ]
+    },
+    "group_characters": {
+      "title": "Group characters",
+      "parent": "representation_theory",
+      "modules": [
+        "Mathlib.RepresentationTheory.Character",
+        "Mathlib.RepresentationTheory.FinGroupCharZero",
+        "Mathlib.RepresentationTheory.Irreducible"
+      ]
+    },
+    "finite_group_representations": {
+      "title": "Finite group representations",
+      "parent": "representation_theory",
+      "modules": [
+        "Math.Algebra.FiniteAveraging",
+        "Mathlib.RepresentationTheory.Character",
+        "Mathlib.RepresentationTheory.FinGroupCharZero",
+        "Mathlib.RepresentationTheory.Maschke",
+        "Mathlib.RepresentationTheory.Tannaka"
+      ]
+    },
+    "induced_representations": {
+      "title": "Induced representations",
+      "parent": "representation_theory",
+      "modules": [
+        "Mathlib.RepresentationTheory.Coinduced",
+        "Mathlib.RepresentationTheory.FiniteIndex",
+        "Mathlib.RepresentationTheory.Induced",
+        "Mathlib.RepresentationTheory.Rep.Res"
+      ]
+    },
+    "topological_representations": {
+      "title": "Topological representations",
+      "parent": "representation_theory",
+      "modules": [
+        "Mathlib.RepresentationTheory.Continuous.Basic",
+        "Mathlib.RepresentationTheory.Continuous.TopRep"
+      ]
+    },
+    "group_homology": {
+      "title": "Group homology",
+      "parent": "homological_algebra",
+      "modules": [
+        "Mathlib.RepresentationTheory.Homological.FiniteCyclic",
+        "Mathlib.RepresentationTheory.Homological.GroupHomology.Basic",
+        "Mathlib.RepresentationTheory.Homological.GroupHomology.FiniteCyclic",
+        "Mathlib.RepresentationTheory.Homological.GroupHomology.Functoriality",
+        "Mathlib.RepresentationTheory.Homological.GroupHomology.LongExactSequence",
+        "Mathlib.RepresentationTheory.Homological.GroupHomology.LowDegree",
+        "Mathlib.RepresentationTheory.Homological.GroupHomology.Shapiro",
+        "Mathlib.RepresentationTheory.Homological.Resolution"
+      ]
+    },
+    "group_cohomology": {
+      "title": "Group cohomology",
+      "parent": "homological_algebra",
+      "modules": [
+        "Mathlib.RepresentationTheory.Homological.FiniteCyclic",
+        "Mathlib.RepresentationTheory.Homological.GroupCohomology.Basic",
+        "Mathlib.RepresentationTheory.Homological.GroupCohomology.FiniteCyclic",
+        "Mathlib.RepresentationTheory.Homological.GroupCohomology.Functoriality",
+        "Mathlib.RepresentationTheory.Homological.GroupCohomology.Hilbert90",
+        "Mathlib.RepresentationTheory.Homological.GroupCohomology.LongExactSequence",
+        "Mathlib.RepresentationTheory.Homological.GroupCohomology.LowDegree",
+        "Mathlib.RepresentationTheory.Homological.GroupCohomology.Shapiro",
+        "Mathlib.RepresentationTheory.Homological.Resolution",
+        "Mathlib.RepresentationTheory.Homological.TateCohomology.Basic"
+      ]
+    },
+    "continuous_group_cohomology": {
+      "title": "Continuous group cohomology",
+      "parent": "group_cohomology",
+      "modules": [
+        "Mathlib.RepresentationTheory.Homological.ContCohomology.Basic",
+        "Mathlib.RepresentationTheory.Homological.ContCohomology.Functoriality",
+        "Mathlib.RepresentationTheory.Homological.ContCohomology.LowDegree",
+        "Mathlib.RepresentationTheory.Homological.ContCohomology.Sha"
+      ]
+    },
+    "tannaka_duality": {
+      "title": "Tannaka duality",
+      "parent": "representation_theory",
+      "modules": [
+        "Mathlib.RepresentationTheory.Tannaka"
+      ]
+    },
+    "algebra_representations": {
+      "title": "Algebra representations",
+      "parent": "representation_theory",
+      "modules": [
+        "Mathlib.RepresentationTheory.AlgebraRepresentation.Basic"
+      ]
     }
   },
   "modules": {
@@ -13154,6 +15381,14 @@
     },
     "Math.Geometry.FiniteEtale": {
       "title": "Proper étale finiteness and finite étale stability",
+      "allowed_axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    "Math.Algebra.FiniteAveraging": {
+      "title": "Finite group averaging, invariants, and coinvariants",
       "allowed_axioms": [
         "propext",
         "Quot.sound",

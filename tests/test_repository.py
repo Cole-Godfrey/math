@@ -1046,6 +1046,356 @@ class RepositoryTests(RepositoryArtifacts, unittest.TestCase):
                 for subject in ('modular_identity_certificates', 'modular_forms', 'analytic_number_theory', 'number_theory', 'mathematics'):
                     self.assertIn(name, {node["name"] for node in graph.search(name, subject=subject)})
 
+    def test_finite_averaging_results_retain_local_proofs_and_source(self):
+        expected = {
+            "Math.RepresentationTheory.averageMap_apply": "theorem",
+            "Math.RepresentationTheory.averageMap_action": "theorem",
+            "Math.RepresentationTheory.coinvariants_mk_averageMap": "theorem",
+            "Math.RepresentationTheory.ker_averageMap": "theorem",
+            "Math.RepresentationTheory.mem_invariants_iff_averageMap": "theorem",
+            "Math.RepresentationTheory.range_averageMap": "theorem",
+            "Math.RepresentationTheory.isCompl_invariants_coinvariantsKer": "theorem",
+            "Math.RepresentationTheory.reynolds": "definition",
+            "Math.RepresentationTheory.reynolds_coe": "theorem",
+            "Math.RepresentationTheory.reynolds_invariant": "theorem",
+            "Math.RepresentationTheory.reynolds_action": "theorem",
+            "Math.RepresentationTheory.coinvariantsToInvariants": "definition",
+            "Math.RepresentationTheory.invariantsToCoinvariants": "definition",
+            "Math.RepresentationTheory.coinvariantsInvariantsEquiv": "definition",
+            "Math.RepresentationTheory.coinvariantsInvariantsEquiv_mk": "theorem",
+            "Math.RepresentationTheory.coinvariantsInvariantsEquiv_symm": "theorem",
+            "Math.RepresentationTheory.averageMap_natural": "theorem",
+            "Math.RepresentationTheory.mapInvariants": "definition",
+            "Math.RepresentationTheory.mapInvariants_coe": "theorem",
+            "Math.RepresentationTheory.mapInvariants_injective": "theorem",
+            "Math.RepresentationTheory.coinvariantsInvariantsEquiv_natural": "theorem",
+            "Math.RepresentationTheory.mapInvariants_surjective": "theorem",
+            "Math.RepresentationTheory.mapInvariants_exact": "theorem",
+            "Math.RepresentationTheory.invariantDifferenceEquiv": "definition",
+            "Math.RepresentationTheory.invariantDifferenceEquiv_apply": "theorem"
+        }
+        module = "Math.Algebra.FiniteAveraging"
+        path = ROOT / "Math/Algebra/FiniteAveraging.lean"
+        origin = self.catalog["sources"][module]
+        self.assertEqual(origin["package"], "math")
+        self.assertEqual(origin["path"], path.relative_to(ROOT).as_posix())
+        self.assertEqual(origin["sha256"], hashlib.sha256(path.read_bytes()).hexdigest())
+        graph = KnowledgeGraph(self.catalog)
+        for name, kind in expected.items():
+            with self.subTest(name=name):
+                node = self.nodes[name]
+                self.assertIn(name, self.catalog["roots"])
+                self.assertIn(name, self.catalog["module_declarations_by_module"][module])
+                self.assertEqual(node["module"], module)
+                self.assertEqual(node["kind"], kind)
+                self.assertIsInstance(node["value"], int)
+                self.assertTrue(node["proof"])
+                self.assertGreater(node["source"]["line"], 0)
+                self.assertTrue(set(node["axioms"]) <= set(self.policy["modules"][module]["allowed_axioms"]))
+                for subject in ["representation_invariants", "finite_group_representations",
+                                "representation_theory", "linear_algebra", "algebra", "mathematics"]:
+                    self.assertIn(name, {item["name"] for item in graph.search(name, subject=subject)})
+
+    def test_finite_averaging_statements_match_reference_types(self):
+        run(ROOT, [self.lake, "env", "lean", "tests/FiniteAveragingStatements.lean"], capture=True)
+
+    def test_group_representation_statements_match_reference_types(self):
+        run(ROOT, [self.lake, "env", "lean", "tests/GroupRepresentationStatements.lean"], capture=True)
+
+    def test_group_representation_registry_retains_complete_pinned_families(self):
+        base = ROOT / ".lake/packages/mathlib"
+        registered = self.policy["libraries"]["mathlib"]["modules"]
+        for family, count in [("GroupTheory", 171), ("RepresentationTheory", 45)]:
+            expected = {".".join(path.relative_to(base).with_suffix("").parts)
+                        for path in (base / "Mathlib" / family).rglob("*.lean")}
+            self.assertEqual(len(expected), count)
+            self.assertEqual({name for name in registered if name.startswith("Mathlib." + family + ".")}, expected)
+            for module in expected:
+                with self.subTest(module=module):
+                    self.assertIn(module, self.catalog["module_policy"])
+                    self.assertIn(module, self.catalog["module_declarations_by_module"])
+                    source = self.catalog["sources"][module]
+                    self.assertEqual(source["revision"], self.policy["libraries"]["mathlib"]["revision"])
+                    self.assertEqual(source["license"], "Apache-2.0")
+                    self.assertEqual(source["sha256"], hashlib.sha256(
+                        (base / (module.replace(".", "/") + ".lean")).read_bytes()).hexdigest())
+
+    def test_group_representation_objects_and_results_retain_terms_and_pinned_sources(self):
+        expected = {
+            "Group.nat_card_center_add_sum_card_noncenter_eq_card": "Mathlib.GroupTheory.ClassEquation",
+            "Subgroup.card_subgroup_dvd_card": "Mathlib.GroupTheory.Coset.Card",
+            "MulAction.orbitEquivQuotientStabilizer": "Mathlib.GroupTheory.GroupAction.Quotient",
+            "Subgroup.exists_right_complement'_of_coprime": "Mathlib.GroupTheory.SchurZassenhaus",
+            "subgroupIsFreeOfIsFree": "Mathlib.GroupTheory.FreeGroup.NielsenSchreier",
+            "IsFreeGroup": "Mathlib.GroupTheory.FreeGroup.IsFreeGroup",
+            "AddCommGroup.equiv_free_prod_directSum_zmod": "Mathlib.GroupTheory.FiniteAbelian.Basic",
+            "AddCommGroup.equiv_directSum_zmod_of_finite": "Mathlib.GroupTheory.FiniteAbelian.Basic",
+            "Group.IsNilpotent": "Mathlib.GroupTheory.Nilpotent",
+            "IsNilpotent.to_isSolvable": "Mathlib.GroupTheory.Nilpotent",
+            "Group.IsSolvable": "Mathlib.GroupTheory.Solvable",
+            "derivedSeries_antitone": "Mathlib.GroupTheory.Solvable",
+            "alternatingGroup.isSimpleGroup": "Mathlib.GroupTheory.SpecificGroups.Alternating.Simple",
+            "alternatingGroup.isSolvable": "Mathlib.GroupTheory.SpecificGroups.Alternating.Simple",
+            "Equiv.Perm.not_isSolvable_fin_5": "Mathlib.GroupTheory.Solvable",
+            "Equiv.Perm.sign": "Mathlib.GroupTheory.Perm.Sign",
+            "CoxeterSystem": "Mathlib.GroupTheory.Coxeter.Basic",
+            "CoxeterSystem.simple_sq": "Mathlib.GroupTheory.Coxeter.Basic",
+            "CoxeterSystem.length_inv": "Mathlib.GroupTheory.Coxeter.Length",
+            "CoxeterSystem.length_mul_mod_two": "Mathlib.GroupTheory.Coxeter.Length",
+            "GroupExtension": "Mathlib.GroupTheory.GroupExtension.Defs",
+            "PresentedGroup": "Mathlib.GroupTheory.PresentedGroup",
+            "Submonoid.LocalizationMap": "Mathlib.GroupTheory.MonoidLocalization.Basic",
+            "Representation.invariants": "Mathlib.RepresentationTheory.Invariants",
+            "Representation.Coinvariants": "Mathlib.RepresentationTheory.Coinvariants",
+            "Representation.Coinvariants.ker": "Mathlib.RepresentationTheory.Coinvariants",
+            "Representation.averageMap": "Mathlib.RepresentationTheory.Invariants",
+            "Representation.isProj_averageMap": "Mathlib.RepresentationTheory.Invariants",
+            "Representation.IntertwiningMap": "Mathlib.RepresentationTheory.Intertwining",
+            "MonoidAlgebra.Submodule.exists_isCompl": "Mathlib.RepresentationTheory.Maschke",
+            "Representation.IsSemisimpleRepresentation": "Mathlib.RepresentationTheory.Semisimple",
+            "Representation.IsIrreducible": "Mathlib.RepresentationTheory.Irreducible",
+            "Representation.character": "Mathlib.RepresentationTheory.Character",
+            "Representation.char_orthonormal": "Mathlib.RepresentationTheory.Character",
+            "Representation.card_inv_mul_sum_char_eq_finrank": "Mathlib.RepresentationTheory.Character",
+            "Representation.card_inv_mul_sum_char_mul_char_eq_finrank": "Mathlib.RepresentationTheory.Character",
+            "Representation.isIntegral_character": "Mathlib.RepresentationTheory.Character",
+            "Representation.invariantsEquivIntertwiningMap": "Mathlib.RepresentationTheory.Invariants",
+            "Rep.equivalenceModuleMonoidAlgebra": "Mathlib.RepresentationTheory.Rep.Iso",
+            "groupCohomology.coindIso": "Mathlib.RepresentationTheory.Homological.GroupCohomology.Shapiro",
+            "groupHomology.indIso": "Mathlib.RepresentationTheory.Homological.GroupHomology.Shapiro",
+            "groupCohomology.H0Iso": "Mathlib.RepresentationTheory.Homological.GroupCohomology.LowDegree",
+            "groupHomology.H0Iso": "Mathlib.RepresentationTheory.Homological.GroupHomology.LowDegree",
+            "groupCohomology.isMulCoboundary₁_of_isMulCocycle₁_of_aut_to_units": "Mathlib.RepresentationTheory.Homological.GroupCohomology.Hilbert90",
+            "groupCohomology.exists_div_of_norm_eq_one": "Mathlib.RepresentationTheory.Homological.GroupCohomology.Hilbert90",
+            "TannakaDuality.FiniteGroup.equiv": "Mathlib.RepresentationTheory.Tannaka",
+            "IsSimpleModule.algebraMap_end_bijective_of_isAlgClosed": "Mathlib.RepresentationTheory.AlgebraRepresentation.Basic",
+            "ContRepresentation": "Mathlib.RepresentationTheory.Continuous.Basic",
+            "continuousCohomology": "Mathlib.RepresentationTheory.Homological.ContCohomology.Basic",
+            "Rep.ind": "Mathlib.RepresentationTheory.Induced",
+            "Rep.coind": "Mathlib.RepresentationTheory.Coinduced",
+            "Subrepresentation": "Mathlib.RepresentationTheory.Subrepresentation",
+            "Rep.tateNorm": "Mathlib.RepresentationTheory.Homological.TateCohomology.Basic",
+            "tateCohomology": "Mathlib.RepresentationTheory.Homological.TateCohomology.Basic"
+        }
+        for name, module in expected.items():
+            with self.subTest(name=name):
+                self.assertIn(name, self.catalog["roots"])
+                node = self.nodes[name]
+                self.assertEqual(node["module"], module)
+                self.assertIn(name, self.catalog["module_declarations_by_module"][module])
+                if node["kind"] in {"definition", "theorem", "opaque"}:
+                    self.assertIsInstance(node["value"], int)
+                    self.assertTrue(node["proof"])
+                self.assertTrue(set(node["axioms"]) <= self.policy["axioms"].keys())
+                origin = self.catalog["sources"][module]
+                self.assertIn(origin["revision"], origin["url"])
+
+    def test_group_representation_hierarchies_retain_hypotheses_and_axiom_paths(self):
+        expected = {
+            "Math.RepresentationTheory.coinvariantsInvariantsEquiv": [
+                "Representation.Coinvariants",
+                "Math.RepresentationTheory.reynolds",
+                "Math.RepresentationTheory.coinvariants_mk_averageMap",
+                "Math.RepresentationTheory.reynolds_invariant",
+                "Invertible",
+                "Fintype"
+            ],
+            "Math.RepresentationTheory.ker_averageMap": [
+                "Representation.Coinvariants.ker",
+                "Submodule.span",
+                "LinearMap.ker",
+                "Representation.averageMap"
+            ],
+            "Math.RepresentationTheory.mapInvariants_exact": [
+                "LinearMap.range",
+                "LinearMap.ker",
+                "Math.RepresentationTheory.mapInvariants",
+                "Math.RepresentationTheory.averageMap_natural",
+                "Math.RepresentationTheory.reynolds"
+            ],
+            "Math.RepresentationTheory.invariantDifferenceEquiv": [
+                "Math.RepresentationTheory.isCompl_invariants_coinvariantsKer",
+                "Submodule.prodEquivOfIsCompl",
+                "Representation.invariants",
+                "Representation.Coinvariants.ker"
+            ],
+            "AddCommGroup.equiv_directSum_zmod_of_finite": [
+                "Finite",
+                "Nat.Prime",
+                "ZMod",
+                "AddEquiv"
+            ],
+            "Subgroup.exists_right_complement'_of_coprime": [
+                "Subgroup.Normal",
+                "Nat.Coprime",
+                "Subgroup.IsComplement'",
+                "Subgroup.index"
+            ],
+            "subgroupIsFreeOfIsFree": [
+                "IsFreeGroup",
+                "Subgroup"
+            ],
+            "alternatingGroup.isSimpleGroup": [
+                "Fintype",
+                "DecidableEq",
+                "IsSimpleGroup",
+                "alternatingGroup"
+            ],
+            "TannakaDuality.FiniteGroup.equiv": [
+                "IsDomain",
+                "Finite",
+                "TannakaDuality.FiniteGroup.forget",
+                "CategoryTheory.Aut"
+            ],
+            "Representation.char_orthonormal": [
+                "IsAlgClosed",
+                "Invertible",
+                "FiniteDimensional",
+                "Representation.IsIrreducible",
+                "Representation.Equiv"
+            ],
+            "groupCohomology.exists_div_of_norm_eq_one": [
+                "IsGalois",
+                "IsCyclic",
+                "FiniteDimensional",
+                "Algebra.norm",
+                "Subgroup.zpowers"
+            ],
+            "groupCohomology.coindIso": [
+                "Rep.coind",
+                "groupCohomology",
+                "Subgroup"
+            ],
+            "groupHomology.indIso": [
+                "Rep.ind",
+                "groupHomology",
+                "DecidableEq"
+            ],
+            "continuousCohomology": [
+                "TopRep",
+                "TopologicalSpace"
+            ],
+            "IsSimpleModule.algebraMap_end_bijective_of_isAlgClosed": [
+                "IsSimpleModule",
+                "IsAlgClosed",
+                "FiniteDimensional",
+                "Algebra",
+                "Module.End"
+            ]
+        }
+        graph = KnowledgeGraph(self.catalog)
+        for name, objects in expected.items():
+            with self.subTest(name=name):
+                hierarchy = graph.hierarchy(name)
+                reached = {node["name"] for node in hierarchy["declarations"]}
+                self.assertTrue(set(objects) <= reached, set(objects) - reached)
+                self.assertEqual(set(hierarchy["axiom_paths"]), set(self.nodes[name]["axioms"]))
+                for axiom, path in hierarchy["axiom_paths"].items():
+                    self.assertEqual(path[0], name)
+                    self.assertEqual(path[-1], axiom)
+                    for source, target in zip(path, path[1:]):
+                        self.assertIn(target, self.nodes[source]["dependencies"])
+
+    def test_group_representation_subjects_retain_objects_and_parent_subjects(self):
+        expected = {
+            "group_actions": [
+                "group_theory",
+                "MulAction.orbitEquivQuotientStabilizer"
+            ],
+            "permutation_groups": [
+                "group_theory",
+                "alternatingGroup.isSimpleGroup"
+            ],
+            "finite_groups": [
+                "group_theory",
+                "Subgroup.exists_right_complement'_of_coprime"
+            ],
+            "abelian_groups": [
+                "group_theory",
+                "AddCommGroup.equiv_directSum_zmod_of_finite"
+            ],
+            "nilpotent_groups": [
+                "group_theory",
+                "Group.IsNilpotent"
+            ],
+            "solvable_groups": [
+                "group_theory",
+                "Group.IsSolvable"
+            ],
+            "free_groups": [
+                "group_theory",
+                "subgroupIsFreeOfIsFree"
+            ],
+            "group_presentations": [
+                "group_theory",
+                "PresentedGroup"
+            ],
+            "coxeter_groups": [
+                "group_theory",
+                "CoxeterSystem.length_inv"
+            ],
+            "group_extensions": [
+                "group_theory",
+                "GroupExtension"
+            ],
+            "monoid_localizations": [
+                "algebra",
+                "Submonoid.LocalizationMap"
+            ],
+            "representation_theory": [
+                "algebra",
+                "Math.RepresentationTheory.coinvariantsInvariantsEquiv"
+            ],
+            "representation_invariants": [
+                "representation_theory",
+                "Math.RepresentationTheory.ker_averageMap"
+            ],
+            "group_characters": [
+                "representation_theory",
+                "Representation.char_orthonormal"
+            ],
+            "finite_group_representations": [
+                "representation_theory",
+                "MonoidAlgebra.Submodule.exists_isCompl"
+            ],
+            "induced_representations": [
+                "representation_theory",
+                "Rep.ind"
+            ],
+            "topological_representations": [
+                "representation_theory",
+                "ContRepresentation"
+            ],
+            "group_homology": [
+                "homological_algebra",
+                "groupHomology.indIso"
+            ],
+            "group_cohomology": [
+                "homological_algebra",
+                "groupCohomology.coindIso"
+            ],
+            "continuous_group_cohomology": [
+                "group_cohomology",
+                "continuousCohomology"
+            ],
+            "tannaka_duality": [
+                "representation_theory",
+                "TannakaDuality.FiniteGroup.equiv"
+            ],
+            "algebra_representations": [
+                "representation_theory",
+                "IsSimpleModule.algebraMap_end_bijective_of_isAlgClosed"
+            ]
+        }
+        graph = KnowledgeGraph(self.catalog)
+        for subject, (parent, name) in expected.items():
+            with self.subTest(subject=subject):
+                self.assertEqual(self.catalog["subjects"][subject]["parent"], parent)
+                current = subject
+                while current is not None:
+                    self.assertIn(name, {node["name"] for node in graph.search(name, subject=current)})
+                    current = self.catalog["subjects"][current]["parent"]
+
     def test_finite_etale_results_retain_local_proofs_and_source(self):
         expected = {
             "Math.Geometry.locallyQuasiFinite_of_unramified": "theorem",
