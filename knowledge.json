@@ -8889,6 +8889,1126 @@
             "Quot.sound",
             "Classical.choice"
           ]
+        },
+        "Mathlib.AlgebraicGeometry.AffineScheme": {
+          "title": "Affine schemes",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.AffineSpace": {
+          "title": "Affine spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.AffineTransitionLimit": {
+          "title": "Affine Transition Limit",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.AlgClosed.Basic": {
+          "title": "Alg Closed / Basic",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.AlgebraicCycle.Basic": {
+          "title": "Algebraic Cycle / Basic",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Artinian": {
+          "title": "Artinian schemes",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Birational.Birational": {
+          "title": "Birational / Birational",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Birational.Composition": {
+          "title": "Birational / Composition",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Birational.Dominant": {
+          "title": "Birational / Dominant",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Birational.RationalMap": {
+          "title": "Birational / Rational Map",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.ColimitsOver": {
+          "title": "Colimits Over",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Cover.Directed": {
+          "title": "Cover / Directed",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Cover.MorphismProperty": {
+          "title": "Cover / Morphism Property",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Cover.Open": {
+          "title": "Cover / Open",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Cover.Over": {
+          "title": "Cover / Over",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Cover.QuasiCompact": {
+          "title": "Cover / Quasi Compact",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Cover.Sigma": {
+          "title": "Cover / Sigma",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.EffectiveEpi": {
+          "title": "Effective Epi",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Affine.AddSubMap": {
+          "title": "Elliptic Curve / Affine / Add Sub Map",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Affine.Basic": {
+          "title": "Elliptic Curve / Affine / Basic",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Affine.Formula": {
+          "title": "Elliptic Curve / Affine / Formula",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Affine.Point": {
+          "title": "Elliptic Curve / Affine / Point",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.EllipticCurve.DivisionPolynomial.Basic": {
+          "title": "Elliptic Curve / Division Polynomial / Basic",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.EllipticCurve.DivisionPolynomial.Degree": {
+          "title": "Elliptic Curve / Division Polynomial / Degree",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.EllipticCurve.IsomOfJ": {
+          "title": "Elliptic Curve / Isom Of J",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Jacobian.Basic": {
+          "title": "Elliptic Curve / Jacobian / Basic",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Jacobian.Formula": {
+          "title": "Elliptic Curve / Jacobian / Formula",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Jacobian.Point": {
+          "title": "Elliptic Curve / Jacobian / Point",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.EllipticCurve.LFunction": {
+          "title": "Elliptic Curve / LFunction",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.EllipticCurve.ModelsWithJ": {
+          "title": "Elliptic Curve / Models With J",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.EllipticCurve.NormalForms": {
+          "title": "Elliptic Curve / Normal Forms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Projective.Basic": {
+          "title": "Elliptic Curve / Projective / Basic",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Projective.Formula": {
+          "title": "Elliptic Curve / Projective / Formula",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Projective.Point": {
+          "title": "Elliptic Curve / Projective / Point",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Reduction": {
+          "title": "Elliptic Curve / Reduction",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.EllipticCurve.VariableChange": {
+          "title": "Elliptic Curve / Variable Change",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Weierstrass": {
+          "title": "Elliptic Curve / Weierstrass",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Fiber": {
+          "title": "Fiber",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.FunctionField": {
+          "title": "Function Field",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.GammaSpecAdjunction": {
+          "title": "Global sections and affine spectra",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Geometrically.Basic": {
+          "title": "Geometrically / Basic",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Geometrically.Connected": {
+          "title": "Geometrically / Connected",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Geometrically.Integral": {
+          "title": "Geometrically / Integral",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Geometrically.Irreducible": {
+          "title": "Geometrically / Irreducible",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Geometrically.Reduced": {
+          "title": "Geometrically / Reduced",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Gluing": {
+          "title": "Gluing",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.GluingOneHypercover": {
+          "title": "Gluing One Hypercover",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Group.Abelian": {
+          "title": "Group / Abelian",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Group.Affine": {
+          "title": "Group / Affine",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Group.Smooth": {
+          "title": "Group / Smooth",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.IdealSheaf.Basic": {
+          "title": "Ideal Sheaf / Basic",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.IdealSheaf.Functorial": {
+          "title": "Ideal Sheaf / Functorial",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.IdealSheaf.IrreducibleComponent": {
+          "title": "Ideal Sheaf / Irreducible Component",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.IdealSheaf.Subscheme": {
+          "title": "Ideal Sheaf / Subscheme",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Limits": {
+          "title": "Limits",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.LimitsOver": {
+          "title": "Limits Over",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Modules.Presheaf": {
+          "title": "Modules / Presheaf",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Modules.Sheaf": {
+          "title": "Modules / Sheaf",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Modules.Tilde": {
+          "title": "Modules / Tilde",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Morphisms.Affine": {
+          "title": "Morphisms / Affine",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Morphisms.AffineAnd": {
+          "title": "Morphisms / Affine And",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Morphisms.Basic": {
+          "title": "Morphisms / Basic",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Morphisms.ClosedImmersion": {
+          "title": "Morphisms / Closed Immersion",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Morphisms.Constructors": {
+          "title": "Morphisms / Constructors",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Morphisms.Descent": {
+          "title": "Morphisms / Descent",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Morphisms.Etale": {
+          "title": "Morphisms / Étale",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Morphisms.Finite": {
+          "title": "Morphisms / Finite",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Morphisms.FinitePresentation": {
+          "title": "Morphisms / Finite Presentation",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Morphisms.FiniteType": {
+          "title": "Morphisms / Finite Type",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Morphisms.Flat": {
+          "title": "Morphisms / Flat",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Morphisms.FlatDescent": {
+          "title": "Morphisms / Flat Descent",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Morphisms.FlatMono": {
+          "title": "Morphisms / Flat Mono",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Morphisms.FlatRank": {
+          "title": "Morphisms / Flat Rank",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Morphisms.FormallyUnramified": {
+          "title": "Morphisms / Formally Unramified",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Morphisms.Immersion": {
+          "title": "Morphisms / Immersion",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Morphisms.Integral": {
+          "title": "Morphisms / Integral",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Morphisms.IsIso": {
+          "title": "Morphisms / Is Iso",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Morphisms.LocalClosure": {
+          "title": "Morphisms / Local Closure",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Morphisms.LocalFlatDescent": {
+          "title": "Morphisms / Local Flat Descent",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Morphisms.LocalIso": {
+          "title": "Morphisms / Local Iso",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Morphisms.OpenImmersion": {
+          "title": "Morphisms / Open Immersion",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Morphisms.Preimmersion": {
+          "title": "Morphisms / Preimmersion",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Morphisms.Proper": {
+          "title": "Morphisms / Proper",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Morphisms.QuasiCompact": {
+          "title": "Morphisms / Quasi Compact",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Morphisms.QuasiFinite": {
+          "title": "Morphisms / Quasi Finite",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Morphisms.QuasiSeparated": {
+          "title": "Morphisms / Quasi Separated",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Morphisms.RingHomProperties": {
+          "title": "Morphisms / Ring Hom Properties",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Morphisms.SchemeTheoreticallyDominant": {
+          "title": "Morphisms / Scheme Theoretically Dominant",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Morphisms.Separated": {
+          "title": "Morphisms / Separated",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Morphisms.Smooth": {
+          "title": "Morphisms / Smooth",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Morphisms.SmoothFiber": {
+          "title": "Morphisms / Smooth Fiber",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Morphisms.SurjectiveOnStalks": {
+          "title": "Morphisms / Surjective On Stalks",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Morphisms.UnderlyingMap": {
+          "title": "Morphisms / Underlying Map",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Morphisms.UniversallyClosed": {
+          "title": "Morphisms / Universally Closed",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Morphisms.UniversallyInjective": {
+          "title": "Morphisms / Universally Injective",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Morphisms.UniversallyOpen": {
+          "title": "Morphisms / Universally Open",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Morphisms.WeaklyEtale": {
+          "title": "Morphisms / Weakly Étale",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Noetherian": {
+          "title": "Noetherian schemes",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Normalization": {
+          "title": "Normalization",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.OpenImmersion": {
+          "title": "Open Immersion",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.OrderOfVanishing": {
+          "title": "Order Of Vanishing",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Over": {
+          "title": "Over",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.PointsPi": {
+          "title": "Points Pi",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.ProjectiveSpectrum.Basic": {
+          "title": "Projective Spectrum / Basic",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.ProjectiveSpectrum.Functor": {
+          "title": "Projective Spectrum / Functor",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.ProjectiveSpectrum.Proper": {
+          "title": "Projective Spectrum / Proper",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.ProjectiveSpectrum.Scheme": {
+          "title": "Projective Spectrum / Scheme",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.ProjectiveSpectrum.StructureSheaf": {
+          "title": "Projective Spectrum / Structure Sheaf",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.ProjectiveSpectrum.Topology": {
+          "title": "Projective Spectrum / Topology",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Properties": {
+          "title": "Scheme properties",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.PullbackCarrier": {
+          "title": "Pullback Carrier",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Pullbacks": {
+          "title": "Pullbacks",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.QuasiAffine": {
+          "title": "Quasi Affine",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.RationalMap": {
+          "title": "Rational Map",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.RelativeGluing": {
+          "title": "Relative Gluing",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.ResidueField": {
+          "title": "Residue Field",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Restrict": {
+          "title": "Restrict",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Scheme": {
+          "title": "Schemes",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Sites.Affine": {
+          "title": "Sites / Affine",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Sites.AffineEtale": {
+          "title": "Sites / Affine Étale",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Sites.BigZariski": {
+          "title": "Sites / Big Zariski",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Sites.ConstantSheaf": {
+          "title": "Sites / Constant Sheaf",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Sites.ElladicCohomology": {
+          "title": "Sites / Elladic Cohomology",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Sites.Etale": {
+          "title": "Sites / Étale",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Sites.EtalePoint": {
+          "title": "Sites / Étale Point",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Sites.Fpqc": {
+          "title": "Sites / Fpqc",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Sites.MorphismProperty": {
+          "title": "Sites / Morphism Property",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Sites.Pretopology": {
+          "title": "Sites / Pretopology",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Sites.Proetale": {
+          "title": "Sites / Proetale",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Sites.QuasiCompact": {
+          "title": "Sites / Quasi Compact",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Sites.Representability": {
+          "title": "Sites / Representability",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Sites.SheafQuasiCompact": {
+          "title": "Sites / Sheaf Quasi Compact",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Sites.Small": {
+          "title": "Sites / Small",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Sites.SmallAffineZariski": {
+          "title": "Sites / Small Affine Zariski",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Spec": {
+          "title": "Affine spectra",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.SpreadingOut": {
+          "title": "Spreading out",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.Stalk": {
+          "title": "Stalk",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.StructureSheaf": {
+          "title": "Structure sheaves",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.ValuativeCriterion": {
+          "title": "Valuative criteria",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.AlgebraicGeometry.ZariskisMainTheorem": {
+          "title": "Zariski's main theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
         }
       },
       "citation_aliases": {
@@ -9451,7 +10571,147 @@
       "modules": [
         "Mathlib.RingTheory.Spectrum.Prime.Defs",
         "Mathlib.RingTheory.Spectrum.Prime.Basic",
-        "Mathlib.RingTheory.Nullstellensatz"
+        "Mathlib.RingTheory.Nullstellensatz",
+        "Mathlib.AlgebraicGeometry.AffineScheme",
+        "Mathlib.AlgebraicGeometry.AffineSpace",
+        "Mathlib.AlgebraicGeometry.AffineTransitionLimit",
+        "Mathlib.AlgebraicGeometry.AlgClosed.Basic",
+        "Mathlib.AlgebraicGeometry.AlgebraicCycle.Basic",
+        "Mathlib.AlgebraicGeometry.Artinian",
+        "Mathlib.AlgebraicGeometry.Birational.Birational",
+        "Mathlib.AlgebraicGeometry.Birational.Composition",
+        "Mathlib.AlgebraicGeometry.Birational.Dominant",
+        "Mathlib.AlgebraicGeometry.Birational.RationalMap",
+        "Mathlib.AlgebraicGeometry.ColimitsOver",
+        "Mathlib.AlgebraicGeometry.Cover.Directed",
+        "Mathlib.AlgebraicGeometry.Cover.MorphismProperty",
+        "Mathlib.AlgebraicGeometry.Cover.Open",
+        "Mathlib.AlgebraicGeometry.Cover.Over",
+        "Mathlib.AlgebraicGeometry.Cover.QuasiCompact",
+        "Mathlib.AlgebraicGeometry.Cover.Sigma",
+        "Mathlib.AlgebraicGeometry.EffectiveEpi",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Affine.AddSubMap",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Affine.Basic",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Affine.Formula",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Affine.Point",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.DivisionPolynomial.Basic",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.DivisionPolynomial.Degree",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.IsomOfJ",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Jacobian.Basic",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Jacobian.Formula",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Jacobian.Point",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.LFunction",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.ModelsWithJ",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.NormalForms",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Projective.Basic",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Projective.Formula",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Projective.Point",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Reduction",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.VariableChange",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Weierstrass",
+        "Mathlib.AlgebraicGeometry.Fiber",
+        "Mathlib.AlgebraicGeometry.FunctionField",
+        "Mathlib.AlgebraicGeometry.GammaSpecAdjunction",
+        "Mathlib.AlgebraicGeometry.Geometrically.Basic",
+        "Mathlib.AlgebraicGeometry.Geometrically.Connected",
+        "Mathlib.AlgebraicGeometry.Geometrically.Integral",
+        "Mathlib.AlgebraicGeometry.Geometrically.Irreducible",
+        "Mathlib.AlgebraicGeometry.Geometrically.Reduced",
+        "Mathlib.AlgebraicGeometry.Gluing",
+        "Mathlib.AlgebraicGeometry.GluingOneHypercover",
+        "Mathlib.AlgebraicGeometry.Group.Abelian",
+        "Mathlib.AlgebraicGeometry.Group.Affine",
+        "Mathlib.AlgebraicGeometry.Group.Smooth",
+        "Mathlib.AlgebraicGeometry.IdealSheaf.Basic",
+        "Mathlib.AlgebraicGeometry.IdealSheaf.Functorial",
+        "Mathlib.AlgebraicGeometry.IdealSheaf.IrreducibleComponent",
+        "Mathlib.AlgebraicGeometry.IdealSheaf.Subscheme",
+        "Mathlib.AlgebraicGeometry.Limits",
+        "Mathlib.AlgebraicGeometry.LimitsOver",
+        "Mathlib.AlgebraicGeometry.Modules.Presheaf",
+        "Mathlib.AlgebraicGeometry.Modules.Sheaf",
+        "Mathlib.AlgebraicGeometry.Modules.Tilde",
+        "Mathlib.AlgebraicGeometry.Morphisms.Affine",
+        "Mathlib.AlgebraicGeometry.Morphisms.AffineAnd",
+        "Mathlib.AlgebraicGeometry.Morphisms.Basic",
+        "Mathlib.AlgebraicGeometry.Morphisms.ClosedImmersion",
+        "Mathlib.AlgebraicGeometry.Morphisms.Constructors",
+        "Mathlib.AlgebraicGeometry.Morphisms.Descent",
+        "Mathlib.AlgebraicGeometry.Morphisms.Etale",
+        "Mathlib.AlgebraicGeometry.Morphisms.Finite",
+        "Mathlib.AlgebraicGeometry.Morphisms.FinitePresentation",
+        "Mathlib.AlgebraicGeometry.Morphisms.FiniteType",
+        "Mathlib.AlgebraicGeometry.Morphisms.Flat",
+        "Mathlib.AlgebraicGeometry.Morphisms.FlatDescent",
+        "Mathlib.AlgebraicGeometry.Morphisms.FlatMono",
+        "Mathlib.AlgebraicGeometry.Morphisms.FlatRank",
+        "Mathlib.AlgebraicGeometry.Morphisms.FormallyUnramified",
+        "Mathlib.AlgebraicGeometry.Morphisms.Immersion",
+        "Mathlib.AlgebraicGeometry.Morphisms.Integral",
+        "Mathlib.AlgebraicGeometry.Morphisms.IsIso",
+        "Mathlib.AlgebraicGeometry.Morphisms.LocalClosure",
+        "Mathlib.AlgebraicGeometry.Morphisms.LocalFlatDescent",
+        "Mathlib.AlgebraicGeometry.Morphisms.LocalIso",
+        "Mathlib.AlgebraicGeometry.Morphisms.OpenImmersion",
+        "Mathlib.AlgebraicGeometry.Morphisms.Preimmersion",
+        "Mathlib.AlgebraicGeometry.Morphisms.Proper",
+        "Mathlib.AlgebraicGeometry.Morphisms.QuasiCompact",
+        "Mathlib.AlgebraicGeometry.Morphisms.QuasiFinite",
+        "Mathlib.AlgebraicGeometry.Morphisms.QuasiSeparated",
+        "Mathlib.AlgebraicGeometry.Morphisms.RingHomProperties",
+        "Mathlib.AlgebraicGeometry.Morphisms.SchemeTheoreticallyDominant",
+        "Mathlib.AlgebraicGeometry.Morphisms.Separated",
+        "Mathlib.AlgebraicGeometry.Morphisms.Smooth",
+        "Mathlib.AlgebraicGeometry.Morphisms.SmoothFiber",
+        "Mathlib.AlgebraicGeometry.Morphisms.SurjectiveOnStalks",
+        "Mathlib.AlgebraicGeometry.Morphisms.UnderlyingMap",
+        "Mathlib.AlgebraicGeometry.Morphisms.UniversallyClosed",
+        "Mathlib.AlgebraicGeometry.Morphisms.UniversallyInjective",
+        "Mathlib.AlgebraicGeometry.Morphisms.UniversallyOpen",
+        "Mathlib.AlgebraicGeometry.Morphisms.WeaklyEtale",
+        "Mathlib.AlgebraicGeometry.Noetherian",
+        "Mathlib.AlgebraicGeometry.Normalization",
+        "Mathlib.AlgebraicGeometry.OpenImmersion",
+        "Mathlib.AlgebraicGeometry.OrderOfVanishing",
+        "Mathlib.AlgebraicGeometry.Over",
+        "Mathlib.AlgebraicGeometry.PointsPi",
+        "Mathlib.AlgebraicGeometry.ProjectiveSpectrum.Basic",
+        "Mathlib.AlgebraicGeometry.ProjectiveSpectrum.Functor",
+        "Mathlib.AlgebraicGeometry.ProjectiveSpectrum.Proper",
+        "Mathlib.AlgebraicGeometry.ProjectiveSpectrum.Scheme",
+        "Mathlib.AlgebraicGeometry.ProjectiveSpectrum.StructureSheaf",
+        "Mathlib.AlgebraicGeometry.ProjectiveSpectrum.Topology",
+        "Mathlib.AlgebraicGeometry.Properties",
+        "Mathlib.AlgebraicGeometry.PullbackCarrier",
+        "Mathlib.AlgebraicGeometry.Pullbacks",
+        "Mathlib.AlgebraicGeometry.QuasiAffine",
+        "Mathlib.AlgebraicGeometry.RationalMap",
+        "Mathlib.AlgebraicGeometry.RelativeGluing",
+        "Mathlib.AlgebraicGeometry.ResidueField",
+        "Mathlib.AlgebraicGeometry.Restrict",
+        "Mathlib.AlgebraicGeometry.Scheme",
+        "Mathlib.AlgebraicGeometry.Sites.Affine",
+        "Mathlib.AlgebraicGeometry.Sites.AffineEtale",
+        "Mathlib.AlgebraicGeometry.Sites.BigZariski",
+        "Mathlib.AlgebraicGeometry.Sites.ConstantSheaf",
+        "Mathlib.AlgebraicGeometry.Sites.ElladicCohomology",
+        "Mathlib.AlgebraicGeometry.Sites.Etale",
+        "Mathlib.AlgebraicGeometry.Sites.EtalePoint",
+        "Mathlib.AlgebraicGeometry.Sites.Fpqc",
+        "Mathlib.AlgebraicGeometry.Sites.MorphismProperty",
+        "Mathlib.AlgebraicGeometry.Sites.Pretopology",
+        "Mathlib.AlgebraicGeometry.Sites.Proetale",
+        "Mathlib.AlgebraicGeometry.Sites.QuasiCompact",
+        "Mathlib.AlgebraicGeometry.Sites.Representability",
+        "Mathlib.AlgebraicGeometry.Sites.SheafQuasiCompact",
+        "Mathlib.AlgebraicGeometry.Sites.Small",
+        "Mathlib.AlgebraicGeometry.Sites.SmallAffineZariski",
+        "Mathlib.AlgebraicGeometry.Spec",
+        "Mathlib.AlgebraicGeometry.SpreadingOut",
+        "Mathlib.AlgebraicGeometry.Stalk",
+        "Mathlib.AlgebraicGeometry.StructureSheaf",
+        "Mathlib.AlgebraicGeometry.ValuativeCriterion",
+        "Mathlib.AlgebraicGeometry.ZariskisMainTheorem"
       ]
     },
     "modular_arithmetic": {
@@ -11385,6 +12645,362 @@
         "Mathlib.NumberTheory.ModularForms.LevelOne.DimensionFormula",
         "Math.NumberTheory.SturmFinite"
       ]
+    },
+    "schemes": {
+      "title": "Schemes",
+      "parent": "algebraic_geometry",
+      "modules": [
+        "Mathlib.AlgebraicGeometry.AffineScheme",
+        "Mathlib.AlgebraicGeometry.AffineSpace",
+        "Mathlib.AlgebraicGeometry.AffineTransitionLimit",
+        "Mathlib.AlgebraicGeometry.AlgClosed.Basic",
+        "Mathlib.AlgebraicGeometry.AlgebraicCycle.Basic",
+        "Mathlib.AlgebraicGeometry.Artinian",
+        "Mathlib.AlgebraicGeometry.Birational.Birational",
+        "Mathlib.AlgebraicGeometry.Birational.Composition",
+        "Mathlib.AlgebraicGeometry.Birational.Dominant",
+        "Mathlib.AlgebraicGeometry.Birational.RationalMap",
+        "Mathlib.AlgebraicGeometry.ColimitsOver",
+        "Mathlib.AlgebraicGeometry.Cover.Directed",
+        "Mathlib.AlgebraicGeometry.Cover.MorphismProperty",
+        "Mathlib.AlgebraicGeometry.Cover.Open",
+        "Mathlib.AlgebraicGeometry.Cover.Over",
+        "Mathlib.AlgebraicGeometry.Cover.QuasiCompact",
+        "Mathlib.AlgebraicGeometry.Cover.Sigma",
+        "Mathlib.AlgebraicGeometry.EffectiveEpi",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Affine.AddSubMap",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Affine.Basic",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Affine.Formula",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Affine.Point",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.DivisionPolynomial.Basic",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.DivisionPolynomial.Degree",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.IsomOfJ",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Jacobian.Basic",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Jacobian.Formula",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Jacobian.Point",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.LFunction",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.ModelsWithJ",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.NormalForms",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Projective.Basic",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Projective.Formula",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Projective.Point",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Reduction",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.VariableChange",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Weierstrass",
+        "Mathlib.AlgebraicGeometry.Fiber",
+        "Mathlib.AlgebraicGeometry.FunctionField",
+        "Mathlib.AlgebraicGeometry.GammaSpecAdjunction",
+        "Mathlib.AlgebraicGeometry.Geometrically.Basic",
+        "Mathlib.AlgebraicGeometry.Geometrically.Connected",
+        "Mathlib.AlgebraicGeometry.Geometrically.Integral",
+        "Mathlib.AlgebraicGeometry.Geometrically.Irreducible",
+        "Mathlib.AlgebraicGeometry.Geometrically.Reduced",
+        "Mathlib.AlgebraicGeometry.Gluing",
+        "Mathlib.AlgebraicGeometry.GluingOneHypercover",
+        "Mathlib.AlgebraicGeometry.Group.Abelian",
+        "Mathlib.AlgebraicGeometry.Group.Affine",
+        "Mathlib.AlgebraicGeometry.Group.Smooth",
+        "Mathlib.AlgebraicGeometry.IdealSheaf.Basic",
+        "Mathlib.AlgebraicGeometry.IdealSheaf.Functorial",
+        "Mathlib.AlgebraicGeometry.IdealSheaf.IrreducibleComponent",
+        "Mathlib.AlgebraicGeometry.IdealSheaf.Subscheme",
+        "Mathlib.AlgebraicGeometry.Limits",
+        "Mathlib.AlgebraicGeometry.LimitsOver",
+        "Mathlib.AlgebraicGeometry.Modules.Presheaf",
+        "Mathlib.AlgebraicGeometry.Modules.Sheaf",
+        "Mathlib.AlgebraicGeometry.Modules.Tilde",
+        "Mathlib.AlgebraicGeometry.Morphisms.Affine",
+        "Mathlib.AlgebraicGeometry.Morphisms.AffineAnd",
+        "Mathlib.AlgebraicGeometry.Morphisms.Basic",
+        "Mathlib.AlgebraicGeometry.Morphisms.ClosedImmersion",
+        "Mathlib.AlgebraicGeometry.Morphisms.Constructors",
+        "Mathlib.AlgebraicGeometry.Morphisms.Descent",
+        "Mathlib.AlgebraicGeometry.Morphisms.Etale",
+        "Mathlib.AlgebraicGeometry.Morphisms.Finite",
+        "Mathlib.AlgebraicGeometry.Morphisms.FinitePresentation",
+        "Mathlib.AlgebraicGeometry.Morphisms.FiniteType",
+        "Mathlib.AlgebraicGeometry.Morphisms.Flat",
+        "Mathlib.AlgebraicGeometry.Morphisms.FlatDescent",
+        "Mathlib.AlgebraicGeometry.Morphisms.FlatMono",
+        "Mathlib.AlgebraicGeometry.Morphisms.FlatRank",
+        "Mathlib.AlgebraicGeometry.Morphisms.FormallyUnramified",
+        "Mathlib.AlgebraicGeometry.Morphisms.Immersion",
+        "Mathlib.AlgebraicGeometry.Morphisms.Integral",
+        "Mathlib.AlgebraicGeometry.Morphisms.IsIso",
+        "Mathlib.AlgebraicGeometry.Morphisms.LocalClosure",
+        "Mathlib.AlgebraicGeometry.Morphisms.LocalFlatDescent",
+        "Mathlib.AlgebraicGeometry.Morphisms.LocalIso",
+        "Mathlib.AlgebraicGeometry.Morphisms.OpenImmersion",
+        "Mathlib.AlgebraicGeometry.Morphisms.Preimmersion",
+        "Mathlib.AlgebraicGeometry.Morphisms.Proper",
+        "Mathlib.AlgebraicGeometry.Morphisms.QuasiCompact",
+        "Mathlib.AlgebraicGeometry.Morphisms.QuasiFinite",
+        "Mathlib.AlgebraicGeometry.Morphisms.QuasiSeparated",
+        "Mathlib.AlgebraicGeometry.Morphisms.RingHomProperties",
+        "Mathlib.AlgebraicGeometry.Morphisms.SchemeTheoreticallyDominant",
+        "Mathlib.AlgebraicGeometry.Morphisms.Separated",
+        "Mathlib.AlgebraicGeometry.Morphisms.Smooth",
+        "Mathlib.AlgebraicGeometry.Morphisms.SmoothFiber",
+        "Mathlib.AlgebraicGeometry.Morphisms.SurjectiveOnStalks",
+        "Mathlib.AlgebraicGeometry.Morphisms.UnderlyingMap",
+        "Mathlib.AlgebraicGeometry.Morphisms.UniversallyClosed",
+        "Mathlib.AlgebraicGeometry.Morphisms.UniversallyInjective",
+        "Mathlib.AlgebraicGeometry.Morphisms.UniversallyOpen",
+        "Mathlib.AlgebraicGeometry.Morphisms.WeaklyEtale",
+        "Mathlib.AlgebraicGeometry.Noetherian",
+        "Mathlib.AlgebraicGeometry.Normalization",
+        "Mathlib.AlgebraicGeometry.OpenImmersion",
+        "Mathlib.AlgebraicGeometry.OrderOfVanishing",
+        "Mathlib.AlgebraicGeometry.Over",
+        "Mathlib.AlgebraicGeometry.PointsPi",
+        "Mathlib.AlgebraicGeometry.ProjectiveSpectrum.Basic",
+        "Mathlib.AlgebraicGeometry.ProjectiveSpectrum.Functor",
+        "Mathlib.AlgebraicGeometry.ProjectiveSpectrum.Proper",
+        "Mathlib.AlgebraicGeometry.ProjectiveSpectrum.Scheme",
+        "Mathlib.AlgebraicGeometry.ProjectiveSpectrum.StructureSheaf",
+        "Mathlib.AlgebraicGeometry.ProjectiveSpectrum.Topology",
+        "Mathlib.AlgebraicGeometry.Properties",
+        "Mathlib.AlgebraicGeometry.PullbackCarrier",
+        "Mathlib.AlgebraicGeometry.Pullbacks",
+        "Mathlib.AlgebraicGeometry.QuasiAffine",
+        "Mathlib.AlgebraicGeometry.RationalMap",
+        "Mathlib.AlgebraicGeometry.RelativeGluing",
+        "Mathlib.AlgebraicGeometry.ResidueField",
+        "Mathlib.AlgebraicGeometry.Restrict",
+        "Mathlib.AlgebraicGeometry.Scheme",
+        "Mathlib.AlgebraicGeometry.Sites.Affine",
+        "Mathlib.AlgebraicGeometry.Sites.AffineEtale",
+        "Mathlib.AlgebraicGeometry.Sites.BigZariski",
+        "Mathlib.AlgebraicGeometry.Sites.ConstantSheaf",
+        "Mathlib.AlgebraicGeometry.Sites.ElladicCohomology",
+        "Mathlib.AlgebraicGeometry.Sites.Etale",
+        "Mathlib.AlgebraicGeometry.Sites.EtalePoint",
+        "Mathlib.AlgebraicGeometry.Sites.Fpqc",
+        "Mathlib.AlgebraicGeometry.Sites.MorphismProperty",
+        "Mathlib.AlgebraicGeometry.Sites.Pretopology",
+        "Mathlib.AlgebraicGeometry.Sites.Proetale",
+        "Mathlib.AlgebraicGeometry.Sites.QuasiCompact",
+        "Mathlib.AlgebraicGeometry.Sites.Representability",
+        "Mathlib.AlgebraicGeometry.Sites.SheafQuasiCompact",
+        "Mathlib.AlgebraicGeometry.Sites.Small",
+        "Mathlib.AlgebraicGeometry.Sites.SmallAffineZariski",
+        "Mathlib.AlgebraicGeometry.Spec",
+        "Mathlib.AlgebraicGeometry.SpreadingOut",
+        "Mathlib.AlgebraicGeometry.Stalk",
+        "Mathlib.AlgebraicGeometry.StructureSheaf",
+        "Mathlib.AlgebraicGeometry.ValuativeCriterion",
+        "Mathlib.AlgebraicGeometry.ZariskisMainTheorem"
+      ]
+    },
+    "affine_schemes": {
+      "title": "Affine schemes",
+      "parent": "schemes",
+      "modules": [
+        "Mathlib.AlgebraicGeometry.AffineScheme",
+        "Mathlib.AlgebraicGeometry.AffineSpace",
+        "Mathlib.AlgebraicGeometry.AlgClosed.Basic",
+        "Mathlib.AlgebraicGeometry.GammaSpecAdjunction",
+        "Mathlib.AlgebraicGeometry.QuasiAffine",
+        "Mathlib.AlgebraicGeometry.Spec",
+        "Mathlib.AlgebraicGeometry.StructureSheaf"
+      ]
+    },
+    "scheme_morphisms": {
+      "title": "Scheme morphisms",
+      "parent": "schemes",
+      "modules": [
+        "Mathlib.AlgebraicGeometry.Morphisms.Affine",
+        "Mathlib.AlgebraicGeometry.Morphisms.AffineAnd",
+        "Mathlib.AlgebraicGeometry.Morphisms.Basic",
+        "Mathlib.AlgebraicGeometry.Morphisms.ClosedImmersion",
+        "Mathlib.AlgebraicGeometry.Morphisms.Constructors",
+        "Mathlib.AlgebraicGeometry.Morphisms.Descent",
+        "Mathlib.AlgebraicGeometry.Morphisms.Etale",
+        "Mathlib.AlgebraicGeometry.Morphisms.Finite",
+        "Mathlib.AlgebraicGeometry.Morphisms.FinitePresentation",
+        "Mathlib.AlgebraicGeometry.Morphisms.FiniteType",
+        "Mathlib.AlgebraicGeometry.Morphisms.Flat",
+        "Mathlib.AlgebraicGeometry.Morphisms.FlatDescent",
+        "Mathlib.AlgebraicGeometry.Morphisms.FlatMono",
+        "Mathlib.AlgebraicGeometry.Morphisms.FlatRank",
+        "Mathlib.AlgebraicGeometry.Morphisms.FormallyUnramified",
+        "Mathlib.AlgebraicGeometry.Morphisms.Immersion",
+        "Mathlib.AlgebraicGeometry.Morphisms.Integral",
+        "Mathlib.AlgebraicGeometry.Morphisms.IsIso",
+        "Mathlib.AlgebraicGeometry.Morphisms.LocalClosure",
+        "Mathlib.AlgebraicGeometry.Morphisms.LocalFlatDescent",
+        "Mathlib.AlgebraicGeometry.Morphisms.LocalIso",
+        "Mathlib.AlgebraicGeometry.Morphisms.OpenImmersion",
+        "Mathlib.AlgebraicGeometry.Morphisms.Preimmersion",
+        "Mathlib.AlgebraicGeometry.Morphisms.Proper",
+        "Mathlib.AlgebraicGeometry.Morphisms.QuasiCompact",
+        "Mathlib.AlgebraicGeometry.Morphisms.QuasiFinite",
+        "Mathlib.AlgebraicGeometry.Morphisms.QuasiSeparated",
+        "Mathlib.AlgebraicGeometry.Morphisms.RingHomProperties",
+        "Mathlib.AlgebraicGeometry.Morphisms.SchemeTheoreticallyDominant",
+        "Mathlib.AlgebraicGeometry.Morphisms.Separated",
+        "Mathlib.AlgebraicGeometry.Morphisms.Smooth",
+        "Mathlib.AlgebraicGeometry.Morphisms.SmoothFiber",
+        "Mathlib.AlgebraicGeometry.Morphisms.SurjectiveOnStalks",
+        "Mathlib.AlgebraicGeometry.Morphisms.UnderlyingMap",
+        "Mathlib.AlgebraicGeometry.Morphisms.UniversallyClosed",
+        "Mathlib.AlgebraicGeometry.Morphisms.UniversallyInjective",
+        "Mathlib.AlgebraicGeometry.Morphisms.UniversallyOpen",
+        "Mathlib.AlgebraicGeometry.Morphisms.WeaklyEtale",
+        "Math.Geometry.FiniteEtale"
+      ]
+    },
+    "scheme_covers": {
+      "title": "Scheme covers and gluing",
+      "parent": "schemes",
+      "modules": [
+        "Mathlib.AlgebraicGeometry.Cover.Directed",
+        "Mathlib.AlgebraicGeometry.Cover.MorphismProperty",
+        "Mathlib.AlgebraicGeometry.Cover.Open",
+        "Mathlib.AlgebraicGeometry.Cover.Over",
+        "Mathlib.AlgebraicGeometry.Cover.QuasiCompact",
+        "Mathlib.AlgebraicGeometry.Cover.Sigma",
+        "Mathlib.AlgebraicGeometry.Gluing",
+        "Mathlib.AlgebraicGeometry.GluingOneHypercover",
+        "Mathlib.AlgebraicGeometry.RelativeGluing"
+      ]
+    },
+    "scheme_topologies": {
+      "title": "Scheme sites and topologies",
+      "parent": "schemes",
+      "modules": [
+        "Mathlib.AlgebraicGeometry.Sites.Affine",
+        "Mathlib.AlgebraicGeometry.Sites.AffineEtale",
+        "Mathlib.AlgebraicGeometry.Sites.BigZariski",
+        "Mathlib.AlgebraicGeometry.Sites.ConstantSheaf",
+        "Mathlib.AlgebraicGeometry.Sites.ElladicCohomology",
+        "Mathlib.AlgebraicGeometry.Sites.Etale",
+        "Mathlib.AlgebraicGeometry.Sites.EtalePoint",
+        "Mathlib.AlgebraicGeometry.Sites.Fpqc",
+        "Mathlib.AlgebraicGeometry.Sites.MorphismProperty",
+        "Mathlib.AlgebraicGeometry.Sites.Pretopology",
+        "Mathlib.AlgebraicGeometry.Sites.Proetale",
+        "Mathlib.AlgebraicGeometry.Sites.QuasiCompact",
+        "Mathlib.AlgebraicGeometry.Sites.Representability",
+        "Mathlib.AlgebraicGeometry.Sites.SheafQuasiCompact",
+        "Mathlib.AlgebraicGeometry.Sites.Small",
+        "Mathlib.AlgebraicGeometry.Sites.SmallAffineZariski"
+      ]
+    },
+    "etale_geometry": {
+      "title": "Étale geometry",
+      "parent": "schemes",
+      "modules": [
+        "Mathlib.AlgebraicGeometry.Group.Smooth",
+        "Mathlib.AlgebraicGeometry.Morphisms.Etale",
+        "Mathlib.AlgebraicGeometry.Morphisms.FormallyUnramified",
+        "Mathlib.AlgebraicGeometry.Morphisms.Smooth",
+        "Mathlib.AlgebraicGeometry.Morphisms.SmoothFiber",
+        "Mathlib.AlgebraicGeometry.Morphisms.WeaklyEtale",
+        "Mathlib.AlgebraicGeometry.Sites.AffineEtale",
+        "Mathlib.AlgebraicGeometry.Sites.ElladicCohomology",
+        "Mathlib.AlgebraicGeometry.Sites.Etale",
+        "Mathlib.AlgebraicGeometry.Sites.EtalePoint",
+        "Mathlib.AlgebraicGeometry.Sites.Proetale",
+        "Math.Geometry.FiniteEtale"
+      ]
+    },
+    "projective_geometry": {
+      "title": "Projective geometry",
+      "parent": "algebraic_geometry",
+      "modules": [
+        "Mathlib.AlgebraicGeometry.ProjectiveSpectrum.Basic",
+        "Mathlib.AlgebraicGeometry.ProjectiveSpectrum.Functor",
+        "Mathlib.AlgebraicGeometry.ProjectiveSpectrum.Proper",
+        "Mathlib.AlgebraicGeometry.ProjectiveSpectrum.Scheme",
+        "Mathlib.AlgebraicGeometry.ProjectiveSpectrum.StructureSheaf",
+        "Mathlib.AlgebraicGeometry.ProjectiveSpectrum.Topology"
+      ]
+    },
+    "elliptic_curves": {
+      "title": "Elliptic curves",
+      "parent": "algebraic_geometry",
+      "modules": [
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Affine.AddSubMap",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Affine.Basic",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Affine.Formula",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Affine.Point",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.DivisionPolynomial.Basic",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.DivisionPolynomial.Degree",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.IsomOfJ",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Jacobian.Basic",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Jacobian.Formula",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Jacobian.Point",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.LFunction",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.ModelsWithJ",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.NormalForms",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Projective.Basic",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Projective.Formula",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Projective.Point",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Reduction",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.VariableChange",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Weierstrass"
+      ]
+    },
+    "birational_geometry": {
+      "title": "Birational geometry",
+      "parent": "algebraic_geometry",
+      "modules": [
+        "Mathlib.AlgebraicGeometry.Birational.Birational",
+        "Mathlib.AlgebraicGeometry.Birational.Composition",
+        "Mathlib.AlgebraicGeometry.Birational.Dominant",
+        "Mathlib.AlgebraicGeometry.Birational.RationalMap",
+        "Mathlib.AlgebraicGeometry.FunctionField",
+        "Mathlib.AlgebraicGeometry.Normalization",
+        "Mathlib.AlgebraicGeometry.OrderOfVanishing",
+        "Mathlib.AlgebraicGeometry.RationalMap",
+        "Mathlib.AlgebraicGeometry.ZariskisMainTheorem"
+      ]
+    },
+    "scheme_modules": {
+      "title": "Sheaves of modules on schemes",
+      "parent": "schemes",
+      "modules": [
+        "Mathlib.AlgebraicGeometry.Modules.Presheaf",
+        "Mathlib.AlgebraicGeometry.Modules.Sheaf",
+        "Mathlib.AlgebraicGeometry.Modules.Tilde"
+      ]
+    },
+    "group_schemes": {
+      "title": "Group schemes",
+      "parent": "schemes",
+      "modules": [
+        "Mathlib.AlgebraicGeometry.Group.Abelian",
+        "Mathlib.AlgebraicGeometry.Group.Affine",
+        "Mathlib.AlgebraicGeometry.Group.Smooth"
+      ]
+    },
+    "scheme_fibres": {
+      "title": "Scheme fibres",
+      "parent": "schemes",
+      "modules": [
+        "Mathlib.AlgebraicGeometry.Fiber",
+        "Mathlib.AlgebraicGeometry.Geometrically.Basic",
+        "Mathlib.AlgebraicGeometry.Geometrically.Connected",
+        "Mathlib.AlgebraicGeometry.Geometrically.Integral",
+        "Mathlib.AlgebraicGeometry.Geometrically.Irreducible",
+        "Mathlib.AlgebraicGeometry.Geometrically.Reduced",
+        "Mathlib.AlgebraicGeometry.PointsPi",
+        "Mathlib.AlgebraicGeometry.PullbackCarrier",
+        "Mathlib.AlgebraicGeometry.Pullbacks",
+        "Mathlib.AlgebraicGeometry.ResidueField"
+      ]
+    },
+    "scheme_ideals": {
+      "title": "Ideal sheaves and algebraic cycles",
+      "parent": "schemes",
+      "modules": [
+        "Mathlib.AlgebraicGeometry.AlgebraicCycle.Basic",
+        "Mathlib.AlgebraicGeometry.IdealSheaf.Basic",
+        "Mathlib.AlgebraicGeometry.IdealSheaf.Functorial",
+        "Mathlib.AlgebraicGeometry.IdealSheaf.IrreducibleComponent",
+        "Mathlib.AlgebraicGeometry.IdealSheaf.Subscheme"
+      ]
     }
   },
   "modules": {
@@ -11530,6 +13146,14 @@
     },
     "Math.NumberTheory.SturmFinite": {
       "title": "Finite Fourier coefficient certificates for level-one modular identities",
+      "allowed_axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    "Math.Geometry.FiniteEtale": {
+      "title": "Proper étale finiteness and finite étale stability",
       "allowed_axioms": [
         "propext",
         "Quot.sound",

@@ -1046,6 +1046,182 @@ class RepositoryTests(RepositoryArtifacts, unittest.TestCase):
                 for subject in ('modular_identity_certificates', 'modular_forms', 'analytic_number_theory', 'number_theory', 'mathematics'):
                     self.assertIn(name, {node["name"] for node in graph.search(name, subject=subject)})
 
+    def test_finite_etale_results_retain_local_proofs_and_source(self):
+        expected = {
+            "Math.Geometry.locallyQuasiFinite_of_unramified": "theorem",
+            "Math.Geometry.finite_of_proper_etale": "theorem",
+            "Math.Geometry.finite_iff_proper_of_etale": "theorem",
+            "Math.Geometry.finite_of_proper_smooth_zero": "theorem",
+            "Math.Geometry.FiniteEtale": "definition",
+            "Math.Geometry.finiteEtale_iff_proper_smooth_zero": "theorem",
+            "Math.Geometry.finiteEtale_id": "theorem",
+            "Math.Geometry.finiteEtale_comp": "theorem",
+            "Math.Geometry.finiteEtale_pullback_fst": "theorem",
+            "Math.Geometry.finiteEtale_pullback_snd": "theorem",
+            "Math.Geometry.finiteEtale_restrict": "theorem",
+            "Math.Geometry.finiteEtale_of_comp": "theorem",
+            "Math.Geometry.finiteEtale_comp_iff": "theorem",
+            "Math.Geometry.finite_fibres_of_proper_etale": "theorem",
+            "Math.Geometry.finite_preimage_of_proper_etale": "theorem",
+            "Math.Geometry.discrete_fibres_of_etale": "theorem",
+        }
+        module = "Math.Geometry.FiniteEtale"
+        path = ROOT / "Math/Geometry/FiniteEtale.lean"
+        origin = self.catalog["sources"][module]
+        self.assertEqual(origin["package"], "math")
+        self.assertEqual(origin["path"], path.relative_to(ROOT).as_posix())
+        self.assertEqual(origin["sha256"], hashlib.sha256(path.read_bytes()).hexdigest())
+        graph = KnowledgeGraph(self.catalog)
+        for name, kind in expected.items():
+            with self.subTest(name=name):
+                node = self.nodes[name]
+                self.assertIn(name, self.catalog["roots"])
+                self.assertIn(name, self.catalog["module_declarations_by_module"][module])
+                self.assertEqual(node["module"], module)
+                self.assertEqual(node["kind"], kind)
+                self.assertIsInstance(node["value"], int)
+                self.assertTrue(node["proof"])
+                self.assertGreater(node["source"]["line"], 0)
+                self.assertTrue(set(node["axioms"]) <= set(self.policy["modules"][module]["allowed_axioms"]))
+                for subject in ["etale_geometry", "scheme_morphisms", "schemes", "algebraic_geometry", "geometry", "mathematics"]:
+                    self.assertIn(name, {item["name"] for item in graph.search(name, subject=subject)})
+
+    def test_finite_etale_statements_match_reference_types(self):
+        run(ROOT, [self.lake, "env", "lean", "-DautoImplicit=false", "-DwarningAsError=true",
+                   "tests/FiniteEtaleStatements.lean"], capture=True)
+
+    def test_scheme_geometry_statements_match_reference_types(self):
+        run(ROOT, [self.lake, "env", "lean", "tests/SchemeGeometryStatements.lean"], capture=True)
+
+    def test_scheme_registry_retains_every_pinned_algebraic_geometry_module(self):
+        base = ROOT / ".lake/packages/mathlib"
+        expected = {".".join(path.relative_to(base).with_suffix("").parts)
+                    for path in (base / "Mathlib/AlgebraicGeometry").rglob("*.lean")}
+        self.assertEqual(len(expected), 140)
+        registered = self.policy["libraries"]["mathlib"]["modules"]
+        self.assertEqual({name for name in registered if name.startswith("Mathlib.AlgebraicGeometry.")}, expected)
+        for module in expected:
+            with self.subTest(module=module):
+                self.assertIn(module, self.catalog["module_policy"])
+                self.assertIn(module, self.catalog["module_declarations_by_module"])
+                source = self.catalog["sources"][module]
+                self.assertEqual(source["revision"], self.policy["libraries"]["mathlib"]["revision"])
+                self.assertEqual(source["license"], "Apache-2.0")
+                self.assertEqual(source["sha256"], hashlib.sha256(
+                    (base / (module.replace(".", "/") + ".lean")).read_bytes()).hexdigest())
+
+    def test_scheme_objects_and_results_retain_terms_and_pinned_sources(self):
+        expected = {
+            "AlgebraicGeometry.Scheme": "Scheme",
+            "AlgebraicGeometry.Scheme.Spec": "Scheme",
+            "AlgebraicGeometry.AffineScheme": "AffineScheme",
+            "AlgebraicGeometry.IsAffine": "AffineScheme",
+            "AlgebraicGeometry.AffineScheme.equivCommRingCat": "AffineScheme",
+            "AlgebraicGeometry.Scheme.affineCover": "Cover.Open",
+            "AlgebraicGeometry.Etale": "Morphisms.Etale",
+            "AlgebraicGeometry.Etale.iff_smoothOfRelativeDimension_zero": "Morphisms.Etale",
+            "AlgebraicGeometry.Etale.iff_flat_and_formallyUnramified": "Morphisms.Etale",
+            "AlgebraicGeometry.IsProper": "Morphisms.Proper",
+            "AlgebraicGeometry.IsFinite.iff_isProper_and_isAffineHom": "Morphisms.Proper",
+            "AlgebraicGeometry.IsFinite.iff_isProper_and_locallyQuasiFinite": "ZariskisMainTheorem",
+            "AlgebraicGeometry.IsClosedImmersion.iff_isProper_and_mono": "ZariskisMainTheorem",
+            "AlgebraicGeometry.IsProper.eq_valuativeCriterion": "ValuativeCriterion",
+            "AlgebraicGeometry.Scheme.Hom.fiber": "Fiber",
+            "AlgebraicGeometry.Scheme.Hom.fiberHomeo": "Fiber",
+            "AlgebraicGeometry.IsNoetherian": "Noetherian",
+            "AlgebraicGeometry.isNoetherian_Spec": "Noetherian",
+            "AlgebraicGeometry.finite_irreducibleComponents_of_isNoetherian": "Noetherian",
+            "AlgebraicGeometry.Scheme.Hom.normalization": "Normalization",
+            "AlgebraicGeometry.Scheme.Hom.toNormalization_fromNormalization": "Normalization",
+            "AlgebraicGeometry.functionField_isFractionRing_of_isAffineOpen": "FunctionField",
+            "AlgebraicGeometry.Scheme.RationalMap": "Birational.RationalMap",
+            "AlgebraicGeometry.Scheme.RationalMap.equivFunctionField": "Birational.RationalMap",
+            "AlgebraicGeometry.Proj.valuativeCriterion_existence": "ProjectiveSpectrum.Proper",
+            "AlgebraicGeometry.Scheme.etalePrecoverage": "Sites.Etale",
+            "AlgebraicGeometry.Scheme.smallEtaleTopology": "Sites.Etale",
+            "AlgebraicGeometry.Scheme.zariskiTopology_le_etaleTopology": "Sites.Etale",
+            "AlgebraicGeometry.Scheme.Modules": "Modules.Sheaf",
+            "AlgebraicGeometry.Scheme.IdealSheafData": "IdealSheaf.Basic",
+            "AlgebraicGeometry.Scheme.IdealSheafData.subscheme": "IdealSheaf.Subscheme",
+            "AlgebraicGeometry.isCommMonObj_of_isProper_of_geometricallyIntegral": "Group.Abelian",
+            "WeierstrassCurve.Affine.Point": "EllipticCurve.Affine.Point",
+            "WeierstrassCurve.Affine.Point.toClass_injective": "EllipticCurve.Affine.Point",
+            "WeierstrassCurve.LFunction": "EllipticCurve.LFunction",
+            "WeierstrassCurve.LSeries": "EllipticCurve.LFunction",
+        }
+        for name, suffix in expected.items():
+            with self.subTest(name=name):
+                self.assertIn(name, self.catalog["roots"])
+                node = self.nodes[name]
+                module = "Mathlib.AlgebraicGeometry." + suffix
+                self.assertEqual(node["module"], module)
+                self.assertIn(name, self.catalog["module_declarations_by_module"][module])
+                if node["kind"] in {"definition", "theorem", "opaque"}:
+                    self.assertIsInstance(node["value"], int)
+                    self.assertTrue(node["proof"])
+                self.assertTrue(set(node["axioms"]) <= self.policy["axioms"].keys())
+                origin = self.catalog["sources"][module]
+                self.assertIn(origin["revision"], origin["url"])
+
+    def test_scheme_hierarchies_retain_hypotheses_and_axiom_paths(self):
+        expected = {
+            "Math.Geometry.finite_of_proper_etale": [
+                "AlgebraicGeometry.IsProper", "AlgebraicGeometry.Etale", "AlgebraicGeometry.IsFinite",
+                "Math.Geometry.locallyQuasiFinite_of_unramified",
+                "AlgebraicGeometry.IsFinite.of_isProper_of_locallyQuasiFinite"],
+            "Math.Geometry.finiteEtale_iff_proper_smooth_zero": [
+                "Math.Geometry.FiniteEtale", "AlgebraicGeometry.SmoothOfRelativeDimension",
+                "AlgebraicGeometry.Etale.iff_smoothOfRelativeDimension_zero"],
+            "Math.Geometry.finiteEtale_of_comp": [
+                "AlgebraicGeometry.IsSeparated", "AlgebraicGeometry.LocallyOfFiniteType",
+                "AlgebraicGeometry.FormallyUnramified", "AlgebraicGeometry.Etale.of_comp"],
+            "Math.Geometry.finite_preimage_of_proper_etale": [
+                "AlgebraicGeometry.Scheme.Hom.finite_preimage", "Set.Finite"],
+            "Math.Geometry.discrete_fibres_of_etale": ["IsDiscrete", "AlgebraicGeometry.Etale"],
+            "AlgebraicGeometry.IsProper.eq_valuativeCriterion": [
+                "AlgebraicGeometry.ValuativeCriterion", "AlgebraicGeometry.QuasiCompact",
+                "AlgebraicGeometry.QuasiSeparated", "AlgebraicGeometry.LocallyOfFiniteType"],
+            "AlgebraicGeometry.functionField_isFractionRing_of_isAffineOpen": [
+                "AlgebraicGeometry.IsIntegral", "AlgebraicGeometry.IsAffineOpen", "IsFractionRing"],
+        }
+        graph = KnowledgeGraph(self.catalog)
+        for name, objects in expected.items():
+            with self.subTest(name=name):
+                hierarchy = graph.hierarchy(name)
+                reached = {node["name"] for node in hierarchy["declarations"]}
+                self.assertTrue(set(objects) <= reached, set(objects) - reached)
+                self.assertEqual(set(hierarchy["axiom_paths"]), set(self.nodes[name]["axioms"]))
+                for axiom, path in hierarchy["axiom_paths"].items():
+                    self.assertEqual(path[0], name)
+                    self.assertEqual(path[-1], axiom)
+                    for source, target in zip(path, path[1:]):
+                        self.assertIn(target, self.nodes[source]["dependencies"])
+
+    def test_scheme_subjects_retain_objects_and_parent_subjects(self):
+        expected = {
+            "schemes": ("algebraic_geometry", "AlgebraicGeometry.Scheme"),
+            "affine_schemes": ("schemes", "AlgebraicGeometry.AffineScheme.equivCommRingCat"),
+            "scheme_morphisms": ("schemes", "Math.Geometry.finite_of_proper_etale"),
+            "scheme_covers": ("schemes", "AlgebraicGeometry.Scheme.affineCover"),
+            "scheme_topologies": ("schemes", "AlgebraicGeometry.Scheme.smallEtaleTopology"),
+            "etale_geometry": ("schemes", "Math.Geometry.finiteEtale_iff_proper_smooth_zero"),
+            "projective_geometry": ("algebraic_geometry", "AlgebraicGeometry.Proj.valuativeCriterion_existence"),
+            "elliptic_curves": ("algebraic_geometry", "WeierstrassCurve.Affine.Point.toClass_injective"),
+            "birational_geometry": ("algebraic_geometry", "AlgebraicGeometry.Scheme.RationalMap.equivFunctionField"),
+            "scheme_modules": ("schemes", "AlgebraicGeometry.Scheme.Modules"),
+            "group_schemes": ("schemes", "AlgebraicGeometry.isCommMonObj_of_isProper_of_geometricallyIntegral"),
+            "scheme_fibres": ("schemes", "AlgebraicGeometry.Scheme.Hom.fiberHomeo"),
+            "scheme_ideals": ("schemes", "AlgebraicGeometry.Scheme.IdealSheafData.subscheme"),
+        }
+        graph = KnowledgeGraph(self.catalog)
+        for subject, (parent, name) in expected.items():
+            with self.subTest(subject=subject):
+                self.assertEqual(self.catalog["subjects"][subject]["parent"], parent)
+                current = subject
+                while current is not None:
+                    self.assertIn(name, {node["name"] for node in graph.search(name, subject=current)})
+                    current = self.catalog["subjects"][current]["parent"]
+
     def test_prime_progression_statements_match_reference_types(self):
         run(ROOT, [self.lake, "env", "lean", "tests/PrimeProgressionStatements.lean"], capture=True)
 

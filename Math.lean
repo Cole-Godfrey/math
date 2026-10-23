@@ -18,3 +18,4 @@ import Math.Geometry.ConvexFinite
 import Math.Probability.ConditionalL2
 import Math.NumberTheory.PrimeProgressions
 import Math.NumberTheory.SturmFinite
+import Math.Geometry.FiniteEtale
