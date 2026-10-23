@@ -17,6 +17,72 @@ from repository.json_reader import read_object
 
 
 class JsonReaderTests(unittest.TestCase):
+    def test_compact_terms_are_explicit_and_leave_other_json_containers_mutable(self):
+        from repository.expressions import PackedExpressions
+
+        records = [{"tag": "const", "name": "c", "levels": [{"tag": "param", "name": "u"}]}]
+        encoded = json.dumps({"expressions": records, "metadata": {"expressions": records}})
+        ordinary = read_object(io.StringIO(encoded))
+        compact = read_object(io.StringIO(encoded), compact_expressions=True)
+        self.assertIsInstance(ordinary["expressions"], list)
+        self.assertIsInstance(compact["expressions"], PackedExpressions)
+        self.assertEqual(ordinary, compact)
+        self.assertIsInstance(compact["metadata"]["expressions"], list)
+        ordinary["expressions"][0]["name"] = "changed"
+        compact["metadata"]["expressions"][0]["name"] = "also changed"
+        self.assertEqual(compact["expressions"][0]["name"], "c")
+
+    def test_invalid_compact_expression_options_are_rejected(self):
+        for option in [0, 1, None, "true"]:
+            with self.subTest(option=option), self.assertRaisesRegex(RepositoryError, "invalid compact expression option"):
+                read_object(io.StringIO("{}"), compact_expressions=option)
+
+    def test_identifiers_share_storage_across_declarations_terms_and_chunks(self):
+        name = "Algebra.α.long_repeated_declaration"
+        original = {"declarations": [{"name": name, "module": "Algebra.α", "dependencies": [name],
+                                       "type_dependencies": [name], "universes": ["u"]}] * 20,
+                    "expressions": [{"tag": "const", "name": name, "levels": [
+                        {"tag": "param", "name": "u"}]}] * 20,
+                    "roots": [name] * 20}
+        encoded = canonical(original)
+        for size in (1, 17, 65536):
+            with self.subTest(size=size):
+                actual = read_object(io.StringIO(encoded.decode()), size)
+                self.assertEqual(actual, original)
+                self.assertEqual(canonical(actual), encoded)
+                references = [*actual["roots"]]
+                for node in actual["declarations"]:
+                    references.extend([node["name"], *node["dependencies"], *node["type_dependencies"]])
+                references.extend(node["name"] for node in actual["expressions"])
+                self.assertEqual(len({id(value) for value in references}), 1)
+
+    def test_string_sharing_keeps_mutable_records_and_containers_independent(self):
+        original = {"expressions": [{"tag": "const", "name": "Repeated.name", "levels": [
+            {"tag": "param", "name": "u"}]}] * 2,
+                    "declarations": [{"dependencies": ["Repeated.name"]}] * 2}
+        actual = read_object(io.StringIO(json.dumps(original)), 7)
+        actual["expressions"][0]["name"] = "Changed.name"
+        actual["expressions"][0]["levels"][0]["name"] = "v"
+        actual["declarations"][0]["dependencies"].append("Changed.name")
+        self.assertEqual(actual["expressions"][1], original["expressions"][1])
+        self.assertEqual(actual["declarations"][1], original["declarations"][1])
+
+    def test_string_pool_limits_preserve_every_value(self):
+        from repository.json_reader import _StringPool
+
+        original = {"names": ["unique_" + str(index) for index in range(32)] * 2,
+                    "metadata": {"name": "α" * 300, "proof": "λ x => x", "value": "literal"}}
+        encoded = canonical(original)
+        with patch("repository.json_reader._MAX_SHARED_STRINGS", 8):
+            pool = _StringPool()
+            for value in original["names"]:
+                self.assertEqual(pool.share(value), value)
+            self.assertEqual(len(pool.values), 8)
+            for size in (1, 11, 65536):
+                actual = read_object(io.StringIO(encoded.decode()), size)
+                self.assertEqual(actual, original)
+                self.assertEqual(canonical(actual), encoded)
+
     def test_expression_hash_arrays_retain_every_value(self):
         hashes = [hashlib.sha256(str(index).encode()).hexdigest() for index in range(32)]
         cases = [[], hashes, [*hashes, hashes[0].upper()]]

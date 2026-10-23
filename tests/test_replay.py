@@ -47,6 +47,43 @@ class ReplayArtifactTests(unittest.TestCase):
     def test_export_changed_during_independent_replay_is_rejected(self):
         self.changed_export("nanoda_bin")
 
+    def test_generated_partial_helpers_reject_before_proof_replay(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            for name in ["Math", "tools", "repository"]:
+                (root / name).mkdir()
+            for path in (ROOT / "repository").glob("*.py"):
+                shutil.copy2(path, root / "repository" / path.name)
+            for name in ["tools/Export.lean", "lean-toolchain"]:
+                shutil.copy2(ROOT / name, root / name)
+            (root / "Math.lean").write_text("import Math.SafetyProbe\n")
+            (root / "lakefile.toml").write_text('name = "math"\n[[lean_lib]]\nname = "Math"\n')
+            (root / "lake-manifest.json").write_text(json.dumps({
+                "version": "1.3.0", "name": "math", "packages": [], "packagesDir": ".lake/packages"}))
+            (root / "Math/SafetyProbe.lean").write_text('''module
+@[expose] public section
+namespace SafetyProbe
+inductive Symbol where
+  | M | I | U
+abbrev Word := List Symbol
+open Symbol
+def expansionCost : Word → Nat
+  | [] => 0
+  | M :: xs => expansionCost xs
+  | I :: xs => 1 + expansionCost xs
+  | U :: xs => 3 + expansionCost xs
+end SafetyProbe
+''')
+            current = json.loads((ROOT / "knowledge.json").read_text())
+            policy = {key: current[key] for key in ["schema_version", "foundation", "axioms"]}
+            policy["modules"] = {name: {"title": name, "allowed_axioms": list(policy["axioms"])}
+                                 for name in ["Math", "Math.SafetyProbe"]}
+            (root / "knowledge.json").write_text(json.dumps(policy))
+            with patch.dict(os.environ, {"MATH_LAKE": find_lake(ROOT)}), \
+                    patch("repository.build.check_replay", side_effect=AssertionError("proof replay was reached")):
+                with self.assertRaisesRegex(RepositoryError, "partial declarations are not allowed in project modules"):
+                    verify(root)
+
 
 class ReplayBindingTests(unittest.TestCase):
     @classmethod

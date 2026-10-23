@@ -290,6 +290,13 @@ private unsafe def exportIndex (output replay : String) (expressionPath : System
   let candidates := sorted (inventory.flatMap (·.2))
   let isNonlogical := fun n => (constants.find? n).any (fun info => info.isPartial || info.isUnsafe)
   let nonlogical := candidates.filter isNonlogical
+  for (module, members) in inventory do
+    if module == `Math || module.toString.startsWith "Math." then
+      for name in members do
+        if isNonlogical name then
+          let classification := if (constants.find? name).any ConstantInfo.isPartial then "partial"
+            else "unsafe"
+          throw (IO.userError s!"{name}: {classification} declarations are not allowed in project modules")
   let roots := candidates.filter (fun n => !isNonlogical n)
   if candidates.isEmpty then throw (IO.userError "no declarations found")
   IO.eprintln s!"exporting {roots.size} selected declarations"

@@ -39,7 +39,7 @@ def parser():
     relations.add_argument('--relation')
     relations.add_argument('--offset', type=int, default=0)
     relations.add_argument('--limit', type=int)
-    for name in ['show', 'proof', 'source', 'assumptions', 'hierarchy']:
+    for name in ['show', 'proof', 'source', 'assumptions', 'hierarchy', 'translate-lean']:
         command = commands.add_parser(name)
         command.add_argument('name')
         if name == 'source':
@@ -108,6 +108,10 @@ def main(arguments=None):
             return 0
         elif options.command == 'proof':
             output = snapshot.proof(options.name)
+        elif options.command == 'translate-lean':
+            from .miu import translate
+            sys.stdout.write(translate(snapshot, options.name))
+            return 0
         elif options.command == 'source':
             sys.stdout.buffer.write(snapshot.source(options.name, options.full))
             return 0

@@ -11713,6 +11713,3062 @@
             "Quot.sound",
             "Classical.choice"
           ]
+        },
+        "Mathlib.LinearAlgebra.AffineSpace.AffineEquiv": {
+          "title": "Affine equivalences",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.AffineSpace.AffineMap": {
+          "title": "Affine maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.AffineSpace.AffineSubspace.Basic": {
+          "title": "Affine spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.AffineSpace.AffineSubspace.Defs": {
+          "title": "Affine spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.AffineSpace.AffineSubspace.Shift": {
+          "title": "Shifting an affine subspace towards a point",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.AffineSpace.Basis": {
+          "title": "Affine bases and barycentric coordinates",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.AffineSpace.Centroid": {
+          "title": "Centroid of a Finite Set of Points in Affine Space",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.AffineSpace.Ceva": {
+          "title": "Ceva's theorem.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.AffineSpace.Combination": {
+          "title": "Affine combinations of points",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.AffineSpace.Defs": {
+          "title": "Affine space",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.AffineSpace.Dimension": {
+          "title": "AffineSpace / Dimension",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.AffineSpace.FiniteDimensional": {
+          "title": "Finite-dimensional subspaces of affine spaces.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.AffineSpace.Homogenization": {
+          "title": "Homogenization of an affine space",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.AffineSpace.Independent": {
+          "title": "Affine independence",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.AffineSpace.Matrix": {
+          "title": "Matrix results for barycentric co-ordinates",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.AffineSpace.Midpoint": {
+          "title": "Midpoint of a segment",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.AffineSpace.MidpointZero": {
+          "title": "Midpoint of a segment for characteristic zero",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.AffineSpace.Ordered": {
+          "title": "Ordered modules as affine spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.AffineSpace.Pointwise": {
+          "title": "Pointwise instances on AffineSubspaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.AffineSpace.Restrict": {
+          "title": "Affine map restrictions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.AffineSpace.Simplex.Basic": {
+          "title": "Simplex in affine space",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.AffineSpace.Simplex.Centroid": {
+          "title": "Centroid of a simplex in affine space",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.AffineSpace.Slope": {
+          "title": "Slope of a function",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Alternating.Basic": {
+          "title": "Alternating Maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Alternating.Curry": {
+          "title": "Currying alternating forms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Alternating.DomCoprod": {
+          "title": "Exterior product of alternating maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Alternating.Uncurry.Fin": {
+          "title": "Uncurrying alternating maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.AnnihilatingPolynomial": {
+          "title": "Annihilating Ideal",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Basis.Bilinear": {
+          "title": "Lemmas about bilinear maps with a basis over each argument",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Basis.Cardinality": {
+          "title": "Results relating bases and cardinality.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Basis.Exact": {
+          "title": "Basis from a split exact sequence",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Basis.Fin": {
+          "title": "Bases indexed by Fin",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Basis.Flag": {
+          "title": "Flag of submodules defined by a basis",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Basis.MulOpposite": {
+          "title": "Basis of an opposite space",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Basis.Prod": {
+          "title": "Bases for the product of modules",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Basis.SMul": {
+          "title": "Bases and scalar multiplication",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Basis.Submodule": {
+          "title": "Bases of submodules",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Basis.VectorSpace": {
+          "title": "Bases in a vector space",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.BilinearForm.Basic": {
+          "title": "Bilinear form",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.BilinearForm.DualLattice": {
+          "title": "Dual submodule with respect to a bilinear form.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.BilinearForm.Hom": {
+          "title": "Bilinear form and linear maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.BilinearForm.Isometry": {
+          "title": "Isometric linear maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.BilinearForm.IsometryEquiv": {
+          "title": "Isometric equivalences with respect to bilinear forms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.BilinearForm.Orthogonal": {
+          "title": "Bilinear form",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.BilinearForm.Properties": {
+          "title": "Bilinear form",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.BilinearForm.TensorProduct": {
+          "title": "The bilinear form on a tensor product",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.BilinearMap": {
+          "title": "Basics on bilinear maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Center": {
+          "title": "Center of the algebra of linear endomorphisms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Charpoly.BaseChange": {
+          "title": "The characteristic polynomial of base change -/",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Charpoly.Basic": {
+          "title": "Characteristic polynomial",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Charpoly.ToMatrix": {
+          "title": "Characteristic polynomial",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.CliffordAlgebra.BaseChange": {
+          "title": "The base change of a clifford algebra",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.CliffordAlgebra.Basic": {
+          "title": "Clifford Algebras",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.CliffordAlgebra.CategoryTheory": {
+          "title": "Category-theoretic interpretations of CliffordAlgebra",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.CliffordAlgebra.Conjugation": {
+          "title": "Conjugations",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.CliffordAlgebra.Contraction": {
+          "title": "Contraction in Clifford Algebras",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.CliffordAlgebra.Equivs": {
+          "title": "Other constructions isomorphic to Clifford Algebras",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.CliffordAlgebra.Even": {
+          "title": "The universal property of the even subalgebra",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.CliffordAlgebra.EvenEquiv": {
+          "title": "Isomorphisms with the even subalgebra of a Clifford algebra",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.CliffordAlgebra.Fold": {
+          "title": "Recursive computation rules for the Clifford algebra",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.CliffordAlgebra.Grading": {
+          "title": "Results about the grading structure of the clifford algebra",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.CliffordAlgebra.Inversion": {
+          "title": "Results about inverses in Clifford algebras",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.CliffordAlgebra.Prod": {
+          "title": "Clifford algebras of a direct sum of two vector spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.CliffordAlgebra.SpinGroup": {
+          "title": "The Pin group and the Spin group",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.CliffordAlgebra.Star": {
+          "title": "Star structure on CliffordAlgebra",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Coevaluation": {
+          "title": "The coevaluation map on finite-dimensional vector spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Complex.Determinant": {
+          "title": "Determinants of maps in the complex numbers as a vector space over ℝ",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Complex.FiniteDimensional": {
+          "title": "Complex number as a finite-dimensional vector space over ℝ",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Complex.Module": {
+          "title": "Complex number as a vector space over ℝ",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Complex.Orientation": {
+          "title": "The standard orientation on ℂ.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Contraction": {
+          "title": "Contractions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.ConvexSpace.AffineSpace": {
+          "title": "ConvexSpace / AffineSpace",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.ConvexSpace": {
+          "title": "ConvexSpace",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Countable": {
+          "title": "Countable modules",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.CrossProduct": {
+          "title": "Cross products",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.DFinsupp": {
+          "title": "Properties of the module Π₀ i, M i",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Determinant": {
+          "title": "Determinant of families of vectors",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Dimension.Basic": {
+          "title": "Dimension of modules and vector spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Dimension.Constructions": {
+          "title": "Rank of various constructions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Dimension.ErdosKaplansky": {
+          "title": "Erdős-Kaplansky theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Dimension.Finite": {
+          "title": "Conditions for rank to be finite",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Dimension.Finrank": {
+          "title": "Finite dimension of vector spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Dimension.Free": {
+          "title": "Rank of free modules",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Dimension.FreeAndStrongRankCondition": {
+          "title": "Some results on free modules over rings satisfying strong rank condition",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Dimension.LinearMap": {
+          "title": "The rank of a linear map",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Dimension.Localization": {
+          "title": "Rank of localization",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Dimension.OrzechProperty": {
+          "title": "Bases of modules and the Orzech property",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Dimension.StrongRankCondition": {
+          "title": "Lemmas about rank and finrank in rings satisfying strong rank condition.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Dimension.Subsingleton": {
+          "title": "Dimension of trivial modules",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Dimension.Torsion.Basic": {
+          "title": "Rank and torsion",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Dimension.Torsion.Finite": {
+          "title": "Results relating rank and torsion.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.DirectSum.Basis": {
+          "title": "Bases for direct sum of modules",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.DirectSum.Finite": {
+          "title": "A finite direct sum of finite modules is finite",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.DirectSum.Finsupp": {
+          "title": "Results on finitely supported functions.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.DirectSum.TensorProduct": {
+          "title": "Tensor products of direct sums",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Dual.BaseChange": {
+          "title": "Base change for the dual of a module",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Dual.Basis": {
+          "title": "Bases of dual vector spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Dual.Defs": {
+          "title": "Dual vector spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Dual.Lemmas": {
+          "title": "Dual vector spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Eigenspace.Basic": {
+          "title": "Eigenvectors and eigenvalues",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Eigenspace.Charpoly": {
+          "title": "Eigenvalues are the roots of the characteristic polynomial.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Eigenspace.ContinuousLinearMap": {
+          "title": "Eigenspaces of continuous linear maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Eigenspace.Matrix": {
+          "title": "Eigenvalues, Eigenvectors and Spectrum for Matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Eigenspace.Minpoly": {
+          "title": "Eigenvalues are the roots of the minimal polynomial.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Eigenspace.Pi": {
+          "title": "Simultaneous eigenvectors and eigenvalues for families of endomorphisms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Eigenspace.Semisimple": {
+          "title": "Eigenspaces of semisimple linear endomorphisms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Eigenspace.Triangularizable": {
+          "title": "Triangularizable linear endomorphisms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Eigenspace.Zero": {
+          "title": "Results on the eigenvalue 0",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.ExteriorAlgebra.BaseChange": {
+          "title": "Base change of exterior algebra",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.ExteriorAlgebra.Basic": {
+          "title": "Exterior Algebras",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.ExteriorAlgebra.Basis": {
+          "title": "Basis for ExteriorAlgebra",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.ExteriorAlgebra.Grading": {
+          "title": "Results about the grading structure of the exterior algebra",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.ExteriorAlgebra.OfAlternating": {
+          "title": "Extending an alternating map to the exterior algebra",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.ExteriorAlgebra.Product": {
+          "title": "Exterior algebra of product module",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.ExteriorPower.Basic": {
+          "title": "Exterior powers",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.ExteriorPower.Basis": {
+          "title": "Constructs a basis for exterior powers",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.ExteriorPower.BilinForm": {
+          "title": "Bilinear forms on exterior powers",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.ExteriorPower.HodgeStar": {
+          "title": "Hodge star on exterior powers",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.ExteriorPower.Pairing": {
+          "title": "The pairing between the exterior power of the dual and the exterior power",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.ExteriorPower.WedgePairing": {
+          "title": "Wedge pairing on exterior powers",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.FiniteDimensional.Basic": {
+          "title": "Finite-dimensional vector spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.FiniteDimensional.Defs": {
+          "title": "Finite-dimensional vector spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.FiniteDimensional.Lemmas": {
+          "title": "Finite-dimensional vector spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.FiniteSpan": {
+          "title": "Additional results about finite spanning sets in linear algebra",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Finsupp.Defs": {
+          "title": "Properties of the module α →₀ M",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Finsupp.LSum": {
+          "title": "Sums as a linear map",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Finsupp.LinearCombination": {
+          "title": "Finsupp.linearCombination",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Finsupp.Pi": {
+          "title": "Properties of the module α →₀ M",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Finsupp.Span": {
+          "title": "Finitely supported functions and spans",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Finsupp.SumProd": {
+          "title": "Finsupps and sum/product types",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Finsupp.Supported": {
+          "title": "Finsupps supported on a given submodule",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Finsupp.VectorSpace": {
+          "title": "Linear structures on function with finite support ι →₀ M",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.FixedSubmodule": {
+          "title": "The fixed submodule of a linear map",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.FreeAlgebra": {
+          "title": "Linear algebra properties of FreeAlgebra R X",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.FreeModule.Basic": {
+          "title": "Free modules",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.FreeModule.Determinant": {
+          "title": "Determinants in free (finite) modules",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.FreeModule.Finite.Basic": {
+          "title": "Finite and free modules",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.FreeModule.Finite.CardQuotient": {
+          "title": "Cardinal of quotient of free finite ℤ-modules by submodules of full rank",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.FreeModule.Finite.Matrix": {
+          "title": "Finite and free modules using matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.FreeModule.Finite.Quotient": {
+          "title": "Quotient of submodules of full rank in free finite modules over PIDs",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.FreeModule.IdealQuotient": {
+          "title": "Ideals in free modules over PIDs",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.FreeModule.Int": {
+          "title": "Index of submodules of free ℤ-modules (considered as an AddSubgroup).",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.FreeModule.ModN": {
+          "title": "Quotienting out a free ℤ-module",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.FreeModule.Norm": {
+          "title": "Norms on free modules over principal ideal domains",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.FreeModule.PID": {
+          "title": "Free modules over PID",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.FreeModule.StrongRankCondition": {
+          "title": "Strong rank condition for commutative rings",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.FreeProduct.Basic": {
+          "title": "The free product of $R$-algebras",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.GeneralLinearGroup.AlgEquiv": {
+          "title": "Algebra isomorphisms between endomorphisms of projective modules are inner",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.GeneralLinearGroup.Basic": {
+          "title": "The general linear group of linear maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Goursat": {
+          "title": "Goursat's lemma for submodules",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.InvariantBasisNumber": {
+          "title": "Invariant basis number property",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Isomorphisms": {
+          "title": "Isomorphism theorems for modules.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.JordanChevalley": {
+          "title": "Jordan-Chevalley-Dunford decomposition",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Lagrange": {
+          "title": "Lagrange interpolation",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.LeftExact": {
+          "title": "The Left Exactness of Hom",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.LinearDisjoint": {
+          "title": "Linearly disjoint submodules",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.LinearIndependent.Algebra": {
+          "title": "Linear independence and algebra maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.LinearIndependent.BaseChange": {
+          "title": "Base change for linear independence",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.LinearIndependent.Basic": {
+          "title": "Linear independence",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.LinearIndependent.Defs": {
+          "title": "Linear independence",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.LinearIndependent.Lemmas": {
+          "title": "Linear independence",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.LinearPMap": {
+          "title": "Partially defined linear maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.AbsoluteValue": {
+          "title": "Absolute values and matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Action": {
+          "title": "Actions by matrices on vectors through *ᵥ and ᵥ*, cast as Modules",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Adjugate": {
+          "title": "Cramer's rule and adjugate matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.BaseChange": {
+          "title": "Matrices and base change",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Basis": {
+          "title": "Bases and matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Bilinear": {
+          "title": "Bundled versions of multiplication for matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.BilinearForm": {
+          "title": "Bilinear form",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Block": {
+          "title": "Block matrices and their determinant",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Cartan.Basic": {
+          "title": "Cartan matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Cartan.Realisation": {
+          "title": "Realisations of Cartan Matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Cartan": {
+          "title": "Matrix / Cartan",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.CharP": {
+          "title": "Matrices in prime characteristic",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Charpoly.Basic": {
+          "title": "Characteristic polynomials and the Cayley-Hamilton theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Charpoly.Coeff": {
+          "title": "Characteristic polynomials",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Charpoly.Disc": {
+          "title": "The discriminant of a matrix",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Charpoly.Eigs": {
+          "title": "Eigenvalues are characteristic polynomial roots.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Charpoly.FiniteField": {
+          "title": "Results on characteristic polynomials and traces over finite fields.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Charpoly.LinearMap": {
+          "title": "Cayley-Hamilton theorem for f.g. modules.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Charpoly.Minpoly": {
+          "title": "The minimal polynomial divides the characteristic polynomial of a matrix.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Charpoly.Univ": {
+          "title": "The universal characteristic polynomial",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Circulant": {
+          "title": "Circulant matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.ConjTranspose": {
+          "title": "Matrices over star rings.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Defs": {
+          "title": "Matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Determinant.Basic": {
+          "title": "Determinant of a matrix",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Determinant.Bird.Correctness": {
+          "title": "Correctness of Bird's determinant algorithm",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Determinant.Bird.Defs": {
+          "title": "A division-free determinant algorithm",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Determinant.Misc": {
+          "title": "Miscellaneous results about determinant",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Determinant.TotallyNonneg": {
+          "title": "Totally nonnegative matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Determinant.TotallyUnimodular": {
+          "title": "Totally unimodular matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Diagonal": {
+          "title": "Diagonal matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.DotProduct": {
+          "title": "Dot product of two vectors",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Dual": {
+          "title": "Dual space, linear maps and matrices.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.DualNumber": {
+          "title": "Matrices of dual numbers are isomorphic to dual numbers over matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Echelon.Basic": {
+          "title": "Row echelon forms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Echelon.Decomposition": {
+          "title": "Echelon decomposition certificates",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Echelon.Pivot": {
+          "title": "Pivots of a matrix",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.ElementaryRowOperations": {
+          "title": "Elementary row operations",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.FiniteDimensional": {
+          "title": "The finite-dimensional space of matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.FixedDetMatrices": {
+          "title": "Matrices with fixed determinant",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Basic": {
+          "title": "Basic lemmas about the general linear group $GL(n, R)$",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card": {
+          "title": "Cardinal of the general linear group over finite rings",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs": {
+          "title": "The General Linear group $GL(n, R)$",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.FinTwo": {
+          "title": "Classification of elements of GL (Fin 2) R",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.MvPolynomial": {
+          "title": "Polynomial identities from evaluation at invertible matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Projective": {
+          "title": "Projective general linear group",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Gershgorin": {
+          "title": "Gershgorin's circle theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Hadamard": {
+          "title": "Hadamard product of matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.HadamardMatrix": {
+          "title": "Hadamard matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Hermitian": {
+          "title": "Hermitian matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Hessenberg.Defs": {
+          "title": "Upper Hessenberg matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Hessenberg.Similarity": {
+          "title": "Hessenberg similarity certificates",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Ideal": {
+          "title": "Ideals in a matrix ring",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Integer": {
+          "title": "Lemmas on integer matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.InvariantBasisNumber": {
+          "title": "Invertible matrices over a ring with invariant basis number are square.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Invertible": {
+          "title": "Extra lemmas about invertible matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Irreducible.Defs": {
+          "title": "Irreducibility and primitivity of nonnegative matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.IsDiag": {
+          "title": "Diagonal matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Kronecker": {
+          "title": "Kronecker product of matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Module": {
+          "title": "Mₙ(R)-module structure on Mⁿ",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.MvPolynomial": {
+          "title": "Matrices of multivariate polynomials",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Nondegenerate": {
+          "title": "Matrices associated with non-degenerate bilinear forms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Nonsingular": {
+          "title": "Linear independence and nonsingularity of matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.NonsingularInverse": {
+          "title": "Nonsingular inverses",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Notation": {
+          "title": "Matrix and vector notation",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Orthogonal": {
+          "title": "Orthogonal",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Permanent": {
+          "title": "Permanent of a matrix",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Permutation": {
+          "title": "Permutation matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Polynomial": {
+          "title": "Matrices of polynomials and polynomials of matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.PosDef": {
+          "title": "Positive Definite Matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.ProjectiveSpecialLinearGroup": {
+          "title": "Projective Special Linear Group",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Rank": {
+          "title": "Rank of matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Reindex": {
+          "title": "Changing the index type of a matrix",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.RowCol": {
+          "title": "Row and column matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.SchurComplement": {
+          "title": "2×2 block matrices and the Schur complement",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.SemiringInverse": {
+          "title": "Nonsingular inverses over semirings",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.SesquilinearForm": {
+          "title": "Sesquilinear form",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup": {
+          "title": "The Special Linear group $SL(n, R)$",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.StdBasis": {
+          "title": "Standard basis on matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Stochastic": {
+          "title": "Row- and Column-stochastic matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Swap": {
+          "title": "Swap matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Symmetric": {
+          "title": "Symmetric matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.ToLin": {
+          "title": "Linear maps and matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.ToLinearEquiv": {
+          "title": "Matrices and linear equivalences",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Trace": {
+          "title": "Trace of a matrix",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Transvection": {
+          "title": "Transvections",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Unique": {
+          "title": "One by one matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.Vec": {
+          "title": "Vectorization of matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.WithConv": {
+          "title": "The convolutive star ring on matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.ZMatrix": {
+          "title": "Z-matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Matrix.ZPow": {
+          "title": "Integer powers of square matrices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Multilinear.Basic": {
+          "title": "Multilinear maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Multilinear.Basis": {
+          "title": "Multilinear maps in relation to bases.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Multilinear.Curry": {
+          "title": "Currying of multilinear maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Multilinear.DFinsupp": {
+          "title": "Interactions between finitely-supported functions and multilinear maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Multilinear.DirectSum": {
+          "title": "Multilinear maps from direct sums",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Multilinear.FiniteDimensional": {
+          "title": "Multilinear maps over finite-dimensional spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Multilinear.Finsupp": {
+          "title": "Interactions between finitely-supported functions and multilinear maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Multilinear.Pi": {
+          "title": "Interactions between (dependent) functions and multilinear maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Multilinear.TensorProduct": {
+          "title": "Constructions relating multilinear maps and tensor products.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Orientation": {
+          "title": "Orientations of modules",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.PID": {
+          "title": "Linear maps of modules with coefficients in a principal ideal domain",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.PerfectPairing.Basic": {
+          "title": "Perfect pairings",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.PerfectPairing.Restrict": {
+          "title": "Restriction to submodules and restriction of scalars for perfect pairings.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Pi": {
+          "title": "Pi types of modules",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.PiTensorProduct.Basic": {
+          "title": "Tensor product of an indexed family of modules over commutative semirings",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.PiTensorProduct.Basis": {
+          "title": "Basis for PiTensorProduct",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.PiTensorProduct.DFinsupp": {
+          "title": "Tensor products of finitely supported functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.PiTensorProduct.DirectSum": {
+          "title": "Tensor products of direct sums",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.PiTensorProduct.Dual": {
+          "title": "Tensor products of dual spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.PiTensorProduct.Finite": {
+          "title": "A multiple tensor product of finitely generated modules is finitely generated",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.PiTensorProduct.Finsupp": {
+          "title": "Results on finitely supported functions.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.PiTensorProduct.Generators": {
+          "title": "Generators of multiple tensor products",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.PiTensorProduct": {
+          "title": "PiTensorProduct",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Prod": {
+          "title": "Products of modules",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Projection": {
+          "title": "Projection to a subspace",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Projectivization.Action": {
+          "title": "Group actions on projectivization",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Projectivization.Basic": {
+          "title": "Projective Spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Projectivization.Cardinality": {
+          "title": "Cardinality of projective spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Projectivization.Collinear": {
+          "title": "Collinearity in Projective Space",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Projectivization.Constructions": {
+          "title": "Dot Product and Cross Product on Projective Spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Projectivization.Independence": {
+          "title": "Independence in Projective Space",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Projectivization.PSL.PSL2": {
+          "title": "Projectivization / PSL / PSL2",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Projectivization.PSL.Stabilizer": {
+          "title": "Stabilizer of a line in PSL(n, F)",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Projectivization.Subspace": {
+          "title": "Subspaces of Projective Space",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.QuadraticForm.AlgClosed": {
+          "title": "Quadratic forms over an algebraically closed field",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.QuadraticForm.Basic": {
+          "title": "Quadratic maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.QuadraticForm.Basis": {
+          "title": "Constructing a bilinear map from a quadratic map, given a basis",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.QuadraticForm.Dual": {
+          "title": "Quadratic form structures related to Module.Dual",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.QuadraticForm.Isometry": {
+          "title": "Isometric linear maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.QuadraticForm.IsometryEquiv": {
+          "title": "Isometric equivalences with respect to quadratic forms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.QuadraticForm.Prod": {
+          "title": "Quadratic form on product and pi types",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.QuadraticForm.QuadraticModuleCat.Monoidal": {
+          "title": "The monoidal category structure on quadratic R-modules",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.QuadraticForm.QuadraticModuleCat.Symmetric": {
+          "title": "The monoidal structure on QuadraticModuleCat is symmetric.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.QuadraticForm.QuadraticModuleCat": {
+          "title": "The category of quadratic modules",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.QuadraticForm.Radical": {
+          "title": "The radical of a quadratic form",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.QuadraticForm.Real": {
+          "title": "Real quadratic forms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.QuadraticForm.Signature": {
+          "title": "Signature of a quadratic form",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.QuadraticForm.TensorProduct.Isometries": {
+          "title": "Linear equivalences of tensor products as isometries",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.QuadraticForm.TensorProduct": {
+          "title": "The quadratic form on a tensor product",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Quotient.Basic": {
+          "title": "Quotients by submodules",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Quotient.Bilinear": {
+          "title": "Lifting bilinear forms to quotients",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Quotient.Card": {
+          "title": "Results about the cardinality of a quotient module -/",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Quotient.Defs": {
+          "title": "Quotients by submodules",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Quotient.Pi": {
+          "title": "Submodule quotients and direct sums",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Ray": {
+          "title": "Rays in modules",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Reflection": {
+          "title": "Reflections in linear algebra",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.RootSystem.Base": {
+          "title": "Bases for root pairings / systems",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.RootSystem.BaseChange": {
+          "title": "Base change for root pairings",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.RootSystem.BaseExists": {
+          "title": "Existence of bases for crystallographic root systems",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.RootSystem.Basic": {
+          "title": "Root data and root systems",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.RootSystem.CartanMatrix": {
+          "title": "Cartan matrices for root systems",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.RootSystem.Chain": {
+          "title": "Chains of roots",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.RootSystem.Defs": {
+          "title": "Root data and root systems",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.RootSystem.Finite.CanonicalBilinear": {
+          "title": "The canonical bilinear form on a finite root pairing",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.RootSystem.Finite.G2": {
+          "title": "Properties of the 𝔤₂ root system.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.RootSystem.Finite.Lemmas": {
+          "title": "Structural lemmas about finite crystallographic root pairings",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.RootSystem.Finite.Nondegenerate": {
+          "title": "Nondegeneracy of the polarization on a finite root pairing",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.RootSystem.GeckConstruction.Basic": {
+          "title": "Geck's construction of a Lie algebra associated to a root system",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.RootSystem.GeckConstruction.Basis": {
+          "title": "Geck's construction is complete",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.RootSystem.GeckConstruction.Lemmas": {
+          "title": "Supporting lemmas for Geck's construction of a Lie algebra associated to a root system",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.RootSystem.GeckConstruction.Relations": {
+          "title": "Relations in Geck's construction of a Lie algebra associated to a root system",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.RootSystem.GeckConstruction.Semisimple": {
+          "title": "Geck's construction of a Lie algebra associated to a root system yields semisimple algebras",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.RootSystem.Hom": {
+          "title": "Morphisms of root pairings",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.RootSystem.Irreducible": {
+          "title": "Irreducible root pairings",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.RootSystem.IsValuedIn": {
+          "title": "Root pairings taking values in a subring",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.RootSystem.OfBilinear": {
+          "title": "Root pairings made from bilinear forms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.RootSystem.Reduced": {
+          "title": "Reduced root pairings",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.RootSystem.RootPairingCat": {
+          "title": "The category of root pairings",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.RootSystem.RootPositive": {
+          "title": "Invariant and root-positive bilinear forms on root pairings",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.RootSystem.WeylGroup": {
+          "title": "The Weyl group of a root pairing",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.SModEq.Basic": {
+          "title": "modular equivalence for submodule",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.SModEq.Pointwise": {
+          "title": "Pointwise lemmas for modular equivalence",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.SModEq.Pow": {
+          "title": "Lemmas about SModEq related to powers -/",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Semisimple": {
+          "title": "Semisimple linear endomorphisms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.SesquilinearForm.Basic": {
+          "title": "Sesquilinear maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.SesquilinearForm.Orthogonal": {
+          "title": "Orthogonal complement",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.SesquilinearForm.Star": {
+          "title": "Sesquilinear forms over a star ring",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Span.Basic": {
+          "title": "The span of a set of vectors, as a submodule",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Span.Defs": {
+          "title": "The span of a set of vectors, as a submodule",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Span.TensorProduct": {
+          "title": "The interaction of linear span and tensor product for mixed scalars.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.SpecialLinearGroup": {
+          "title": "The special linear group of a module",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.StdBasis": {
+          "title": "The standard basis",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.SymmetricAlgebra.Basic": {
+          "title": "Symmetric Algebras",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.SymmetricAlgebra.Basis": {
+          "title": "A basis for SymmetricAlgebra R M",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.SymplecticGroup": {
+          "title": "The Symplectic Group",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.TensorAlgebra.Basic": {
+          "title": "Tensor Algebras",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.TensorAlgebra.Basis": {
+          "title": "A basis for TensorAlgebra R M",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.TensorAlgebra.Grading": {
+          "title": "Results about the grading structure of the tensor algebra",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.TensorAlgebra.ToTensorPower": {
+          "title": "Tensor algebras as direct sums of tensor powers",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.TensorPower.Basic": {
+          "title": "Tensor power of a semimodule over a commutative semiring",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.TensorPower.Pairing": {
+          "title": "The pairing between the tensor power of the dual and the tensor power",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.TensorPower.Symmetric": {
+          "title": "Symmetric tensor power of a semimodule over a commutative semiring",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.TensorProduct.Associator": {
+          "title": "Associators and unitors for tensor products of modules over a commutative ring.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.TensorProduct.Basic": {
+          "title": "Universal property of the tensor product",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.TensorProduct.Basis": {
+          "title": "Bases and dimensionality of tensor products of modules",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.TensorProduct.Decomposition": {
+          "title": "Decomposition of tensor product",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.TensorProduct.Defs": {
+          "title": "Tensor product of modules over commutative semirings",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.TensorProduct.DirectLimit": {
+          "title": "Tensor product and direct limits commute with each other.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.TensorProduct.Finiteness": {
+          "title": "Some finiteness results of tensor product",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.TensorProduct.Free": {
+          "title": "Tensor product with free modules.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.TensorProduct.Graded.External": {
+          "title": "Graded tensor products over graded algebras",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.TensorProduct.Graded.Internal": {
+          "title": "Graded tensor products over graded algebras",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.TensorProduct.Lift": {
+          "title": "Lifting linear maps from base-changed modules",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.TensorProduct.Map": {
+          "title": "Tensor products and linear maps",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.TensorProduct.Matrix": {
+          "title": "Connections between TensorProduct and Matrix",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.TensorProduct.Opposite": {
+          "title": "MulOpposite distributes over ⊗",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.TensorProduct.Pi": {
+          "title": "Tensor product and products",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.TensorProduct.Prod": {
+          "title": "Tensor products of products",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.TensorProduct.Quotient": {
+          "title": "Interaction between Quotients and Tensor Products",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.TensorProduct.RightExactness": {
+          "title": "Right-exactness properties of tensor product",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.TensorProduct.Subalgebra": {
+          "title": "Some results on tensor product of subalgebras",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.TensorProduct.Submodule": {
+          "title": "Some results on tensor product of submodules",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.TensorProduct.Tower": {
+          "title": "The A-module structure on M ⊗[R] N",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.TensorProduct.Vanishing": {
+          "title": "Vanishing of elements in a tensor product of two modules",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Trace": {
+          "title": "Trace of a linear map",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Transvection.Basic": {
+          "title": "Transvections in a module",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Transvection.Generation": {
+          "title": "Dilatransvections generate the special linear group",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Unimodular": {
+          "title": "Unimodular elements and completion to a basis",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.UnitaryGroup": {
+          "title": "The Unitary Group",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.LinearAlgebra.Vandermonde": {
+          "title": "Vandermonde matrix",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
         }
       },
       "citation_aliases": {
@@ -11741,7 +14797,8 @@
       "modules": [
         "Math.Logic.Basic",
         "Math.Logic.Classical",
-        "Mathlib.Logic.Relation"
+        "Mathlib.Logic.Relation",
+        "Math.Logic.Miu"
       ]
     },
     "sets": {
@@ -11794,7 +14851,391 @@
         "Mathlib.LinearAlgebra.Dimension.RankNullity",
         "Mathlib.LinearAlgebra.Dimension.DivisionRing",
         "Mathlib.Algebra.Module.NatInt",
-        "Math.Algebra.FiniteAveraging"
+        "Math.Algebra.FiniteAveraging",
+        "Mathlib.LinearAlgebra.AffineSpace.AffineEquiv",
+        "Mathlib.LinearAlgebra.AffineSpace.AffineMap",
+        "Mathlib.LinearAlgebra.AffineSpace.AffineSubspace.Basic",
+        "Mathlib.LinearAlgebra.AffineSpace.AffineSubspace.Defs",
+        "Mathlib.LinearAlgebra.AffineSpace.AffineSubspace.Shift",
+        "Mathlib.LinearAlgebra.AffineSpace.Basis",
+        "Mathlib.LinearAlgebra.AffineSpace.Centroid",
+        "Mathlib.LinearAlgebra.AffineSpace.Ceva",
+        "Mathlib.LinearAlgebra.AffineSpace.Combination",
+        "Mathlib.LinearAlgebra.AffineSpace.Defs",
+        "Mathlib.LinearAlgebra.AffineSpace.Dimension",
+        "Mathlib.LinearAlgebra.AffineSpace.FiniteDimensional",
+        "Mathlib.LinearAlgebra.AffineSpace.Homogenization",
+        "Mathlib.LinearAlgebra.AffineSpace.Independent",
+        "Mathlib.LinearAlgebra.AffineSpace.Matrix",
+        "Mathlib.LinearAlgebra.AffineSpace.Midpoint",
+        "Mathlib.LinearAlgebra.AffineSpace.MidpointZero",
+        "Mathlib.LinearAlgebra.AffineSpace.Ordered",
+        "Mathlib.LinearAlgebra.AffineSpace.Pointwise",
+        "Mathlib.LinearAlgebra.AffineSpace.Restrict",
+        "Mathlib.LinearAlgebra.AffineSpace.Simplex.Basic",
+        "Mathlib.LinearAlgebra.AffineSpace.Simplex.Centroid",
+        "Mathlib.LinearAlgebra.AffineSpace.Slope",
+        "Mathlib.LinearAlgebra.Alternating.Basic",
+        "Mathlib.LinearAlgebra.Alternating.Curry",
+        "Mathlib.LinearAlgebra.Alternating.DomCoprod",
+        "Mathlib.LinearAlgebra.Alternating.Uncurry.Fin",
+        "Mathlib.LinearAlgebra.AnnihilatingPolynomial",
+        "Mathlib.LinearAlgebra.Basis.Bilinear",
+        "Mathlib.LinearAlgebra.Basis.Cardinality",
+        "Mathlib.LinearAlgebra.Basis.Exact",
+        "Mathlib.LinearAlgebra.Basis.Fin",
+        "Mathlib.LinearAlgebra.Basis.Flag",
+        "Mathlib.LinearAlgebra.Basis.MulOpposite",
+        "Mathlib.LinearAlgebra.Basis.Prod",
+        "Mathlib.LinearAlgebra.Basis.SMul",
+        "Mathlib.LinearAlgebra.Basis.Submodule",
+        "Mathlib.LinearAlgebra.Basis.VectorSpace",
+        "Mathlib.LinearAlgebra.BilinearForm.Basic",
+        "Mathlib.LinearAlgebra.BilinearForm.DualLattice",
+        "Mathlib.LinearAlgebra.BilinearForm.Hom",
+        "Mathlib.LinearAlgebra.BilinearForm.Isometry",
+        "Mathlib.LinearAlgebra.BilinearForm.IsometryEquiv",
+        "Mathlib.LinearAlgebra.BilinearForm.Orthogonal",
+        "Mathlib.LinearAlgebra.BilinearForm.Properties",
+        "Mathlib.LinearAlgebra.BilinearForm.TensorProduct",
+        "Mathlib.LinearAlgebra.BilinearMap",
+        "Mathlib.LinearAlgebra.Center",
+        "Mathlib.LinearAlgebra.Charpoly.BaseChange",
+        "Mathlib.LinearAlgebra.Charpoly.Basic",
+        "Mathlib.LinearAlgebra.Charpoly.ToMatrix",
+        "Mathlib.LinearAlgebra.CliffordAlgebra.BaseChange",
+        "Mathlib.LinearAlgebra.CliffordAlgebra.Basic",
+        "Mathlib.LinearAlgebra.CliffordAlgebra.CategoryTheory",
+        "Mathlib.LinearAlgebra.CliffordAlgebra.Conjugation",
+        "Mathlib.LinearAlgebra.CliffordAlgebra.Contraction",
+        "Mathlib.LinearAlgebra.CliffordAlgebra.Equivs",
+        "Mathlib.LinearAlgebra.CliffordAlgebra.Even",
+        "Mathlib.LinearAlgebra.CliffordAlgebra.EvenEquiv",
+        "Mathlib.LinearAlgebra.CliffordAlgebra.Fold",
+        "Mathlib.LinearAlgebra.CliffordAlgebra.Grading",
+        "Mathlib.LinearAlgebra.CliffordAlgebra.Inversion",
+        "Mathlib.LinearAlgebra.CliffordAlgebra.Prod",
+        "Mathlib.LinearAlgebra.CliffordAlgebra.SpinGroup",
+        "Mathlib.LinearAlgebra.CliffordAlgebra.Star",
+        "Mathlib.LinearAlgebra.Coevaluation",
+        "Mathlib.LinearAlgebra.Complex.Determinant",
+        "Mathlib.LinearAlgebra.Complex.FiniteDimensional",
+        "Mathlib.LinearAlgebra.Complex.Module",
+        "Mathlib.LinearAlgebra.Complex.Orientation",
+        "Mathlib.LinearAlgebra.Contraction",
+        "Mathlib.LinearAlgebra.ConvexSpace.AffineSpace",
+        "Mathlib.LinearAlgebra.ConvexSpace",
+        "Mathlib.LinearAlgebra.Countable",
+        "Mathlib.LinearAlgebra.CrossProduct",
+        "Mathlib.LinearAlgebra.DFinsupp",
+        "Mathlib.LinearAlgebra.Determinant",
+        "Mathlib.LinearAlgebra.Dimension.Basic",
+        "Mathlib.LinearAlgebra.Dimension.Constructions",
+        "Mathlib.LinearAlgebra.Dimension.ErdosKaplansky",
+        "Mathlib.LinearAlgebra.Dimension.Finite",
+        "Mathlib.LinearAlgebra.Dimension.Finrank",
+        "Mathlib.LinearAlgebra.Dimension.Free",
+        "Mathlib.LinearAlgebra.Dimension.FreeAndStrongRankCondition",
+        "Mathlib.LinearAlgebra.Dimension.LinearMap",
+        "Mathlib.LinearAlgebra.Dimension.Localization",
+        "Mathlib.LinearAlgebra.Dimension.OrzechProperty",
+        "Mathlib.LinearAlgebra.Dimension.StrongRankCondition",
+        "Mathlib.LinearAlgebra.Dimension.Subsingleton",
+        "Mathlib.LinearAlgebra.Dimension.Torsion.Basic",
+        "Mathlib.LinearAlgebra.Dimension.Torsion.Finite",
+        "Mathlib.LinearAlgebra.DirectSum.Basis",
+        "Mathlib.LinearAlgebra.DirectSum.Finite",
+        "Mathlib.LinearAlgebra.DirectSum.Finsupp",
+        "Mathlib.LinearAlgebra.DirectSum.TensorProduct",
+        "Mathlib.LinearAlgebra.Dual.BaseChange",
+        "Mathlib.LinearAlgebra.Dual.Basis",
+        "Mathlib.LinearAlgebra.Dual.Defs",
+        "Mathlib.LinearAlgebra.Dual.Lemmas",
+        "Mathlib.LinearAlgebra.Eigenspace.Basic",
+        "Mathlib.LinearAlgebra.Eigenspace.Charpoly",
+        "Mathlib.LinearAlgebra.Eigenspace.ContinuousLinearMap",
+        "Mathlib.LinearAlgebra.Eigenspace.Matrix",
+        "Mathlib.LinearAlgebra.Eigenspace.Minpoly",
+        "Mathlib.LinearAlgebra.Eigenspace.Pi",
+        "Mathlib.LinearAlgebra.Eigenspace.Semisimple",
+        "Mathlib.LinearAlgebra.Eigenspace.Triangularizable",
+        "Mathlib.LinearAlgebra.Eigenspace.Zero",
+        "Mathlib.LinearAlgebra.ExteriorAlgebra.BaseChange",
+        "Mathlib.LinearAlgebra.ExteriorAlgebra.Basic",
+        "Mathlib.LinearAlgebra.ExteriorAlgebra.Basis",
+        "Mathlib.LinearAlgebra.ExteriorAlgebra.Grading",
+        "Mathlib.LinearAlgebra.ExteriorAlgebra.OfAlternating",
+        "Mathlib.LinearAlgebra.ExteriorAlgebra.Product",
+        "Mathlib.LinearAlgebra.ExteriorPower.Basic",
+        "Mathlib.LinearAlgebra.ExteriorPower.Basis",
+        "Mathlib.LinearAlgebra.ExteriorPower.BilinForm",
+        "Mathlib.LinearAlgebra.ExteriorPower.HodgeStar",
+        "Mathlib.LinearAlgebra.ExteriorPower.Pairing",
+        "Mathlib.LinearAlgebra.ExteriorPower.WedgePairing",
+        "Mathlib.LinearAlgebra.FiniteDimensional.Basic",
+        "Mathlib.LinearAlgebra.FiniteDimensional.Defs",
+        "Mathlib.LinearAlgebra.FiniteDimensional.Lemmas",
+        "Mathlib.LinearAlgebra.FiniteSpan",
+        "Mathlib.LinearAlgebra.Finsupp.Defs",
+        "Mathlib.LinearAlgebra.Finsupp.LSum",
+        "Mathlib.LinearAlgebra.Finsupp.LinearCombination",
+        "Mathlib.LinearAlgebra.Finsupp.Pi",
+        "Mathlib.LinearAlgebra.Finsupp.Span",
+        "Mathlib.LinearAlgebra.Finsupp.SumProd",
+        "Mathlib.LinearAlgebra.Finsupp.Supported",
+        "Mathlib.LinearAlgebra.Finsupp.VectorSpace",
+        "Mathlib.LinearAlgebra.FixedSubmodule",
+        "Mathlib.LinearAlgebra.FreeAlgebra",
+        "Mathlib.LinearAlgebra.FreeModule.Basic",
+        "Mathlib.LinearAlgebra.FreeModule.Determinant",
+        "Mathlib.LinearAlgebra.FreeModule.Finite.Basic",
+        "Mathlib.LinearAlgebra.FreeModule.Finite.CardQuotient",
+        "Mathlib.LinearAlgebra.FreeModule.Finite.Matrix",
+        "Mathlib.LinearAlgebra.FreeModule.Finite.Quotient",
+        "Mathlib.LinearAlgebra.FreeModule.IdealQuotient",
+        "Mathlib.LinearAlgebra.FreeModule.Int",
+        "Mathlib.LinearAlgebra.FreeModule.ModN",
+        "Mathlib.LinearAlgebra.FreeModule.Norm",
+        "Mathlib.LinearAlgebra.FreeModule.PID",
+        "Mathlib.LinearAlgebra.FreeModule.StrongRankCondition",
+        "Mathlib.LinearAlgebra.FreeProduct.Basic",
+        "Mathlib.LinearAlgebra.GeneralLinearGroup.AlgEquiv",
+        "Mathlib.LinearAlgebra.GeneralLinearGroup.Basic",
+        "Mathlib.LinearAlgebra.Goursat",
+        "Mathlib.LinearAlgebra.InvariantBasisNumber",
+        "Mathlib.LinearAlgebra.Isomorphisms",
+        "Mathlib.LinearAlgebra.JordanChevalley",
+        "Mathlib.LinearAlgebra.Lagrange",
+        "Mathlib.LinearAlgebra.LeftExact",
+        "Mathlib.LinearAlgebra.LinearDisjoint",
+        "Mathlib.LinearAlgebra.LinearIndependent.Algebra",
+        "Mathlib.LinearAlgebra.LinearIndependent.BaseChange",
+        "Mathlib.LinearAlgebra.LinearIndependent.Basic",
+        "Mathlib.LinearAlgebra.LinearIndependent.Defs",
+        "Mathlib.LinearAlgebra.LinearIndependent.Lemmas",
+        "Mathlib.LinearAlgebra.LinearPMap",
+        "Mathlib.LinearAlgebra.Matrix.AbsoluteValue",
+        "Mathlib.LinearAlgebra.Matrix.Action",
+        "Mathlib.LinearAlgebra.Matrix.Adjugate",
+        "Mathlib.LinearAlgebra.Matrix.BaseChange",
+        "Mathlib.LinearAlgebra.Matrix.Basis",
+        "Mathlib.LinearAlgebra.Matrix.Bilinear",
+        "Mathlib.LinearAlgebra.Matrix.BilinearForm",
+        "Mathlib.LinearAlgebra.Matrix.Block",
+        "Mathlib.LinearAlgebra.Matrix.Cartan.Basic",
+        "Mathlib.LinearAlgebra.Matrix.Cartan.Realisation",
+        "Mathlib.LinearAlgebra.Matrix.Cartan",
+        "Mathlib.LinearAlgebra.Matrix.CharP",
+        "Mathlib.LinearAlgebra.Matrix.Charpoly.Basic",
+        "Mathlib.LinearAlgebra.Matrix.Charpoly.Coeff",
+        "Mathlib.LinearAlgebra.Matrix.Charpoly.Disc",
+        "Mathlib.LinearAlgebra.Matrix.Charpoly.Eigs",
+        "Mathlib.LinearAlgebra.Matrix.Charpoly.FiniteField",
+        "Mathlib.LinearAlgebra.Matrix.Charpoly.LinearMap",
+        "Mathlib.LinearAlgebra.Matrix.Charpoly.Minpoly",
+        "Mathlib.LinearAlgebra.Matrix.Charpoly.Univ",
+        "Mathlib.LinearAlgebra.Matrix.Circulant",
+        "Mathlib.LinearAlgebra.Matrix.ConjTranspose",
+        "Mathlib.LinearAlgebra.Matrix.Defs",
+        "Mathlib.LinearAlgebra.Matrix.Determinant.Basic",
+        "Mathlib.LinearAlgebra.Matrix.Determinant.Bird.Correctness",
+        "Mathlib.LinearAlgebra.Matrix.Determinant.Bird.Defs",
+        "Mathlib.LinearAlgebra.Matrix.Determinant.Misc",
+        "Mathlib.LinearAlgebra.Matrix.Determinant.TotallyNonneg",
+        "Mathlib.LinearAlgebra.Matrix.Determinant.TotallyUnimodular",
+        "Mathlib.LinearAlgebra.Matrix.Diagonal",
+        "Mathlib.LinearAlgebra.Matrix.DotProduct",
+        "Mathlib.LinearAlgebra.Matrix.Dual",
+        "Mathlib.LinearAlgebra.Matrix.DualNumber",
+        "Mathlib.LinearAlgebra.Matrix.Echelon.Basic",
+        "Mathlib.LinearAlgebra.Matrix.Echelon.Decomposition",
+        "Mathlib.LinearAlgebra.Matrix.Echelon.Pivot",
+        "Mathlib.LinearAlgebra.Matrix.ElementaryRowOperations",
+        "Mathlib.LinearAlgebra.Matrix.FiniteDimensional",
+        "Mathlib.LinearAlgebra.Matrix.FixedDetMatrices",
+        "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Basic",
+        "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card",
+        "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs",
+        "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.FinTwo",
+        "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.MvPolynomial",
+        "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Projective",
+        "Mathlib.LinearAlgebra.Matrix.Gershgorin",
+        "Mathlib.LinearAlgebra.Matrix.Hadamard",
+        "Mathlib.LinearAlgebra.Matrix.HadamardMatrix",
+        "Mathlib.LinearAlgebra.Matrix.Hermitian",
+        "Mathlib.LinearAlgebra.Matrix.Hessenberg.Defs",
+        "Mathlib.LinearAlgebra.Matrix.Hessenberg.Similarity",
+        "Mathlib.LinearAlgebra.Matrix.Ideal",
+        "Mathlib.LinearAlgebra.Matrix.Integer",
+        "Mathlib.LinearAlgebra.Matrix.InvariantBasisNumber",
+        "Mathlib.LinearAlgebra.Matrix.Invertible",
+        "Mathlib.LinearAlgebra.Matrix.Irreducible.Defs",
+        "Mathlib.LinearAlgebra.Matrix.IsDiag",
+        "Mathlib.LinearAlgebra.Matrix.Kronecker",
+        "Mathlib.LinearAlgebra.Matrix.Module",
+        "Mathlib.LinearAlgebra.Matrix.MvPolynomial",
+        "Mathlib.LinearAlgebra.Matrix.Nondegenerate",
+        "Mathlib.LinearAlgebra.Matrix.Nonsingular",
+        "Mathlib.LinearAlgebra.Matrix.NonsingularInverse",
+        "Mathlib.LinearAlgebra.Matrix.Notation",
+        "Mathlib.LinearAlgebra.Matrix.Orthogonal",
+        "Mathlib.LinearAlgebra.Matrix.Permanent",
+        "Mathlib.LinearAlgebra.Matrix.Permutation",
+        "Mathlib.LinearAlgebra.Matrix.Polynomial",
+        "Mathlib.LinearAlgebra.Matrix.PosDef",
+        "Mathlib.LinearAlgebra.Matrix.ProjectiveSpecialLinearGroup",
+        "Mathlib.LinearAlgebra.Matrix.Rank",
+        "Mathlib.LinearAlgebra.Matrix.Reindex",
+        "Mathlib.LinearAlgebra.Matrix.RowCol",
+        "Mathlib.LinearAlgebra.Matrix.SchurComplement",
+        "Mathlib.LinearAlgebra.Matrix.SemiringInverse",
+        "Mathlib.LinearAlgebra.Matrix.SesquilinearForm",
+        "Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup",
+        "Mathlib.LinearAlgebra.Matrix.StdBasis",
+        "Mathlib.LinearAlgebra.Matrix.Stochastic",
+        "Mathlib.LinearAlgebra.Matrix.Swap",
+        "Mathlib.LinearAlgebra.Matrix.Symmetric",
+        "Mathlib.LinearAlgebra.Matrix.ToLin",
+        "Mathlib.LinearAlgebra.Matrix.ToLinearEquiv",
+        "Mathlib.LinearAlgebra.Matrix.Trace",
+        "Mathlib.LinearAlgebra.Matrix.Transvection",
+        "Mathlib.LinearAlgebra.Matrix.Unique",
+        "Mathlib.LinearAlgebra.Matrix.Vec",
+        "Mathlib.LinearAlgebra.Matrix.WithConv",
+        "Mathlib.LinearAlgebra.Matrix.ZMatrix",
+        "Mathlib.LinearAlgebra.Matrix.ZPow",
+        "Mathlib.LinearAlgebra.Multilinear.Basic",
+        "Mathlib.LinearAlgebra.Multilinear.Basis",
+        "Mathlib.LinearAlgebra.Multilinear.Curry",
+        "Mathlib.LinearAlgebra.Multilinear.DFinsupp",
+        "Mathlib.LinearAlgebra.Multilinear.DirectSum",
+        "Mathlib.LinearAlgebra.Multilinear.FiniteDimensional",
+        "Mathlib.LinearAlgebra.Multilinear.Finsupp",
+        "Mathlib.LinearAlgebra.Multilinear.Pi",
+        "Mathlib.LinearAlgebra.Multilinear.TensorProduct",
+        "Mathlib.LinearAlgebra.Orientation",
+        "Mathlib.LinearAlgebra.PID",
+        "Mathlib.LinearAlgebra.PerfectPairing.Basic",
+        "Mathlib.LinearAlgebra.PerfectPairing.Restrict",
+        "Mathlib.LinearAlgebra.Pi",
+        "Mathlib.LinearAlgebra.PiTensorProduct.Basic",
+        "Mathlib.LinearAlgebra.PiTensorProduct.Basis",
+        "Mathlib.LinearAlgebra.PiTensorProduct.DFinsupp",
+        "Mathlib.LinearAlgebra.PiTensorProduct.DirectSum",
+        "Mathlib.LinearAlgebra.PiTensorProduct.Dual",
+        "Mathlib.LinearAlgebra.PiTensorProduct.Finite",
+        "Mathlib.LinearAlgebra.PiTensorProduct.Finsupp",
+        "Mathlib.LinearAlgebra.PiTensorProduct.Generators",
+        "Mathlib.LinearAlgebra.PiTensorProduct",
+        "Mathlib.LinearAlgebra.Prod",
+        "Mathlib.LinearAlgebra.Projection",
+        "Mathlib.LinearAlgebra.Projectivization.Action",
+        "Mathlib.LinearAlgebra.Projectivization.Basic",
+        "Mathlib.LinearAlgebra.Projectivization.Cardinality",
+        "Mathlib.LinearAlgebra.Projectivization.Collinear",
+        "Mathlib.LinearAlgebra.Projectivization.Constructions",
+        "Mathlib.LinearAlgebra.Projectivization.Independence",
+        "Mathlib.LinearAlgebra.Projectivization.PSL.PSL2",
+        "Mathlib.LinearAlgebra.Projectivization.PSL.Stabilizer",
+        "Mathlib.LinearAlgebra.Projectivization.Subspace",
+        "Mathlib.LinearAlgebra.QuadraticForm.AlgClosed",
+        "Mathlib.LinearAlgebra.QuadraticForm.Basic",
+        "Mathlib.LinearAlgebra.QuadraticForm.Basis",
+        "Mathlib.LinearAlgebra.QuadraticForm.Dual",
+        "Mathlib.LinearAlgebra.QuadraticForm.Isometry",
+        "Mathlib.LinearAlgebra.QuadraticForm.IsometryEquiv",
+        "Mathlib.LinearAlgebra.QuadraticForm.Prod",
+        "Mathlib.LinearAlgebra.QuadraticForm.QuadraticModuleCat.Monoidal",
+        "Mathlib.LinearAlgebra.QuadraticForm.QuadraticModuleCat.Symmetric",
+        "Mathlib.LinearAlgebra.QuadraticForm.QuadraticModuleCat",
+        "Mathlib.LinearAlgebra.QuadraticForm.Radical",
+        "Mathlib.LinearAlgebra.QuadraticForm.Real",
+        "Mathlib.LinearAlgebra.QuadraticForm.Signature",
+        "Mathlib.LinearAlgebra.QuadraticForm.TensorProduct.Isometries",
+        "Mathlib.LinearAlgebra.QuadraticForm.TensorProduct",
+        "Mathlib.LinearAlgebra.Quotient.Basic",
+        "Mathlib.LinearAlgebra.Quotient.Bilinear",
+        "Mathlib.LinearAlgebra.Quotient.Card",
+        "Mathlib.LinearAlgebra.Quotient.Defs",
+        "Mathlib.LinearAlgebra.Quotient.Pi",
+        "Mathlib.LinearAlgebra.Ray",
+        "Mathlib.LinearAlgebra.Reflection",
+        "Mathlib.LinearAlgebra.RootSystem.Base",
+        "Mathlib.LinearAlgebra.RootSystem.BaseChange",
+        "Mathlib.LinearAlgebra.RootSystem.BaseExists",
+        "Mathlib.LinearAlgebra.RootSystem.Basic",
+        "Mathlib.LinearAlgebra.RootSystem.CartanMatrix",
+        "Mathlib.LinearAlgebra.RootSystem.Chain",
+        "Mathlib.LinearAlgebra.RootSystem.Defs",
+        "Mathlib.LinearAlgebra.RootSystem.Finite.CanonicalBilinear",
+        "Mathlib.LinearAlgebra.RootSystem.Finite.G2",
+        "Mathlib.LinearAlgebra.RootSystem.Finite.Lemmas",
+        "Mathlib.LinearAlgebra.RootSystem.Finite.Nondegenerate",
+        "Mathlib.LinearAlgebra.RootSystem.GeckConstruction.Basic",
+        "Mathlib.LinearAlgebra.RootSystem.GeckConstruction.Basis",
+        "Mathlib.LinearAlgebra.RootSystem.GeckConstruction.Lemmas",
+        "Mathlib.LinearAlgebra.RootSystem.GeckConstruction.Relations",
+        "Mathlib.LinearAlgebra.RootSystem.GeckConstruction.Semisimple",
+        "Mathlib.LinearAlgebra.RootSystem.Hom",
+        "Mathlib.LinearAlgebra.RootSystem.Irreducible",
+        "Mathlib.LinearAlgebra.RootSystem.IsValuedIn",
+        "Mathlib.LinearAlgebra.RootSystem.OfBilinear",
+        "Mathlib.LinearAlgebra.RootSystem.Reduced",
+        "Mathlib.LinearAlgebra.RootSystem.RootPairingCat",
+        "Mathlib.LinearAlgebra.RootSystem.RootPositive",
+        "Mathlib.LinearAlgebra.RootSystem.WeylGroup",
+        "Mathlib.LinearAlgebra.SModEq.Basic",
+        "Mathlib.LinearAlgebra.SModEq.Pointwise",
+        "Mathlib.LinearAlgebra.SModEq.Pow",
+        "Mathlib.LinearAlgebra.Semisimple",
+        "Mathlib.LinearAlgebra.SesquilinearForm.Basic",
+        "Mathlib.LinearAlgebra.SesquilinearForm.Orthogonal",
+        "Mathlib.LinearAlgebra.SesquilinearForm.Star",
+        "Mathlib.LinearAlgebra.Span.Basic",
+        "Mathlib.LinearAlgebra.Span.Defs",
+        "Mathlib.LinearAlgebra.Span.TensorProduct",
+        "Mathlib.LinearAlgebra.SpecialLinearGroup",
+        "Mathlib.LinearAlgebra.StdBasis",
+        "Mathlib.LinearAlgebra.SymmetricAlgebra.Basic",
+        "Mathlib.LinearAlgebra.SymmetricAlgebra.Basis",
+        "Mathlib.LinearAlgebra.SymplecticGroup",
+        "Mathlib.LinearAlgebra.TensorAlgebra.Basic",
+        "Mathlib.LinearAlgebra.TensorAlgebra.Basis",
+        "Mathlib.LinearAlgebra.TensorAlgebra.Grading",
+        "Mathlib.LinearAlgebra.TensorAlgebra.ToTensorPower",
+        "Mathlib.LinearAlgebra.TensorPower.Basic",
+        "Mathlib.LinearAlgebra.TensorPower.Pairing",
+        "Mathlib.LinearAlgebra.TensorPower.Symmetric",
+        "Mathlib.LinearAlgebra.TensorProduct.Associator",
+        "Mathlib.LinearAlgebra.TensorProduct.Basic",
+        "Mathlib.LinearAlgebra.TensorProduct.Basis",
+        "Mathlib.LinearAlgebra.TensorProduct.Decomposition",
+        "Mathlib.LinearAlgebra.TensorProduct.Defs",
+        "Mathlib.LinearAlgebra.TensorProduct.DirectLimit",
+        "Mathlib.LinearAlgebra.TensorProduct.Finiteness",
+        "Mathlib.LinearAlgebra.TensorProduct.Free",
+        "Mathlib.LinearAlgebra.TensorProduct.Graded.External",
+        "Mathlib.LinearAlgebra.TensorProduct.Graded.Internal",
+        "Mathlib.LinearAlgebra.TensorProduct.Lift",
+        "Mathlib.LinearAlgebra.TensorProduct.Map",
+        "Mathlib.LinearAlgebra.TensorProduct.Matrix",
+        "Mathlib.LinearAlgebra.TensorProduct.Opposite",
+        "Mathlib.LinearAlgebra.TensorProduct.Pi",
+        "Mathlib.LinearAlgebra.TensorProduct.Prod",
+        "Mathlib.LinearAlgebra.TensorProduct.Quotient",
+        "Mathlib.LinearAlgebra.TensorProduct.RightExactness",
+        "Mathlib.LinearAlgebra.TensorProduct.Subalgebra",
+        "Mathlib.LinearAlgebra.TensorProduct.Submodule",
+        "Mathlib.LinearAlgebra.TensorProduct.Tower",
+        "Mathlib.LinearAlgebra.TensorProduct.Vanishing",
+        "Mathlib.LinearAlgebra.Trace",
+        "Mathlib.LinearAlgebra.Transvection.Basic",
+        "Mathlib.LinearAlgebra.Transvection.Generation",
+        "Mathlib.LinearAlgebra.Unimodular",
+        "Mathlib.LinearAlgebra.UnitaryGroup",
+        "Mathlib.LinearAlgebra.Vandermonde",
+        "Math.Algebra.FittingFinite",
+        "Math.Algebra.FittingNatural"
       ]
     },
     "topology": {
@@ -13254,7 +16695,14 @@
         "Mathlib.Analysis.LocallyConvex.Separation",
         "Mathlib.Analysis.LocallyConvex.StrongTopology",
         "Mathlib.Analysis.LocallyConvex.WeakDual",
-        "Math.Analysis.LaxMilgram"
+        "Math.Analysis.LaxMilgram",
+        "Mathlib.LinearAlgebra.Coevaluation",
+        "Mathlib.LinearAlgebra.Dual.BaseChange",
+        "Mathlib.LinearAlgebra.Dual.Basis",
+        "Mathlib.LinearAlgebra.Dual.Defs",
+        "Mathlib.LinearAlgebra.Dual.Lemmas",
+        "Mathlib.LinearAlgebra.PerfectPairing.Basic",
+        "Mathlib.LinearAlgebra.PerfectPairing.Restrict"
       ]
     },
     "spectral_theory": {
@@ -15228,6 +18676,541 @@
       "modules": [
         "Mathlib.RepresentationTheory.AlgebraRepresentation.Basic"
       ]
+    },
+    "formal_rewriting": {
+      "title": "Formal rewriting systems",
+      "parent": "computation",
+      "modules": [
+        "Math.Logic.Miu"
+      ]
+    },
+    "miu_system": {
+      "title": "MIU system",
+      "parent": "formal_rewriting",
+      "modules": [
+        "Math.Logic.Miu"
+      ]
+    },
+    "matrices": {
+      "title": "Matrices",
+      "parent": "linear_algebra",
+      "modules": [
+        "Mathlib.LinearAlgebra.Determinant",
+        "Mathlib.LinearAlgebra.Matrix.AbsoluteValue",
+        "Mathlib.LinearAlgebra.Matrix.Action",
+        "Mathlib.LinearAlgebra.Matrix.Adjugate",
+        "Mathlib.LinearAlgebra.Matrix.BaseChange",
+        "Mathlib.LinearAlgebra.Matrix.Basis",
+        "Mathlib.LinearAlgebra.Matrix.Bilinear",
+        "Mathlib.LinearAlgebra.Matrix.BilinearForm",
+        "Mathlib.LinearAlgebra.Matrix.Block",
+        "Mathlib.LinearAlgebra.Matrix.Cartan",
+        "Mathlib.LinearAlgebra.Matrix.Cartan.Basic",
+        "Mathlib.LinearAlgebra.Matrix.Cartan.Realisation",
+        "Mathlib.LinearAlgebra.Matrix.CharP",
+        "Mathlib.LinearAlgebra.Matrix.Charpoly.Basic",
+        "Mathlib.LinearAlgebra.Matrix.Charpoly.Coeff",
+        "Mathlib.LinearAlgebra.Matrix.Charpoly.Disc",
+        "Mathlib.LinearAlgebra.Matrix.Charpoly.Eigs",
+        "Mathlib.LinearAlgebra.Matrix.Charpoly.FiniteField",
+        "Mathlib.LinearAlgebra.Matrix.Charpoly.LinearMap",
+        "Mathlib.LinearAlgebra.Matrix.Charpoly.Minpoly",
+        "Mathlib.LinearAlgebra.Matrix.Charpoly.Univ",
+        "Mathlib.LinearAlgebra.Matrix.Circulant",
+        "Mathlib.LinearAlgebra.Matrix.ConjTranspose",
+        "Mathlib.LinearAlgebra.Matrix.Defs",
+        "Mathlib.LinearAlgebra.Matrix.Determinant.Basic",
+        "Mathlib.LinearAlgebra.Matrix.Determinant.Bird.Correctness",
+        "Mathlib.LinearAlgebra.Matrix.Determinant.Bird.Defs",
+        "Mathlib.LinearAlgebra.Matrix.Determinant.Misc",
+        "Mathlib.LinearAlgebra.Matrix.Determinant.TotallyNonneg",
+        "Mathlib.LinearAlgebra.Matrix.Determinant.TotallyUnimodular",
+        "Mathlib.LinearAlgebra.Matrix.Diagonal",
+        "Mathlib.LinearAlgebra.Matrix.DotProduct",
+        "Mathlib.LinearAlgebra.Matrix.Dual",
+        "Mathlib.LinearAlgebra.Matrix.DualNumber",
+        "Mathlib.LinearAlgebra.Matrix.Echelon.Basic",
+        "Mathlib.LinearAlgebra.Matrix.Echelon.Decomposition",
+        "Mathlib.LinearAlgebra.Matrix.Echelon.Pivot",
+        "Mathlib.LinearAlgebra.Matrix.ElementaryRowOperations",
+        "Mathlib.LinearAlgebra.Matrix.FiniteDimensional",
+        "Mathlib.LinearAlgebra.Matrix.FixedDetMatrices",
+        "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Basic",
+        "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card",
+        "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs",
+        "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.FinTwo",
+        "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.MvPolynomial",
+        "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Projective",
+        "Mathlib.LinearAlgebra.Matrix.Gershgorin",
+        "Mathlib.LinearAlgebra.Matrix.Hadamard",
+        "Mathlib.LinearAlgebra.Matrix.HadamardMatrix",
+        "Mathlib.LinearAlgebra.Matrix.Hermitian",
+        "Mathlib.LinearAlgebra.Matrix.Hessenberg.Defs",
+        "Mathlib.LinearAlgebra.Matrix.Hessenberg.Similarity",
+        "Mathlib.LinearAlgebra.Matrix.Ideal",
+        "Mathlib.LinearAlgebra.Matrix.Integer",
+        "Mathlib.LinearAlgebra.Matrix.InvariantBasisNumber",
+        "Mathlib.LinearAlgebra.Matrix.Invertible",
+        "Mathlib.LinearAlgebra.Matrix.Irreducible.Defs",
+        "Mathlib.LinearAlgebra.Matrix.IsDiag",
+        "Mathlib.LinearAlgebra.Matrix.Kronecker",
+        "Mathlib.LinearAlgebra.Matrix.Module",
+        "Mathlib.LinearAlgebra.Matrix.MvPolynomial",
+        "Mathlib.LinearAlgebra.Matrix.Nondegenerate",
+        "Mathlib.LinearAlgebra.Matrix.Nonsingular",
+        "Mathlib.LinearAlgebra.Matrix.NonsingularInverse",
+        "Mathlib.LinearAlgebra.Matrix.Notation",
+        "Mathlib.LinearAlgebra.Matrix.Orthogonal",
+        "Mathlib.LinearAlgebra.Matrix.Permanent",
+        "Mathlib.LinearAlgebra.Matrix.Permutation",
+        "Mathlib.LinearAlgebra.Matrix.Polynomial",
+        "Mathlib.LinearAlgebra.Matrix.PosDef",
+        "Mathlib.LinearAlgebra.Matrix.ProjectiveSpecialLinearGroup",
+        "Mathlib.LinearAlgebra.Matrix.Rank",
+        "Mathlib.LinearAlgebra.Matrix.Reindex",
+        "Mathlib.LinearAlgebra.Matrix.RowCol",
+        "Mathlib.LinearAlgebra.Matrix.SchurComplement",
+        "Mathlib.LinearAlgebra.Matrix.SemiringInverse",
+        "Mathlib.LinearAlgebra.Matrix.SesquilinearForm",
+        "Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup",
+        "Mathlib.LinearAlgebra.Matrix.StdBasis",
+        "Mathlib.LinearAlgebra.Matrix.Stochastic",
+        "Mathlib.LinearAlgebra.Matrix.Swap",
+        "Mathlib.LinearAlgebra.Matrix.Symmetric",
+        "Mathlib.LinearAlgebra.Matrix.ToLin",
+        "Mathlib.LinearAlgebra.Matrix.ToLinearEquiv",
+        "Mathlib.LinearAlgebra.Matrix.Trace",
+        "Mathlib.LinearAlgebra.Matrix.Transvection",
+        "Mathlib.LinearAlgebra.Matrix.Unique",
+        "Mathlib.LinearAlgebra.Matrix.Vec",
+        "Mathlib.LinearAlgebra.Matrix.WithConv",
+        "Mathlib.LinearAlgebra.Matrix.ZMatrix",
+        "Mathlib.LinearAlgebra.Matrix.ZPow",
+        "Mathlib.LinearAlgebra.Trace",
+        "Mathlib.LinearAlgebra.Vandermonde"
+      ]
+    },
+    "characteristic_polynomials": {
+      "title": "Characteristic polynomials",
+      "parent": "linear_algebra",
+      "modules": [
+        "Mathlib.LinearAlgebra.Charpoly.BaseChange",
+        "Mathlib.LinearAlgebra.Charpoly.Basic",
+        "Mathlib.LinearAlgebra.Charpoly.ToMatrix",
+        "Mathlib.LinearAlgebra.Matrix.Charpoly.Basic",
+        "Mathlib.LinearAlgebra.Matrix.Charpoly.Coeff",
+        "Mathlib.LinearAlgebra.Matrix.Charpoly.Disc",
+        "Mathlib.LinearAlgebra.Matrix.Charpoly.Eigs",
+        "Mathlib.LinearAlgebra.Matrix.Charpoly.FiniteField",
+        "Mathlib.LinearAlgebra.Matrix.Charpoly.LinearMap",
+        "Mathlib.LinearAlgebra.Matrix.Charpoly.Minpoly",
+        "Mathlib.LinearAlgebra.Matrix.Charpoly.Univ"
+      ]
+    },
+    "eigenspaces": {
+      "title": "Eigenvalues and eigenspaces",
+      "parent": "linear_algebra",
+      "modules": [
+        "Mathlib.LinearAlgebra.Eigenspace.Basic",
+        "Mathlib.LinearAlgebra.Eigenspace.Charpoly",
+        "Mathlib.LinearAlgebra.Eigenspace.ContinuousLinearMap",
+        "Mathlib.LinearAlgebra.Eigenspace.Matrix",
+        "Mathlib.LinearAlgebra.Eigenspace.Minpoly",
+        "Mathlib.LinearAlgebra.Eigenspace.Pi",
+        "Mathlib.LinearAlgebra.Eigenspace.Semisimple",
+        "Mathlib.LinearAlgebra.Eigenspace.Triangularizable",
+        "Mathlib.LinearAlgebra.Eigenspace.Zero"
+      ]
+    },
+    "linear_operator_decomposition": {
+      "title": "Linear operator decompositions",
+      "parent": "linear_algebra",
+      "modules": [
+        "Math.Algebra.FittingFinite",
+        "Mathlib.LinearAlgebra.Eigenspace.Basic",
+        "Mathlib.LinearAlgebra.Eigenspace.Charpoly",
+        "Mathlib.LinearAlgebra.Eigenspace.ContinuousLinearMap",
+        "Mathlib.LinearAlgebra.Eigenspace.Matrix",
+        "Mathlib.LinearAlgebra.Eigenspace.Minpoly",
+        "Mathlib.LinearAlgebra.Eigenspace.Pi",
+        "Mathlib.LinearAlgebra.Eigenspace.Semisimple",
+        "Mathlib.LinearAlgebra.Eigenspace.Triangularizable",
+        "Mathlib.LinearAlgebra.Eigenspace.Zero",
+        "Mathlib.LinearAlgebra.JordanChevalley",
+        "Mathlib.LinearAlgebra.Semisimple",
+        "Math.Algebra.FittingNatural"
+      ]
+    },
+    "linear_dimension": {
+      "title": "Dimension and rank",
+      "parent": "linear_algebra",
+      "modules": [
+        "Mathlib.LinearAlgebra.Countable",
+        "Mathlib.LinearAlgebra.Dimension.Basic",
+        "Mathlib.LinearAlgebra.Dimension.Constructions",
+        "Mathlib.LinearAlgebra.Dimension.DivisionRing",
+        "Mathlib.LinearAlgebra.Dimension.ErdosKaplansky",
+        "Mathlib.LinearAlgebra.Dimension.Finite",
+        "Mathlib.LinearAlgebra.Dimension.Finrank",
+        "Mathlib.LinearAlgebra.Dimension.Free",
+        "Mathlib.LinearAlgebra.Dimension.FreeAndStrongRankCondition",
+        "Mathlib.LinearAlgebra.Dimension.LinearMap",
+        "Mathlib.LinearAlgebra.Dimension.Localization",
+        "Mathlib.LinearAlgebra.Dimension.OrzechProperty",
+        "Mathlib.LinearAlgebra.Dimension.RankNullity",
+        "Mathlib.LinearAlgebra.Dimension.StrongRankCondition",
+        "Mathlib.LinearAlgebra.Dimension.Subsingleton",
+        "Mathlib.LinearAlgebra.Dimension.Torsion.Basic",
+        "Mathlib.LinearAlgebra.Dimension.Torsion.Finite",
+        "Mathlib.LinearAlgebra.FiniteDimensional.Basic",
+        "Mathlib.LinearAlgebra.FiniteDimensional.Defs",
+        "Mathlib.LinearAlgebra.FiniteDimensional.Lemmas",
+        "Mathlib.LinearAlgebra.InvariantBasisNumber"
+      ]
+    },
+    "linear_bases": {
+      "title": "Bases and independence",
+      "parent": "linear_algebra",
+      "modules": [
+        "Mathlib.LinearAlgebra.Basis.Basic",
+        "Mathlib.LinearAlgebra.Basis.Bilinear",
+        "Mathlib.LinearAlgebra.Basis.Cardinality",
+        "Mathlib.LinearAlgebra.Basis.Defs",
+        "Mathlib.LinearAlgebra.Basis.Exact",
+        "Mathlib.LinearAlgebra.Basis.Fin",
+        "Mathlib.LinearAlgebra.Basis.Flag",
+        "Mathlib.LinearAlgebra.Basis.MulOpposite",
+        "Mathlib.LinearAlgebra.Basis.Prod",
+        "Mathlib.LinearAlgebra.Basis.SMul",
+        "Mathlib.LinearAlgebra.Basis.Submodule",
+        "Mathlib.LinearAlgebra.Basis.VectorSpace",
+        "Mathlib.LinearAlgebra.LinearIndependent.Algebra",
+        "Mathlib.LinearAlgebra.LinearIndependent.BaseChange",
+        "Mathlib.LinearAlgebra.LinearIndependent.Basic",
+        "Mathlib.LinearAlgebra.LinearIndependent.Defs",
+        "Mathlib.LinearAlgebra.LinearIndependent.Lemmas",
+        "Mathlib.LinearAlgebra.Span.Basic",
+        "Mathlib.LinearAlgebra.Span.Defs",
+        "Mathlib.LinearAlgebra.Span.TensorProduct",
+        "Mathlib.LinearAlgebra.StdBasis"
+      ]
+    },
+    "finite_free_modules": {
+      "title": "Free modules",
+      "parent": "linear_algebra",
+      "modules": [
+        "Mathlib.LinearAlgebra.FiniteSpan",
+        "Mathlib.LinearAlgebra.FreeModule.Basic",
+        "Mathlib.LinearAlgebra.FreeModule.Determinant",
+        "Mathlib.LinearAlgebra.FreeModule.Finite.Basic",
+        "Mathlib.LinearAlgebra.FreeModule.Finite.CardQuotient",
+        "Mathlib.LinearAlgebra.FreeModule.Finite.Matrix",
+        "Mathlib.LinearAlgebra.FreeModule.Finite.Quotient",
+        "Mathlib.LinearAlgebra.FreeModule.IdealQuotient",
+        "Mathlib.LinearAlgebra.FreeModule.Int",
+        "Mathlib.LinearAlgebra.FreeModule.ModN",
+        "Mathlib.LinearAlgebra.FreeModule.Norm",
+        "Mathlib.LinearAlgebra.FreeModule.PID",
+        "Mathlib.LinearAlgebra.FreeModule.StrongRankCondition",
+        "Mathlib.LinearAlgebra.PID",
+        "Mathlib.LinearAlgebra.Unimodular"
+      ]
+    },
+    "bilinear_forms": {
+      "title": "Bilinear and sesquilinear forms",
+      "parent": "linear_algebra",
+      "modules": [
+        "Mathlib.LinearAlgebra.BilinearForm.Basic",
+        "Mathlib.LinearAlgebra.BilinearForm.DualLattice",
+        "Mathlib.LinearAlgebra.BilinearForm.Hom",
+        "Mathlib.LinearAlgebra.BilinearForm.Isometry",
+        "Mathlib.LinearAlgebra.BilinearForm.IsometryEquiv",
+        "Mathlib.LinearAlgebra.BilinearForm.Orthogonal",
+        "Mathlib.LinearAlgebra.BilinearForm.Properties",
+        "Mathlib.LinearAlgebra.BilinearForm.TensorProduct",
+        "Mathlib.LinearAlgebra.BilinearMap",
+        "Mathlib.LinearAlgebra.SesquilinearForm.Basic",
+        "Mathlib.LinearAlgebra.SesquilinearForm.Orthogonal",
+        "Mathlib.LinearAlgebra.SesquilinearForm.Star"
+      ]
+    },
+    "quadratic_forms": {
+      "title": "Quadratic forms",
+      "parent": "linear_algebra",
+      "modules": [
+        "Mathlib.LinearAlgebra.QuadraticForm.AlgClosed",
+        "Mathlib.LinearAlgebra.QuadraticForm.Basic",
+        "Mathlib.LinearAlgebra.QuadraticForm.Basis",
+        "Mathlib.LinearAlgebra.QuadraticForm.Dual",
+        "Mathlib.LinearAlgebra.QuadraticForm.Isometry",
+        "Mathlib.LinearAlgebra.QuadraticForm.IsometryEquiv",
+        "Mathlib.LinearAlgebra.QuadraticForm.Prod",
+        "Mathlib.LinearAlgebra.QuadraticForm.QuadraticModuleCat",
+        "Mathlib.LinearAlgebra.QuadraticForm.QuadraticModuleCat.Monoidal",
+        "Mathlib.LinearAlgebra.QuadraticForm.QuadraticModuleCat.Symmetric",
+        "Mathlib.LinearAlgebra.QuadraticForm.Radical",
+        "Mathlib.LinearAlgebra.QuadraticForm.Real",
+        "Mathlib.LinearAlgebra.QuadraticForm.Signature",
+        "Mathlib.LinearAlgebra.QuadraticForm.TensorProduct",
+        "Mathlib.LinearAlgebra.QuadraticForm.TensorProduct.Isometries"
+      ]
+    },
+    "tensor_products": {
+      "title": "Tensor products",
+      "parent": "linear_algebra",
+      "modules": [
+        "Mathlib.LinearAlgebra.Contraction",
+        "Mathlib.LinearAlgebra.PiTensorProduct",
+        "Mathlib.LinearAlgebra.PiTensorProduct.Basic",
+        "Mathlib.LinearAlgebra.PiTensorProduct.Basis",
+        "Mathlib.LinearAlgebra.PiTensorProduct.DFinsupp",
+        "Mathlib.LinearAlgebra.PiTensorProduct.DirectSum",
+        "Mathlib.LinearAlgebra.PiTensorProduct.Dual",
+        "Mathlib.LinearAlgebra.PiTensorProduct.Finite",
+        "Mathlib.LinearAlgebra.PiTensorProduct.Finsupp",
+        "Mathlib.LinearAlgebra.PiTensorProduct.Generators",
+        "Mathlib.LinearAlgebra.TensorPower.Basic",
+        "Mathlib.LinearAlgebra.TensorPower.Pairing",
+        "Mathlib.LinearAlgebra.TensorPower.Symmetric",
+        "Mathlib.LinearAlgebra.TensorProduct.Associator",
+        "Mathlib.LinearAlgebra.TensorProduct.Basic",
+        "Mathlib.LinearAlgebra.TensorProduct.Basis",
+        "Mathlib.LinearAlgebra.TensorProduct.Decomposition",
+        "Mathlib.LinearAlgebra.TensorProduct.Defs",
+        "Mathlib.LinearAlgebra.TensorProduct.DirectLimit",
+        "Mathlib.LinearAlgebra.TensorProduct.Finiteness",
+        "Mathlib.LinearAlgebra.TensorProduct.Free",
+        "Mathlib.LinearAlgebra.TensorProduct.Graded.External",
+        "Mathlib.LinearAlgebra.TensorProduct.Graded.Internal",
+        "Mathlib.LinearAlgebra.TensorProduct.Lift",
+        "Mathlib.LinearAlgebra.TensorProduct.Map",
+        "Mathlib.LinearAlgebra.TensorProduct.Matrix",
+        "Mathlib.LinearAlgebra.TensorProduct.Opposite",
+        "Mathlib.LinearAlgebra.TensorProduct.Pi",
+        "Mathlib.LinearAlgebra.TensorProduct.Prod",
+        "Mathlib.LinearAlgebra.TensorProduct.Quotient",
+        "Mathlib.LinearAlgebra.TensorProduct.RightExactness",
+        "Mathlib.LinearAlgebra.TensorProduct.Subalgebra",
+        "Mathlib.LinearAlgebra.TensorProduct.Submodule",
+        "Mathlib.LinearAlgebra.TensorProduct.Tower",
+        "Mathlib.LinearAlgebra.TensorProduct.Vanishing"
+      ]
+    },
+    "multilinear_algebra": {
+      "title": "Multilinear algebra",
+      "parent": "linear_algebra",
+      "modules": [
+        "Mathlib.LinearAlgebra.Alternating.Basic",
+        "Mathlib.LinearAlgebra.Alternating.Curry",
+        "Mathlib.LinearAlgebra.Alternating.DomCoprod",
+        "Mathlib.LinearAlgebra.Alternating.Uncurry.Fin",
+        "Mathlib.LinearAlgebra.ExteriorAlgebra.BaseChange",
+        "Mathlib.LinearAlgebra.ExteriorAlgebra.Basic",
+        "Mathlib.LinearAlgebra.ExteriorAlgebra.Basis",
+        "Mathlib.LinearAlgebra.ExteriorAlgebra.Grading",
+        "Mathlib.LinearAlgebra.ExteriorAlgebra.OfAlternating",
+        "Mathlib.LinearAlgebra.ExteriorAlgebra.Product",
+        "Mathlib.LinearAlgebra.ExteriorPower.Basic",
+        "Mathlib.LinearAlgebra.ExteriorPower.Basis",
+        "Mathlib.LinearAlgebra.ExteriorPower.BilinForm",
+        "Mathlib.LinearAlgebra.ExteriorPower.HodgeStar",
+        "Mathlib.LinearAlgebra.ExteriorPower.Pairing",
+        "Mathlib.LinearAlgebra.ExteriorPower.WedgePairing",
+        "Mathlib.LinearAlgebra.Multilinear.Basic",
+        "Mathlib.LinearAlgebra.Multilinear.Basis",
+        "Mathlib.LinearAlgebra.Multilinear.Curry",
+        "Mathlib.LinearAlgebra.Multilinear.DFinsupp",
+        "Mathlib.LinearAlgebra.Multilinear.DirectSum",
+        "Mathlib.LinearAlgebra.Multilinear.FiniteDimensional",
+        "Mathlib.LinearAlgebra.Multilinear.Finsupp",
+        "Mathlib.LinearAlgebra.Multilinear.Pi",
+        "Mathlib.LinearAlgebra.Multilinear.TensorProduct",
+        "Mathlib.LinearAlgebra.SymmetricAlgebra.Basic",
+        "Mathlib.LinearAlgebra.SymmetricAlgebra.Basis",
+        "Mathlib.LinearAlgebra.TensorAlgebra.Basic",
+        "Mathlib.LinearAlgebra.TensorAlgebra.Basis",
+        "Mathlib.LinearAlgebra.TensorAlgebra.Grading",
+        "Mathlib.LinearAlgebra.TensorAlgebra.ToTensorPower"
+      ]
+    },
+    "exterior_algebra": {
+      "title": "Exterior algebras",
+      "parent": "multilinear_algebra",
+      "modules": [
+        "Mathlib.LinearAlgebra.ExteriorAlgebra.BaseChange",
+        "Mathlib.LinearAlgebra.ExteriorAlgebra.Basic",
+        "Mathlib.LinearAlgebra.ExteriorAlgebra.Basis",
+        "Mathlib.LinearAlgebra.ExteriorAlgebra.Grading",
+        "Mathlib.LinearAlgebra.ExteriorAlgebra.OfAlternating",
+        "Mathlib.LinearAlgebra.ExteriorAlgebra.Product",
+        "Mathlib.LinearAlgebra.ExteriorPower.Basic",
+        "Mathlib.LinearAlgebra.ExteriorPower.Basis",
+        "Mathlib.LinearAlgebra.ExteriorPower.BilinForm",
+        "Mathlib.LinearAlgebra.ExteriorPower.HodgeStar",
+        "Mathlib.LinearAlgebra.ExteriorPower.Pairing",
+        "Mathlib.LinearAlgebra.ExteriorPower.WedgePairing"
+      ]
+    },
+    "clifford_algebras": {
+      "title": "Clifford algebras",
+      "parent": "linear_algebra",
+      "modules": [
+        "Mathlib.LinearAlgebra.CliffordAlgebra.BaseChange",
+        "Mathlib.LinearAlgebra.CliffordAlgebra.Basic",
+        "Mathlib.LinearAlgebra.CliffordAlgebra.CategoryTheory",
+        "Mathlib.LinearAlgebra.CliffordAlgebra.Conjugation",
+        "Mathlib.LinearAlgebra.CliffordAlgebra.Contraction",
+        "Mathlib.LinearAlgebra.CliffordAlgebra.Equivs",
+        "Mathlib.LinearAlgebra.CliffordAlgebra.Even",
+        "Mathlib.LinearAlgebra.CliffordAlgebra.EvenEquiv",
+        "Mathlib.LinearAlgebra.CliffordAlgebra.Fold",
+        "Mathlib.LinearAlgebra.CliffordAlgebra.Grading",
+        "Mathlib.LinearAlgebra.CliffordAlgebra.Inversion",
+        "Mathlib.LinearAlgebra.CliffordAlgebra.Prod",
+        "Mathlib.LinearAlgebra.CliffordAlgebra.SpinGroup",
+        "Mathlib.LinearAlgebra.CliffordAlgebra.Star"
+      ]
+    },
+    "symmetric_algebras": {
+      "title": "Symmetric algebras",
+      "parent": "multilinear_algebra",
+      "modules": [
+        "Mathlib.LinearAlgebra.SymmetricAlgebra.Basic",
+        "Mathlib.LinearAlgebra.SymmetricAlgebra.Basis"
+      ]
+    },
+    "affine_geometry": {
+      "title": "Affine geometry",
+      "parent": "geometry",
+      "modules": [
+        "Mathlib.LinearAlgebra.AffineSpace.AffineEquiv",
+        "Mathlib.LinearAlgebra.AffineSpace.AffineMap",
+        "Mathlib.LinearAlgebra.AffineSpace.AffineSubspace.Basic",
+        "Mathlib.LinearAlgebra.AffineSpace.AffineSubspace.Defs",
+        "Mathlib.LinearAlgebra.AffineSpace.AffineSubspace.Shift",
+        "Mathlib.LinearAlgebra.AffineSpace.Basis",
+        "Mathlib.LinearAlgebra.AffineSpace.Centroid",
+        "Mathlib.LinearAlgebra.AffineSpace.Ceva",
+        "Mathlib.LinearAlgebra.AffineSpace.Combination",
+        "Mathlib.LinearAlgebra.AffineSpace.Defs",
+        "Mathlib.LinearAlgebra.AffineSpace.Dimension",
+        "Mathlib.LinearAlgebra.AffineSpace.FiniteDimensional",
+        "Mathlib.LinearAlgebra.AffineSpace.Homogenization",
+        "Mathlib.LinearAlgebra.AffineSpace.Independent",
+        "Mathlib.LinearAlgebra.AffineSpace.Matrix",
+        "Mathlib.LinearAlgebra.AffineSpace.Midpoint",
+        "Mathlib.LinearAlgebra.AffineSpace.MidpointZero",
+        "Mathlib.LinearAlgebra.AffineSpace.Ordered",
+        "Mathlib.LinearAlgebra.AffineSpace.Pointwise",
+        "Mathlib.LinearAlgebra.AffineSpace.Restrict",
+        "Mathlib.LinearAlgebra.AffineSpace.Simplex.Basic",
+        "Mathlib.LinearAlgebra.AffineSpace.Simplex.Centroid",
+        "Mathlib.LinearAlgebra.AffineSpace.Slope"
+      ]
+    },
+    "projective_spaces": {
+      "title": "Projective spaces",
+      "parent": "geometry",
+      "modules": [
+        "Mathlib.LinearAlgebra.Projectivization.Action",
+        "Mathlib.LinearAlgebra.Projectivization.Basic",
+        "Mathlib.LinearAlgebra.Projectivization.Cardinality",
+        "Mathlib.LinearAlgebra.Projectivization.Collinear",
+        "Mathlib.LinearAlgebra.Projectivization.Constructions",
+        "Mathlib.LinearAlgebra.Projectivization.Independence",
+        "Mathlib.LinearAlgebra.Projectivization.PSL.PSL2",
+        "Mathlib.LinearAlgebra.Projectivization.PSL.Stabilizer",
+        "Mathlib.LinearAlgebra.Projectivization.Subspace",
+        "Mathlib.LinearAlgebra.Ray"
+      ]
+    },
+    "root_systems": {
+      "title": "Root systems",
+      "parent": "linear_algebra",
+      "modules": [
+        "Mathlib.LinearAlgebra.Reflection",
+        "Mathlib.LinearAlgebra.RootSystem.Base",
+        "Mathlib.LinearAlgebra.RootSystem.BaseChange",
+        "Mathlib.LinearAlgebra.RootSystem.BaseExists",
+        "Mathlib.LinearAlgebra.RootSystem.Basic",
+        "Mathlib.LinearAlgebra.RootSystem.CartanMatrix",
+        "Mathlib.LinearAlgebra.RootSystem.Chain",
+        "Mathlib.LinearAlgebra.RootSystem.Defs",
+        "Mathlib.LinearAlgebra.RootSystem.Finite.CanonicalBilinear",
+        "Mathlib.LinearAlgebra.RootSystem.Finite.G2",
+        "Mathlib.LinearAlgebra.RootSystem.Finite.Lemmas",
+        "Mathlib.LinearAlgebra.RootSystem.Finite.Nondegenerate",
+        "Mathlib.LinearAlgebra.RootSystem.GeckConstruction.Basic",
+        "Mathlib.LinearAlgebra.RootSystem.GeckConstruction.Basis",
+        "Mathlib.LinearAlgebra.RootSystem.GeckConstruction.Lemmas",
+        "Mathlib.LinearAlgebra.RootSystem.GeckConstruction.Relations",
+        "Mathlib.LinearAlgebra.RootSystem.GeckConstruction.Semisimple",
+        "Mathlib.LinearAlgebra.RootSystem.Hom",
+        "Mathlib.LinearAlgebra.RootSystem.Irreducible",
+        "Mathlib.LinearAlgebra.RootSystem.IsValuedIn",
+        "Mathlib.LinearAlgebra.RootSystem.OfBilinear",
+        "Mathlib.LinearAlgebra.RootSystem.Reduced",
+        "Mathlib.LinearAlgebra.RootSystem.RootPairingCat",
+        "Mathlib.LinearAlgebra.RootSystem.RootPositive",
+        "Mathlib.LinearAlgebra.RootSystem.WeylGroup"
+      ]
+    },
+    "linear_projections": {
+      "title": "Linear projections",
+      "parent": "linear_algebra",
+      "modules": [
+        "Math.Algebra.FittingFinite",
+        "Mathlib.LinearAlgebra.Prod",
+        "Mathlib.LinearAlgebra.Projection",
+        "Mathlib.LinearAlgebra.Quotient.Basic",
+        "Mathlib.LinearAlgebra.Quotient.Bilinear",
+        "Mathlib.LinearAlgebra.Quotient.Card",
+        "Mathlib.LinearAlgebra.Quotient.Defs",
+        "Mathlib.LinearAlgebra.Quotient.Pi",
+        "Math.Algebra.FittingNatural"
+      ]
+    },
+    "linear_groups": {
+      "title": "Linear groups",
+      "parent": "linear_algebra",
+      "modules": [
+        "Mathlib.LinearAlgebra.GeneralLinearGroup.AlgEquiv",
+        "Mathlib.LinearAlgebra.GeneralLinearGroup.Basic",
+        "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Basic",
+        "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card",
+        "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs",
+        "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.FinTwo",
+        "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.MvPolynomial",
+        "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Projective",
+        "Mathlib.LinearAlgebra.Matrix.Orthogonal",
+        "Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup",
+        "Mathlib.LinearAlgebra.SpecialLinearGroup",
+        "Mathlib.LinearAlgebra.SymplecticGroup",
+        "Mathlib.LinearAlgebra.Transvection.Basic",
+        "Mathlib.LinearAlgebra.Transvection.Generation",
+        "Mathlib.LinearAlgebra.UnitaryGroup"
+      ]
+    },
+    "module_direct_sums": {
+      "title": "Direct sums",
+      "parent": "linear_algebra",
+      "modules": [
+        "Mathlib.LinearAlgebra.DFinsupp",
+        "Mathlib.LinearAlgebra.DirectSum.Basis",
+        "Mathlib.LinearAlgebra.DirectSum.Finite",
+        "Mathlib.LinearAlgebra.DirectSum.Finsupp",
+        "Mathlib.LinearAlgebra.DirectSum.TensorProduct",
+        "Mathlib.LinearAlgebra.Finsupp.Defs",
+        "Mathlib.LinearAlgebra.Finsupp.LSum",
+        "Mathlib.LinearAlgebra.Finsupp.LinearCombination",
+        "Mathlib.LinearAlgebra.Finsupp.Pi",
+        "Mathlib.LinearAlgebra.Finsupp.Span",
+        "Mathlib.LinearAlgebra.Finsupp.SumProd",
+        "Mathlib.LinearAlgebra.Finsupp.Supported",
+        "Mathlib.LinearAlgebra.Finsupp.VectorSpace",
+        "Mathlib.LinearAlgebra.Pi",
+        "Mathlib.LinearAlgebra.Prod"
+      ]
     }
   },
   "modules": {
@@ -15389,6 +19372,30 @@
     },
     "Math.Algebra.FiniteAveraging": {
       "title": "Finite group averaging, invariants, and coinvariants",
+      "allowed_axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    "Math.Logic.Miu": {
+      "title": "MIU derivability and complete decision criterion",
+      "allowed_axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    "Math.Algebra.FittingFinite": {
+      "title": "Dimension-bounded Fitting decomposition",
+      "allowed_axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    "Math.Algebra.FittingNatural": {
+      "title": "Naturality of Fitting decompositions",
       "allowed_axioms": [
         "propext",
         "Quot.sound",

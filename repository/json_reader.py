@@ -8,9 +8,13 @@ from functools import partial
 from typing import TextIO
 
 from .core import PackedHexDigests, RepositoryError, require
+from .expressions import PackedExpressions
 
 
 _SHA256 = re.compile(r"[0-9a-f]{64}\Z")
+_MAX_SHARED_STRINGS = 1000000
+_MAX_SHARED_LENGTH = 256
+_TEXT_FIELDS = frozenset({"statement", "proof", "doc", "text", "value", "url"})
 
 
 _SYNTAX_TAGS = {tag: tag for tag in (
@@ -19,13 +23,37 @@ _SYNTAX_TAGS = {tag: tag for tag in (
 )}
 
 
-def _unique_object(pairs: list[tuple], *, keys: dict[str, str]) -> dict:
+class _StringPool:
+    """share repeated immutable identifiers within one catalog read."""
+
+    def __init__(self):
+        self.values = {}
+
+    def share(self, value: str) -> str:
+        if len(value) > _MAX_SHARED_LENGTH:
+            return value
+        previous = self.values.get(value)
+        if previous is not None:
+            return previous
+        if len(self.values) < _MAX_SHARED_STRINGS:
+            self.values[value] = value
+        return value
+
+
+def _unique_object(pairs: list[tuple], *, keys: dict[str, str], strings: _StringPool) -> dict:
     result = {}
     for name, value in pairs:
         name = keys.setdefault(name, name)
         require(name not in result, f"duplicate json field: {name}")
         if name == "tag" and isinstance(value, str):
             value = _SYNTAX_TAGS.get(value, value)
+        if name not in _TEXT_FIELDS:
+            if isinstance(value, str):
+                value = strings.share(value)
+            elif isinstance(value, list):
+                for index, item in enumerate(value):
+                    if isinstance(item, str):
+                        value[index] = strings.share(item)
         result[name] = value
     return result
 
@@ -33,8 +61,10 @@ def _unique_object(pairs: list[tuple], *, keys: dict[str, str]) -> dict:
 class _Reader:
     """decode complete records while streaming the outer catalog containers."""
 
-    def __init__(self, stream: TextIO, chunk_size: int):
+    def __init__(self, stream: TextIO, chunk_size: int, compact_expressions: bool = False):
         require(type(chunk_size) is int and chunk_size > 0, "invalid json chunk size")
+        require(type(compact_expressions) is bool, "invalid compact expression option")
+        self.compact_expressions = compact_expressions
         self.stream = stream
         self.chunk_size = chunk_size
         self.buffer = ""
@@ -42,7 +72,9 @@ class _Reader:
         self.offset = 0
         self.eof = False
         self.keys = {}
-        self.decoder = json.JSONDecoder(object_pairs_hook=partial(_unique_object, keys=self.keys))
+        self.strings = _StringPool()
+        self.decoder = json.JSONDecoder(object_pairs_hook=partial(
+            _unique_object, keys=self.keys, strings=self.strings))
 
     def fill(self):
         self.offset += self.position
@@ -99,12 +131,14 @@ class _Reader:
             self.position = end
             return value
 
-    def array(self, compact_hashes=False):
+    def array(self, compact_hashes=False, compact_expressions=False):
         self.expect("[")
-        result = PackedHexDigests() if compact_hashes else []
+        result = PackedExpressions() if compact_expressions else PackedHexDigests() if compact_hashes else []
         if self.peek() != "]":
             while True:
                 value = self.value()
+                if isinstance(value, str) and not compact_hashes:
+                    value = self.strings.share(value)
                 if isinstance(result, PackedHexDigests) and not (
                         isinstance(value, str) and _SHA256.fullmatch(value)):
                     result = list(result)
@@ -113,7 +147,7 @@ class _Reader:
                     break
                 self.position += 1
         self.expect("]")
-        return result
+        return result.seal() if isinstance(result, PackedExpressions) else result
 
     def object(self, split_values=False):
         self.expect("{")
@@ -135,15 +169,16 @@ class _Reader:
     def container(self, key=None):
         character = self.peek()
         if character == "[":
-            return self.array(compact_hashes=key == "expression_hashes")
+            return self.array(compact_hashes=key == "expression_hashes",
+                              compact_expressions=self.compact_expressions and key == "expressions")
         if character == "{":
             return self.object()
         return self.value()
 
 
-def read_object(stream: TextIO, chunk_size: int = 64 * 1024) -> dict:
+def read_object(stream: TextIO, chunk_size: int = 64 * 1024, *, compact_expressions: bool = False) -> dict:
     """retain every field and record while rejecting duplicate fields and trailing data."""
-    reader = _Reader(stream, chunk_size)
+    reader = _Reader(stream, chunk_size, compact_expressions=compact_expressions)
     require(reader.peek() == "{", "expected a json object")
     result = reader.object(split_values=True)
     require(not reader.peek(), "unexpected trailing json data")

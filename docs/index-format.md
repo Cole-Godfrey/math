@@ -76,3 +76,14 @@ Reviewed citation aliases are registered in `libraries.PACKAGE.citation_aliases`
 When the Lean catalog binds a native Metamath snapshot, `system=lean|metamath` selects the proof library. Database-qualified native names select their own interpreter. Both libraries share a combined `X-Math-Snapshot` pin while retaining their own proof calculus and foundational assumptions. Native `/api/expressions` returns exact substituted proof steps, `/api/native-proof` inspects an individual step, `/api/native-foundations` pages through declared rules and their dependency paths, and `/api/native-source` downloads the complete original source database. Native `/api/proof-export` streams a portable archive containing every retained source and proof artifact. Native source pages use the newline bytes recorded by the source-span audit and provide access to every line.
 
 Native source primitives are stored in `primitive_objects` and `primitive_edges` inside the same addressed database. The manifest records `source_primitives.schema_version` and per-database counts. `/api/native-primitives?system=metamath` searches constants, variables, scopes, and disjoint clauses; `kind=assertion_symbols` retrieves named-statement bindings. `/api/native-primitive`, `/api/native-primitive-context`, and `/api/native-primitive-relations` take a qualified `name`. Relationship pages preserve token positions and report their complete total. `/api/native-primitive-source` downloads the exact declaration or scope block; `full=1` selects the original database. All these requests use the same combined snapshot pin. Source relationships retain their own kinds, including expression symbols, mandatory hypotheses, frame variables, and original disjoint-clause witnesses.
+
+Catalog decoding shares equal short immutable identifiers within one read, including names in dependency lists and terms. The pool retains at most one million strings of at most 256 characters. Proof text, documentation, literal values, mutable records, and mutable containers retain their independent values. Canonical JSON bytes, expression hashes, and declaration hashes remain unchanged.
+
+Catalog construction retains complete expression records in immutable packed sequences. Tags,
+binders, universe arguments, literals, and additional fields remain unchanged. Unsupported shapes
+and integers beyond 64 bits retain their exact JSON records. Canonical exports, expression hashes,
+declaration hashes, and proof bindings preserve the same artifact schema. Generic `read_json` and
+`read_object` calls return ordinary mutable arrays unless `compact_expressions=True` is requested.
+
+Compact readers and stored queries emit fields in the same canonical order. Expression streams
+encode the packed fields directly and retain the canonical artifact bytes.

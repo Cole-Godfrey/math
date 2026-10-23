@@ -8,6 +8,8 @@ from collections import defaultdict, deque
 from collections.abc import Sequence
 from typing import Any
 
+from .expressions import PackedExpressions
+
 
 class RepositoryError(ValueError):
     """a declaration or artifact violates the repository's verification policy."""
@@ -22,7 +24,7 @@ BINDERS = {"explicit", "implicit", "strict_implicit", "instance_implicit"}
 
 
 def _json_default(value):
-    if isinstance(value, PackedHexDigests):
+    if isinstance(value, (PackedHexDigests, PackedExpressions)):
         return list(value)
     raise TypeError(f"object of type {type(value).__name__} is not json serializable")
 
@@ -39,7 +41,9 @@ def digest(value: Any) -> str:
 def canonical_chunks(value: Any, chunk_size: int = 64 * 1024):
     """stream canonical json while encoding individual records with the json encoder."""
     def parts(item, depth):
-        if depth and isinstance(item, dict) and all(isinstance(key, str) for key in item):
+        if isinstance(item, PackedExpressions):
+            yield from item.canonical_parts()
+        elif depth and isinstance(item, dict) and all(isinstance(key, str) for key in item):
             yield b"{"
             for index, key in enumerate(sorted(item)):
                 if index:
@@ -47,7 +51,7 @@ def canonical_chunks(value: Any, chunk_size: int = 64 * 1024):
                 yield canonical(key) + b":"
                 yield from parts(item[key], depth - 1)
             yield b"}"
-        elif depth and isinstance(item, (list, tuple, PackedHexDigests)):
+        elif depth and isinstance(item, (list, tuple, PackedHexDigests, PackedExpressions)):
             yield b"["
             for index, child in enumerate(item):
                 if index:
@@ -219,7 +223,7 @@ class ExpressionPool:
     """audit a shared term graph, including binder scope at each declaration root."""
 
     def __init__(self, records: Any):
-        require(isinstance(records, list), "missing shared expressions")
+        require(isinstance(records, (list, PackedExpressions)), "missing shared expressions")
         self.records = records
         self.loose: list[int] = []
         self.parameters: list[frozenset[str]] = []
@@ -501,7 +505,7 @@ def validate(raw: dict, policy: dict) -> dict:
     require(bool(roots), "empty mathematical repository")
     require(isinstance(raw.get("name_data"), dict) and bool(raw["name_data"]), "missing lossless logical names")
     records = raw.get("expressions")
-    require(isinstance(records, list), "missing shared expressions")
+    require(isinstance(records, (list, PackedExpressions)), "missing shared expressions")
 
     # reject inconsistent reported graphs before allocating term audit state.
     for name, node in nodes.items():

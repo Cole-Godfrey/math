@@ -1046,6 +1046,401 @@ class RepositoryTests(RepositoryArtifacts, unittest.TestCase):
                 for subject in ('modular_identity_certificates', 'modular_forms', 'analytic_number_theory', 'number_theory', 'mathematics'):
                     self.assertIn(name, {node["name"] for node in graph.search(name, subject=subject)})
 
+    def test_fitting_naturality_statements_match_independent_reference_types(self):
+        run(ROOT, [self.lake, "env", "lean", "tests/FittingNaturalStatements.lean"], capture=True)
+
+    def test_fitting_naturality_results_retain_local_terms_and_source(self):
+        expected = {'Math.LinearAlgebra.intertwines_pow': 'theorem',
+         'Math.LinearAlgebra.maps_fittingKer': 'theorem',
+         'Math.LinearAlgebra.maps_fittingRange': 'theorem',
+         'Math.LinearAlgebra.mapFittingKer': 'definition',
+         'Math.LinearAlgebra.mapFittingRange': 'definition',
+         'Math.LinearAlgebra.fittingEquiv_natural': 'theorem',
+         'Math.LinearAlgebra.fittingProjection_natural': 'theorem',
+         'Math.LinearAlgebra.comp_fittingProjection': 'theorem'}
+        module = "Math.Algebra.FittingNatural"
+        origin = self.catalog["sources"][module]
+        self.assertEqual(origin["package"], "math")
+        self.assertEqual(origin["path"], "Math/Algebra/FittingNatural.lean")
+        self.assertEqual(origin["sha256"], hashlib.sha256((ROOT / origin["path"]).read_bytes()).hexdigest())
+        for name, kind in expected.items():
+            with self.subTest(name=name):
+                node = self.nodes[name]
+                self.assertIn(name, self.catalog["roots"])
+                self.assertIn(name, self.catalog["module_declarations_by_module"][module])
+                self.assertEqual(node["module"], module)
+                self.assertEqual(node["kind"], kind)
+                self.assertIsInstance(node["value"], int)
+                self.assertTrue(node["proof"])
+                self.assertGreater(node["source"]["line"], 0)
+                self.assertTrue(set(node["axioms"]) <= set(self.policy["modules"][module]["allowed_axioms"]))
+
+    def test_fitting_statements_match_independent_reference_types(self):
+        run(ROOT, [self.lake, "env", "lean", "tests/FittingStatements.lean"], capture=True)
+
+    def test_linear_algebra_statements_match_independent_reference_types(self):
+        run(ROOT, [self.lake, "env", "lean", "tests/LinearAlgebraStatements.lean"], capture=True)
+
+    def test_linear_algebra_registry_retains_the_complete_pinned_family(self):
+        base = ROOT / ".lake/packages/mathlib"
+        registered = self.policy["libraries"]["mathlib"]["modules"]
+        expected = {".".join(path.relative_to(base).with_suffix("").parts)
+                    for path in (base / "Mathlib/LinearAlgebra").rglob("*.lean")}
+        self.assertEqual(len(expected), 386)
+        self.assertEqual({name for name in registered if name.startswith("Mathlib.LinearAlgebra.")}, expected)
+        for module in expected:
+            with self.subTest(module=module):
+                self.assertIn(module, self.catalog["module_policy"])
+                self.assertIn(module, self.catalog["module_declarations_by_module"])
+                origin = self.catalog["sources"][module]
+                self.assertEqual(origin["revision"], self.policy["libraries"]["mathlib"]["revision"])
+                self.assertEqual(origin["license"], "Apache-2.0")
+                self.assertEqual(origin["sha256"], hashlib.sha256(
+                    (base / (module.replace(".", "/") + ".lean")).read_bytes()).hexdigest())
+
+    def test_fitting_results_retain_local_proofs_and_source(self):
+        expected = {'Math.LinearAlgebra.range_pow_eq_finrank': 'theorem',
+         'Math.LinearAlgebra.isCompl_pow_finrank': 'theorem',
+         'Math.LinearAlgebra.fittingEquiv': 'definition',
+         'Math.LinearAlgebra.fittingEquiv_apply': 'theorem',
+         'Math.LinearAlgebra.existsUnique_fitting': 'theorem',
+         'Math.LinearAlgebra.isNilpotent_iff_pow_finrank': 'theorem',
+         'Math.LinearAlgebra.fittingKer_invariant': 'theorem',
+         'Math.LinearAlgebra.fittingRange_invariant': 'theorem',
+         'Math.LinearAlgebra.fittingNilpotent': 'definition',
+         'Math.LinearAlgebra.fittingNilpotent_pow': 'theorem',
+         'Math.LinearAlgebra.fittingInvertible': 'definition',
+         'Math.LinearAlgebra.fittingInvertible_isUnit': 'theorem',
+         'Math.LinearAlgebra.fittingEquiv_intertwines': 'theorem',
+         'Math.LinearAlgebra.fittingProjection': 'definition',
+         'Math.LinearAlgebra.range_fittingProjection': 'theorem',
+         'Math.LinearAlgebra.ker_fittingProjection': 'theorem',
+         'Math.LinearAlgebra.fittingProjection_idempotent': 'theorem',
+         'Math.LinearAlgebra.fittingProjection_apply_add': 'theorem',
+         'Math.LinearAlgebra.fittingKer_invariant_of_commute': 'theorem',
+         'Math.LinearAlgebra.fittingRange_invariant_of_commute': 'theorem',
+         'Math.LinearAlgebra.fittingProjection_commutes': 'theorem',
+         'Math.LinearAlgebra.fittingProjection_mul_pow': 'theorem',
+         'Math.LinearAlgebra.pow_mul_fittingProjection': 'theorem'}
+        module = "Math.Algebra.FittingFinite"
+        origin = self.catalog["sources"][module]
+        self.assertEqual(origin["package"], "math")
+        self.assertEqual(origin["path"], "Math/Algebra/FittingFinite.lean")
+        self.assertEqual(origin["sha256"], hashlib.sha256((ROOT / origin["path"]).read_bytes()).hexdigest())
+        for name, kind in expected.items():
+            with self.subTest(name=name):
+                node = self.nodes[name]
+                self.assertIn(name, self.catalog["roots"])
+                self.assertIn(name, self.catalog["module_declarations_by_module"][module])
+                self.assertEqual(node["module"], module)
+                self.assertEqual(node["kind"], kind)
+                self.assertIsInstance(node["value"], int)
+                self.assertTrue(node["proof"])
+                self.assertGreater(node["source"]["line"], 0)
+                self.assertTrue(set(node["axioms"]) <= set(self.policy["modules"][module]["allowed_axioms"]))
+
+    def test_linear_algebra_objects_and_results_retain_terms_and_pinned_sources(self):
+        expected = {'Matrix.det_mul': 'Mathlib.LinearAlgebra.Matrix.Determinant.Basic',
+         'Matrix.det_one': 'Mathlib.LinearAlgebra.Matrix.Determinant.Basic',
+         'Matrix.det_transpose': 'Mathlib.LinearAlgebra.Matrix.Determinant.Basic',
+         'LinearMap.charpoly': 'Mathlib.LinearAlgebra.Charpoly.Basic',
+         'LinearMap.charpoly_monic': 'Mathlib.LinearAlgebra.Charpoly.Basic',
+         'LinearMap.aeval_self_charpoly': 'Mathlib.LinearAlgebra.Charpoly.Basic',
+         'LinearMap.isIntegral': 'Mathlib.LinearAlgebra.Charpoly.Basic',
+         'LinearMap.aeval_eq_aeval_mod_charpoly': 'Mathlib.LinearAlgebra.Charpoly.Basic',
+         'LinearMap.pow_eq_aeval_mod_charpoly': 'Mathlib.LinearAlgebra.Charpoly.Basic',
+         'LinearMap.charpoly_natDegree': 'Mathlib.LinearAlgebra.Charpoly.Basic',
+         'LinearMap.charpoly_sub_smul': 'Mathlib.LinearAlgebra.Charpoly.Basic',
+         'LinearMap.minpoly_dvd_charpoly': 'Mathlib.LinearAlgebra.Charpoly.Basic',
+         'Module.End.hasEigenvalue_iff_isRoot_charpoly': 'Mathlib.LinearAlgebra.Eigenspace.Charpoly',
+         'Module.End.mem_spectrum_iff_isRoot_charpoly': 'Mathlib.LinearAlgebra.Eigenspace.Charpoly',
+         'LinearMap.finrank_range_add_finrank_ker': 'Mathlib.LinearAlgebra.FiniteDimensional.Lemmas',
+         'Module.End.exists_isNilpotent_isSemisimple': 'Mathlib.LinearAlgebra.JordanChevalley',
+         'Module.End.isNilpotent_isSemisimple_unique': 'Mathlib.LinearAlgebra.JordanChevalley',
+         'Module.evalEquiv': 'Mathlib.LinearAlgebra.Dual.Defs',
+         'Subspace.finrank_add_finrank_dualAnnihilator_eq': 'Mathlib.LinearAlgebra.Dual.Lemmas',
+         'Module.Basis.tensorProduct': 'Mathlib.LinearAlgebra.TensorProduct.Basis',
+         'Module.Basis.tensorProduct_apply': 'Mathlib.LinearAlgebra.TensorProduct.Basis',
+         'Module.finrank_tensorProduct': 'Mathlib.LinearAlgebra.Dimension.Constructions',
+         'TensorProduct': 'Mathlib.LinearAlgebra.TensorProduct.Defs',
+         'CliffordAlgebra': 'Mathlib.LinearAlgebra.CliffordAlgebra.Basic',
+         'CliffordAlgebra.ι': 'Mathlib.LinearAlgebra.CliffordAlgebra.Basic',
+         'CliffordAlgebra.lift': 'Mathlib.LinearAlgebra.CliffordAlgebra.Basic',
+         'CliffordAlgebra.ι_sq_scalar': 'Mathlib.LinearAlgebra.CliffordAlgebra.Basic',
+         'CliffordAlgebra.ι_mul_ι_add_swap': 'Mathlib.LinearAlgebra.CliffordAlgebra.Basic',
+         'CliffordAlgebra.ι_comp_lift': 'Mathlib.LinearAlgebra.CliffordAlgebra.Basic',
+         'ExteriorAlgebra': 'Mathlib.LinearAlgebra.ExteriorAlgebra.Basic',
+         'ExteriorAlgebra.ι_sq_zero': 'Mathlib.LinearAlgebra.ExteriorAlgebra.Basic',
+         'ExteriorAlgebra.ι_add_mul_swap': 'Mathlib.LinearAlgebra.ExteriorAlgebra.Basic',
+         'ExteriorAlgebra.lift': 'Mathlib.LinearAlgebra.ExteriorAlgebra.Basic',
+         'ExteriorAlgebra.ι_comp_lift': 'Mathlib.LinearAlgebra.ExteriorAlgebra.Basic',
+         'Projectivization': 'Mathlib.LinearAlgebra.Projectivization.Basic',
+         'Projectivization.mk_eq_mk_iff': 'Mathlib.LinearAlgebra.Projectivization.Basic',
+         "Projectivization.mk_eq_mk_iff'": 'Mathlib.LinearAlgebra.Projectivization.Basic',
+         'RootPairing': 'Mathlib.LinearAlgebra.RootSystem.Defs',
+         'RootPairing.weylGroup': 'Mathlib.LinearAlgebra.RootSystem.WeylGroup',
+         'RootPairing.reflection_mem_weylGroup': 'Mathlib.LinearAlgebra.RootSystem.WeylGroup',
+         'RootPairing.IsG2': 'Mathlib.LinearAlgebra.RootSystem.Finite.G2',
+         'RootPairing.isG2_iff': 'Mathlib.LinearAlgebra.RootSystem.Finite.G2',
+         'sigPos': 'Mathlib.LinearAlgebra.QuadraticForm.Signature',
+         'sigPos_le_finrank': 'Mathlib.LinearAlgebra.QuadraticForm.Signature',
+         'exists_finrank_eq_sigPos_and_posDef': 'Mathlib.LinearAlgebra.QuadraticForm.Signature',
+         'SymmetricAlgebra': 'Mathlib.LinearAlgebra.SymmetricAlgebra.Basic',
+         'SymmetricAlgebra.lift': 'Mathlib.LinearAlgebra.SymmetricAlgebra.Basic',
+         'AffineMap': 'Mathlib.LinearAlgebra.AffineSpace.AffineMap',
+         'AffineMap.homothety_apply': 'Mathlib.LinearAlgebra.AffineSpace.AffineMap'}
+        for name, module in expected.items():
+            with self.subTest(name=name):
+                node = self.nodes[name]
+                self.assertIn(name, self.catalog["roots"])
+                self.assertEqual(node["module"], module)
+                self.assertIn(name, self.catalog["module_declarations_by_module"][module])
+                if node["kind"] in {"definition", "theorem", "opaque"}:
+                    self.assertIsInstance(node["value"], int)
+                    self.assertTrue(node["proof"])
+                self.assertTrue(set(node["axioms"]) <= self.policy["axioms"].keys())
+                origin = self.catalog["sources"][module]
+                self.assertIn(origin["revision"], origin["url"])
+
+    def test_linear_algebra_hierarchies_retain_hypotheses_and_complete_axiom_paths(self):
+        expected = {'Math.LinearAlgebra.fittingEquiv': ['Math.LinearAlgebra.isCompl_pow_finrank',
+                                             'Math.LinearAlgebra.range_pow_eq_finrank',
+                                             'LinearMap.ker',
+                                             'LinearMap.range',
+                                             'FiniteDimensional',
+                                             'DivisionRing'],
+         'Math.LinearAlgebra.isNilpotent_iff_pow_finrank': ['IsNilpotent',
+                                                            'Module.End.ker_pow_le_ker_pow_finrank',
+                                                            'FiniteDimensional'],
+         'Math.LinearAlgebra.fittingInvertible_isUnit': ['Math.LinearAlgebra.isCompl_pow_finrank',
+                                                         'Math.LinearAlgebra.fittingRange_invariant',
+                                                         'LinearMap.ker',
+                                                         'IsUnit'],
+         'Math.LinearAlgebra.fittingEquiv_intertwines': ['Math.LinearAlgebra.fittingEquiv',
+                                                         'Math.LinearAlgebra.fittingNilpotent',
+                                                         'Math.LinearAlgebra.fittingInvertible'],
+         'Module.End.exists_isNilpotent_isSemisimple': ['PerfectField',
+                                                        'FiniteDimensional',
+                                                        'IsNilpotent',
+                                                        'Module.End.IsSemisimple',
+                                                        'Algebra.adjoin'],
+         'LinearMap.aeval_self_charpoly': ['LinearMap.charpoly', 'Module.Free', 'Module.Finite', 'CommRing'],
+         'RootPairing.reflection_mem_weylGroup': ['RootPairing.weylGroup', 'Subgroup.closure'],
+         'Math.LinearAlgebra.fittingProjection_commutes': ['Math.LinearAlgebra.fittingProjection',
+                                                           'Math.LinearAlgebra.fittingEquiv',
+                                                           'Math.LinearAlgebra.fittingKer_invariant_of_commute',
+                                                           'Math.LinearAlgebra.fittingRange_invariant_of_commute',
+                                                           'Commute'],
+         'Math.LinearAlgebra.fittingProjection_natural': ['Math.LinearAlgebra.fittingProjection',
+                                                          'Math.LinearAlgebra.mapFittingKer',
+                                                          'Math.LinearAlgebra.mapFittingRange',
+                                                          'Math.LinearAlgebra.maps_fittingKer',
+                                                          'Math.LinearAlgebra.maps_fittingRange',
+                                                          'FiniteDimensional'],
+         'Math.LinearAlgebra.maps_fittingRange': ['Math.LinearAlgebra.range_pow_eq_finrank',
+                                                  'Math.LinearAlgebra.intertwines_pow',
+                                                  'LinearMap.range']}
+        graph = KnowledgeGraph(self.catalog)
+        for name, required in expected.items():
+            with self.subTest(name=name):
+                hierarchy = graph.hierarchy(name)
+                reached = {node["name"] for node in hierarchy["declarations"]}
+                self.assertTrue(set(required) <= reached, set(required) - reached)
+                self.assertEqual(set(hierarchy["axiom_paths"]), set(self.nodes[name]["axioms"]))
+                for axiom, path in hierarchy["axiom_paths"].items():
+                    self.assertEqual(path[0], name)
+                    self.assertEqual(path[-1], axiom)
+                    for parent, child in zip(path, path[1:]):
+                        self.assertIn(child, self.nodes[parent]["dependencies"])
+
+    def test_linear_algebra_subjects_preserve_algebra_and_geometry_classifications(self):
+        graph = KnowledgeGraph(self.catalog)
+        parents = {
+            "matrices": "linear_algebra", "characteristic_polynomials": "linear_algebra",
+            "eigenspaces": "linear_algebra", "linear_operator_decomposition": "linear_algebra",
+            "linear_dimension": "linear_algebra", "linear_bases": "linear_algebra",
+            "finite_free_modules": "linear_algebra", "bilinear_forms": "linear_algebra",
+            "quadratic_forms": "linear_algebra", "tensor_products": "linear_algebra",
+            "multilinear_algebra": "linear_algebra", "exterior_algebra": "multilinear_algebra",
+            "clifford_algebras": "linear_algebra", "symmetric_algebras": "multilinear_algebra",
+            "affine_geometry": "geometry", "projective_spaces": "geometry",
+            "root_systems": "linear_algebra", "linear_projections": "linear_algebra",
+            "linear_groups": "linear_algebra", "module_direct_sums": "linear_algebra",
+            "dual_spaces": "functional_analysis"
+        }
+        for subject, parent in parents.items():
+            with self.subTest(subject=subject):
+                self.assertEqual(self.catalog["subjects"][subject]["parent"], parent)
+                self.assertTrue(self.catalog["subjects"][subject]["modules"])
+        expected = {'Matrix.det_mul': ['matrices', 'linear_algebra', 'algebra'],
+         'LinearMap.aeval_self_charpoly': ['characteristic_polynomials', 'linear_algebra'],
+         'Math.LinearAlgebra.fittingEquiv': ['linear_operator_decomposition', 'linear_projections', 'algebra'],
+         'Math.LinearAlgebra.fittingProjection_commutes': ['linear_operator_decomposition',
+                                                           'linear_projections',
+                                                           'algebra'],
+         'CliffordAlgebra.lift': ['clifford_algebras', 'linear_algebra'],
+         'ExteriorAlgebra.lift': ['exterior_algebra', 'multilinear_algebra', 'algebra'],
+         'SymmetricAlgebra.lift': ['symmetric_algebras', 'multilinear_algebra'],
+         'Projectivization.mk_eq_mk_iff': ['projective_spaces', 'geometry'],
+         'AffineMap.homothety_apply': ['affine_geometry', 'geometry'],
+         'RootPairing.weylGroup': ['root_systems', 'linear_algebra'],
+         'Math.LinearAlgebra.fittingProjection_natural': ['linear_operator_decomposition',
+                                                          'linear_projections',
+                                                          'algebra']}
+        for name, subjects in expected.items():
+            for subject in [*subjects, "mathematics"]:
+                with self.subTest(name=name, subject=subject):
+                    self.assertIn(name, {node["name"] for node in graph.search(name, subject=subject)})
+
+    def test_miu_statements_match_independent_reference_types(self):
+        run(ROOT, [self.lake, "env", "lean", "tests/MiuStatements.lean"], capture=True)
+
+    def test_miu_results_retain_complete_terms_and_local_source(self):
+        expected = {
+            "Math.Miu.countI": "definition",
+            "Math.Miu.countI_mod_three": "theorem",
+            "Math.Miu.mu_not_derivable": "theorem",
+            "Math.Miu.theorem1": "theorem",
+            "Math.Miu.pureI": "definition",
+            "Math.Miu.pure_pow_two": "theorem",
+            "Math.Miu.pure_drop_three": "theorem",
+            "Math.Miu.pure_reduce": "theorem",
+            "Math.Miu.pow_two_even_mod_three": "theorem",
+            "Math.Miu.pow_two_odd_mod_three": "theorem",
+            "Math.Miu.pure_of_mod_three": "theorem",
+            "Math.Miu.expansionCost": "definition",
+            "Math.Miu.expansionCost_mod_three": "theorem",
+            "Math.Miu.realize_body": "theorem",
+            "Math.Miu.body_of_mod_three": "theorem",
+            "Math.Miu.countM": "definition",
+            "Math.Miu.countM_eq_one": "theorem",
+            "Math.Miu.head_eq_M": "theorem",
+            "Math.Miu.derivable_iff": "theorem",
+            "Math.Miu.Symbol": "inductive",
+            "Math.Miu.Derivable": "inductive"
+        }
+        module = "Math.Logic.Miu"
+        path = ROOT / "Math/Logic/Miu.lean"
+        origin = self.catalog["sources"][module]
+        self.assertEqual(origin["package"], "math")
+        self.assertEqual(origin["path"], "Math/Logic/Miu.lean")
+        self.assertEqual(origin["sha256"], hashlib.sha256(path.read_bytes()).hexdigest())
+        for name, kind in expected.items():
+            with self.subTest(name=name):
+                node = self.nodes[name]
+                self.assertIn(name, self.catalog["roots"])
+                self.assertIn(name, self.catalog["module_declarations_by_module"][module])
+                self.assertEqual(node["kind"], kind)
+                self.assertEqual(node["module"], module)
+                if kind in {"theorem", "definition"}:
+                    self.assertIsInstance(node["value"], int)
+                    self.assertTrue(node["proof"])
+                self.assertGreater(node["source"]["line"], 0)
+                self.assertTrue(set(node["axioms"]) <= set(self.policy["modules"][module]["allowed_axioms"]))
+        for constructor in ["ax", "I_", "II", "III", "IV"]:
+            node = self.nodes["Math.Miu.Derivable." + constructor]
+            self.assertEqual(node["kind"], "constructor")
+            self.assertIn(node["name"], self.catalog["roots"])
+
+    def test_miu_hierarchies_retain_rules_counts_and_complete_axiom_paths(self):
+        expected = {
+            "Math.Miu.derivable_iff": ["Math.Miu.Derivable", "Math.Miu.countI", "Math.Miu.countM",
+                                       "Math.Miu.head_eq_M", "Math.Miu.body_of_mod_three"],
+            "Math.Miu.mu_not_derivable": ["Math.Miu.countI_mod_three", "Math.Miu.Derivable"],
+            "Math.Miu.theorem1": ["Math.Miu.Derivable.ax", "Math.Miu.Derivable.I_",
+                                  "Math.Miu.Derivable.II", "Math.Miu.Derivable.III", "Math.Miu.Derivable.IV"],
+            "Math.Miu.realize_body": ["Math.Miu.expansionCost", "Math.Miu.Derivable.III"],
+        }
+        graph = KnowledgeGraph(self.catalog)
+        for name, required in expected.items():
+            with self.subTest(name=name):
+                hierarchy = graph.hierarchy(name)
+                reached = {node["name"] for node in hierarchy["declarations"]}
+                self.assertTrue(set(required) <= reached, set(required) - reached)
+                self.assertEqual(set(hierarchy["axiom_paths"]), set(self.nodes[name]["axioms"]))
+                for axiom, path in hierarchy["axiom_paths"].items():
+                    self.assertEqual(path[0], name)
+                    self.assertEqual(path[-1], axiom)
+                    for parent, child in zip(path, path[1:]):
+                        self.assertIn(child, self.nodes[parent]["dependencies"])
+
+    def test_miu_subjects_retain_logic_and_computation_boundaries(self):
+        graph = KnowledgeGraph(self.catalog)
+        self.assertEqual(self.catalog["subjects"]["miu_system"]["parent"], "formal_rewriting")
+        self.assertEqual(self.catalog["subjects"]["formal_rewriting"]["parent"], "computation")
+        for subject in ["miu_system", "formal_rewriting", "computation", "logic", "foundations", "mathematics"]:
+            with self.subTest(subject=subject):
+                self.assertIn("Math.Miu.derivable_iff", {node["name"] for node in
+                              graph.search("Math.Miu.derivable_iff", subject=subject)})
+
+    def test_miu_native_proof_translation_is_accepted_by_lean(self):
+        from repository.metamath_build import open_snapshot as open_native
+        from repository.miu import translate
+
+        native = open_native(ROOT)
+        try:
+            result = translate(native, "metamath:miu.mm:theorem1")
+            checked = native.declaration("metamath:miu.mm:theorem1")["checked"]["proof_digest"]
+        finally:
+            native.close()
+        self.assertIn(checked, result)
+        self.assertIn("example : Derivable [M, U, I, I, U]", result)
+        self.assertEqual(result.count("  have step_"), 7)
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "Translation.lean"
+            path.write_text(result)
+            run(ROOT, [self.lake, "env", "lean", "-Ddebug.skipKernelTC=false", str(path)], capture=True)
+            path.write_text(result.replace("example : Derivable [M, U, I, I, U]", "example : Derivable [M, U]"))
+            with self.assertRaises(RepositoryError):
+                run(ROOT, [self.lake, "env", "lean", str(path)], capture=True)
+
+    def test_miu_translation_rejects_changed_sources_other_calculi_and_unresolved_symbols(self):
+        from repository.metamath_audit import ProofError
+        from repository.metamath_build import open_snapshot as open_native
+        from repository.miu import lean_word, translate
+
+        native = open_native(ROOT)
+        try:
+            with self.assertRaisesRegex(ProofError, "only for miu.mm"):
+                translate(native, "metamath:set.mm:id")
+            with self.assertRaisesRegex(ProofError, "proved statement"):
+                translate(native, "metamath:miu.mm:ax")
+            source = native.source
+            with patch.object(native, "source", side_effect=lambda name, full=False: source(name, full) + b" "):
+                with self.assertRaisesRegex(ProofError, "source differs"):
+                    translate(native, "metamath:miu.mm:theorem1")
+            declaration = native.declaration
+
+            def changed_hypothesis(name):
+                node = declaration(name)
+                if name == "metamath:miu.mm:Ia":
+                    node["expression"] = ["|-", "x", "U"]
+                return node
+
+            with patch.object(native, "declaration", side_effect=changed_hypothesis):
+                with self.assertRaisesRegex(ProofError, "hypothesis differs"):
+                    translate(native, "metamath:miu.mm:theorem1")
+        finally:
+            native.close()
+        for tokens in [["x"], ["M", "I; sorry"], ["|-", "M"], [None], [[]]]:
+            with self.subTest(tokens=tokens), self.assertRaises(ProofError):
+                lean_word(tokens)
+
+    def test_miu_translation_cli_preserves_the_checked_native_step_order(self):
+        from repository.metamath import main as native_main
+
+        output = io.StringIO()
+        with redirect_stdout(output):
+            result = native_main(["--root", str(ROOT), "translate-lean", "metamath:miu.mm:theorem1"])
+        self.assertEqual(result, 0)
+        source = output.getvalue()
+        self.assertIn("import Math.Logic.Miu", source)
+        labels = ["Derivable.ax", "Derivable.II", "Derivable.II", "Derivable.I_",
+                  "Derivable.III", "Derivable.II", "Derivable.IV"]
+        proof = [line.split(" := ", 1)[1].split(" ", 1)[0] for line in source.splitlines()
+                 if line.startswith("  have step_")]
+        self.assertEqual(proof, labels)
+
     def test_finite_averaging_results_retain_local_proofs_and_source(self):
         expected = {
             "Math.RepresentationTheory.averageMap_apply": "theorem",

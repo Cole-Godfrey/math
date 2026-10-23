@@ -23,7 +23,7 @@ An independent Python implementation parses and replays every original proof. It
 
 The query snapshot preserves every named hypothesis, rule, and theorem. Its edges include assertion frames and every rule application. Integration checks reconstruct the axiom closure from all 2,545,549 native dependency edges and require agreement with every assertion's source replay. Local premises remain separate from global `$a` rules.
 
-Native proofs use the Metamath substitution calculus and the explicit rules of their source database. No translation into Lean's dependent type theory is asserted.
+Native proofs retain the Metamath substitution calculus and the explicit rules of their source database. The MIU translation below constructs a Lean derivation in an explicit inductive interpretation of that one calculus.
 
 ## Queries
 
@@ -42,6 +42,19 @@ python3 -m repository.metamath trace metamath:set.mm:pm2.43 metamath:set.mm:ax-1
 ```
 
 `proof` returns the native proof tokens, exact rule-application DAG, and assertion frame. `source` returns the archived source bytes for the declaration; add `--full` for the complete source database. `assumptions` distinguishes the theorem's own hypotheses and disjoint conditions from its transitive `$a` rules. `hierarchy` includes every prerequisite in source order. Queries use database-qualified identities throughout. Terminal search retains every matching result unless `--limit` is specified. Default queries reject snapshots whose verification inputs or upstream source bytes have changed; `--snapshot DIRECTORY` explicitly opens a retained archive independently of the current worktree.
+
+## MIU interpretation in Lean
+
+`Math/Logic/Miu.lean` interprets the pinned `miu.mm` alphabet, initial word, and four rewriting rules as an inductive derivability relation. It proves the complete criterion: a word is derivable exactly when it starts with M, contains exactly one M, and its number of I symbols is nonzero modulo three. The proof constructs suitable pure-I words, reduces their lengths in steps of three, and replaces triples by U. This gives a decision procedure and proves that MU is not derivable.
+
+Export the checked native theorem as a Lean derivation:
+
+```sh
+python3 -m repository.metamath translate-lean metamath:miu.mm:theorem1 > /tmp/miu-proof.lean
+lake env lean /tmp/miu-proof.lean
+```
+
+The exporter requires the reviewed MIU source digest and exact rule frames. It reconstructs the native proof DAG and translates its seven logical steps, in order, to Lean rule constructors. The output retains source and checked proof digests. Lean checks the resulting derivation of MUIIU independently. Changing its conclusion to MU fails checking. Translation requests for other databases, unproved declarations, changed source bytes, or unresolved symbols are rejected. The remaining databases retain their native foundations and proof artifacts.
 
 ## Source primitives
 

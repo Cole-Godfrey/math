@@ -20,3 +20,6 @@ import Math.NumberTheory.PrimeProgressions
 import Math.NumberTheory.SturmFinite
 import Math.Geometry.FiniteEtale
 import Math.Algebra.FiniteAveraging
+import Math.Logic.Miu
+import Math.Algebra.FittingFinite
+import Math.Algebra.FittingNatural

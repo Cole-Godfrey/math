@@ -16,10 +16,10 @@ from .libraries import package_provenance, snapshot_packages, source_origins
 from .bibliography import archive_bibliographies
 
 
-def read_json(path: Path) -> dict:
+def read_json(path: Path, *, compact_expressions: bool = False) -> dict:
     try:
         with path.open(encoding="utf-8") as handle:
-            result = read_object(handle)
+            result = read_object(handle, compact_expressions=compact_expressions)
     except (OSError, ValueError) as exc:
         raise RepositoryError(f"cannot read {path}: {exc}") from exc
     require(isinstance(result, dict), f"{path}: expected a json object")
@@ -173,10 +173,10 @@ def verify(root: Path, clean: bool = False) -> dict:
     checker_path = raw_path.with_suffix(".checker.json")
     receipt_path = raw_path.with_suffix(".index.json")
     try:
-        run(root, [lake, "env", "lean", "--run", "tools/Export.lean", str(raw_path), str(replay_path)])
+        run(root, [lake, "env", "lean", "--run", "tools/Export.lean", str(raw_path), str(replay_path)], capture=True)
         checked_digest, checker_version = check_replay(root, lake, replay_path, checker_path,
                                                       sorted(policy["axioms"]))
-        raw = read_json(raw_path)
+        raw = read_json(raw_path, compact_expressions=True)
         require(raw.get("lean_version") == expected, "exported Lean version differs from toolchain")
         catalog = validate(raw, policy)
         catalog["proof_binding"] = bind_replay(catalog, replay_path)
@@ -233,7 +233,7 @@ def load_catalog(root: Path) -> dict:
 
     path = root / "build/knowledge.json"
     require(path.is_file(), "no verified index; run python3 -m repository verify")
-    catalog = read_json(path)
+    catalog = read_json(path, compact_expressions=True)
     require(catalog.get("schema_version") == 3, "unsupported index schema; rerun verification")
     provenance = catalog.get("provenance", {})
     require(provenance.get("inputs") == input_hashes(root),

@@ -4,6 +4,8 @@ A growing repository of formal mathematics with native proof checking and explic
 
 The goal is a universal, living account of mathematics, from logical foundations to contemporary research. Current coverage includes first-order logic, model theory, ZFC sets, ordinals, ordinal notations, cardinals, relations, orders, number systems through complex numbers, groups, representations, characters, group cohomology, primality, quadratic reciprocity, Pell equations, algebraic number theory, analytic number theory, Dirichlet’s theorem, zeta and L-functions, modular forms, vector spaces, commutative algebra, Galois theory, the Nullstellensatz, schemes, finite étale morphisms, valuative criteria, projective spectra, elliptic curves, topology, homotopy groups, covering spaces, singular homology, Hilbert and Banach spaces, operator theory, Lax–Milgram weak solutions, Fourier analysis, distributions, Sobolev regularity, holomorphic and meromorphic functions, Cauchy and Jensen formulas, Harnack inequalities and optimal constants, harmonic extrema principles, Nevanlinna’s first main theorem, hyperbolic and Euclidean geometry, Carathéodory and Radon bounds, Helly and Krein–Milman theorems, convex separation, doubly stochastic matrices, smooth manifolds, vector bundles, Lie groups, Levi-Civita connections, calculus, differential equations, dynamical systems, ergodic theory, topological entropy, measure theory, Lebesgue and Bochner integration, Radon–Nikodym decomposition, Haar measures, conditional L² projection, geometry, extremal graph theory, categories, probability distributions, laws of large numbers, the central limit theorem, martingales, recursive functions, and Turing machines. The full goal remains open. See [representative results and their scope](docs/coverage.md).
 
+Linear algebra includes all 386 pinned modules, with 25 local Fitting decomposition theorems and six definitions. The 72 independent statement checks cover the dimension bound, invariant restrictions, naturality, Cayley–Hamilton, Jordan–Chevalley, tensor bases, duality, universal algebra constructions, affine maps, projective points, and root systems.
+
 Install [Lean and elan](https://lean-lang.org/install/), a C compiler, and Rust 1.94.1, then run:
 
 ```sh
@@ -25,7 +27,7 @@ python3 -m repository show ComputablePred.rice₂ --proof
 python3 -m repository hierarchy Math.Natural.mul_comm --format json
 ```
 
-Native Metamath verification also checks 71,837 proved statements across nine pinned databases. Their original proofs, source bytes, ordered hypotheses, disjoint-variable conditions, and axiom closures remain available through `python3 -m repository.metamath` and the explorer's proof-library selector. See [native proofs and queries](docs/metamath.md).
+Native Metamath verification also checks 71,837 proved statements across nine pinned databases. Their original proofs, source bytes, ordered hypotheses, disjoint-variable conditions, and axiom closures remain available through `python3 -m repository.metamath` and the explorer's proof-library selector. See [native proofs and queries](docs/metamath.md). The MIU interpreter also supplies a complete Lean derivability criterion and a native-to-Lean proof export.
 
 `lean-toolchain` pins Lean 4.35.0. Python 3.10 or newer is required; no Python packages are needed. `MATH_LAKE` can select a local Lake executable.
 
