@@ -24,3 +24,4 @@ import Math.Logic.Miu
 import Math.Algebra.FittingFinite
 import Math.Algebra.FittingNatural
 import Math.Algebra.JacobsonReduction
+import Math.Order.Bekic

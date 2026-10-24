@@ -1075,6 +1075,241 @@ class RepositoryTests(RepositoryArtifacts, unittest.TestCase):
                 self.assertGreater(node["source"]["line"], 0)
                 self.assertTrue(set(node["axioms"]) <= set(self.policy["modules"][module]["allowed_axioms"]))
 
+    def test_bekic_statements_match_independent_reference_types(self):
+        run(ROOT, [self.lake, "env", "lean", "tests/BekicStatements.lean"], capture=True)
+
+    def test_order_theory_statements_match_independent_reference_types(self):
+        run(ROOT, [self.lake, "env", "lean", "tests/OrderTheoryStatements.lean"], capture=True)
+
+    def test_order_registry_retains_the_complete_pinned_family(self):
+        base = ROOT / ".lake/packages/mathlib"
+        registered = self.policy["libraries"]["mathlib"]["modules"]
+        expected = {".".join(path.relative_to(base).with_suffix("").parts)
+                    for path in (base / "Mathlib/Order").rglob("*.lean")}
+        self.assertEqual(len(expected), 335)
+        self.assertEqual({name for name in registered if name.startswith("Mathlib.Order.")}, expected)
+        for module in expected:
+            with self.subTest(module=module):
+                self.assertIn(module, self.catalog["module_policy"])
+                self.assertIn(module, self.catalog["module_declarations_by_module"])
+                origin = self.catalog["sources"][module]
+                self.assertEqual(origin["revision"], self.policy["libraries"]["mathlib"]["revision"])
+                self.assertEqual(origin["license"], "Apache-2.0")
+                self.assertEqual(origin["sha256"], hashlib.sha256(
+                    (base / (module.replace(".", "/") + ".lean")).read_bytes()).hexdigest())
+
+    def test_bekic_results_retain_complete_local_proofs_without_choice(self):
+        expected = {'Math.OrderTheory.swapArguments': 'definition',
+         'Math.OrderTheory.jointStep': 'definition',
+         'Math.OrderTheory.leastOuterStep': 'definition',
+         'Math.OrderTheory.greatestOuterStep': 'definition',
+         'Math.OrderTheory.leastPair': 'definition',
+         'Math.OrderTheory.greatestPair': 'definition',
+         'Math.OrderTheory.leastPair_left': 'theorem',
+         'Math.OrderTheory.leastPair_right': 'theorem',
+         'Math.OrderTheory.leastPair_fixed': 'theorem',
+         'Math.OrderTheory.leastPair_le_of_prefixed': 'theorem',
+         'Math.OrderTheory.leastPair_isLeast_prefixed': 'theorem',
+         'Math.OrderTheory.leastPair_eq_lfp': 'theorem',
+         'Math.OrderTheory.leastPair_mono': 'theorem',
+         'Math.OrderTheory.greatestPair_left': 'theorem',
+         'Math.OrderTheory.greatestPair_right': 'theorem',
+         'Math.OrderTheory.greatestPair_fixed': 'theorem',
+         'Math.OrderTheory.le_greatestPair_of_postfixed': 'theorem',
+         'Math.OrderTheory.greatestPair_isGreatest_postfixed': 'theorem',
+         'Math.OrderTheory.greatestPair_eq_gfp': 'theorem',
+         'Math.OrderTheory.greatestPair_mono': 'theorem',
+         'Math.OrderTheory.leastPair_le_greatestPair': 'theorem',
+         'Math.OrderTheory.leastPair_swap': 'theorem',
+         'Math.OrderTheory.greatestPair_swap': 'theorem',
+         'Math.OrderTheory.existsUnique_fixed_iff_extrema_eq': 'theorem'}
+        module = "Math.Order.Bekic"
+        origin = self.catalog["sources"][module]
+        self.assertEqual(origin["package"], "math")
+        self.assertEqual(origin["path"], "Math/Order/Bekic.lean")
+        self.assertEqual(origin["sha256"], hashlib.sha256((ROOT / origin["path"]).read_bytes()).hexdigest())
+        allowed = {"propext", "Quot.sound"}
+        self.assertEqual(set(self.policy["modules"][module]["allowed_axioms"]), allowed)
+        for name, kind in expected.items():
+            with self.subTest(name=name):
+                node = self.nodes[name]
+                self.assertIn(name, self.catalog["roots"])
+                self.assertIn(name, self.catalog["module_declarations_by_module"][module])
+                self.assertEqual(node["module"], module)
+                self.assertEqual(node["kind"], kind)
+                self.assertIsInstance(node["value"], int)
+                self.assertTrue(node["proof"])
+                self.assertGreater(node["source"]["line"], 0)
+                self.assertTrue(set(node["axioms"]) <= allowed)
+
+    def test_order_results_retain_terms_and_pinned_sources(self):
+        expected = {'OrderHom.lfp': 'Mathlib.Order.FixedPoints',
+         'OrderHom.gfp': 'Mathlib.Order.FixedPoints',
+         'OrderHom.map_lfp': 'Mathlib.Order.FixedPoints',
+         'OrderHom.map_gfp': 'Mathlib.Order.FixedPoints',
+         'OrderHom.isLeast_lfp_le': 'Mathlib.Order.FixedPoints',
+         'OrderHom.isGreatest_gfp_le': 'Mathlib.Order.FixedPoints',
+         'OrderHom.isLeast_lfp': 'Mathlib.Order.FixedPoints',
+         'OrderHom.isGreatest_gfp': 'Mathlib.Order.FixedPoints',
+         'OrderHom.lfp_le_gfp': 'Mathlib.Order.FixedPoints',
+         'OrderHom.map_lfp_comp': 'Mathlib.Order.FixedPoints',
+         'OrderHom.map_gfp_comp': 'Mathlib.Order.FixedPoints',
+         'fixedPoints.completeLattice': 'Mathlib.Order.FixedPoints',
+         'fixedPoints.lfp_eq_sSup_iterate': 'Mathlib.Order.FixedPoints',
+         'fixedPoints.gfp_eq_sInf_iterate': 'Mathlib.Order.FixedPoints',
+         'ChainCompletePartialOrder': 'Mathlib.Order.BourbakiWitt',
+         'ChainCompletePartialOrder.nonempty_fixedPoints_of_inflationary': 'Mathlib.Order.BourbakiWitt',
+         'zorn_le': 'Mathlib.Order.Zorn',
+         'zorn_le_nonempty': 'Mathlib.Order.Zorn',
+         'zorn_le₀': 'Mathlib.Order.Zorn',
+         'IsChain.exists_maxChain': 'Mathlib.Order.Zorn',
+         'GaloisConnection.l_sup': 'Mathlib.Order.GaloisConnection.Basic',
+         'GaloisConnection.l_iSup': 'Mathlib.Order.GaloisConnection.Basic',
+         'GaloisConnection.l_sSup_eq_sSup_image': 'Mathlib.Order.GaloisConnection.Basic',
+         'GaloisConnection.closureOperator': 'Mathlib.Order.Closure',
+         'ClosureOperator': 'Mathlib.Order.Closure',
+         'ClosureOperator.le_closure': 'Mathlib.Order.Closure',
+         'ClosureOperator.idempotent': 'Mathlib.Order.Closure',
+         'ClosureOperator.closure_isGLB': 'Mathlib.Order.Closure',
+         'ClosureOperator.gi': 'Mathlib.Order.Closure',
+         'ClosureOperator.closure_iSup_closure': 'Mathlib.Order.Closure',
+         'ScottContinuous': 'Mathlib.Order.ScottContinuity',
+         'ScottContinuous.monotone': 'Mathlib.Order.ScottContinuity',
+         'ScottContinuous.comp': 'Mathlib.Order.ScottContinuity',
+         'WellQuasiOrdered': 'Mathlib.Order.WellQuasiOrder',
+         'IsAntichain.finite_of_wellQuasiOrdered': 'Mathlib.Order.WellQuasiOrder',
+         'WellQuasiOrdered.exists_monotone_subseq': 'Mathlib.Order.WellQuasiOrder',
+         'WellQuasiOrdered.prod': 'Mathlib.Order.WellQuasiOrder',
+         'WellQuasiOrdered.wellFounded': 'Mathlib.Order.WellQuasiOrder',
+         'WellQuasiOrdered.pi': 'Mathlib.Order.WellQuasiOrder',
+         'wellQuasiOrderedLE_iff_wellFoundedLT': 'Mathlib.Order.WellQuasiOrder',
+         'CompositionSeries.jordan_holder': 'Mathlib.Order.JordanHolder',
+         'CompositionSeries.Equivalent.length_eq': 'Mathlib.Order.JordanHolder',
+         'transfiniteIterate': 'Mathlib.Order.TransfiniteIteration',
+         'transfiniteIterate_bot': 'Mathlib.Order.TransfiniteIteration',
+         'transfiniteIterate_succ': 'Mathlib.Order.TransfiniteIteration',
+         'transfiniteIterate_limit': 'Mathlib.Order.TransfiniteIteration',
+         'monotone_transfiniteIterate': 'Mathlib.Order.TransfiniteIteration',
+         'Ultrafilter.exists_le': 'Mathlib.Order.Filter.Ultrafilter.Defs',
+         'Ultrafilter.mem_or_compl_mem': 'Mathlib.Order.Filter.Ultrafilter.Defs',
+         'Ultrafilter.exists_ultrafilter_of_finite_inter_nonempty': 'Mathlib.Order.Filter.Ultrafilter.Basic'}
+        for name, module in expected.items():
+            with self.subTest(name=name):
+                node = self.nodes[name]
+                self.assertIn(name, self.catalog["roots"])
+                self.assertEqual(node["module"], module)
+                self.assertIn(name, self.catalog["module_declarations_by_module"][module])
+                if node["kind"] in {"definition", "theorem", "opaque"}:
+                    self.assertIsInstance(node["value"], int)
+                    self.assertTrue(node["proof"])
+                self.assertTrue(set(node["axioms"]) <= self.policy["axioms"].keys())
+                origin = self.catalog["sources"][module]
+                self.assertIn(origin["revision"], origin["url"])
+
+    def test_order_hierarchies_retain_hypotheses_and_complete_axiom_paths(self):
+        expected = {'Math.OrderTheory.leastPair_eq_lfp': ['OrderHom.lfp',
+                                               'CompleteLattice',
+                                               'Math.OrderTheory.leastPair_fixed',
+                                               'Math.OrderTheory.leastPair_le_of_prefixed'],
+         'Math.OrderTheory.greatestPair_eq_gfp': ['OrderHom.gfp',
+                                                  'CompleteLattice',
+                                                  'Math.OrderTheory.greatestPair_fixed',
+                                                  'Math.OrderTheory.le_greatestPair_of_postfixed'],
+         'Math.OrderTheory.leastPair_mono': ['Math.OrderTheory.leastPair_le_of_prefixed', 'OrderHom.lfp'],
+         'Math.OrderTheory.greatestPair_mono': ['Math.OrderTheory.le_greatestPair_of_postfixed', 'OrderHom.gfp'],
+         'Math.OrderTheory.leastPair_swap': ['Math.OrderTheory.swapArguments',
+                                             'Math.OrderTheory.leastPair_le_of_prefixed'],
+         'Math.OrderTheory.greatestPair_swap': ['Math.OrderTheory.swapArguments',
+                                                'Math.OrderTheory.le_greatestPair_of_postfixed'],
+         'Math.OrderTheory.existsUnique_fixed_iff_extrema_eq': ['ExistsUnique',
+                                                                'Math.OrderTheory.leastPair_le_of_prefixed',
+                                                                'Math.OrderTheory.le_greatestPair_of_postfixed'],
+         'Math.OrderTheory.leastOuterStep': ['Preorder', 'CompleteLattice', 'OrderHom.lfp'],
+         'Math.OrderTheory.greatestOuterStep': ['Preorder', 'CompleteLattice', 'OrderHom.gfp'],
+         'Math.OrderTheory.jointStep': ['Preorder', 'Prod', 'OrderHom'],
+         'Math.OrderTheory.swapArguments': ['Preorder', 'OrderHom'],
+         'fixedPoints.completeLattice': ['OrderHom.prevFixed', 'OrderHom.nextFixed', 'CompleteLattice'],
+         'fixedPoints.lfp_eq_sSup_iterate': ['OmegaCompletePartialOrder.ωScottContinuous', 'OrderHom.lfp', 'Nat'],
+         'ChainCompletePartialOrder.nonempty_fixedPoints_of_inflationary': ['ChainCompletePartialOrder',
+                                                                            'Nonempty',
+                                                                            'Function.fixedPoints'],
+         'zorn_le': ['Preorder', 'BddAbove', 'IsChain'],
+         'GaloisConnection.l_iSup': ['GaloisConnection', 'CompleteLattice', 'iSup'],
+         'GaloisConnection.closureOperator': ['GaloisConnection', 'ClosureOperator', 'PartialOrder'],
+         'ClosureOperator.gi': ['ClosureOperator', 'GaloisInsertion'],
+         'ScottContinuous.comp': ['ScottContinuous', 'Function.comp'],
+         'WellQuasiOrdered.pi': ['Finite',
+                                 'IsPreorder',
+                                 'WellQuasiOrdered',
+                                 'WellQuasiOrdered.exists_monotone_subseq'],
+         'WellQuasiOrdered.wellFounded': ['WellQuasiOrdered', 'WellFounded', 'IsPreorder'],
+         'CompositionSeries.jordan_holder': ['JordanHolderLattice',
+                                             'CompositionSeries.Equivalent',
+                                             'CompositionSeries'],
+         'transfiniteIterate_limit': ['Order.IsSuccLimit', 'transfiniteIterate', 'WellFoundedLT', 'SupSet'],
+         'monotone_transfiniteIterate': ['CompleteLattice', 'OrderBot', 'WellFoundedLT', 'transfiniteIterate'],
+         'Ultrafilter.exists_le': ['Filter.NeBot', 'Ultrafilter', 'IsAtom'],
+         'Ultrafilter.exists_ultrafilter_of_finite_inter_nonempty': ['Filter.generate',
+                                                                     'Ultrafilter.of',
+                                                                     'Finset']}
+        graph = KnowledgeGraph(self.catalog)
+        for name, required in expected.items():
+            with self.subTest(name=name):
+                hierarchy = graph.hierarchy(name)
+                reached = {node["name"] for node in hierarchy["declarations"]}
+                self.assertTrue(set(required) <= reached, set(required) - reached)
+                self.assertEqual(set(hierarchy["axiom_paths"]), set(self.nodes[name]["axioms"]))
+                for axiom, path in hierarchy["axiom_paths"].items():
+                    self.assertEqual(path[0], name)
+                    self.assertEqual(path[-1], axiom)
+                    for parent, child in zip(path, path[1:]):
+                        self.assertIn(child, self.nodes[parent]["dependencies"])
+
+    def test_order_subjects_retain_mathematical_classifications(self):
+        graph = KnowledgeGraph(self.catalog)
+        parents = {'lattice_theory': 'order',
+         'complete_lattices': 'lattice_theory',
+         'fixed_point_theory': 'complete_lattices',
+         'domain_theory': 'order',
+         'galois_connections': 'order',
+         'closure_operators': 'galois_connections',
+         'boolean_algebras': 'lattice_theory',
+         'heyting_algebras': 'lattice_theory',
+         'chains_and_antichains': 'order',
+         'maximality_principles': 'chains_and_antichains',
+         'well_quasi_orders': 'order',
+         'well_founded_orders': 'order',
+         'order_morphisms': 'order',
+         'linear_order_extensions': 'order',
+         'order_ideals': 'lattice_theory',
+         'order_intervals': 'order',
+         'lexicographic_orders': 'order',
+         'filters_and_ultrafilters': 'order',
+         'order_categories': 'order',
+         'transfinite_order_iteration': 'fixed_point_theory',
+         'ordered_composition_series': 'lattice_theory',
+         'order_completions': 'complete_lattices'}
+        for subject, parent in parents.items():
+            with self.subTest(subject=subject):
+                self.assertEqual(self.catalog["subjects"][subject]["parent"], parent)
+                self.assertTrue(self.catalog["subjects"][subject]["modules"])
+        expected = {
+            "Math.OrderTheory.leastPair_eq_lfp": ["fixed_point_theory", "complete_lattices", "order"],
+            "fixedPoints.lfp_eq_sSup_iterate": ["fixed_point_theory", "order"],
+            "ChainCompletePartialOrder.nonempty_fixedPoints_of_inflationary": ["fixed_point_theory"],
+            "GaloisConnection.closureOperator": ["closure_operators", "galois_connections"],
+            "ScottContinuous.comp": ["domain_theory", "order"],
+            "WellQuasiOrdered.pi": ["well_quasi_orders", "order"],
+            "CompositionSeries.jordan_holder": ["ordered_composition_series", "lattice_theory"],
+            "monotone_transfiniteIterate": ["transfinite_order_iteration", "fixed_point_theory"],
+            "Ultrafilter.exists_le": ["filters_and_ultrafilters", "order"],
+            "zorn_le": ["maximality_principles", "chains_and_antichains", "order"],
+        }
+        for name, subjects in expected.items():
+            for subject in [*subjects, "mathematics"]:
+                with self.subTest(name=name, subject=subject):
+                    self.assertIn(name, {node["name"] for node in graph.search(name, subject=subject)})
+
     def test_jacobson_statements_match_independent_reference_types(self):
         run(ROOT, [self.lake, "env", "lean", "tests/JacobsonStatements.lean"], capture=True)
 

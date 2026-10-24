@@ -20393,6 +20393,2670 @@
             "Quot.sound",
             "Classical.choice"
           ]
+        },
+        "Mathlib.Order.Antichain": {
+          "title": "Antichains",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Antisymmetrization": {
+          "title": "Turning a preorder into a partial order",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Atoms.Finite": {
+          "title": "Atoms, Coatoms, Simple Lattices, and Finiteness",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Atoms": {
+          "title": "Atoms, Coatoms, and Simple Lattices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Basic": {
+          "title": "Basic definitions about ≤ and <",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Birkhoff": {
+          "title": "Birkhoff representation",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.BooleanAlgebra.Basic": {
+          "title": "Basic properties of Boolean algebras",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.BooleanAlgebra.Defs": {
+          "title": "(Generalized) Boolean algebras",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.BooleanAlgebra.Set": {
+          "title": "Boolean algebra of sets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.BooleanGenerators": {
+          "title": "Generators for Boolean algebras",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.BooleanSubalgebra": {
+          "title": "Boolean subalgebras",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Booleanisation": {
+          "title": "Adding complements to a generalized Boolean algebra",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Bounded": {
+          "title": "Bounded and unbounded sets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.BoundedOrder.Basic": {
+          "title": "⊤ and ⊥, bounded lattices and variants",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.BoundedOrder.Lattice": {
+          "title": "Bounded lattices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.BoundedOrder.Monotone": {
+          "title": "Monotone functions on bounded orders",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Bounds.Basic": {
+          "title": "Upper / lower bounds",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Bounds.Defs": {
+          "title": "Definitions about upper/lower bounds",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Bounds.Image": {
+          "title": "Images of upper/lower bounds under monotone functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Bounds.Lattice": {
+          "title": "Unions and intersections of bounds",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Bounds.OrderIso": {
+          "title": "Order isomorphisms and bounds.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.BourbakiWitt": {
+          "title": "Bourbaki-Witt Theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Category.BddDistLat": {
+          "title": "The category of bounded distributive lattices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Category.BddLat": {
+          "title": "The category of bounded lattices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Category.BddOrd": {
+          "title": "The category of bounded orders",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Category.BoolAlg": {
+          "title": "The category of Boolean algebras",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Category.CompleteLat": {
+          "title": "The category of complete lattices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Category.DistLat": {
+          "title": "The category of distributive lattices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Category.FinBddDistLat": {
+          "title": "The category of finite bounded distributive lattices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Category.FinBoolAlg": {
+          "title": "The category of finite Boolean algebras",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Category.FinPartOrd": {
+          "title": "The category of finite partial orders",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Category.Frm": {
+          "title": "The category of frames",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Category.HeytAlg": {
+          "title": "The category of Heyting algebras",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Category.Lat": {
+          "title": "The category of lattices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Category.LinOrd": {
+          "title": "Category of linear orders",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Category.NonemptyFinLinOrd": {
+          "title": "Nonempty finite linear orders",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Category.OmegaCompletePartialOrder": {
+          "title": "Category of types with an omega complete partial order",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Category.PartOrd": {
+          "title": "Category of partial orders",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Category.PartOrdEmb": {
+          "title": "Category of partial orders, with order embeddings as morphisms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Category.Preord": {
+          "title": "Category of preorders",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Category.Semilat": {
+          "title": "The categories of semilattices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Circular.ZMod": {
+          "title": "The circular order on ZMod n",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Circular": {
+          "title": "Circular order hierarchy",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Closure": {
+          "title": "Closure operators between preorders",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Cofinal": {
+          "title": "Cofinal sets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.CompactlyGenerated.Basic": {
+          "title": "Compactness properties for complete lattices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.CompactlyGenerated.Intervals": {
+          "title": "Results about compactness properties for intervals in complete lattices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Comparable": {
+          "title": "Comparability and incomparability relations",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Compare": {
+          "title": "Comparison",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.CompleteBooleanAlgebra": {
+          "title": "Frames, completely distributive lattices and complete Boolean algebras",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.CompleteLattice.Basic": {
+          "title": "Theory of complete lattices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.CompleteLattice.Chain": {
+          "title": "Hausdorff's maximality principle",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.CompleteLattice.Defs": {
+          "title": "Definition of complete lattices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.CompleteLattice.Finset": {
+          "title": "Lattice operations on finsets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.CompleteLattice.Group": {
+          "title": "Complete lattices and groups -/",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.CompleteLattice.Lemmas": {
+          "title": "Theory of complete lattices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.CompleteLattice.MulticoequalizerDiagram": {
+          "title": "Multicoequalizer diagrams in complete lattices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.CompleteLattice.PiLex": {
+          "title": "Complete linear order instance on lexicographically ordered pi types",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.CompleteLattice.SetLike": {
+          "title": "SetLike instance for elements of CompleteSublattice (Set X)",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.CompleteLatticeIntervals": {
+          "title": "Subtypes of conditionally complete linear orders",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.CompletePartialOrder": {
+          "title": "Complete Partial Orders",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.CompleteSublattice": {
+          "title": "Complete Sublattices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Completion": {
+          "title": "Dedekind-MacNeille completion",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Concept": {
+          "title": "Formal concept analysis",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.ConditionallyCompleteLattice.Basic": {
+          "title": "Theory of conditionally complete lattices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.ConditionallyCompleteLattice.Defs": {
+          "title": "Definitions of conditionally complete lattices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.ConditionallyCompleteLattice.Finset": {
+          "title": "Conditionally complete lattices and finite sets.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.ConditionallyCompleteLattice.Group": {
+          "title": "Conditionally complete lattices and groups.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.ConditionallyCompleteLattice.Indexed": {
+          "title": "Indexed sup / inf in conditionally complete lattices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.ConditionallyCompletePartialOrder.Basic": {
+          "title": "Basic results on conditionally complete partial orders",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.ConditionallyCompletePartialOrder.Defs": {
+          "title": "Conditionally complete partial orders",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.ConditionallyCompletePartialOrder.Indexed": {
+          "title": "Indexed sup / inf in conditionally complete lattices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Copy": {
+          "title": "Tooling to make copies of lattice structures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.CountableDenseLinearOrder": {
+          "title": "The back and forth method and countable dense linear orders",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.CountableSupClosed": {
+          "title": "Sets closed under countable join/meet",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Cover": {
+          "title": "The covering relation",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Defs.Lattice": {
+          "title": "(Semi-)lattices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Defs.LinearOrder": {
+          "title": "Orders",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Defs.Prop": {
+          "title": "Order definitions for propositions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Defs.Unbundled": {
+          "title": "Orders",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.DirSupClosed": {
+          "title": "Sets closed under directed suprema",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Directed": {
+          "title": "Directed indexed families and sets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.DirectedInverseSystem": {
+          "title": "Definition of direct systems, inverse systems, and cardinalities in specific inverse systems",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Disjoint": {
+          "title": "Disjointness and complements",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Disjointed": {
+          "title": "Making a sequence disjoint",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Extension.Linear": {
+          "title": "Extend a partial order to a linear order",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Extension.Well": {
+          "title": "Extend a well-founded order to a well-order",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.AtTopBot.Archimedean": {
+          "title": "Filter.atTop filter and archimedean (semi)rings/fields",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.AtTopBot.Basic": {
+          "title": "Basic results on Filter.atTop and Filter.atBot filters",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.AtTopBot.BigOperators": {
+          "title": "Two lemmas about limit of Π b ∈ s, f b along",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.AtTopBot.CompleteLattice": {
+          "title": "Filter.atTop and Filter.atBot in (conditionally) complete lattices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.AtTopBot.CountablyGenerated": {
+          "title": "Convergence to infinity and countably generated filters",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.AtTopBot.Defs": {
+          "title": "Definition of Filter.atTop and Filter.atBot filters",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.AtTopBot.Disjoint": {
+          "title": "Disjointness of Filter.atTop and Filter.atBot",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.AtTopBot.Field": {
+          "title": "Convergence to ±infinity in linear ordered (semi)fields",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.AtTopBot.Finite": {
+          "title": "Finiteness and Filter.atTop and Filter.atBot filters",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.AtTopBot.Finset": {
+          "title": "Filter.atTop and Filter.atBot filters and finite sets.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.AtTopBot.Floor": {
+          "title": "a * c ^ n < (n - d)! holds true for sufficiently large n.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.AtTopBot.Group": {
+          "title": "Convergence to ±infinity in ordered commutative groups",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.AtTopBot.Interval": {
+          "title": "Limits of intervals along filters",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.AtTopBot.Map": {
+          "title": "Map and comap of Filter.atTop and Filter.atBot",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.AtTopBot.ModEq": {
+          "title": "Numbers are frequently ModEq to fixed numbers",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.AtTopBot.Monoid": {
+          "title": "Convergence to ±infinity in ordered commutative monoids",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.AtTopBot.Prod": {
+          "title": "Filter.atTop and Filter.atBot filters on products",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.AtTopBot.Ring": {
+          "title": "Convergence to ±infinity in ordered rings",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.AtTopBot.Tendsto": {
+          "title": "Limits of Filter.atTop and Filter.atBot",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.Bases.Basic": {
+          "title": "Basic results on filter bases",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.Bases.Finite": {
+          "title": "Finiteness results on filter bases",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.Basic": {
+          "title": "Theory of filters on sets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.CardinalInter": {
+          "title": "Filters with a cardinal intersection property",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.Cocardinal": {
+          "title": "The cocardinal filter",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.Cofinite": {
+          "title": "The cofinite filter",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.CountableInter": {
+          "title": "Filters with countable intersection property",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.CountableSeparatingOn": {
+          "title": "Filters with countable intersections and countable separating families",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.CountablyGenerated": {
+          "title": "Countably generated filters",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.Curry": {
+          "title": "Curried Filters",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.Defs": {
+          "title": "Definitions about filters",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.ENNReal": {
+          "title": "Limsup and liminf of reals",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.EventuallyConst": {
+          "title": "Functions that are eventually constant along a filter",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.Extr": {
+          "title": "Minimum and maximum w.r.t. a filter and on a set",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.FilterProduct": {
+          "title": "Ultraproducts",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.Finite": {
+          "title": "Results relating filters to finiteness",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.Germ.Basic": {
+          "title": "Germ of a function at a filter",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.Germ.OrderedMonoid": {
+          "title": "Ordered monoid instances on the space of germs of a function at a filter",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.IndicatorFunction": {
+          "title": "Indicator function and filters",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.Interval": {
+          "title": "Convergence of intervals",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.IsBounded": {
+          "title": "Lemmas about Is(Co)Bounded(Under)",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.Ker": {
+          "title": "Kernel of a filter",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.Lift": {
+          "title": "Lift filters along filter and set functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.ListTraverse": {
+          "title": "Properties of Traversable.traverse on Lists and Filters",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.Map": {
+          "title": "Theorems about map and comap on filters.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.NAry": {
+          "title": "N-ary maps of filter",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.Partial": {
+          "title": "Tendsto for relations and partial functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.Pi": {
+          "title": "(Co)product of a family of filters",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.Pointwise": {
+          "title": "Pointwise operations on filters",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.Prod": {
+          "title": "Product and coproduct filters",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.Ring": {
+          "title": "Lemmas about filters and ordered rings.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.SmallSets": {
+          "title": "The filter of small sets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.Subsingleton": {
+          "title": "Subsingleton filters",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.Tendsto": {
+          "title": "Convergence in terms of filters",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.TendstoCofinite": {
+          "title": "Functions tending to the cofinite filter",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.Ultrafilter.Basic": {
+          "title": "Ultrafilters",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.Ultrafilter.Cardinality": {
+          "title": "Cardinality of Ultrafilters",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.Ultrafilter.Defs": {
+          "title": "Ultrafilters",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Filter.ZeroAndBoundedAtFilter": {
+          "title": "Zero and Bounded at filter",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Fin.Basic": {
+          "title": "Fin n forms a bounded linear order",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Fin.Clamp": {
+          "title": "Lemmas about Fin.clamp",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Fin.Finset": {
+          "title": "Order isomorphisms from Fin to finsets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Fin.InsertNth": {
+          "title": "Conditions for Fin.insertNth to be monotone or strictly monotone",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Fin.Prod": {
+          "title": "Properties of the order on a binary product of Fin types",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Fin.SuccAboveOrderIso": {
+          "title": "The order isomorphism Fin (n + 1) ≃o {i}ᶜ",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Fin.Tuple": {
+          "title": "Order properties on tuples",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.FixedPoints": {
+          "title": "Fixed point construction on complete lattices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.GaloisConnection.Basic": {
+          "title": "Galois connections, insertions and coinsertions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.GaloisConnection.Defs": {
+          "title": "Galois connections, insertions and coinsertions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.GameAdd": {
+          "title": "Game addition relation",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Grade": {
+          "title": "Graded orders",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Height": {
+          "title": "Maximal length of chains",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Heyting.Basic": {
+          "title": "Heyting algebras",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Heyting.Boundary": {
+          "title": "Co-Heyting boundary",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Heyting.Hom": {
+          "title": "Heyting algebra morphisms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Heyting.Regular": {
+          "title": "Heyting regular elements",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Hom.Basic": {
+          "title": "Order homomorphisms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Hom.Bounded": {
+          "title": "Bounded order homomorphisms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Hom.BoundedLattice": {
+          "title": "Bounded lattice homomorphisms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Hom.CompleteLattice": {
+          "title": "Complete lattice homomorphisms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Hom.Lattice": {
+          "title": "Unbounded lattice homomorphisms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Hom.Lex": {
+          "title": "Lexicographic order and order isomorphisms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Hom.Order": {
+          "title": "Lattice structure on order homomorphisms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Hom.PowersetCard": {
+          "title": "Finite sets of an ordered type",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Hom.Set": {
+          "title": "Order homomorphisms and sets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Hom.WithTopBot": {
+          "title": "Adjoining ⊤ and ⊥ to order maps and lattice homomorphisms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Ideal": {
+          "title": "Order ideals, cofinal sets, and the Rasiowa–Sikorski lemma",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.InitialSeg": {
+          "title": "Initial and principal segments",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Int.ConditionallyCompleteOrder": {
+          "title": "ℤ forms a conditionally complete linear order",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Int.LeastGreatest": {
+          "title": "Least upper bound and greatest lower bound properties for integers",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Interval.Basic": {
+          "title": "Order intervals",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Interval.Finset.Basic": {
+          "title": "Intervals as finsets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Interval.Finset.Box": {
+          "title": "Decomposing a locally finite ordered ring into boxes",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Interval.Finset.Defs": {
+          "title": "Locally finite orders",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Interval.Finset.DenselyOrdered": {
+          "title": "Linear locally finite orders are densely ordered iff they are trivial",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Interval.Finset.Fin": {
+          "title": "Finite intervals in Fin n",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Interval.Finset.Floor": {
+          "title": "Membership in intervals via Int.floor / Nat.floor / Int.ceil / Nat.ceil",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Interval.Finset.Gaps": {
+          "title": "Gaps of disjoint closed intervals",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Interval.Finset.Nat": {
+          "title": "Finite intervals of naturals",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Interval.Finset.SuccPred": {
+          "title": "Finset intervals in a successor-predecessor order",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Interval.Lex": {
+          "title": "The lexicographic order on intervals",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Interval.Multiset": {
+          "title": "Intervals as multisets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Interval.Set.Basic": {
+          "title": "Intervals",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Interval.Set.Card": {
+          "title": "Cardinalities of intervals",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Interval.Set.Defs": {
+          "title": "Intervals",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Interval.Set.Disjoint": {
+          "title": "Extra lemmas about intervals",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Interval.Set.Fin": {
+          "title": "(Pre)images of set intervals under Fin operations",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Interval.Set.Final": {
+          "title": "Final functors between intervals",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Interval.Set.Image": {
+          "title": "Monotone functions on intervals",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Interval.Set.Infinite": {
+          "title": "Infinitude of intervals",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Interval.Set.InitialSeg": {
+          "title": "Intervals as initial segments",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Interval.Set.IsoIoo": {
+          "title": "Order isomorphism between a linear ordered field and (-1, 1)",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Interval.Set.Limit": {
+          "title": "Limit elements in Set.Ici",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Interval.Set.LinearOrder": {
+          "title": "Interval properties in linear orders",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Interval.Set.Monotone": {
+          "title": "Monotonicity on intervals",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Interval.Set.Nat": {
+          "title": "Finite intervals of naturals",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Interval.Set.OrdConnected": {
+          "title": "Order-connected sets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Interval.Set.OrdConnectedComponent": {
+          "title": "Order connected components of a set",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Interval.Set.OrdConnectedLinear": {
+          "title": "Order-connected subsets of linear orders",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Interval.Set.OrderEmbedding": {
+          "title": "Preimages of intervals under order embeddings",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Interval.Set.OrderIso": {
+          "title": "Lemmas about images of intervals under order isomorphisms.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Interval.Set.Pi": {
+          "title": "Intervals in pi-space",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Interval.Set.ProjIcc": {
+          "title": "Projection of a line onto a closed interval",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Interval.Set.SuccOrder": {
+          "title": "Successors in intervals",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Interval.Set.SuccPred": {
+          "title": "Set intervals in a successor-predecessor order",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Interval.Set.SurjOn": {
+          "title": "Monotone surjective functions are surjective on intervals",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Interval.Set.Union": {
+          "title": "Extra lemmas about unions of intervals",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Interval.Set.UnorderedInterval": {
+          "title": "Intervals without endpoints ordering",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Interval.Set.WithBotTop": {
+          "title": "Intervals in WithTop α and WithBot α",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Irreducible": {
+          "title": "Irreducible and prime elements in an order",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.IsNormal": {
+          "title": "Normal functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Iterate": {
+          "title": "Inequalities on iterates",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.JordanHolder": {
+          "title": "Jordan-Hölder Theorem",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.KonigLemma": {
+          "title": "Kőnig's infinity lemma",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.KrullDimension": {
+          "title": "Krull dimension of a preordered set and height of an element",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Lattice.Congruence": {
+          "title": "Lattice Congruences",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Lattice.Nat": {
+          "title": "Conditionally complete linear order structure on ℕ",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Lattice": {
+          "title": "Basic properties of lattices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.LatticeIntervals": {
+          "title": "Intervals in Lattices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Lex": {
+          "title": "Type synonyms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.LiminfLimsup": {
+          "title": "liminfs and limsups of functions and filters",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Max": {
+          "title": "Minimal/maximal and bottom/top elements",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.MinMax": {
+          "title": "max and min",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Minimal": {
+          "title": "Minimality and Maximality",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.ModularLattice": {
+          "title": "Modular Lattices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Monotone.Basic": {
+          "title": "Monotonicity",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Monotone.Defs": {
+          "title": "Monotonicity",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Monotone.Extension": {
+          "title": "Extension of a monotone function from a set to the whole space",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Monotone.Monovary": {
+          "title": "Monovariance of functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Monotone.MonovaryOrder": {
+          "title": "Interpreting monovarying functions as monotone functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Monotone.Odd": {
+          "title": "Monotonicity of odd functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Monotone.Union": {
+          "title": "Monotonicity on intervals",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Nat": {
+          "title": "The natural numbers form a linear order",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.NonemptyFiniteChains": {
+          "title": "Nonempty finite chains in a partially ordered type",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Northcott": {
+          "title": "Northcott Functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Notation": {
+          "title": "Notation classes for lattice operations",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Nucleus": {
+          "title": "Nucleus",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.OmegaCompletePartialOrder": {
+          "title": "Omega Complete Partial Orders",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.OrdContinuous": {
+          "title": "Order continuity",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.OrderDual": {
+          "title": "Order dual",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.OrderIsoNat": {
+          "title": "Relation embeddings from the naturals",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.PFilter": {
+          "title": "Order filters",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.PSigma": {
+          "title": "Lexicographic order on a sigma type",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Part": {
+          "title": "Monotonicity of monadic operations on Part",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.PartialSups": {
+          "title": "The monotone sequence of partial supremums of a sequence",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Partition.Basic": {
+          "title": "Partitions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Partition.Equipartition": {
+          "title": "Finite equipartitions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Partition.Finpartition": {
+          "title": "Finite partitions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.PiLex": {
+          "title": "Lexicographic order on Pi types",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Preorder.Chain": {
+          "title": "Chains and flags",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Preorder.Finite": {
+          "title": "Finite preorders and finite sets in a preorder",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Preorder.Finsupp": {
+          "title": "Pointwise order on finitely supported functions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Preorder.PairwiseChain": {
+          "title": "Pairwise results for chains",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.PrimeIdeal": {
+          "title": "Prime ideals",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.PrimeSeparator": {
+          "title": "Separating prime filters and ideals",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Prod.Lex.Basic": {
+          "title": "Lexicographic order",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Prod.Lex.Hom": {
+          "title": "Order homomorphism for Prod.Lex",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.PropInstances": {
+          "title": "The order on Prop",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Quotient": {
+          "title": "Quotient",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Radical": {
+          "title": "The radical of a lattice",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Rel.GaloisConnection": {
+          "title": "The Galois Connection Induced by a Relation",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.RelClasses": {
+          "title": "Unbundled relation classes",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.RelIso.Basic": {
+          "title": "Relation homomorphisms, embeddings, isomorphisms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.RelIso.Set": {
+          "title": "Interactions between relation homomorphisms and sets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.RelSeries": {
+          "title": "Series of a relation",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Restriction": {
+          "title": "Restriction of a function indexed by a preorder",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.SaddlePoint": {
+          "title": "Saddle points of a map",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.ScottContinuity.Complete": {
+          "title": "Scott continuity on complete lattices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.ScottContinuity.Prod": {
+          "title": "Scott continuity on product spaces",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.ScottContinuity": {
+          "title": "Scott continuity",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.SemiconjSup": {
+          "title": "Semiconjugate by sSup",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Set": {
+          "title": "Set.range on WithBot and WithTop -/",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.SetAccumulate": {
+          "title": "Accumulate",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.SetDissipate": {
+          "title": "Dissipate",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.SetIsMax": {
+          "title": "Maximal elements of subsets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.SetNotation": {
+          "title": "Notation classes for set supremum and infimum",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Setoid.Basic": {
+          "title": "Equivalence relations",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Setoid.Partition.Card": {
+          "title": "Cardinality of parts of partitions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Setoid.Partition": {
+          "title": "Equivalence relations: partitions",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Shrink": {
+          "title": "Order instances on Shrink",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Sigma.Lex": {
+          "title": "Lexicographic order on a sigma type",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Sigma": {
+          "title": "Orders on a sigma type",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Std": {
+          "title": "Converting Std order typeclasses into Mathlib ones",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Sublattice": {
+          "title": "Sublattices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Sublocale": {
+          "title": "Sublocale",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.SuccPred.Archimedean": {
+          "title": "Archimedean successor and predecessor",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.SuccPred.Basic": {
+          "title": "Successor and predecessor",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.SuccPred.CompleteLinearOrder": {
+          "title": "Relation between IsSuccPrelimit and iSup in (conditionally) complete linear orders.",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.SuccPred.ENat": {
+          "title": "SuccOrder structure on ENat",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.SuccPred.Fin": {
+          "title": "SuccOrder and PredOrder of Fin n",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.SuccPred.InitialSeg": {
+          "title": "Initial segments and successors",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.SuccPred.Int": {
+          "title": "Successors and predecessors of integers",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.SuccPred.IntervalSucc": {
+          "title": "Intervals Ixx (f x) (f (Order.succ x))",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.SuccPred.Limit": {
+          "title": "Successor and predecessor limits",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.SuccPred.LinearLocallyFinite": {
+          "title": "Linear locally finite orders",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.SuccPred.Nat": {
+          "title": "Successors and predecessors of naturals",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.SuccPred.PNat": {
+          "title": "Order related instances for ℕ+",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.SuccPred.Relation": {
+          "title": "Relations on types with a SuccOrder",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.SuccPred.Tree": {
+          "title": "Rooted trees",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.SuccPred.WithBot": {
+          "title": "Successor function on WithBot",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Sum.Lattice": {
+          "title": "Lexicographic sum of lattices",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Sum.Order": {
+          "title": "Orders on a sum type",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.SupClosed": {
+          "title": "Sets closed under join/meet",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.SupIndep": {
+          "title": "Supremum independence",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Sym2": {
+          "title": "Sorting the elements of Sym2",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.SymmDiff": {
+          "title": "Symmetric difference and bi-implication",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.TeichmullerTukey": {
+          "title": "Teichmuller-Tukey",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.TransfiniteIteration": {
+          "title": "Transfinite iteration of a function I → I",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.TypeTags": {
+          "title": "Order-related type synonyms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Types.Arithmetic": {
+          "title": "Types / Arithmetic",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.Types.Defs": {
+          "title": "Order types",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.ULift": {
+          "title": "Ordered structures on ULift.{v} α",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.UpperLower.Basic": {
+          "title": "Properties of unbundled upper/lower sets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.UpperLower.Closure": {
+          "title": "Upper and lower closures",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.UpperLower.CompleteLattice": {
+          "title": "The complete lattice structure on UpperSet/LowerSet",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.UpperLower.Fibration": {
+          "title": "Upper/lower sets and fibrations",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.UpperLower.Hom": {
+          "title": "UpperSet.Ici etc. as Sup/sSup/Inf/sInf-homomorphisms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.UpperLower.LocallyFinite": {
+          "title": "Upper and lower sets in a locally finite order",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.UpperLower.Principal": {
+          "title": "Principal upper/lower sets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.UpperLower.Prod": {
+          "title": "Upper and lower set product",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.UpperLower.Relative": {
+          "title": "Properties of relative upper/lower sets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.WellFounded": {
+          "title": "Well-founded relations",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.WellFoundedSet": {
+          "title": "Well-founded sets",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.WellQuasiOrder": {
+          "title": "Well quasi-orders",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.WithBot": {
+          "title": "WithBot, WithTop",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.WithBotTop": {
+          "title": "Adding both ⊥ and ⊤ to a type",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
+        },
+        "Mathlib.Order.ZornAtoms": {
+          "title": "Zorn lemma for (co)atoms",
+          "allowed_axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ]
         }
       },
       "citation_aliases": {
@@ -20892,7 +23556,342 @@
       "title": "Order theory",
       "parent": "foundations",
       "modules": [
-        "Mathlib.Order.Defs.PartialOrder"
+        "Mathlib.Order.Defs.PartialOrder",
+        "Mathlib.Order.Antichain",
+        "Mathlib.Order.Antisymmetrization",
+        "Mathlib.Order.Atoms.Finite",
+        "Mathlib.Order.Atoms",
+        "Mathlib.Order.Basic",
+        "Mathlib.Order.Birkhoff",
+        "Mathlib.Order.BooleanAlgebra.Basic",
+        "Mathlib.Order.BooleanAlgebra.Defs",
+        "Mathlib.Order.BooleanAlgebra.Set",
+        "Mathlib.Order.BooleanGenerators",
+        "Mathlib.Order.BooleanSubalgebra",
+        "Mathlib.Order.Booleanisation",
+        "Mathlib.Order.Bounded",
+        "Mathlib.Order.BoundedOrder.Basic",
+        "Mathlib.Order.BoundedOrder.Lattice",
+        "Mathlib.Order.BoundedOrder.Monotone",
+        "Mathlib.Order.Bounds.Basic",
+        "Mathlib.Order.Bounds.Defs",
+        "Mathlib.Order.Bounds.Image",
+        "Mathlib.Order.Bounds.Lattice",
+        "Mathlib.Order.Bounds.OrderIso",
+        "Mathlib.Order.BourbakiWitt",
+        "Mathlib.Order.Category.BddDistLat",
+        "Mathlib.Order.Category.BddLat",
+        "Mathlib.Order.Category.BddOrd",
+        "Mathlib.Order.Category.BoolAlg",
+        "Mathlib.Order.Category.CompleteLat",
+        "Mathlib.Order.Category.DistLat",
+        "Mathlib.Order.Category.FinBddDistLat",
+        "Mathlib.Order.Category.FinBoolAlg",
+        "Mathlib.Order.Category.FinPartOrd",
+        "Mathlib.Order.Category.Frm",
+        "Mathlib.Order.Category.HeytAlg",
+        "Mathlib.Order.Category.Lat",
+        "Mathlib.Order.Category.LinOrd",
+        "Mathlib.Order.Category.NonemptyFinLinOrd",
+        "Mathlib.Order.Category.OmegaCompletePartialOrder",
+        "Mathlib.Order.Category.PartOrd",
+        "Mathlib.Order.Category.PartOrdEmb",
+        "Mathlib.Order.Category.Preord",
+        "Mathlib.Order.Category.Semilat",
+        "Mathlib.Order.Circular.ZMod",
+        "Mathlib.Order.Circular",
+        "Mathlib.Order.Closure",
+        "Mathlib.Order.Cofinal",
+        "Mathlib.Order.CompactlyGenerated.Basic",
+        "Mathlib.Order.CompactlyGenerated.Intervals",
+        "Mathlib.Order.Comparable",
+        "Mathlib.Order.Compare",
+        "Mathlib.Order.CompleteBooleanAlgebra",
+        "Mathlib.Order.CompleteLattice.Basic",
+        "Mathlib.Order.CompleteLattice.Chain",
+        "Mathlib.Order.CompleteLattice.Defs",
+        "Mathlib.Order.CompleteLattice.Finset",
+        "Mathlib.Order.CompleteLattice.Group",
+        "Mathlib.Order.CompleteLattice.Lemmas",
+        "Mathlib.Order.CompleteLattice.MulticoequalizerDiagram",
+        "Mathlib.Order.CompleteLattice.PiLex",
+        "Mathlib.Order.CompleteLattice.SetLike",
+        "Mathlib.Order.CompleteLatticeIntervals",
+        "Mathlib.Order.CompletePartialOrder",
+        "Mathlib.Order.CompleteSublattice",
+        "Mathlib.Order.Completion",
+        "Mathlib.Order.Concept",
+        "Mathlib.Order.ConditionallyCompleteLattice.Basic",
+        "Mathlib.Order.ConditionallyCompleteLattice.Defs",
+        "Mathlib.Order.ConditionallyCompleteLattice.Finset",
+        "Mathlib.Order.ConditionallyCompleteLattice.Group",
+        "Mathlib.Order.ConditionallyCompleteLattice.Indexed",
+        "Mathlib.Order.ConditionallyCompletePartialOrder.Basic",
+        "Mathlib.Order.ConditionallyCompletePartialOrder.Defs",
+        "Mathlib.Order.ConditionallyCompletePartialOrder.Indexed",
+        "Mathlib.Order.Copy",
+        "Mathlib.Order.CountableDenseLinearOrder",
+        "Mathlib.Order.CountableSupClosed",
+        "Mathlib.Order.Cover",
+        "Mathlib.Order.Defs.Lattice",
+        "Mathlib.Order.Defs.LinearOrder",
+        "Mathlib.Order.Defs.Prop",
+        "Mathlib.Order.Defs.Unbundled",
+        "Mathlib.Order.DirSupClosed",
+        "Mathlib.Order.Directed",
+        "Mathlib.Order.DirectedInverseSystem",
+        "Mathlib.Order.Disjoint",
+        "Mathlib.Order.Disjointed",
+        "Mathlib.Order.Extension.Linear",
+        "Mathlib.Order.Extension.Well",
+        "Mathlib.Order.Filter.AtTopBot.Archimedean",
+        "Mathlib.Order.Filter.AtTopBot.Basic",
+        "Mathlib.Order.Filter.AtTopBot.BigOperators",
+        "Mathlib.Order.Filter.AtTopBot.CompleteLattice",
+        "Mathlib.Order.Filter.AtTopBot.CountablyGenerated",
+        "Mathlib.Order.Filter.AtTopBot.Defs",
+        "Mathlib.Order.Filter.AtTopBot.Disjoint",
+        "Mathlib.Order.Filter.AtTopBot.Field",
+        "Mathlib.Order.Filter.AtTopBot.Finite",
+        "Mathlib.Order.Filter.AtTopBot.Finset",
+        "Mathlib.Order.Filter.AtTopBot.Floor",
+        "Mathlib.Order.Filter.AtTopBot.Group",
+        "Mathlib.Order.Filter.AtTopBot.Interval",
+        "Mathlib.Order.Filter.AtTopBot.Map",
+        "Mathlib.Order.Filter.AtTopBot.ModEq",
+        "Mathlib.Order.Filter.AtTopBot.Monoid",
+        "Mathlib.Order.Filter.AtTopBot.Prod",
+        "Mathlib.Order.Filter.AtTopBot.Ring",
+        "Mathlib.Order.Filter.AtTopBot.Tendsto",
+        "Mathlib.Order.Filter.Bases.Basic",
+        "Mathlib.Order.Filter.Bases.Finite",
+        "Mathlib.Order.Filter.Basic",
+        "Mathlib.Order.Filter.CardinalInter",
+        "Mathlib.Order.Filter.Cocardinal",
+        "Mathlib.Order.Filter.Cofinite",
+        "Mathlib.Order.Filter.CountableInter",
+        "Mathlib.Order.Filter.CountableSeparatingOn",
+        "Mathlib.Order.Filter.CountablyGenerated",
+        "Mathlib.Order.Filter.Curry",
+        "Mathlib.Order.Filter.Defs",
+        "Mathlib.Order.Filter.ENNReal",
+        "Mathlib.Order.Filter.EventuallyConst",
+        "Mathlib.Order.Filter.Extr",
+        "Mathlib.Order.Filter.FilterProduct",
+        "Mathlib.Order.Filter.Finite",
+        "Mathlib.Order.Filter.Germ.Basic",
+        "Mathlib.Order.Filter.Germ.OrderedMonoid",
+        "Mathlib.Order.Filter.IndicatorFunction",
+        "Mathlib.Order.Filter.Interval",
+        "Mathlib.Order.Filter.IsBounded",
+        "Mathlib.Order.Filter.Ker",
+        "Mathlib.Order.Filter.Lift",
+        "Mathlib.Order.Filter.ListTraverse",
+        "Mathlib.Order.Filter.Map",
+        "Mathlib.Order.Filter.NAry",
+        "Mathlib.Order.Filter.Partial",
+        "Mathlib.Order.Filter.Pi",
+        "Mathlib.Order.Filter.Pointwise",
+        "Mathlib.Order.Filter.Prod",
+        "Mathlib.Order.Filter.Ring",
+        "Mathlib.Order.Filter.SmallSets",
+        "Mathlib.Order.Filter.Subsingleton",
+        "Mathlib.Order.Filter.Tendsto",
+        "Mathlib.Order.Filter.TendstoCofinite",
+        "Mathlib.Order.Filter.Ultrafilter.Basic",
+        "Mathlib.Order.Filter.Ultrafilter.Cardinality",
+        "Mathlib.Order.Filter.Ultrafilter.Defs",
+        "Mathlib.Order.Filter.ZeroAndBoundedAtFilter",
+        "Mathlib.Order.Fin.Basic",
+        "Mathlib.Order.Fin.Clamp",
+        "Mathlib.Order.Fin.Finset",
+        "Mathlib.Order.Fin.InsertNth",
+        "Mathlib.Order.Fin.Prod",
+        "Mathlib.Order.Fin.SuccAboveOrderIso",
+        "Mathlib.Order.Fin.Tuple",
+        "Mathlib.Order.FixedPoints",
+        "Mathlib.Order.GaloisConnection.Basic",
+        "Mathlib.Order.GaloisConnection.Defs",
+        "Mathlib.Order.GameAdd",
+        "Mathlib.Order.Grade",
+        "Mathlib.Order.Height",
+        "Mathlib.Order.Heyting.Basic",
+        "Mathlib.Order.Heyting.Boundary",
+        "Mathlib.Order.Heyting.Hom",
+        "Mathlib.Order.Heyting.Regular",
+        "Mathlib.Order.Hom.Basic",
+        "Mathlib.Order.Hom.Bounded",
+        "Mathlib.Order.Hom.BoundedLattice",
+        "Mathlib.Order.Hom.CompleteLattice",
+        "Mathlib.Order.Hom.Lattice",
+        "Mathlib.Order.Hom.Lex",
+        "Mathlib.Order.Hom.Order",
+        "Mathlib.Order.Hom.PowersetCard",
+        "Mathlib.Order.Hom.Set",
+        "Mathlib.Order.Hom.WithTopBot",
+        "Mathlib.Order.Ideal",
+        "Mathlib.Order.InitialSeg",
+        "Mathlib.Order.Int.ConditionallyCompleteOrder",
+        "Mathlib.Order.Int.LeastGreatest",
+        "Mathlib.Order.Interval.Basic",
+        "Mathlib.Order.Interval.Finset.Basic",
+        "Mathlib.Order.Interval.Finset.Box",
+        "Mathlib.Order.Interval.Finset.Defs",
+        "Mathlib.Order.Interval.Finset.DenselyOrdered",
+        "Mathlib.Order.Interval.Finset.Fin",
+        "Mathlib.Order.Interval.Finset.Floor",
+        "Mathlib.Order.Interval.Finset.Gaps",
+        "Mathlib.Order.Interval.Finset.Nat",
+        "Mathlib.Order.Interval.Finset.SuccPred",
+        "Mathlib.Order.Interval.Lex",
+        "Mathlib.Order.Interval.Multiset",
+        "Mathlib.Order.Interval.Set.Basic",
+        "Mathlib.Order.Interval.Set.Card",
+        "Mathlib.Order.Interval.Set.Defs",
+        "Mathlib.Order.Interval.Set.Disjoint",
+        "Mathlib.Order.Interval.Set.Fin",
+        "Mathlib.Order.Interval.Set.Final",
+        "Mathlib.Order.Interval.Set.Image",
+        "Mathlib.Order.Interval.Set.Infinite",
+        "Mathlib.Order.Interval.Set.InitialSeg",
+        "Mathlib.Order.Interval.Set.IsoIoo",
+        "Mathlib.Order.Interval.Set.Limit",
+        "Mathlib.Order.Interval.Set.LinearOrder",
+        "Mathlib.Order.Interval.Set.Monotone",
+        "Mathlib.Order.Interval.Set.Nat",
+        "Mathlib.Order.Interval.Set.OrdConnected",
+        "Mathlib.Order.Interval.Set.OrdConnectedComponent",
+        "Mathlib.Order.Interval.Set.OrdConnectedLinear",
+        "Mathlib.Order.Interval.Set.OrderEmbedding",
+        "Mathlib.Order.Interval.Set.OrderIso",
+        "Mathlib.Order.Interval.Set.Pi",
+        "Mathlib.Order.Interval.Set.ProjIcc",
+        "Mathlib.Order.Interval.Set.SuccOrder",
+        "Mathlib.Order.Interval.Set.SuccPred",
+        "Mathlib.Order.Interval.Set.SurjOn",
+        "Mathlib.Order.Interval.Set.Union",
+        "Mathlib.Order.Interval.Set.UnorderedInterval",
+        "Mathlib.Order.Interval.Set.WithBotTop",
+        "Mathlib.Order.Irreducible",
+        "Mathlib.Order.IsNormal",
+        "Mathlib.Order.Iterate",
+        "Mathlib.Order.JordanHolder",
+        "Mathlib.Order.KonigLemma",
+        "Mathlib.Order.KrullDimension",
+        "Mathlib.Order.Lattice.Congruence",
+        "Mathlib.Order.Lattice.Nat",
+        "Mathlib.Order.Lattice",
+        "Mathlib.Order.LatticeIntervals",
+        "Mathlib.Order.Lex",
+        "Mathlib.Order.LiminfLimsup",
+        "Mathlib.Order.Max",
+        "Mathlib.Order.MinMax",
+        "Mathlib.Order.Minimal",
+        "Mathlib.Order.ModularLattice",
+        "Mathlib.Order.Monotone.Basic",
+        "Mathlib.Order.Monotone.Defs",
+        "Mathlib.Order.Monotone.Extension",
+        "Mathlib.Order.Monotone.Monovary",
+        "Mathlib.Order.Monotone.MonovaryOrder",
+        "Mathlib.Order.Monotone.Odd",
+        "Mathlib.Order.Monotone.Union",
+        "Mathlib.Order.Nat",
+        "Mathlib.Order.NonemptyFiniteChains",
+        "Mathlib.Order.Northcott",
+        "Mathlib.Order.Notation",
+        "Mathlib.Order.Nucleus",
+        "Mathlib.Order.OmegaCompletePartialOrder",
+        "Mathlib.Order.OrdContinuous",
+        "Mathlib.Order.OrderDual",
+        "Mathlib.Order.OrderIsoNat",
+        "Mathlib.Order.PFilter",
+        "Mathlib.Order.PSigma",
+        "Mathlib.Order.Part",
+        "Mathlib.Order.PartialSups",
+        "Mathlib.Order.Partition.Basic",
+        "Mathlib.Order.Partition.Equipartition",
+        "Mathlib.Order.Partition.Finpartition",
+        "Mathlib.Order.PiLex",
+        "Mathlib.Order.Preorder.Chain",
+        "Mathlib.Order.Preorder.Finite",
+        "Mathlib.Order.Preorder.Finsupp",
+        "Mathlib.Order.Preorder.PairwiseChain",
+        "Mathlib.Order.PrimeIdeal",
+        "Mathlib.Order.PrimeSeparator",
+        "Mathlib.Order.Prod.Lex.Basic",
+        "Mathlib.Order.Prod.Lex.Hom",
+        "Mathlib.Order.PropInstances",
+        "Mathlib.Order.Quotient",
+        "Mathlib.Order.Radical",
+        "Mathlib.Order.Rel.GaloisConnection",
+        "Mathlib.Order.RelClasses",
+        "Mathlib.Order.RelIso.Basic",
+        "Mathlib.Order.RelIso.Set",
+        "Mathlib.Order.RelSeries",
+        "Mathlib.Order.Restriction",
+        "Mathlib.Order.SaddlePoint",
+        "Mathlib.Order.ScottContinuity.Complete",
+        "Mathlib.Order.ScottContinuity.Prod",
+        "Mathlib.Order.ScottContinuity",
+        "Mathlib.Order.SemiconjSup",
+        "Mathlib.Order.Set",
+        "Mathlib.Order.SetAccumulate",
+        "Mathlib.Order.SetDissipate",
+        "Mathlib.Order.SetIsMax",
+        "Mathlib.Order.SetNotation",
+        "Mathlib.Order.Setoid.Basic",
+        "Mathlib.Order.Setoid.Partition.Card",
+        "Mathlib.Order.Setoid.Partition",
+        "Mathlib.Order.Shrink",
+        "Mathlib.Order.Sigma.Lex",
+        "Mathlib.Order.Sigma",
+        "Mathlib.Order.Std",
+        "Mathlib.Order.Sublattice",
+        "Mathlib.Order.Sublocale",
+        "Mathlib.Order.SuccPred.Archimedean",
+        "Mathlib.Order.SuccPred.Basic",
+        "Mathlib.Order.SuccPred.CompleteLinearOrder",
+        "Mathlib.Order.SuccPred.ENat",
+        "Mathlib.Order.SuccPred.Fin",
+        "Mathlib.Order.SuccPred.InitialSeg",
+        "Mathlib.Order.SuccPred.Int",
+        "Mathlib.Order.SuccPred.IntervalSucc",
+        "Mathlib.Order.SuccPred.Limit",
+        "Mathlib.Order.SuccPred.LinearLocallyFinite",
+        "Mathlib.Order.SuccPred.Nat",
+        "Mathlib.Order.SuccPred.PNat",
+        "Mathlib.Order.SuccPred.Relation",
+        "Mathlib.Order.SuccPred.Tree",
+        "Mathlib.Order.SuccPred.WithBot",
+        "Mathlib.Order.Sum.Lattice",
+        "Mathlib.Order.Sum.Order",
+        "Mathlib.Order.SupClosed",
+        "Mathlib.Order.SupIndep",
+        "Mathlib.Order.Sym2",
+        "Mathlib.Order.SymmDiff",
+        "Mathlib.Order.TeichmullerTukey",
+        "Mathlib.Order.TransfiniteIteration",
+        "Mathlib.Order.TypeTags",
+        "Mathlib.Order.Types.Arithmetic",
+        "Mathlib.Order.Types.Defs",
+        "Mathlib.Order.ULift",
+        "Mathlib.Order.UpperLower.Basic",
+        "Mathlib.Order.UpperLower.Closure",
+        "Mathlib.Order.UpperLower.CompleteLattice",
+        "Mathlib.Order.UpperLower.Fibration",
+        "Mathlib.Order.UpperLower.Hom",
+        "Mathlib.Order.UpperLower.LocallyFinite",
+        "Mathlib.Order.UpperLower.Principal",
+        "Mathlib.Order.UpperLower.Prod",
+        "Mathlib.Order.UpperLower.Relative",
+        "Mathlib.Order.WellFounded",
+        "Mathlib.Order.WellFoundedSet",
+        "Mathlib.Order.WellQuasiOrder",
+        "Mathlib.Order.WithBot",
+        "Mathlib.Order.WithBotTop",
+        "Mathlib.Order.Zorn",
+        "Mathlib.Order.ZornAtoms",
+        "Math.Order.Bekic"
       ]
     },
     "set_theory": {
@@ -26544,6 +29543,355 @@
         "Mathlib.RingTheory.RootsOfUnity.Minpoly",
         "Mathlib.RingTheory.RootsOfUnity.PrimitiveRoots"
       ]
+    },
+    "lattice_theory": {
+      "title": "Lattice theory",
+      "parent": "order",
+      "modules": [
+        "Mathlib.Order.Atoms",
+        "Mathlib.Order.Atoms.Finite",
+        "Mathlib.Order.Birkhoff",
+        "Mathlib.Order.Irreducible",
+        "Mathlib.Order.Lattice",
+        "Mathlib.Order.Lattice.Congruence",
+        "Mathlib.Order.Lattice.Nat",
+        "Mathlib.Order.ModularLattice",
+        "Mathlib.Order.Sublattice"
+      ]
+    },
+    "complete_lattices": {
+      "title": "Complete lattices",
+      "parent": "lattice_theory",
+      "modules": [
+        "Mathlib.Order.CompactlyGenerated.Basic",
+        "Mathlib.Order.CompactlyGenerated.Intervals",
+        "Mathlib.Order.CompleteLattice.Basic",
+        "Mathlib.Order.CompleteLattice.Chain",
+        "Mathlib.Order.CompleteLattice.Defs",
+        "Mathlib.Order.CompleteLattice.Finset",
+        "Mathlib.Order.CompleteLattice.Group",
+        "Mathlib.Order.CompleteLattice.Lemmas",
+        "Mathlib.Order.CompleteLattice.MulticoequalizerDiagram",
+        "Mathlib.Order.CompleteLattice.PiLex",
+        "Mathlib.Order.CompleteLattice.SetLike",
+        "Mathlib.Order.CompleteLatticeIntervals",
+        "Mathlib.Order.CompleteSublattice",
+        "Mathlib.Order.ConditionallyCompleteLattice.Basic",
+        "Mathlib.Order.ConditionallyCompleteLattice.Defs",
+        "Mathlib.Order.ConditionallyCompleteLattice.Finset",
+        "Mathlib.Order.ConditionallyCompleteLattice.Group",
+        "Mathlib.Order.ConditionallyCompleteLattice.Indexed"
+      ]
+    },
+    "fixed_point_theory": {
+      "title": "Fixed points",
+      "parent": "complete_lattices",
+      "modules": [
+        "Math.Order.Bekic",
+        "Mathlib.Order.BourbakiWitt",
+        "Mathlib.Order.FixedPoints"
+      ]
+    },
+    "domain_theory": {
+      "title": "Domain theory",
+      "parent": "order",
+      "modules": [
+        "Mathlib.Order.CompletePartialOrder",
+        "Mathlib.Order.ConditionallyCompletePartialOrder.Basic",
+        "Mathlib.Order.ConditionallyCompletePartialOrder.Defs",
+        "Mathlib.Order.ConditionallyCompletePartialOrder.Indexed",
+        "Mathlib.Order.OmegaCompletePartialOrder",
+        "Mathlib.Order.OrdContinuous",
+        "Mathlib.Order.ScottContinuity",
+        "Mathlib.Order.ScottContinuity.Complete",
+        "Mathlib.Order.ScottContinuity.Prod"
+      ]
+    },
+    "galois_connections": {
+      "title": "Galois connections",
+      "parent": "order",
+      "modules": [
+        "Mathlib.Order.GaloisConnection.Basic",
+        "Mathlib.Order.GaloisConnection.Defs"
+      ]
+    },
+    "closure_operators": {
+      "title": "Closure operators",
+      "parent": "galois_connections",
+      "modules": [
+        "Mathlib.Order.Closure",
+        "Mathlib.Order.Nucleus",
+        "Mathlib.Order.Sublocale"
+      ]
+    },
+    "boolean_algebras": {
+      "title": "Boolean algebras",
+      "parent": "lattice_theory",
+      "modules": [
+        "Mathlib.Order.BooleanAlgebra.Basic",
+        "Mathlib.Order.BooleanAlgebra.Defs",
+        "Mathlib.Order.BooleanAlgebra.Set",
+        "Mathlib.Order.BooleanGenerators",
+        "Mathlib.Order.BooleanSubalgebra",
+        "Mathlib.Order.Booleanisation",
+        "Mathlib.Order.CompleteBooleanAlgebra",
+        "Mathlib.Order.SymmDiff"
+      ]
+    },
+    "heyting_algebras": {
+      "title": "Heyting algebras",
+      "parent": "lattice_theory",
+      "modules": [
+        "Mathlib.Order.Heyting.Basic",
+        "Mathlib.Order.Heyting.Boundary",
+        "Mathlib.Order.Heyting.Hom",
+        "Mathlib.Order.Heyting.Regular"
+      ]
+    },
+    "chains_and_antichains": {
+      "title": "Chains and antichains",
+      "parent": "order",
+      "modules": [
+        "Mathlib.Order.Antichain",
+        "Mathlib.Order.KonigLemma",
+        "Mathlib.Order.NonemptyFiniteChains",
+        "Mathlib.Order.Preorder.Chain",
+        "Mathlib.Order.Preorder.PairwiseChain",
+        "Mathlib.Order.SupIndep"
+      ]
+    },
+    "maximality_principles": {
+      "title": "Maximality principles",
+      "parent": "chains_and_antichains",
+      "modules": [
+        "Mathlib.Order.Max",
+        "Mathlib.Order.Minimal",
+        "Mathlib.Order.SetIsMax",
+        "Mathlib.Order.TeichmullerTukey",
+        "Mathlib.Order.Zorn",
+        "Mathlib.Order.ZornAtoms"
+      ]
+    },
+    "well_quasi_orders": {
+      "title": "Well quasi-orders",
+      "parent": "order",
+      "modules": [
+        "Mathlib.Order.WellQuasiOrder"
+      ]
+    },
+    "well_founded_orders": {
+      "title": "Well-founded orders",
+      "parent": "order",
+      "modules": [
+        "Mathlib.Order.OrderIsoNat",
+        "Mathlib.Order.WellFounded",
+        "Mathlib.Order.WellFoundedSet"
+      ]
+    },
+    "order_morphisms": {
+      "title": "Order morphisms",
+      "parent": "order",
+      "modules": [
+        "Mathlib.Order.Hom.Basic",
+        "Mathlib.Order.Hom.Bounded",
+        "Mathlib.Order.Hom.BoundedLattice",
+        "Mathlib.Order.Hom.CompleteLattice",
+        "Mathlib.Order.Hom.Lattice",
+        "Mathlib.Order.Hom.Lex",
+        "Mathlib.Order.Hom.Order",
+        "Mathlib.Order.Hom.PowersetCard",
+        "Mathlib.Order.Hom.Set",
+        "Mathlib.Order.Hom.WithTopBot",
+        "Mathlib.Order.RelClasses",
+        "Mathlib.Order.RelIso.Basic",
+        "Mathlib.Order.RelIso.Set"
+      ]
+    },
+    "linear_order_extensions": {
+      "title": "Linear order extensions",
+      "parent": "order",
+      "modules": [
+        "Mathlib.Order.Extension.Linear",
+        "Mathlib.Order.Extension.Well"
+      ]
+    },
+    "order_ideals": {
+      "title": "Order ideals",
+      "parent": "lattice_theory",
+      "modules": [
+        "Mathlib.Order.Ideal",
+        "Mathlib.Order.PrimeIdeal",
+        "Mathlib.Order.PrimeSeparator",
+        "Mathlib.Order.Radical"
+      ]
+    },
+    "order_intervals": {
+      "title": "Order intervals",
+      "parent": "order",
+      "modules": [
+        "Mathlib.Order.Interval.Basic",
+        "Mathlib.Order.Interval.Finset.Basic",
+        "Mathlib.Order.Interval.Finset.Box",
+        "Mathlib.Order.Interval.Finset.Defs",
+        "Mathlib.Order.Interval.Finset.DenselyOrdered",
+        "Mathlib.Order.Interval.Finset.Fin",
+        "Mathlib.Order.Interval.Finset.Floor",
+        "Mathlib.Order.Interval.Finset.Gaps",
+        "Mathlib.Order.Interval.Finset.Nat",
+        "Mathlib.Order.Interval.Finset.SuccPred",
+        "Mathlib.Order.Interval.Lex",
+        "Mathlib.Order.Interval.Multiset",
+        "Mathlib.Order.Interval.Set.Basic",
+        "Mathlib.Order.Interval.Set.Card",
+        "Mathlib.Order.Interval.Set.Defs",
+        "Mathlib.Order.Interval.Set.Disjoint",
+        "Mathlib.Order.Interval.Set.Fin",
+        "Mathlib.Order.Interval.Set.Final",
+        "Mathlib.Order.Interval.Set.Image",
+        "Mathlib.Order.Interval.Set.Infinite",
+        "Mathlib.Order.Interval.Set.InitialSeg",
+        "Mathlib.Order.Interval.Set.IsoIoo",
+        "Mathlib.Order.Interval.Set.Limit",
+        "Mathlib.Order.Interval.Set.LinearOrder",
+        "Mathlib.Order.Interval.Set.Monotone",
+        "Mathlib.Order.Interval.Set.Nat",
+        "Mathlib.Order.Interval.Set.OrdConnected",
+        "Mathlib.Order.Interval.Set.OrdConnectedComponent",
+        "Mathlib.Order.Interval.Set.OrdConnectedLinear",
+        "Mathlib.Order.Interval.Set.OrderEmbedding",
+        "Mathlib.Order.Interval.Set.OrderIso",
+        "Mathlib.Order.Interval.Set.Pi",
+        "Mathlib.Order.Interval.Set.ProjIcc",
+        "Mathlib.Order.Interval.Set.SuccOrder",
+        "Mathlib.Order.Interval.Set.SuccPred",
+        "Mathlib.Order.Interval.Set.SurjOn",
+        "Mathlib.Order.Interval.Set.Union",
+        "Mathlib.Order.Interval.Set.UnorderedInterval",
+        "Mathlib.Order.Interval.Set.WithBotTop",
+        "Mathlib.Order.LatticeIntervals"
+      ]
+    },
+    "lexicographic_orders": {
+      "title": "Lexicographic orders",
+      "parent": "order",
+      "modules": [
+        "Mathlib.Order.Lex",
+        "Mathlib.Order.PiLex"
+      ]
+    },
+    "filters_and_ultrafilters": {
+      "title": "Filters and ultrafilters",
+      "parent": "order",
+      "modules": [
+        "Mathlib.Order.Filter.AtTopBot.Archimedean",
+        "Mathlib.Order.Filter.AtTopBot.Basic",
+        "Mathlib.Order.Filter.AtTopBot.BigOperators",
+        "Mathlib.Order.Filter.AtTopBot.CompleteLattice",
+        "Mathlib.Order.Filter.AtTopBot.CountablyGenerated",
+        "Mathlib.Order.Filter.AtTopBot.Defs",
+        "Mathlib.Order.Filter.AtTopBot.Disjoint",
+        "Mathlib.Order.Filter.AtTopBot.Field",
+        "Mathlib.Order.Filter.AtTopBot.Finite",
+        "Mathlib.Order.Filter.AtTopBot.Finset",
+        "Mathlib.Order.Filter.AtTopBot.Floor",
+        "Mathlib.Order.Filter.AtTopBot.Group",
+        "Mathlib.Order.Filter.AtTopBot.Interval",
+        "Mathlib.Order.Filter.AtTopBot.Map",
+        "Mathlib.Order.Filter.AtTopBot.ModEq",
+        "Mathlib.Order.Filter.AtTopBot.Monoid",
+        "Mathlib.Order.Filter.AtTopBot.Prod",
+        "Mathlib.Order.Filter.AtTopBot.Ring",
+        "Mathlib.Order.Filter.AtTopBot.Tendsto",
+        "Mathlib.Order.Filter.Bases.Basic",
+        "Mathlib.Order.Filter.Bases.Finite",
+        "Mathlib.Order.Filter.Basic",
+        "Mathlib.Order.Filter.CardinalInter",
+        "Mathlib.Order.Filter.Cocardinal",
+        "Mathlib.Order.Filter.Cofinite",
+        "Mathlib.Order.Filter.CountableInter",
+        "Mathlib.Order.Filter.CountableSeparatingOn",
+        "Mathlib.Order.Filter.CountablyGenerated",
+        "Mathlib.Order.Filter.Curry",
+        "Mathlib.Order.Filter.Defs",
+        "Mathlib.Order.Filter.ENNReal",
+        "Mathlib.Order.Filter.EventuallyConst",
+        "Mathlib.Order.Filter.Extr",
+        "Mathlib.Order.Filter.FilterProduct",
+        "Mathlib.Order.Filter.Finite",
+        "Mathlib.Order.Filter.Germ.Basic",
+        "Mathlib.Order.Filter.Germ.OrderedMonoid",
+        "Mathlib.Order.Filter.IndicatorFunction",
+        "Mathlib.Order.Filter.Interval",
+        "Mathlib.Order.Filter.IsBounded",
+        "Mathlib.Order.Filter.Ker",
+        "Mathlib.Order.Filter.Lift",
+        "Mathlib.Order.Filter.ListTraverse",
+        "Mathlib.Order.Filter.Map",
+        "Mathlib.Order.Filter.NAry",
+        "Mathlib.Order.Filter.Partial",
+        "Mathlib.Order.Filter.Pi",
+        "Mathlib.Order.Filter.Pointwise",
+        "Mathlib.Order.Filter.Prod",
+        "Mathlib.Order.Filter.Ring",
+        "Mathlib.Order.Filter.SmallSets",
+        "Mathlib.Order.Filter.Subsingleton",
+        "Mathlib.Order.Filter.Tendsto",
+        "Mathlib.Order.Filter.TendstoCofinite",
+        "Mathlib.Order.Filter.Ultrafilter.Basic",
+        "Mathlib.Order.Filter.Ultrafilter.Cardinality",
+        "Mathlib.Order.Filter.Ultrafilter.Defs",
+        "Mathlib.Order.Filter.ZeroAndBoundedAtFilter",
+        "Mathlib.Order.PFilter"
+      ]
+    },
+    "order_categories": {
+      "title": "Categories of ordered objects",
+      "parent": "order",
+      "modules": [
+        "Mathlib.Order.Category.BddDistLat",
+        "Mathlib.Order.Category.BddLat",
+        "Mathlib.Order.Category.BddOrd",
+        "Mathlib.Order.Category.BoolAlg",
+        "Mathlib.Order.Category.CompleteLat",
+        "Mathlib.Order.Category.DistLat",
+        "Mathlib.Order.Category.FinBddDistLat",
+        "Mathlib.Order.Category.FinBoolAlg",
+        "Mathlib.Order.Category.FinPartOrd",
+        "Mathlib.Order.Category.Frm",
+        "Mathlib.Order.Category.HeytAlg",
+        "Mathlib.Order.Category.Lat",
+        "Mathlib.Order.Category.LinOrd",
+        "Mathlib.Order.Category.NonemptyFinLinOrd",
+        "Mathlib.Order.Category.OmegaCompletePartialOrder",
+        "Mathlib.Order.Category.PartOrd",
+        "Mathlib.Order.Category.PartOrdEmb",
+        "Mathlib.Order.Category.Preord",
+        "Mathlib.Order.Category.Semilat"
+      ]
+    },
+    "transfinite_order_iteration": {
+      "title": "Transfinite order iteration",
+      "parent": "fixed_point_theory",
+      "modules": [
+        "Mathlib.Order.Iterate",
+        "Mathlib.Order.TransfiniteIteration"
+      ]
+    },
+    "ordered_composition_series": {
+      "title": "Composition series in lattices",
+      "parent": "lattice_theory",
+      "modules": [
+        "Mathlib.Order.JordanHolder",
+        "Mathlib.Order.RelSeries"
+      ]
+    },
+    "order_completions": {
+      "title": "Order completions",
+      "parent": "complete_lattices",
+      "modules": [
+        "Mathlib.Order.Completion",
+        "Mathlib.Order.Concept"
+      ]
     }
   },
   "modules": {
@@ -26741,6 +30089,13 @@
         "propext",
         "Quot.sound",
         "Classical.choice"
+      ]
+    },
+    "Math.Order.Bekic": {
+      "title": "Simultaneous least and greatest fixed points",
+      "allowed_axioms": [
+        "propext",
+        "Quot.sound"
       ]
     }
   }

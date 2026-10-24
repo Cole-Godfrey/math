@@ -8,6 +8,8 @@ Linear algebra includes all 386 pinned modules, with 25 local Fitting decomposit
 
 Ring theory includes all 729 pinned modules. Eighteen local theorems and three definitions describe reduction modulo Jacobson ideals, detection of surjectivity and invertibility, generators, and automorphisms of finite modules. Fifty independent statement checks also cover Wedderburn, Hopkins-Levitzki, Krull height bounds, Noether normalization, adic completion, flatness, etale algebras, Hopf algebras, Witt vectors, and the module Chinese remainder theorem.
 
+Order theory includes all 335 pinned modules. Eighteen local theorems and six definitions establish Bekić elimination for simultaneous least and greatest fixed points, bounds, monotonicity, symmetry, and uniqueness. These proofs avoid classical choice. Seventy independent statement checks also cover Knaster-Tarski, Kleene, Bourbaki-Witt, Galois connections, closure operators, maximality, well quasi-orders, lattice composition series, transfinite iteration, and ultrafilters.
+
 Install [Lean and elan](https://lean-lang.org/install/), a C compiler, and Rust 1.94.1, then run:
 
 ```sh
