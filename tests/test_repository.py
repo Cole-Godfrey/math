@@ -1075,6 +1075,248 @@ class RepositoryTests(RepositoryArtifacts, unittest.TestCase):
                 self.assertGreater(node["source"]["line"], 0)
                 self.assertTrue(set(node["axioms"]) <= set(self.policy["modules"][module]["allowed_axioms"]))
 
+    def test_jacobson_statements_match_independent_reference_types(self):
+        run(ROOT, [self.lake, "env", "lean", "tests/JacobsonStatements.lean"], capture=True)
+
+    def test_ring_theory_statements_match_independent_reference_types(self):
+        run(ROOT, [self.lake, "env", "lean", "tests/RingTheoryStatements.lean"], capture=True)
+
+    def test_ring_theory_registry_retains_the_complete_pinned_family(self):
+        base = ROOT / ".lake/packages/mathlib"
+        registered = self.policy["libraries"]["mathlib"]["modules"]
+        expected = {".".join(path.relative_to(base).with_suffix("").parts)
+                    for path in (base / "Mathlib/RingTheory").rglob("*.lean")}
+        self.assertEqual(len(expected), 729)
+        self.assertEqual({name for name in registered if name.startswith("Mathlib.RingTheory.")}, expected)
+        for module in expected:
+            with self.subTest(module=module):
+                self.assertIn(module, self.catalog["module_policy"])
+                self.assertIn(module, self.catalog["module_declarations_by_module"])
+                origin = self.catalog["sources"][module]
+                self.assertEqual(origin["revision"], self.policy["libraries"]["mathlib"]["revision"])
+                self.assertEqual(origin["license"], "Apache-2.0")
+                self.assertEqual(origin["sha256"], hashlib.sha256(
+                    (base / (module.replace(".", "/") + ".lean")).read_bytes()).hexdigest())
+
+    def test_jacobson_results_retain_complete_local_proofs_and_source(self):
+        expected = {'Math.CommutativeAlgebra.idealReduction': 'definition',
+         'Math.CommutativeAlgebra.idealReduction_mk': 'theorem',
+         'Math.CommutativeAlgebra.idealReduction_mkQ': 'theorem',
+         'Math.CommutativeAlgebra.idealReduction_id': 'theorem',
+         'Math.CommutativeAlgebra.idealReduction_comp': 'theorem',
+         'Math.CommutativeAlgebra.idealReduction_surjective': 'theorem',
+         'Math.CommutativeAlgebra.idealReduction_surjective_iff': 'theorem',
+         'Math.CommutativeAlgebra.idealReductionEnd': 'definition',
+         'Math.CommutativeAlgebra.idealReduction_eq_zero_iff': 'theorem',
+         'Math.CommutativeAlgebra.finiteEnd_isUnit_iff_surjective': 'theorem',
+         'Math.CommutativeAlgebra.idealReductionEnd_isUnit_iff': 'theorem',
+         'Math.CommutativeAlgebra.isUnit_iff_of_idealReductionEnd_eq': 'theorem',
+         'Math.CommutativeAlgebra.isUnit_of_idealReductionEnd_eq_one': 'theorem',
+         'Math.CommutativeAlgebra.isUnit_one_add_of_idealReductionEnd_eq_zero': 'theorem',
+         'Math.CommutativeAlgebra.isUnit_add_iff_of_idealReductionEnd_eq_zero': 'theorem',
+         'Math.CommutativeAlgebra.isUnit_one_sub_mul_of_range_le_smul_top': 'theorem',
+         'Math.CommutativeAlgebra.maximalIdealReduction_isUnit_iff': 'theorem',
+         'Math.CommutativeAlgebra.span_quotient_image_eq_top_iff': 'theorem',
+         'Math.CommutativeAlgebra.automorphismOfReductionSurjective': 'definition',
+         'Math.CommutativeAlgebra.automorphismOfReductionSurjective_apply': 'theorem',
+         'Math.CommutativeAlgebra.automorphismOfReductionSurjective_toLinearMap': 'theorem'}
+        module = "Math.Algebra.JacobsonReduction"
+        origin = self.catalog["sources"][module]
+        self.assertEqual(origin["package"], "math")
+        self.assertEqual(origin["path"], "Math/Algebra/JacobsonReduction.lean")
+        self.assertEqual(origin["sha256"], hashlib.sha256((ROOT / origin["path"]).read_bytes()).hexdigest())
+        for name, kind in expected.items():
+            with self.subTest(name=name):
+                node = self.nodes[name]
+                self.assertIn(name, self.catalog["roots"])
+                self.assertIn(name, self.catalog["module_declarations_by_module"][module])
+                self.assertEqual(node["module"], module)
+                self.assertEqual(node["kind"], kind)
+                self.assertIsInstance(node["value"], int)
+                self.assertTrue(node["proof"])
+                self.assertGreater(node["source"]["line"], 0)
+                self.assertTrue(set(node["axioms"]) <= set(self.policy["modules"][module]["allowed_axioms"]))
+
+    def test_ring_theory_objects_and_results_retain_terms_and_pinned_sources(self):
+        expected = {'littleWedderburn': 'Mathlib.RingTheory.LittleWedderburn',
+         'Finite.isDomain_to_isField': 'Mathlib.RingTheory.LittleWedderburn',
+         'IsArtinianRing.tfae': 'Mathlib.RingTheory.HopkinsLevitzki',
+         'IsSemiprimaryRing.isNoetherian_iff_isArtinian': 'Mathlib.RingTheory.HopkinsLevitzki',
+         'isArtinianRing_iff_isFiniteLength': 'Mathlib.RingTheory.HopkinsLevitzki',
+         'instIsNoetherianRingOfIsArtinianRing': 'Mathlib.RingTheory.HopkinsLevitzki',
+         'isArtinianRing_iff_krullDimLE_zero': 'Mathlib.RingTheory.HopkinsLevitzki',
+         'Ideal.height_le_one_of_isPrincipal_of_mem_minimalPrimes': 'Mathlib.RingTheory.Ideal.KrullsHeightTheorem',
+         'Ideal.height_span_singleton_le_one': 'Mathlib.RingTheory.Ideal.KrullsHeightTheorem',
+         'Ideal.height_span_le_card_of_span_ne_top': 'Mathlib.RingTheory.Ideal.KrullsHeightTheorem',
+         'exists_integral_inj_algHom_of_fg': 'Mathlib.RingTheory.NoetherNormalization',
+         'exists_finite_inj_algHom_of_fg': 'Mathlib.RingTheory.NoetherNormalization',
+         'AdicCompletion': 'Mathlib.RingTheory.AdicCompletion.Basic',
+         'AdicCompletion.of': 'Mathlib.RingTheory.AdicCompletion.Basic',
+         'AdicCompletion.eval': 'Mathlib.RingTheory.AdicCompletion.Basic',
+         'AdicCompletion.eval_surjective': 'Mathlib.RingTheory.AdicCompletion.Basic',
+         'AdicCompletion.eval_comp_of': 'Mathlib.RingTheory.AdicCompletion.Basic',
+         'AdicCompletion.of_bijective_iff': 'Mathlib.RingTheory.AdicCompletion.Basic',
+         'AdicCompletion.ofLinearEquiv': 'Mathlib.RingTheory.AdicCompletion.Basic',
+         'Module.Flat': 'Mathlib.RingTheory.Flat.Basic',
+         'Module.Flat.equiv_iff': 'Mathlib.RingTheory.Flat.Basic',
+         'Module.Flat.rTensor_preserves_injective_linearMap': 'Mathlib.RingTheory.Flat.Basic',
+         'Module.Flat.lTensor_preserves_injective_linearMap': 'Mathlib.RingTheory.Flat.Basic',
+         'Algebra.FormallyEtale': 'Mathlib.RingTheory.Etale.Basic',
+         'Algebra.Etale': 'Mathlib.RingTheory.Etale.Basic',
+         'Algebra.FormallyEtale.iff_formallyUnramified_and_formallySmooth': 'Mathlib.RingTheory.Etale.Basic',
+         'Algebra.Etale.iff_formallyUnramified_and_smooth': 'Mathlib.RingTheory.Etale.Basic',
+         'Algebra.Smooth': 'Mathlib.RingTheory.Smooth.Basic',
+         'Algebra.FormallyUnramified': 'Mathlib.RingTheory.Unramified.Basic',
+         'HopfAlgebra': 'Mathlib.RingTheory.HopfAlgebra.Basic',
+         'HopfAlgebraStruct.antipode': 'Mathlib.RingTheory.HopfAlgebra.Basic',
+         'HopfAlgebra.antipode_one': 'Mathlib.RingTheory.HopfAlgebra.Basic',
+         'HopfAlgebra.counit_antipode': 'Mathlib.RingTheory.HopfAlgebra.Basic',
+         'HopfAlgebra.mul_antipode_rTensor_comul_apply': 'Mathlib.RingTheory.HopfAlgebra.Basic',
+         'WittVector': 'Mathlib.RingTheory.WittVector.Defs',
+         'WittVector.ghostMap': 'Mathlib.RingTheory.WittVector.Basic',
+         'WittVector.map': 'Mathlib.RingTheory.WittVector.Basic',
+         'WittVector.map_coeff': 'Mathlib.RingTheory.WittVector.Basic',
+         'WittVector.map_injective': 'Mathlib.RingTheory.WittVector.Basic',
+         'WittVector.ghostComponent': 'Mathlib.RingTheory.WittVector.Basic',
+         'Ideal.pi_tensorProductMk_quotient_surjective': 'Mathlib.RingTheory.Ideal.Quotient.ChineseRemainder',
+         'Ideal.ker_tensorProductMk_quotient': 'Mathlib.RingTheory.Ideal.Quotient.ChineseRemainder'}
+        for name, module in expected.items():
+            with self.subTest(name=name):
+                node = self.nodes[name]
+                self.assertIn(name, self.catalog["roots"])
+                self.assertEqual(node["module"], module)
+                self.assertIn(name, self.catalog["module_declarations_by_module"][module])
+                if node["kind"] in {"definition", "theorem", "opaque"}:
+                    self.assertIsInstance(node["value"], int)
+                    self.assertTrue(node["proof"])
+                self.assertTrue(set(node["axioms"]) <= self.policy["axioms"].keys())
+                origin = self.catalog["sources"][module]
+                self.assertIn(origin["revision"], origin["url"])
+
+    def test_ring_theory_hierarchies_retain_hypotheses_and_complete_axiom_paths(self):
+        expected = {'Math.CommutativeAlgebra.idealReduction': ['Submodule.mapQ',
+                                                    'Submodule.smul_top_le_comap_smul_top',
+                                                    'Ideal',
+                                                    'CommRing'],
+         'Math.CommutativeAlgebra.idealReduction_surjective_iff': ['Math.CommutativeAlgebra.idealReduction',
+                                                                   'LinearMap.surjective_of_surjective_comp_mkQ',
+                                                                   'Module.Finite',
+                                                                   'Ideal.jacobson'],
+         'Math.CommutativeAlgebra.finiteEnd_isUnit_iff_surjective': ['OrzechProperty.bijective_of_surjective_endomorphism',
+                                                                     'CommRing.orzechProperty',
+                                                                     'Module.Finite',
+                                                                     'Module.End.isUnit_iff'],
+         'Math.CommutativeAlgebra.idealReductionEnd_isUnit_iff': ['Math.CommutativeAlgebra.idealReduction_surjective_iff',
+                                                                  'Math.CommutativeAlgebra.finiteEnd_isUnit_iff_surjective',
+                                                                  'Ideal.jacobson'],
+         'Math.CommutativeAlgebra.span_quotient_image_eq_top_iff': ['Submodule.le_of_le_smul_of_le_jacobson_bot',
+                                                                    'Submodule.span',
+                                                                    'Module.Finite'],
+         'Math.CommutativeAlgebra.automorphismOfReductionSurjective': ['Math.CommutativeAlgebra.idealReduction_surjective_iff',
+                                                                       'LinearEquiv.ofBijective',
+                                                                       'OrzechProperty.bijective_of_surjective_endomorphism'],
+         'Math.CommutativeAlgebra.isUnit_one_sub_mul_of_range_le_smul_top': ['Math.CommutativeAlgebra.idealReduction_eq_zero_iff',
+                                                                             'Math.CommutativeAlgebra.idealReductionEnd_isUnit_iff',
+                                                                             'Module.Finite'],
+         'Math.CommutativeAlgebra.maximalIdealReduction_isUnit_iff': ['Math.CommutativeAlgebra.idealReductionEnd_isUnit_iff',
+                                                                      'IsLocalRing.maximalIdeal_le_jacobson',
+                                                                      'IsLocalRing'],
+         'littleWedderburn': ['DivisionRing', 'Finite', 'Field'],
+         'IsArtinianRing.tfae': ['IsSemiprimaryRing.isNoetherian_iff_isArtinian',
+                                 'IsArtinianRing',
+                                 'IsFiniteLength'],
+         'Ideal.height_le_one_of_isPrincipal_of_mem_minimalPrimes': ['Submodule.IsPrincipal',
+                                                                     'IsNoetherianRing',
+                                                                     'Ideal.minimalPrimes',
+                                                                     'Ideal.height'],
+         'exists_integral_inj_algHom_of_fg': ['Algebra.FiniteType', 'Field', 'CommRing', 'Nontrivial'],
+         'AdicCompletion.ofLinearEquiv': ['IsAdicComplete',
+                                          'LinearEquiv.ofBijective',
+                                          'AdicCompletion.of_bijective'],
+         'Module.Flat.rTensor_preserves_injective_linearMap': ['Module.Flat',
+                                                               'Function.Injective',
+                                                               'LinearMap.rTensor'],
+         'HopfAlgebra.antipode_one': ['HopfAlgebra', 'CoalgebraStruct.comul', 'CoalgebraStruct.counit'],
+         'Ideal.ker_tensorProductMk_quotient': ['IsCoprime', 'Finite', 'TensorProduct']}
+        graph = KnowledgeGraph(self.catalog)
+        for name, required in expected.items():
+            with self.subTest(name=name):
+                hierarchy = graph.hierarchy(name)
+                reached = {node["name"] for node in hierarchy["declarations"]}
+                self.assertTrue(set(required) <= reached, set(required) - reached)
+                self.assertEqual(set(hierarchy["axiom_paths"]), set(self.nodes[name]["axioms"]))
+                for axiom, path in hierarchy["axiom_paths"].items():
+                    self.assertEqual(path[0], name)
+                    self.assertEqual(path[-1], axiom)
+                    for parent, child in zip(path, path[1:]):
+                        self.assertIn(child, self.nodes[parent]["dependencies"])
+
+    def test_ring_theory_subjects_retain_general_and_commutative_classifications(self):
+        graph = KnowledgeGraph(self.catalog)
+        parents = {'ring_theory': 'algebra',
+         'ring_ideals': 'ring_theory',
+         'ring_homomorphisms': 'ring_theory',
+         'chain_conditions': 'ring_theory',
+         'module_finiteness': 'ring_theory',
+         'jacobson_radicals': 'ring_theory',
+         'ring_localization': 'ring_theory',
+         'ore_localization': 'ring_localization',
+         'local_rings': 'commutative_algebra',
+         'integral_extensions': 'commutative_algebra',
+         'algebraic_independence': 'commutative_algebra',
+         'finite_type_algebras': 'commutative_algebra',
+         'flat_modules': 'commutative_algebra',
+         'regular_rings': 'commutative_algebra',
+         'krull_dimension': 'commutative_algebra',
+         'valuation_theory': 'commutative_algebra',
+         'factorization_domains': 'commutative_algebra',
+         'dedekind_domains': 'commutative_algebra',
+         'polynomial_algebras': 'commutative_algebra',
+         'power_series': 'commutative_algebra',
+         'graded_algebras': 'ring_theory',
+         'scalar_extensions': 'commutative_algebra',
+         'derivations_and_differentials': 'commutative_algebra',
+         'smooth_algebras': 'commutative_algebra',
+         'etale_algebras': 'commutative_algebra',
+         'affine_spectra': 'algebraic_geometry',
+         'adic_completion': 'commutative_algebra',
+         'formal_group_laws': 'commutative_algebra',
+         'witt_vectors': 'commutative_algebra',
+         'frobenius_and_perfection': 'commutative_algebra',
+         'coalgebras': 'ring_theory',
+         'bialgebras': 'coalgebras',
+         'hopf_algebras': 'bialgebras',
+         'simple_rings': 'ring_theory',
+         'morita_equivalence': 'ring_theory',
+         'divided_powers': 'commutative_algebra',
+         'nilpotence_and_radicals': 'commutative_algebra',
+         'invariant_rings': 'commutative_algebra',
+         'ramification': 'algebraic_number_theory',
+         'algebraic_norms_and_traces': 'commutative_algebra',
+         'roots_of_unity': 'commutative_algebra'}
+        parents["commutative_algebra"] = "algebra"
+        parents["algebraic_geometry"] = "geometry"
+        for subject, parent in parents.items():
+            with self.subTest(subject=subject):
+                self.assertEqual(self.catalog["subjects"][subject]["parent"], parent)
+                self.assertTrue(self.catalog["subjects"][subject]["modules"])
+        expected = {
+            "Math.CommutativeAlgebra.idealReductionEnd_isUnit_iff": ["commutative_algebra", "jacobson_radicals"],
+            "Math.CommutativeAlgebra.span_quotient_image_eq_top_iff": ["commutative_algebra", "module_finiteness"],
+            "littleWedderburn": ["ring_theory", "simple_rings"],
+            "IsArtinianRing.tfae": ["ring_theory", "chain_conditions"],
+            "Ideal.height_le_one_of_isPrincipal_of_mem_minimalPrimes": ["ring_ideals", "ring_theory"],
+            "exists_integral_inj_algHom_of_fg": ["algebraic_independence", "commutative_algebra"],
+            "AdicCompletion.ofLinearEquiv": ["adic_completion", "commutative_algebra"],
+            "Module.Flat.rTensor_preserves_injective_linearMap": ["flat_modules", "commutative_algebra"],
+            "HopfAlgebra.antipode_one": ["hopf_algebras", "coalgebras", "ring_theory"],
+            "WittVector.ghostMap": ["witt_vectors", "commutative_algebra"]
+        }
+        for name, subjects in expected.items():
+            for subject in [*subjects, "mathematics"]:
+                with self.subTest(name=name, subject=subject):
+                    self.assertIn(name, {node["name"] for node in graph.search(name, subject=subject)})
+
     def test_fitting_statements_match_independent_reference_types(self):
         run(ROOT, [self.lake, "env", "lean", "tests/FittingStatements.lean"], capture=True)
 

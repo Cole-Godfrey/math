@@ -6,6 +6,8 @@ The goal is a universal, living account of mathematics, from logical foundations
 
 Linear algebra includes all 386 pinned modules, with 25 local Fitting decomposition theorems and six definitions. The 72 independent statement checks cover the dimension bound, invariant restrictions, naturality, Cayley–Hamilton, Jordan–Chevalley, tensor bases, duality, universal algebra constructions, affine maps, projective points, and root systems.
 
+Ring theory includes all 729 pinned modules. Eighteen local theorems and three definitions describe reduction modulo Jacobson ideals, detection of surjectivity and invertibility, generators, and automorphisms of finite modules. Fifty independent statement checks also cover Wedderburn, Hopkins-Levitzki, Krull height bounds, Noether normalization, adic completion, flatness, etale algebras, Hopf algebras, Witt vectors, and the module Chinese remainder theorem.
+
 Install [Lean and elan](https://lean-lang.org/install/), a C compiler, and Rust 1.94.1, then run:
 
 ```sh
